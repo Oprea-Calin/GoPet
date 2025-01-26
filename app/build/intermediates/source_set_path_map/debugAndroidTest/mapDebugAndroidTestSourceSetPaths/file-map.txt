@@ -1,0 +1,5 @@
+com.example.gopet.test.app-core-1.6.1-0 D:\FACULTA\MDS\caches\8.10.2\transforms\76b9e4cd130a6b16bf7d3ea8d36a8595\transformed\core-1.6.1\res
+com.example.gopet.test.app-androidTest-1 D:\PROGRAME\GoPet\app\build\generated\res\resValues\androidTest\debug
+com.example.gopet.test.app-mergeDebugAndroidTestResources-2 D:\PROGRAME\GoPet\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.gopet.test.app-mergeDebugAndroidTestResources-3 D:\PROGRAME\GoPet\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.gopet.test.app-debugAndroidTest-4 D:\PROGRAME\GoPet\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
