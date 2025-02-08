@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\149b1ee956b531a509b1145f23af4b93\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\9da08d61bc9e64a7bcfad3047639cb54\transformed\constraintlayout-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\a5d657ec6f2a630d75229691d2f8bd86\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
@@ -56,8 +56,8 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.0] D:\FACULTA\MDS\c
 	xmlns:android
 		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-24:19
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-24:19
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-27:19
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\149b1ee956b531a509b1145f23af4b93\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\149b1ee956b531a509b1145f23af4b93\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\9da08d61bc9e64a7bcfad3047639cb54\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
@@ -96,22 +96,28 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\
 		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:13:9-43
 	android:dataExtractionRules
 		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:7:9-65
-activity#com.example.gopet.MainActivity
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:15:9-23:20
+activity#com.example.gopet.Register
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:15:9-17:40
 	android:exported
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:17:13-36
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:16:13-41
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:16:13-37
+activity#com.example.gopet.MainActivity
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:18:9-26:20
+	android:exported
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:20:13-36
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:19:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:18:13-22:29
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:19:17-69
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:19:25-66
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:21:17-77
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:21:27-74
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:24:27-74
 uses-sdk
 INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml

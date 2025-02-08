@@ -28,6 +28,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.GoPet" >
         <activity
+            android:name="com.example.gopet.Register"
+            android:exported="false" />
+        <activity
             android:name="com.example.gopet.MainActivity"
             android:exported="true" >
             <intent-filter>

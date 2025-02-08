@@ -3209,6 +3209,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnLogin
+id btnRegister
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3334,6 +3336,8 @@ id ignore
 id ignoreRequest
 id image
 id immediateStop
+id inPassword
+id inUsername
 id included
 id indeterminate
 id info
@@ -3562,6 +3566,8 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
+id textView2
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3590,6 +3596,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id txtLog
 id unchecked
 id uniform
 id unlabeled
@@ -3729,6 +3736,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_register
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

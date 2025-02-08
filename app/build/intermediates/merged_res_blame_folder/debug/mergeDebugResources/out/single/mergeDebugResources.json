@@ -56,6 +56,10 @@
         "source": "com.example.gopet.app-main-33:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.gopet.app-debug-31:/layout_activity_register.xml.flat",
+        "source": "com.example.gopet.app-main-33:/layout/activity_register.xml"
+    },
+    {
         "merged": "com.example.gopet.app-debug-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "com.example.gopet.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
     },

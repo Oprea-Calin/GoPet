@@ -4,8 +4,16 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id btnLogin
+id btnRegister
+id inPassword
+id inUsername
 id main
+id textView
+id textView2
+id txtLog
 layout activity_main
+layout activity_register
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
