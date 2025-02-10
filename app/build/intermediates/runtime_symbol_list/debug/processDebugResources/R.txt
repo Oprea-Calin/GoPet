@@ -3210,6 +3210,7 @@ int id bounceEnd 0x7f080063
 int id bounceStart 0x7f080064
 int id btnLogin 0x7f080065
 int id btnRegister 0x7f080066
+int id btnRegisterGo 0x7f080203
 int id buttonPanel 0x7f080067
 int id cache_measures 0x7f080068
 int id callMeasure 0x7f080069
@@ -3335,6 +3336,7 @@ int id ignore 0x7f0800e0
 int id ignoreRequest 0x7f0800e1
 int id image 0x7f0800e2
 int id immediateStop 0x7f0800e3
+int id inConfirmPassword 0x7f080201
 int id inPassword 0x7f0800e4
 int id inUsername 0x7f0800e5
 int id included 0x7f0800e6
@@ -3596,6 +3598,7 @@ int id transition_scene_layoutid_cache 0x7f0801e5
 int id transition_transform 0x7f0801e6
 int id triangle 0x7f0801e7
 int id txtLog 0x7f0801e8
+int id txtLogReg 0x7f080202
 int id unchecked 0x7f0801e9
 int id uniform 0x7f0801ea
 int id unlabeled 0x7f0801eb

@@ -3211,6 +3211,7 @@ id bounceEnd
 id bounceStart
 id btnLogin
 id btnRegister
+id btnRegisterGo
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3336,6 +3337,7 @@ id ignore
 id ignoreRequest
 id image
 id immediateStop
+id inConfirmPassword
 id inPassword
 id inUsername
 id included
@@ -3597,6 +3599,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id txtLog
+id txtLogReg
 id unchecked
 id uniform
 id unlabeled

@@ -6,12 +6,15 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 id btnLogin
 id btnRegister
+id btnRegisterGo
+id inConfirmPassword
 id inPassword
 id inUsername
 id main
 id textView
 id textView2
 id txtLog
+id txtLogReg
 layout activity_main
 layout activity_register
 mipmap ic_launcher
