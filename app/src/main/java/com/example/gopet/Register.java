@@ -6,29 +6,39 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Register extends AppCompatActivity {
 
-    EditText editUsernameLog , editPasswordLog ,editPasswordConfirmLog ;
+    private FirebaseAuth auth;
+    String name, str;
+    EditText editUsernameLog , editPasswordLog ,editPasswordConfirmLog, editEmailLog;
     TextView txtInfoRegister ;
     Button btnLogin, btnRegister;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
+        auth=FirebaseAuth.getInstance();
         editUsernameLog = findViewById(R.id.inUsername);
         editPasswordLog = findViewById(R.id.inPassword);
+        editEmailLog = findViewById(R.id.inEmail);
         editPasswordConfirmLog = findViewById(R.id.inConfirmPassword);
-
-        txtInfoRegister = findViewById(R.id.txtLogReg);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
@@ -43,7 +53,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick (View view)
             {
-                Intent i = new Intent(Register.this, MainActivity.class);
+                Intent i = new Intent(Register.this, Login.class);
                 startActivity(i);
 
             }
@@ -54,32 +64,41 @@ public class Register extends AppCompatActivity {
             public void onClick(View view)
             {
                 String username =  editUsernameLog.getText().toString();
-                String password =  editPasswordLog.getText().toString();
+                String email = editEmailLog.getText().toString().trim();
+                String password =  editPasswordLog.getText().toString().trim();
                 String confirmPassword = editPasswordConfirmLog.getText().toString();
 
-                dbConnect db = new dbConnect(Register.this);
-                if(username.isEmpty() || password.isEmpty()) txtInfoRegister.setText("Field empty!");
-                else if (password.equals(confirmPassword)) {
-                    if(db.checkIfUserExists(username))
-                    {
-                        txtInfoRegister.setText("Username already exists!");
-
-                    }
-                    else
-                    {
-                        Users newUser = new Users(0, username, password);
-                        db.addUser(newUser);
-                        txtInfoRegister.setText("Registration successful!");
-
-                        Intent i = new Intent(Register.this, MainActivity.class);
-                        startActivity(i);
-                    }
-
+                if(email.isEmpty()){
+                    editEmailLog.setError("Please fill in email address!");
                 }
-
+                if(password.isEmpty())
+                {
+                    editPasswordLog.setError("Please fill in a password!");
+                }
+                else{
+                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful())
+                            {
+                                Toast.makeText(Register.this, "Signup successful!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Register.this, Login.class));
+                            }
+                            else{
+                                Toast.makeText(Register.this,"Signup failed!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
 
             }
         });
 
+
+
+
+
     }
+
+
 }

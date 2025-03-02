@@ -15,6 +15,13 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="text" />
+    <EditText
+        android:id="@+id/inEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/inPassword"
@@ -44,8 +51,4 @@
         android:layout_height="wrap_content"
         android:text="Login" />
 
-    <TextView
-        android:id="@+id/txtLogReg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </LinearLayout>

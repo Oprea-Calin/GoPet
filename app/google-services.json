@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "995443532031",
+    "project_id": "go-pet-8f707",
+    "storage_bucket": "go-pet-8f707.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995443532031:android:a59760f6eab9559a9f6cca",
+        "android_client_info": {
+          "package_name": "com.example.gopet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsBGgu606h7YYG7Lw7FhgReHC9oiCrC4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

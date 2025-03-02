@@ -3,6 +3,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">GoPet</string>
+    <string name="gcm_defaultSenderId" translatable="false">995443532031</string>
+    <string name="google_api_key" translatable="false">AIzaSyAsBGgu606h7YYG7Lw7FhgReHC9oiCrC4w</string>
+    <string name="google_app_id" translatable="false">1:995443532031:android:a59760f6eab9559a9f6cca</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAsBGgu606h7YYG7Lw7FhgReHC9oiCrC4w</string>
+    <string name="google_storage_bucket" translatable="false">go-pet-8f707.firebasestorage.app</string>
+    <string name="project_id" translatable="false">go-pet-8f707</string>
     <style name="Base.Theme.GoPet" parent="Theme.Material3.DayNight.NoActionBar">
         
         
