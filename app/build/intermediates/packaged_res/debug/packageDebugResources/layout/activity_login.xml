@@ -6,34 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/cat"
     tools:context=".Login">
 
 
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email" />
+
+
 
     <EditText
         android:id="@+id/inEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:background="@drawable/login_text"
+        android:hint="Email"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/CustomHintText"
+
         android:inputType="text" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password" />
+
 
     <EditText
         android:id="@+id/inPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/login_text"
+        android:hint="Password"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/CustomHintText"
         android:ems="10"
         android:inputType="textPassword" />
 

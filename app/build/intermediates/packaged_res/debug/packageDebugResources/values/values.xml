@@ -13,5 +13,10 @@
         
         
     </style>
+    <style name="CustomHintText">
+        <item name="android:textColorHint">#6638e2</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="Theme.GoPet" parent="Base.Theme.GoPet"/>
 </resources>

@@ -3029,6 +3029,7 @@ int drawable btn_radio_off_mtrl 0x7f07007e
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f07007f
 int drawable btn_radio_on_mtrl 0x7f070080
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f070081
+int drawable cat 0x7f0700ff
 int drawable common_full_open_on_phone 0x7f070082
 int drawable common_google_signin_btn_icon_dark 0x7f070083
 int drawable common_google_signin_btn_icon_dark_focused 0x7f070084
@@ -3079,6 +3080,7 @@ int drawable ic_passkey 0x7f0700b0
 int drawable ic_password 0x7f0700b1
 int drawable ic_search_black_24 0x7f0700b2
 int drawable indeterminate_static 0x7f0700b3
+int drawable login_text 0x7f070100
 int drawable m3_avd_hide_password 0x7f0700b4
 int drawable m3_avd_show_password 0x7f0700b5
 int drawable m3_bottom_sheet_drag_handle 0x7f0700b6
@@ -3625,8 +3627,6 @@ int id textSpacerNoButtons 0x7f0801d3
 int id textSpacerNoTitle 0x7f0801d4
 int id textStart 0x7f0801d5
 int id textTop 0x7f0801d6
-int id textView 0x7f0801d7
-int id textView2 0x7f0801d8
 int id text_input_end_icon 0x7f0801d9
 int id text_input_error_icon 0x7f0801da
 int id text_input_start_icon 0x7f0801db
@@ -3797,7 +3797,7 @@ int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_login 0x7f0b006f
-int layout activity_main2 0x7f0b0070
+int layout activity_main 0x7f0b001c
 int layout activity_register 0x7f0b001d
 int layout browser_actions_context_menu_page 0x7f0b001e
 int layout browser_actions_context_menu_row 0x7f0b001f
@@ -4372,6 +4372,7 @@ int style Base_Widget_MaterialComponents_TextView 0x7f11011f
 int style CardView 0x7f110120
 int style CardView_Dark 0x7f110121
 int style CardView_Light 0x7f110122
+int style CustomHintText 0x7f11046a
 int style MaterialAlertDialog_Material3 0x7f110123
 int style MaterialAlertDialog_Material3_Animation 0x7f110124
 int style MaterialAlertDialog_Material3_Body_Text 0x7f110125
