@@ -6,6 +6,7 @@ drawable cat
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable login_text
+drawable main
 id btnLogin
 id btnRegister
 id btnRegisterGo

@@ -6,49 +6,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:background="@drawable/cat"
     tools:context=".Login">
 
-
-
-
-
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:padding="10dp"
+        android:rotationX="49"
+        android:scaleType="center"
+        android:src="@drawable/logo" />
 
 
     <EditText
+        android:layout_marginTop="40dp"
         android:id="@+id/inEmail"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:background="@drawable/login_text"
         android:hint="Email"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:textAppearance="@style/CustomHintText"
-
         android:inputType="text" />
-
 
 
     <EditText
         android:id="@+id/inPassword"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:background="@drawable/login_text"
+        android:layout_marginTop="10dp"
         android:hint="Password"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:textAppearance="@style/CustomHintText"
-        android:ems="10"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        android:layout_marginTop="230dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E5A066"
         android:text="Login" />
 
     <Button
         android:id="@+id/btnRegisterGo"
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="200dp"
+        android:backgroundTint="#E5A066"
         android:layout_height="wrap_content"
         android:text="Register" />
 

@@ -6,34 +6,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:background="@drawable/cat"
     tools:context=".Login">
 
 
-
-
-
-
-
     <EditText
+        android:layout_marginTop="100dp"
         android:id="@+id/inEmail"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:background="@drawable/login_text"
         android:hint="Email"
         android:gravity="center_vertical"
         android:textAppearance="@style/CustomHintText"
-
         android:inputType="text" />
-
 
 
     <EditText
         android:id="@+id/inPassword"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:background="@drawable/login_text"
+        android:layout_marginTop="10dp"
         android:hint="Password"
         android:gravity="center_vertical"
         android:textAppearance="@style/CustomHintText"
@@ -42,13 +38,15 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Login" />
 
     <Button
         android:id="@+id/btnRegisterGo"
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Register" />
 
