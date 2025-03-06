@@ -1,9 +1,11 @@
 package com.example.gopet;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
@@ -25,6 +27,10 @@ public class Login extends AppCompatActivity {
     FirebaseAuth auth;
     EditText editEmailLog, editPasswordLog;
     Button btnLogin, btnRegister;
+    CheckBox checkRememberMe;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
 
 
 
@@ -33,18 +39,26 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-
-        auth = FirebaseAuth.getInstance();
-        editEmailLog = findViewById(R.id.inEmail);
-        editPasswordLog = findViewById(R.id.inPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnRegister = findViewById(R.id.btnRegisterGo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
 
         });
+
+        auth = FirebaseAuth.getInstance();
+        editEmailLog = findViewById(R.id.inEmail);
+        editPasswordLog = findViewById(R.id.inPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegisterGo);
+        checkRememberMe = findViewById(R.id.checkBox);
+
+        sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        if(sharedPreferences.getBoolean("remember", false)){
+            startActivity(new Intent(Login.this, MainActivity.class));
+            finish();
+        }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +72,18 @@ public class Login extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
                                         Toast.makeText(Login.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                                        if(checkRememberMe.isChecked())
+                                        {
+                                            editor.putString("email", email);
+                                            editor.putString("password", pass);
+                                            editor.putBoolean("remember", true);
+                                            editor.apply();
+                                        }else
+                                        {
+                                            editor.clear();
+                                            editor.apply();
+                                        }
+
                                         startActivity(new Intent(Login.this, MainActivity.class));
                                         finish();
                                     }
@@ -88,4 +114,31 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+    private void saveCredentials(String email, String password)
+    {
+        editor = sharedPreferences.edit();
+        editor.putString("email", email);
+        editor.putString("password",password);
+        editor.putBoolean("remember", true);
+        editor.apply();
+    }
+
+    private void loadSavedCredentials(){
+        boolean isRemembered = sharedPreferences.getBoolean("remember", false);
+        if(isRemembered)
+        {
+            editEmailLog.setText(sharedPreferences.getString("email",""));
+            editPasswordLog.setText(sharedPreferences.getString("password",""));
+            checkRememberMe.setChecked(true);
+            btnLogin.performClick();
+
+        }
+    }
+    private void clearCredentials(){
+        editor.clear();
+        editor.apply();
+    }
+
+
 }

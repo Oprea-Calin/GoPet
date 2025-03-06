@@ -42,9 +42,16 @@
         android:textAppearance="@style/CustomHintText"
         android:inputType="textPassword" />
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:text="Remember me" />
+
     <Button
         android:id="@+id/btnLogin"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="170dp"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#E5A066"
@@ -63,5 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="" />
+
+
 
 </LinearLayout>

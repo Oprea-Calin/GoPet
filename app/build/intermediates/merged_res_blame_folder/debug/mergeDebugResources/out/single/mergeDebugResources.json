@@ -20,10 +20,6 @@
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.gopet.app-debug-40:/drawable_main.jpg.flat",
-        "source": "com.example.gopet.app-main-42:/drawable/main.jpg"
-    },
-    {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\xml_data_extraction_rules.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\xml\\data_extraction_rules.xml"
     },
@@ -40,6 +36,14 @@
         "source": "com.example.gopet.app-main-42:/layout/activity_main.xml"
     },
     {
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\drawable_main.jpg.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\drawable\\main.jpg"
+    },
+    {
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\drawable_register.jpg.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\drawable\\register.jpg"
+    },
+    {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
@@ -50,6 +54,10 @@
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\layout_activity_main.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\drawable_logo2.png.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\drawable\\logo2.png"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\drawable_login_text.xml.flat",
@@ -64,16 +72,12 @@
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.gopet.app-debug-40:/layout_activity_login.xml.flat",
-        "source": "com.example.gopet.app-main-42:/layout/activity_login.xml"
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\drawable-v24\\ic_launcher_foreground.xml"
-    },
-    {
-        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\mipmap-hdpi_ic_launcher_round.webp.flat",
@@ -94,5 +98,13 @@
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\layout_activity_login.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "com.example.gopet.app-debug-40:/drawable_logout.xml.flat",
+        "source": "com.example.gopet.app-main-42:/drawable/logout.xml"
+    },
+    {
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-40:\\drawable_logo.png.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-42:\\drawable\\logo.png"
     }
 ]
