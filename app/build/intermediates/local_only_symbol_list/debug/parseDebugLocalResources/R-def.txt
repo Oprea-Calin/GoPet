@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color ic_launcher_background
 color white
 drawable cat
 drawable ic_launcher_background
@@ -8,6 +9,7 @@ drawable ic_launcher_foreground
 drawable login_text
 drawable logo
 drawable logo2
+drawable logoapp
 drawable logout
 drawable main
 drawable register
@@ -26,6 +28,7 @@ layout activity_login
 layout activity_main
 layout activity_register
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string app_name
 string gcm_defaultSenderId
