@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,12 +9,96 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/logoutImage"
-        android:layout_width="68dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="350dp"
-        app:srcCompat="@drawable/logout"
-        tools:layout_editor_absoluteX="331dp"
-        tools:layout_editor_absoluteY="36dp" />
+        android:id="@+id/settingsIcon"
+        android:layout_width="59dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@id/logoutImage"
+        app:layout_constraintEnd_toStartOf="@+id/logoutImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings_icon" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/logoutImage"
+        android:layout_width="59dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logout" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/animalsView"
+        android:layout_width="287dp"
+        android:layout_height="683dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomGrid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/addAnimalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/animalsView"
+        app:layout_constraintTop_toBottomOf="@+id/settingsIcon" />
+
+    <LinearLayout
+        android:id="@+id/addAnimalFormLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/addAnimalButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp">
+        <EditText
+            android:id="@+id/animalName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nume"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/animalBreed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Rasa"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/animalAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Varsta"
+            android:inputType="number"
+            />
+        <Button
+            android:id="@+id/addAnimalFormButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adauga animal" />
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/bottomGrid"
+        android:layout_width="287dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animalsView"
+        app:layout_constraintVertical_bias="0.355" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

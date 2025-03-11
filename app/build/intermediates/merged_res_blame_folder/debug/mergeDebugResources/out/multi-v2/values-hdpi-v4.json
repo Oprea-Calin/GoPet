@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.gopet.app-mergeDebugResources-38:/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "com.example.gopet.app-mergeDebugResources-46:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\864666863de98bca615474a384aa5a0e\\transformed\\appcompat-1.7.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\6c46ee0405248821f09dc63d530e3930\\transformed\\appcompat-1.7.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

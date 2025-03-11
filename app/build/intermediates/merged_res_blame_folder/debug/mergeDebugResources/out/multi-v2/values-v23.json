@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.gopet.app-mergeDebugResources-38:/values-v23/values-v23.xml",
+            "outputFile": "com.example.gopet.app-mergeDebugResources-46:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\afb9da4bbc87a316badf6363288d428f\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\7cd42868959e906289bed694a52259d5\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\8c40e99bcb99a29980652ad523ec3e1b\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\0c2f1bd14638689f13d7029e51c6d272\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\864666863de98bca615474a384aa5a0e\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\6c46ee0405248821f09dc63d530e3930\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",

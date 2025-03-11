@@ -309,7 +309,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../AndroidSDK/icons/material/materialiconsoutlined/arrow_circle_right/outline_arrow_circle_right_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../AndroidSDK/icons/material/materialiconsoutlined/build/outline_build_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -319,7 +319,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="logout" />
+                            <entry key="outputName" value="settings_icon" />
                             <entry key="sourceFile" value="D:\PROGRAME\GoPet" />
                           </map>
                         </option>

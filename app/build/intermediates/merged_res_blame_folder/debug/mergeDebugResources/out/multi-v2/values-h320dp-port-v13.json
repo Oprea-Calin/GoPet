@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.gopet.app-mergeDebugResources-38:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "com.example.gopet.app-mergeDebugResources-46:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\8c40e99bcb99a29980652ad523ec3e1b\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\0c2f1bd14638689f13d7029e51c6d272\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
