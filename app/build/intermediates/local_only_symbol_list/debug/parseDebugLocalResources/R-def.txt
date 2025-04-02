@@ -4,15 +4,42 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+<<<<<<< Updated upstream
+=======
+drawable item_animal
+drawable login_text
+drawable logo
+drawable logo2
+drawable logoapp
+drawable logout
+drawable main
+drawable register
+drawable settings_icon
+id addAnimalButton
+id addAnimalFormButton
+id addAnimalFormLayout
+id animalAge
+id animalAgeTextView
+id animalBreed
+id animalBreedTextView
+id animalImageView
+id animalName
+id animalNameTextView
+id animalsView
+id bottomGrid
+>>>>>>> Stashed changes
 id btnLogin
 id btnRegister
 id inPassword
 id inUsername
 id main
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 id textView
 id textView2
 =======
+=======
+>>>>>>> Stashed changes
 id selectImageButton
 id selectedImageView
 id settingsIcon

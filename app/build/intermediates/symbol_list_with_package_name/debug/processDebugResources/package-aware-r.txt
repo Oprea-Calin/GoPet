@@ -3033,6 +3033,15 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable indeterminate_static
+<<<<<<< Updated upstream
+=======
+drawable item_animal
+drawable login_text
+drawable logo
+drawable logo2
+drawable logoapp
+drawable logout
+>>>>>>> Stashed changes
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3185,6 +3194,18 @@ id aligned
 id all
 id allStates
 id always
+<<<<<<< Updated upstream
+=======
+id androidx_window_activity_scope
+id animalAge
+id animalAgeTextView
+id animalBreed
+id animalBreedTextView
+id animalImageView
+id animalName
+id animalNameTextView
+id animalsView
+>>>>>>> Stashed changes
 id animateToEnd
 id animateToStart
 id antiClockwise
@@ -3509,6 +3530,9 @@ id search_voice_btn
 id seekbar
 id seekbar_value
 id selectImageButton
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 id select_dialog_listview
 id selected

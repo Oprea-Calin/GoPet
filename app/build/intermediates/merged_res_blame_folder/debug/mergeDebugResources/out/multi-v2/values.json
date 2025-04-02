@@ -127,7 +127,208 @@
                     }
                 },
                 {
+<<<<<<< Updated upstream
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\b7191c3ebd5d5ed0d08874ab0d400978\\transformed\\drawerlayout-1.1.1\\res\\values\\values.xml",
+=======
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\40e26b03103b8d9267c79ade907e10bc\\transformed\\browser-1.4.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,113,179,242,304,375,447,515,582,661",
+                        "endColumns": "57,65,62,61,70,71,67,66,78,68",
+                        "endOffsets": "108,174,237,299,370,442,510,577,656,725"
+                    },
+                    "to": {
+                        "startLines": "667,668,669,670,1076,1077,2072,2081,2082,2083",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "34152,34210,34276,34339,63862,63933,138794,139547,139614,139693",
+                        "endColumns": "57,65,62,61,70,71,67,66,78,68",
+                        "endOffsets": "34205,34271,34334,34396,63928,64000,138857,139609,139688,139757"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\90ffaac03c1944b2b574f9ea4e518b3f\\transformed\\lifecycle-runtime-2.6.2\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "42",
+                        "endOffsets": "93"
+                    },
+                    "to": {
+                        "startLines": "1920",
+                        "startColumns": "4",
+                        "startOffsets": "126551",
+                        "endColumns": "42",
+                        "endOffsets": "126589"
+                    }
+                },
+                {
+                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\arrays.xml",
+                    "from": {
+                        "startLines": "2,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "48,175",
+                        "endLines": "5,10",
+                        "endColumns": "19,19",
+                        "endOffsets": "167,290"
+                    },
+                    "to": {
+                        "startLines": "2,6",
+                        "startColumns": "4,4",
+                        "startOffsets": "150,271",
+                        "endLines": "5,9",
+                        "endColumns": "19,19",
+                        "endOffsets": "266,383"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\52a25260e56f32cdcd248130e3f6345d\\transformed\\window-1.0.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,7,8,9,10,11,19,23,34,51",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,234,294,346,391,451,869,1066,1790,2904",
+                        "endLines": "6,7,8,9,10,18,22,33,50,58",
+                        "endColumns": "11,59,51,44,59,24,24,24,24,24",
+                        "endOffsets": "229,289,341,386,446,864,1061,1785,2899,3292"
+                    },
+                    "to": {
+                        "startLines": "538,543,544,545,1847,9636,9642,13478,13486,13498",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "27142,27321,27381,27433,122786,662756,662951,803361,803643,804083",
+                        "endLines": "542,543,544,545,1847,9641,9645,13485,13497,13505",
+                        "endColumns": "11,59,51,44,59,24,24,24,24,24",
+                        "endOffsets": "27316,27376,27428,27473,122841,662946,663077,803638,804078,804387"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\b4cdf238f5077c770f1aafa0d8a8c4c8\\transformed\\fragment-1.5.4\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,10",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,112,177,241,411",
+                        "endLines": "2,3,4,9,13",
+                        "endColumns": "56,64,63,24,24",
+                        "endOffsets": "107,172,236,406,555"
+                    },
+                    "to": {
+                        "startLines": "1848,1884,1924,11810,11815",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "122846,124690,126758,743481,743651",
+                        "endLines": "1848,1884,1924,11814,11818",
+                        "endColumns": "56,64,63,24,24",
+                        "endOffsets": "122898,124750,126817,743646,743795"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\44d2627ea38a11da94ceb840d4740f36\\transformed\\credentials-1.2.0-rc01\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,137",
+                        "endColumns": "81,83",
+                        "endOffsets": "132,216"
+                    },
+                    "to": {
+                        "startLines": "2027,2028",
+                        "startColumns": "4,4",
+                        "startOffsets": "133718,133800",
+                        "endColumns": "81,83",
+                        "endOffsets": "133795,133879"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\29e820a20d42f9f11490c76125d06cfe\\transformed\\startup-runtime-1.1.1\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "82",
+                        "endOffsets": "133"
+                    },
+                    "to": {
+                        "startLines": "2029",
+                        "startColumns": "4",
+                        "startOffsets": "133884",
+                        "endColumns": "82",
+                        "endOffsets": "133962"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\7cd42868959e906289bed694a52259d5\\transformed\\cardview-1.0.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,35,36,37,38,45,47,50,7",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,107,168,230,292,2179,2238,2295,2349,2763,2827,2953,356",
+                        "endLines": "2,3,4,5,6,35,36,37,44,46,49,52,34",
+                        "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12,24",
+                        "endOffsets": "102,163,225,287,351,2233,2290,2344,2758,2822,2948,3076,2174"
+                    },
+                    "to": {
+                        "startLines": "43,675,676,677,678,1078,1079,1080,2273,5649,5651,5654,10519",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1878,34647,34708,34770,34832,64005,64064,64121,162098,397929,397993,398119,693296",
+                        "endLines": "43,675,676,677,678,1078,1079,1080,2279,5650,5653,5656,10546",
+                        "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12,24",
+                        "endOffsets": "1925,34703,34765,34827,34891,64059,64116,64170,162507,397988,398114,398242,694215"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\a344951b0635b1556a94743f70b7abab\\transformed\\activity-1.10.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,97",
+                        "endColumns": "41,59",
+                        "endOffsets": "92,152"
+                    },
+                    "to": {
+                        "startLines": "1877,1921",
+                        "startColumns": "4,4",
+                        "startOffsets": "124371,126594",
+                        "endColumns": "41,59",
+                        "endOffsets": "124408,126649"
+                    }
+                },
+                {
+                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endColumns": "56",
+                        "endOffsets": "109"
+                    },
+                    "to": {
+                        "startLines": "732",
+                        "startColumns": "4",
+                        "startOffsets": "38671",
+                        "endColumns": "56",
+                        "endOffsets": "38723"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\c0892f4e3e84361c4e70d5d2a1577add\\transformed\\coordinatorlayout-1.1.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,6,16",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,116,261,869",
+                        "endLines": "2,5,15,104",
+                        "endColumns": "60,12,24,24",
+                        "endOffsets": "111,256,864,6075"
+                    },
+                    "to": {
+                        "startLines": "117,9529,11518,11524",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "6003,659088,731469,731680",
+                        "endLines": "117,9531,11523,11607",
+                        "endColumns": "60,12,24,24",
+                        "endOffsets": "6059,659228,731675,736191"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\113bcb58e909d0a413804182766df945\\transformed\\drawerlayout-1.1.1\\res\\values\\values.xml",
+>>>>>>> Stashed changes
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -281,11 +482,20 @@
                 {
                     "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
+<<<<<<< Updated upstream
                         "startLines": "1",
                         "startColumns": "4",
                         "startOffsets": "16",
                         "endColumns": "42",
                         "endOffsets": "54"
+=======
+                        "startLines": "1,17,15,14,5,10,9,6,13,2",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "17,709,597,521,165,362,302,219,457,61",
+                        "endLines": "1,17,16,14,5,10,9,6,13,2",
+                        "endColumns": "42,100,13,74,52,60,58,44,62,68",
+                        "endOffsets": "55,805,703,591,213,418,356,259,515,125"
+>>>>>>> Stashed changes
                     },
                     "to": {
                         "startLines": "1981",

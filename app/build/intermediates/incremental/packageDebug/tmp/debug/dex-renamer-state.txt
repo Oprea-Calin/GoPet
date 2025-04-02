@@ -1,7 +1,11 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #Sat Feb 08 16:06:53 EET 2025
 =======
 #Wed Apr 02 18:47:11 EEST 2025
+>>>>>>> Stashed changes
+=======
+#Wed Apr 02 21:11:25 EEST 2025
 >>>>>>> Stashed changes
 base.0=D\:\\PROGRAME\\GoPet\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\PROGRAME\\GoPet\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

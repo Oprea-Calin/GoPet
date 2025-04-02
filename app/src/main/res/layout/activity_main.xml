@@ -9,10 +9,33 @@
     tools:context=".MainActivity">
 
 
+<<<<<<< Updated upstream
 
 
     <TextView
         android:id="@+id/textView"
+=======
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/animalsView"
+        android:layout_width="287dp"
+        android:layout_height="683dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomGrid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addAnimalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/animalsView"
+        app:layout_constraintTop_toBottomOf="@+id/settingsIcon" />
+
+    <!-- Formular pentru adăugarea animalului -->
+    <LinearLayout
+        android:id="@+id/addAnimalFormLayout"
+>>>>>>> Stashed changes
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 <<<<<<< Updated upstream
@@ -24,32 +47,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="16dp">
+
         <EditText
             android:id="@+id/animalName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nume"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/animalBreed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Rasa"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/animalAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Varsta"
+<<<<<<< Updated upstream
             android:inputType="number"
             />
+=======
+            android:inputType="number" />
+
+        <!-- Buton pentru a selecta imaginea -->
+        <Button
+            android:id="@+id/selectImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selectează imagine"
+            android:layout_marginTop="16dp" />
+
+        <!-- ImageView pentru a vizualiza imaginea selectată -->
+>>>>>>> Stashed changes
         <ImageView
             android:id="@+id/selectedImageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
+<<<<<<< Updated upstream
             android:src="@drawable/cat"
         android:scaleType="centerCrop"
         android:contentDescription="Imagine selectată" />
@@ -59,11 +98,21 @@
             android:layout_height="wrap_content"
             android:text="Selectează Imagine"
             android:layout_marginTop="16dp"/>
+=======
+            android:contentDescription="Imagine selectată"
+            android:scaleType="centerCrop" />
+
+        <!-- Buton pentru a adăuga animalul -->
+>>>>>>> Stashed changes
         <Button
             android:id="@+id/addAnimalFormButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< Updated upstream
             android:text="Adauga animal" />
+>>>>>>> Stashed changes
+=======
+            android:text="Adaugă animal" />
 >>>>>>> Stashed changes
 
     <EditText
@@ -73,6 +122,7 @@
         android:ems="10"
         android:inputType="text" />
 
+<<<<<<< Updated upstream
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -105,3 +155,16 @@
         android:text="" />
 
 </LinearLayout>
+=======
+    <LinearLayout
+        android:id="@+id/bottomGrid"
+        android:layout_width="287dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animalsView"
+        app:layout_constraintVertical_bias="0.355" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> Stashed changes

@@ -271,6 +271,33 @@
           <option name="screenY" value="2340" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
+<<<<<<< Updated upstream
+=======
+          <option name="api" value="34" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="gta9pwifi" />
+          <option name="id" value="gta9pwifi" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="SM-X210" />
+          <option name="screenDensity" value="240" />
+          <option name="screenX" value="1200" />
+          <option name="screenY" value="1920" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="34" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="gts7xllite" />
+          <option name="id" value="gts7xllite" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="SM-T738U" />
+          <option name="screenDensity" value="340" />
+          <option name="screenX" value="1600" />
+          <option name="screenY" value="2560" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+>>>>>>> Stashed changes
           <option name="api" value="33" />
           <option name="brand" value="samsung" />
           <option name="codename" value="gts8uwifi" />
