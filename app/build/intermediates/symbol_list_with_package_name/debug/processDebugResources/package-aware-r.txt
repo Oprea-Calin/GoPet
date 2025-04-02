@@ -3504,8 +3504,15 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+<<<<<<< Updated upstream
+=======
+id seekbar
+id seekbar_value
+id selectImageButton
+>>>>>>> Stashed changes
 id select_dialog_listview
 id selected
+id selectedImageView
 id selection_type
 id sharedValueSet
 id sharedValueUnset

@@ -1,5 +1,6 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< Updated upstream
 ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-29:12
 INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-29:12
 INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-29:12
@@ -45,6 +46,87 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] D:\FACULTA\MDS\caches\8.1
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\faed3ffc45fbc8f7779982b85eca1638\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d3f5e2e324940ef5dbb01de64f2249fb\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\12a24518ca82562f7ba242fd3693f212\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
+=======
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-40:12
+MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.preference:preference:1.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\4b074491f5a17e1dcd00a96fffaa5542\transformed\preference-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d7e78a3bf39750fc0717f711b86ecdd5\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6c46ee0405248821f09dc63d530e3930\transformed\appcompat-1.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:17:1-75:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\1f6e3b7a84607c7eb6222bc67c3f451d\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:2:1-26:12
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\44d2627ea38a11da94ceb840d4740f36\transformed\credentials-1.2.0-rc01\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] D:\FACULTA\MDS\caches\8.10.2\transforms\0071f89841c3a4e7349dfc8d458a7bf8\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] D:\FACULTA\MDS\caches\8.10.2\transforms\23faf2bdd3c5cd6c2bdb0df1d163b183\transformed\recaptcha-18.6.1\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.play:integrity:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d7a57ad08b5df7630e7b261fb383318b\transformed\integrity-1.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\82bb8fdc69612f3837acaedb93b1f617\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cc3ed5a263701a342e918fd7f7f1c382\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] D:\FACULTA\MDS\caches\8.10.2\transforms\132c7e3d2e764cc41ebcba0680de1e0b\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\76d1d8d29ce5a2299a9f3b5b06605040\transformed\play-services-fido-20.1.0\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] D:\FACULTA\MDS\caches\8.10.2\transforms\36dbc86d7fa8a88d8b3b8f03b5f56d3f\transformed\play-services-auth-base-18.0.4\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\e4fbdf71fbe7a067b0f9d27bb51bc7a5\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.fragment:fragment-ktx:1.3.6] D:\FACULTA\MDS\caches\8.10.2\transforms\723ed9758d786ce7b403cddff5dfa104\transformed\fragment-ktx-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\94272ef9a720f38da657032e9fa3e427\transformed\core-ktx-1.13.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\17dfd0bff1cd2a6c20190e71573b0b57\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\113bcb58e909d0a413804182766df945\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c0892f4e3e84361c4e70d5d2a1577add\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.5.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5198f44e9e88d8cfd0b021dc70822386\transformed\transition-1.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3584769af13f3ba6183e8c6ab4a2fea2\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\9c756bd685b8338ae5e0b305173d4e79\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\b0aefbab7dba866294f559c3da2747de\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\40e26b03103b8d9267c79ade907e10bc\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6988322e0576ba53f6e8c9ae9c23d9a5\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\67b68fdba3742c552a85bbcd20819548\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5839832fcb845e2daf296d093430758c\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\32e18bff999c8add375ce033af5a7d15\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6361308416e6076d346334205063e585\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ba83c71108c12f1856d1b526cb370327\transformed\core-1.13.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.activity:activity-ktx:1.10.0] D:\FACULTA\MDS\caches\8.10.2\transforms\dd47da5532b64ea0dcb3557439454fd9\transformed\activity-ktx-1.10.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\387bea01da2f0491aa1098cabb2f3ac1\transformed\lifecycle-runtime-ktx-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\f255f422d8fd4a72fdd05274d0a9d81f\transformed\lifecycle-livedata-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\13a116b0048ebea0bf7bc1c6e6cbba77\transformed\lifecycle-viewmodel-ktx-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\1f8ab1797802dfefa2540e0d82e69581\transformed\lifecycle-viewmodel-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\2c46d69d0f4edb0fd1deb3033a4b25a9\transformed\lifecycle-livedata-core-ktx-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\fef2ab253dc464623bf1fe9820f5d172\transformed\lifecycle-livedata-core-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\90ffaac03c1944b2b574f9ea4e518b3f\transformed\lifecycle-runtime-2.6.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\71e61df92151f536508ddae300d807b3\transformed\lifecycle-viewmodel-savedstate-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] D:\FACULTA\MDS\caches\8.10.2\transforms\e1088930b2a7e1bbc4d05877e975606f\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] D:\FACULTA\MDS\caches\8.10.2\transforms\6b5e88f579c1da8c8924263471019016\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ea88289e1fa30325adf5c6fdc0dd284f\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.fragment:fragment:1.5.4] D:\FACULTA\MDS\caches\8.10.2\transforms\b4cdf238f5077c770f1aafa0d8a8c4c8\transformed\fragment-1.5.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.10.0] D:\FACULTA\MDS\caches\8.10.2\transforms\a344951b0635b1556a94743f70b7abab\transformed\activity-1.10.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\4f19efafa1071bf21eddfbd75381bad0\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\7cd42868959e906289bed694a52259d5\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\29e820a20d42f9f11490c76125d06cfe\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\687dfaf8a625cb85ad57d0cd30110f91\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\b3202a4d9a9a1f3e8e464b4e08b72064\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\e4a72dcbac1fe2b80159d3186a874fbd\transformed\firebase-components-18.0.0\AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cc2a9765e616dd362dbdf356868529e9\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\05ee90b696551445e1426b158196b8ad\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ab08b00df890bd9cf307c39e42d776d5\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5a62b44af6ec8829110c57d7e3d5c3cd\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\9333d761da59cb31ee690c55964c086a\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\7dedfc55705f6373a53e5bb1725570d3\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\90385cc9cac284c25c76460d9afb2383\transformed\googleid-1.1.0\AndroidManifest.xml:2:1-7:12
+MERGED from [io.grpc:grpc-android:1.62.2] D:\FACULTA\MDS\caches\8.10.2\transforms\ba529506c17df1c456ff917370fc8f9f\transformed\grpc-android-1.62.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cd974054ade4f71fcbae85fc5bd39898\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:2:1-21:12
+>>>>>>> Stashed changes
 	package
 		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -55,6 +137,7 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.0] D:\FACULTA\MDS\c
 		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:11-69
+<<<<<<< Updated upstream
 application
 ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-27:19
 INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-27:19
@@ -74,11 +157,85 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] D:\FACULTA\MDS\caches\8.10.
 MERGED from [androidx.startup:startup-runtime:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\9ff91e69c6a746efef05470320825036\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\207ff17f524f2dd7167b65ad936e8e52\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\207ff17f524f2dd7167b65ad936e8e52\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+=======
+uses-permission#android.permission.INTERNET
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-67
+MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] D:\FACULTA\MDS\caches\8.10.2\transforms\23faf2bdd3c5cd6c2bdb0df1d163b183\transformed\recaptcha-18.6.1\AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] D:\FACULTA\MDS\caches\8.10.2\transforms\23faf2bdd3c5cd6c2bdb0df1d163b183\transformed\recaptcha-18.6.1\AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:6:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:7:5-80
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:7:22-78
+application
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:9:5-38:19
+INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:9:5-38:19
+MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:25:5-36:19
+MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:25:5-36:19
+MERGED from [com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:13:5-24:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:23:5-42:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:23:5-42:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.play:integrity:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d7a57ad08b5df7630e7b261fb383318b\transformed\integrity-1.3.0\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d7a57ad08b5df7630e7b261fb383318b\transformed\integrity-1.3.0\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\82bb8fdc69612f3837acaedb93b1f617\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\82bb8fdc69612f3837acaedb93b1f617\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cc3ed5a263701a342e918fd7f7f1c382\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:21:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cc3ed5a263701a342e918fd7f7f1c382\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:21:5-20
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\76d1d8d29ce5a2299a9f3b5b06605040\transformed\play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\76d1d8d29ce5a2299a9f3b5b06605040\transformed\play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:19:5-23:19
+MERGED from [androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ba83c71108c12f1856d1b526cb370327\transformed\core-1.13.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ba83c71108c12f1856d1b526cb370327\transformed\core-1.13.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ea88289e1fa30325adf5c6fdc0dd284f\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ea88289e1fa30325adf5c6fdc0dd284f\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:5:5-7:19
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:5:5-7:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\29e820a20d42f9f11490c76125d06cfe\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\29e820a20d42f9f11490c76125d06cfe\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\05ee90b696551445e1426b158196b8ad\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\05ee90b696551445e1426b158196b8ad\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:11:5-19:19
+>>>>>>> Stashed changes
 	android:extractNativeLibs
 		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\1bac8957d614a6ff6664ec8178009486\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
+<<<<<<< Updated upstream
 		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
 		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:10:9-41
@@ -118,6 +275,61 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
 		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:24:27-74
+=======
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:14:9-41
+	android:fullBackupContent
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:12:9-54
+	android:roundIcon
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:15:9-54
+	tools:targetApi
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:18:9-29
+	android:icon
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:13:9-43
+	android:allowBackup
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:10:9-35
+	android:theme
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:17:9-43
+	android:dataExtractionRules
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:11:9-65
+activity#com.example.gopet.SettingsActivity
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:19:9-22:63
+	android:label
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:22:13-60
+	android:exported
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:21:13-37
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:20:13-45
+activity#com.example.gopet.MainActivity
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:23:9-25:40
+	android:exported
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:24:13-41
+activity#com.example.gopet.Register
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:26:9-28:40
+	android:exported
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:27:13-37
+activity#com.example.gopet.Login
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:29:9-37:20
+	android:exported
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:31:13-36
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:30:13-34
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:32:13-36:29
+action#android.intent.action.MAIN
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:33:17-69
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:33:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:35:17-77
+	android:name
+		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:35:27-74
+>>>>>>> Stashed changes
 uses-sdk
 INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml

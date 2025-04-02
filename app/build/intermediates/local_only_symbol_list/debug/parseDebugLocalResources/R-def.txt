@@ -9,8 +9,14 @@ id btnRegister
 id inPassword
 id inUsername
 id main
+<<<<<<< Updated upstream
 id textView
 id textView2
+=======
+id selectImageButton
+id selectedImageView
+id settingsIcon
+>>>>>>> Stashed changes
 id txtLog
 layout activity_main
 layout activity_register
