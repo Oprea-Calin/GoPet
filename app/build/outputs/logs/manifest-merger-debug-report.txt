@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.preference:preference:1.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\4b074491f5a17e1dcd00a96fffaa5542\transformed\preference-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -80,17 +80,17 @@ MERGED from [io.grpc:grpc-android:1.62.2] D:\FACULTA\MDS\caches\8.10.2\transform
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cd974054ade4f71fcbae85fc5bd39898\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:2:1-21:12
 	package
-		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
+		INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
+		INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
+		INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:5:5-67
 MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:5-67
@@ -100,10 +100,10 @@ MERGED from [com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\cache
 MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] D:\FACULTA\MDS\caches\8.10.2\transforms\23faf2bdd3c5cd6c2bdb0df1d163b183\transformed\recaptcha-18.6.1\AndroidManifest.xml:7:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] D:\FACULTA\MDS\caches\8.10.2\transforms\23faf2bdd3c5cd6c2bdb0df1d163b183\transformed\recaptcha-18.6.1\AndroidManifest.xml:7:5-67
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
@@ -153,67 +153,67 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\
 MERGED from [com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:11:5-19:19
 MERGED from [com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:11:5-19:19
 	android:extractNativeLibs
-		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
+		INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ba83c71108c12f1856d1b526cb370327\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:12:9-41
 	android:fullBackupContent
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:10:9-54
 	android:roundIcon
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:13:9-54
 	tools:targetApi
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:16:9-29
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:16:9-29
 	android:icon
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:15:9-43
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:15:9-43
 	android:dataExtractionRules
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:9:9-65
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:9:9-65
 activity#com.example.gopet.SettingsActivity
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:17:9-20:63
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:17:9-20:63
 	android:label
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:20:13-60
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:20:13-60
 	android:exported
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:19:13-37
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:18:13-45
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:18:13-45
 activity#com.example.gopet.MainActivity
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:21:9-23:40
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:21:9-23:40
 	android:exported
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:23:13-37
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:23:13-37
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:22:13-41
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:22:13-41
 activity#com.example.gopet.Register
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:24:9-26:40
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:24:9-26:40
 	android:exported
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:26:13-37
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:26:13-37
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:25:13-37
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:25:13-37
 activity#com.example.gopet.Login
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:27:9-35:20
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:27:9-35:20
 	android:exported
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:29:13-36
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:29:13-36
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:28:13-34
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:28:13-34
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:30:13-34:29
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:31:17-69
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:33:17-77
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:33:27-74
 uses-sdk
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
-INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:5:5-44
@@ -367,9 +367,9 @@ MERGED from [com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.
 	tools:overrideLibrary
 		ADDED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:23:9-148
 	android:targetSdkVersion
-		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
+		INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml
+		INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:26:5-79
 MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:22:5-79

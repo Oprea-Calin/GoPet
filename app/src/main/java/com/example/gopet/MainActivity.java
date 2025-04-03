@@ -2,7 +2,11 @@ package com.example.gopet;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +33,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<animal> animals;
     EditText animalNameEdit, animalAgeEdit, animalBreedEdit;
     Button submitAnimalFormButton, addAnimal;
-
+    ImageView animalImageView;
+    static final int PICK_IMAGE_REQUEST = 1;
+    Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        animalImageView = findViewById(R.id.animalImageView);
+        Button selectImageButton = findViewById(R.id.addImageButton);
+        selectImageButton.setOnClickListener(v -> openImageChooser());
 
         animalsView = findViewById(R.id.animalsView);
         database = FirebaseFirestore.getInstance();
@@ -123,50 +136,132 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-    private void saveAnimaltoDatabase(String name, String age, String breed)
-    {
-        String animalID= database.collection("Animals").document().getId();
-        animal newAnimal = new animal(name,breed, age);
 
+
+    private void openImageChooser() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imageUri = data.getData();
+            animalImageView.setImageURI(imageUri);
+        }
+    }
+
+    private String compressAndResizeImage(Uri imageUri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(imageUri);
+            Bitmap originalBitmap = BitmapFactory.decodeStream(inputStream);
+
+            int maxWidth = 800;
+            int maxHeight = 800;
+            int width = originalBitmap.getWidth();
+            int height = originalBitmap.getHeight();
+
+            float aspectRatio = (float) width / height;
+            int newWidth = maxWidth;
+            int newHeight = maxHeight;
+
+            if (width > height) {
+                newHeight = (int) (newWidth / aspectRatio);
+            } else {
+                newWidth = (int) (newHeight * aspectRatio);
+            }
+
+            Bitmap resizedBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
+
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            return Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String imageUriToBase64(Uri uri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) != -1) {
+                byteArrayOutputStream.write(buffer, 0, length);
+            }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            return Base64.encodeToString(byteArray, Base64.DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private void saveAnimaltoDatabase(String name, String age, String breed) {
+        String animalID = database.collection("Animals").document().getId();
+        animal newAnimal = new animal(name, breed, age);
+
+        // Adăugați imaginea Base64
+        String base64Image = compressAndResizeImage(imageUri);
+
+        if (base64Image != null) {
+            newAnimal.setBase64Image(base64Image);
+        } else {
+            newAnimal.setBase64Image("");
+        }
+
+
+        newAnimal.setBase64Image(base64Image);
+
+        // Salvați animalul în Firestore
         database.collection("Animals").document(animalID)
                 .set(newAnimal)
                 .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(MainActivity.this,"Animal adaugat!", Toast.LENGTH_SHORT).show();
-                        addAnimalFormLayout.setVisibility(View.GONE);
+                    Toast.makeText(MainActivity.this, "Animal adaugat!", Toast.LENGTH_SHORT).show();
+                    addAnimalFormLayout.setVisibility(View.GONE);
 
-                        animals.add(newAnimal);
-                        animals_listAdapter.notifyItemInserted(animals.size()-1);
-                    })
-                    .addOnFailureListener(e -> {
-                        Log.e("Firestore","error loading aniomals",e);
-                        Toast.makeText(MainActivity.this, "Eroare la adaugarea animalului", Toast.LENGTH_SHORT).show();
-                    });
-        }
+                    animals.add(newAnimal);
+                    animals_listAdapter.notifyItemInserted(animals.size() - 1);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Firestore", "error loading animals", e);
+                    Toast.makeText(MainActivity.this, "Eroare la adaugarea animalului", Toast.LENGTH_SHORT).show();
+                });
+    }
 
-    private void loadAnimals(){
 
+    private void loadAnimals() {
         database.collection("Animals")
                 .get()
                 .addOnCompleteListener(task -> {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         animals.clear();
-                        for(DocumentSnapshot document : task.getResult()){
+                        for (DocumentSnapshot document : task.getResult()) {
                             animal animal = document.toObject(animal.class);
-                            if(animal != null)
-                            {
+                            if (animal != null) {
+                                // Decodifică imaginea din Base64
+                                if (animal.getBase64Image() != null) {
+                                    byte[] decodedString = Base64.decode(animal.getBase64Image(), Base64.DEFAULT);
+                                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                                    animal.setBase64Image(decodedByte.toString()); // Setează imaginea decodată
+                                }
                                 animals.add(animal);
                             }
                         }
                         animals_listAdapter.notifyDataSetChanged();
-                    }
-                    else{
-                        Log.e("Firestore","error loading aniomals",task.getException());
+                    } else {
+                        Log.e("Firestore", "error loading animals", task.getException());
                         Toast.makeText(MainActivity.this, "Eroare la incarcarea animalelor!", Toast.LENGTH_SHORT).show();
                     }
-
                 });
-
     }
+
 
     private void logout()
     {

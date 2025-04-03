@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.gopet.app-mergeDebugResources-46:/values/values.xml",
+            "outputFile": "com.example.gopet.app-mergeDebugResources-3:/values/values.xml",
             "map": [
+                {
+                    "source": "D:\\FACULTA\\GoPet\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endColumns": "56",
+                        "endOffsets": "109"
+                    },
+                    "to": {
+                        "startLines": "732",
+                        "startColumns": "4",
+                        "startOffsets": "38671",
+                        "endColumns": "56",
+                        "endOffsets": "38723"
+                    }
+                },
                 {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\0928f08dedb180324e3c27fead174c74\\transformed\\play-services-base-18.1.0\\res\\values\\values.xml",
                     "from": {
@@ -78,7 +95,7 @@
                     }
                 },
                 {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\build\\generated\\res\\processDebugGoogleServices\\values\\values.xml",
+                    "source": "D:\\FACULTA\\GoPet\\app\\build\\generated\\res\\processDebugGoogleServices\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -92,25 +109,6 @@
                         "startOffsets": "139762,139844,139948,140057,140177,157199",
                         "endColumns": "81,103,108,119,103,72",
                         "endOffsets": "139839,139943,140052,140172,140276,157267"
-                    }
-                },
-                {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\style.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "17",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "222"
-                    },
-                    "to": {
-                        "startLines": "5657",
-                        "startColumns": "4",
-                        "startOffsets": "398247",
-                        "endLines": "5661",
-                        "endColumns": "12",
-                        "endOffsets": "398448"
                     }
                 },
                 {
@@ -222,25 +220,6 @@
                     }
                 },
                 {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\arrays.xml",
-                    "from": {
-                        "startLines": "2,7",
-                        "startColumns": "4,4",
-                        "startOffsets": "46,168",
-                        "endLines": "5,10",
-                        "endColumns": "19,19",
-                        "endOffsets": "162,280"
-                    },
-                    "to": {
-                        "startLines": "2,6",
-                        "startColumns": "4,4",
-                        "startOffsets": "150,271",
-                        "endLines": "5,9",
-                        "endColumns": "19,19",
-                        "endOffsets": "266,383"
-                    }
-                },
-                {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\52a25260e56f32cdcd248130e3f6345d\\transformed\\window-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,19,23,34,51",
@@ -313,6 +292,25 @@
                     }
                 },
                 {
+                    "source": "D:\\FACULTA\\GoPet\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "2,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,280",
+                        "endLines": "5,7",
+                        "endColumns": "12,58",
+                        "endOffsets": "272,334"
+                    },
+                    "to": {
+                        "startLines": "2576,6668",
+                        "startColumns": "4,4",
+                        "startOffsets": "181107,464295",
+                        "endLines": "2579,6668",
+                        "endColumns": "12,57",
+                        "endOffsets": "181215,464348"
+                    }
+                },
+                {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\7cd42868959e906289bed694a52259d5\\transformed\\cardview-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,35,36,37,38,45,47,50,7",
@@ -332,6 +330,23 @@
                     }
                 },
                 {
+                    "source": "D:\\FACULTA\\GoPet\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "57,100",
+                        "endColumns": "41,41",
+                        "endOffsets": "94,137"
+                    },
+                    "to": {
+                        "startLines": "660,993",
+                        "startColumns": "4,4",
+                        "startOffsets": "33584,58306",
+                        "endColumns": "41,41",
+                        "endOffsets": "33621,58343"
+                    }
+                },
+                {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\a344951b0635b1556a94743f70b7abab\\transformed\\activity-1.10.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3",
@@ -346,23 +361,6 @@
                         "startOffsets": "124371,126594",
                         "endColumns": "41,59",
                         "endOffsets": "124408,126649"
-                    }
-                },
-                {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endColumns": "56",
-                        "endOffsets": "109"
-                    },
-                    "to": {
-                        "startLines": "732",
-                        "startColumns": "4",
-                        "startOffsets": "38671",
-                        "endColumns": "56",
-                        "endOffsets": "38723"
                     }
                 },
                 {
@@ -440,25 +438,6 @@
                     }
                 },
                 {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "2,7",
-                        "startColumns": "4,4",
-                        "startOffsets": "53,273",
-                        "endLines": "5,7",
-                        "endColumns": "12,58",
-                        "endOffsets": "267,327"
-                    },
-                    "to": {
-                        "startLines": "2576,6668",
-                        "startColumns": "4,4",
-                        "startOffsets": "181107,464295",
-                        "endLines": "2579,6668",
-                        "endColumns": "12,57",
-                        "endOffsets": "181215,464348"
-                    }
-                },
-                {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\d7e78a3bf39750fc0717f711b86ecdd5\\transformed\\appcompat-resources-1.7.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,18,24,34,50",
@@ -495,25 +474,6 @@
                     }
                 },
                 {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1,17,15,14,5,10,9,6,13,2",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "16,692,582,507,160,352,293,213,444,59",
-                        "endLines": "1,17,16,14,5,10,9,6,13,2",
-                        "endColumns": "42,100,13,74,52,60,58,44,62,68",
-                        "endOffsets": "54,788,687,577,208,408,347,253,502,123"
-                    },
-                    "to": {
-                        "startLines": "2030,2032,2033,2035,2130,2209,2218,2221,2222,2223",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "133967,134160,134261,134371,145696,157272,158242,158511,158556,158619",
-                        "endLines": "2030,2032,2034,2035,2130,2209,2218,2221,2222,2223",
-                        "endColumns": "42,100,13,74,52,60,58,44,62,68",
-                        "endOffsets": "134005,134256,134366,134441,145744,157328,158296,158551,158614,158683"
-                    }
-                },
-                {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\8cd04a9f67822b0c5af09fe4085eed8d\\transformed\\credentials-play-services-auth-1.2.0-rc01\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -533,20 +493,60 @@
                     }
                 },
                 {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "D:\\FACULTA\\GoPet\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,97",
-                        "endColumns": "41,41",
-                        "endOffsets": "92,134"
+                        "startLines": "1,17,15,14,5,10,9,6,13,2",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "17,709,597,521,165,362,302,219,457,61",
+                        "endLines": "1,17,16,14,5,10,9,6,13,2",
+                        "endColumns": "42,100,13,74,52,60,58,44,62,68",
+                        "endOffsets": "55,805,703,591,213,418,356,259,515,125"
                     },
                     "to": {
-                        "startLines": "660,993",
+                        "startLines": "2030,2032,2033,2035,2130,2209,2218,2221,2222,2223",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "133967,134160,134261,134371,145696,157272,158242,158511,158556,158619",
+                        "endLines": "2030,2032,2034,2035,2130,2209,2218,2221,2222,2223",
+                        "endColumns": "42,100,13,74,52,60,58,44,62,68",
+                        "endOffsets": "134005,134256,134366,134441,145744,157328,158296,158551,158614,158683"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\GoPet\\app\\src\\main\\res\\values\\arrays.xml",
+                    "from": {
+                        "startLines": "2,7",
                         "startColumns": "4,4",
-                        "startOffsets": "33584,58306",
-                        "endColumns": "41,41",
-                        "endOffsets": "33621,58343"
+                        "startOffsets": "48,175",
+                        "endLines": "5,10",
+                        "endColumns": "19,19",
+                        "endOffsets": "167,290"
+                    },
+                    "to": {
+                        "startLines": "2,6",
+                        "startColumns": "4,4",
+                        "startOffsets": "150,271",
+                        "endLines": "5,9",
+                        "endColumns": "19,19",
+                        "endOffsets": "266,383"
+                    }
+                },
+                {
+                    "source": "D:\\FACULTA\\GoPet\\app\\src\\main\\res\\values\\style.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "222"
+                    },
+                    "to": {
+                        "startLines": "5657",
+                        "startColumns": "4",
+                        "startOffsets": "398247",
+                        "endLines": "5661",
+                        "endColumns": "12",
+                        "endOffsets": "398448"
                     }
                 },
                 {

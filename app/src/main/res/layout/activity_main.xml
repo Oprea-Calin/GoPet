@@ -79,6 +79,16 @@
             android:hint="Varsta"
             android:inputType="number"
             />
+        <ImageView
+            android:id="@+id/animalImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            />
+        <Button
+            android:id="@+id/addImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adauga animal" />
         <Button
             android:id="@+id/addAnimalFormButton"
             android:layout_width="wrap_content"

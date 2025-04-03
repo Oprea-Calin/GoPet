@@ -9,8 +9,8 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:5-67
-11-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:5:22-64
+11-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 12-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:26:5-79
 12-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:26:22-76
@@ -30,63 +30,63 @@
 19-->[androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ba83c71108c12f1856d1b526cb370327\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 20
 21    <application
-21-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
+21-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
 22        android:allowBackup="true"
-22-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:8:9-35
+22-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:8:9-35
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 23-->[androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ba83c71108c12f1856d1b526cb370327\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 24        android:dataExtractionRules="@xml/data_extraction_rules"
-24-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:9:9-65
+24-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:9:9-65
 25        android:debuggable="true"
 26        android:extractNativeLibs="false"
 27        android:fullBackupContent="@xml/backup_rules"
-27-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:10:9-54
+27-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:10:9-54
 28        android:icon="@mipmap/ic_launcher"
-28-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:11:9-43
+28-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:11:9-43
 29        android:label="@string/app_name"
-29-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:12:9-41
+29-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:12:9-41
 30        android:roundIcon="@mipmap/ic_launcher_round"
-30-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:13:9-54
+30-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:13:9-54
 31        android:supportsRtl="true"
-31-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:14:9-35
+31-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:14:9-35
 32        android:testOnly="true"
 33        android:theme="@style/Theme.GoPet" >
-33-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:15:9-43
+33-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:15:9-43
 34        <activity
-34-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:17:9-20:63
+34-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:17:9-20:63
 35            android:name="com.example.gopet.SettingsActivity"
-35-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:18:13-45
+35-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:18:13-45
 36            android:exported="false"
-36-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:19:13-37
+36-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:19:13-37
 37            android:label="@string/title_activity_settings" />
-37-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:20:13-60
+37-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:20:13-60
 38        <activity
-38-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:21:9-23:40
+38-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:21:9-23:40
 39            android:name="com.example.gopet.MainActivity"
-39-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:22:13-41
+39-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:22:13-41
 40            android:exported="false" />
-40-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:23:13-37
+40-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:23:13-37
 41        <activity
-41-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:24:9-26:40
+41-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:24:9-26:40
 42            android:name="com.example.gopet.Register"
-42-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:25:13-37
+42-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:25:13-37
 43            android:exported="false" />
-43-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:26:13-37
+43-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:26:13-37
 44        <activity
-44-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:27:9-35:20
+44-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:27:9-35:20
 45            android:name="com.example.gopet.Login"
-45-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:28:13-34
+45-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:28:13-34
 46            android:exported="true" >
-46-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:29:13-36
+46-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:29:13-36
 47            <intent-filter>
-47-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:30:13-34:29
+47-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:30:13-34:29
 48                <action android:name="android.intent.action.MAIN" />
-48-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:31:17-69
-48-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:31:25-66
+48-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:17-69
+48-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:25-66
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:33:17-77
-50-->D:\PROGRAME\GoPet\app\src\main\AndroidManifest.xml:33:27-74
+50-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:33:17-77
+50-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:33:27-74
 51            </intent-filter>
 52        </activity>
 53        <activity

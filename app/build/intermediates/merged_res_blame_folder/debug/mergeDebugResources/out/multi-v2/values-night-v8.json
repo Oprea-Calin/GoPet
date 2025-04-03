@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.gopet.app-mergeDebugResources-46:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.gopet.app-mergeDebugResources-3:/values-night-v8/values-night-v8.xml",
             "map": [
+                {
+                    "source": "D:\\FACULTA\\GoPet\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "270"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "163"
+                    }
+                },
                 {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\0c2f1bd14638689f13d7029e51c6d272\\transformed\\material-1.12.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
@@ -18,25 +37,6 @@
                         "startOffsets": "800,875,986,1075,1176,1283,1390,1489,1596,1699,1826,1914,2038,2140,2242,2358,2460,2574,2702,2818,2940,3076,3196,3330,3450,3562,3777,3894,4018,4148,4270,4408,4542,4658",
                         "endColumns": "74,110,88,100,106,106,98,106,102,126,87,123,101,101,115,101,113,127,115,121,135,119,133,119,111,125,116,123,129,121,137,133,115,119",
                         "endOffsets": "870,981,1070,1171,1278,1385,1484,1591,1694,1821,1909,2033,2135,2237,2353,2455,2569,2697,2813,2935,3071,3191,3325,3445,3557,3683,3889,4013,4143,4265,4403,4537,4653,4773"
-                    }
-                },
-                {
-                    "source": "D:\\PROGRAME\\GoPet\\app\\src\\main\\res\\values-night\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "53",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "265"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "163"
                     }
                 },
                 {

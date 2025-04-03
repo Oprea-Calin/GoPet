@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.gopet.app-mergeDebugResources-46:/values-fr/values-fr.xml",
+            "outputFile": "com.example.gopet.app-mergeDebugResources-3:/values-fr/values-fr.xml",
             "map": [
                 {
                     "source": "D:\\FACULTA\\MDS\\caches\\8.10.2\\transforms\\0928f08dedb180324e3c27fead174c74\\transformed\\play-services-base-18.1.0\\res\\values-fr\\values.xml",

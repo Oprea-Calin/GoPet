@@ -1,9 +1,13 @@
 package com.example.gopet;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +39,14 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         holder.age.setText(canimal.getAge());
         holder.breed.setText(canimal.getBreed());
         holder.name.setText(canimal.getName());
+        if (canimal.getBase64Image() != null) {
+            byte[] decodedString = Base64.decode(canimal.getBase64Image(), Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            holder.base64Image.setImageBitmap(decodedByte);
+        } else {
+            holder.base64Image.setImageResource(R.drawable.cat);
+        }
+
 
     }
 
@@ -46,11 +58,13 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView name, breed, age;
+        ImageView base64Image;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.itemName);
             breed = itemView.findViewById(R.id.itemBreed);
             age = itemView.findViewById(R.id.itemAge);
+            base64Image = itemView.findViewById(R.id.animalImageView);
         }
     }
 }

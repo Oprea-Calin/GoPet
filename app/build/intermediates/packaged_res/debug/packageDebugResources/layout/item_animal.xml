@@ -85,6 +85,12 @@
                 android:textSize="23dp" />
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/animalImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            />
+
 
     </LinearLayout>
 

@@ -3323,6 +3323,7 @@ id add
 id addAnimalButton
 id addAnimalFormButton
 id addAnimalFormLayout
+id addImageButton
 id adjust_height
 id adjust_width
 id alertTitle
@@ -3335,6 +3336,7 @@ id animalAge
 id animalAgeTextView
 id animalBreed
 id animalBreedTextView
+id animalImageView
 id animalName
 id animalNameTextView
 id animalsView
