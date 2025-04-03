@@ -207,7 +207,6 @@ public class MainActivity extends AppCompatActivity {
         String animalID = database.collection("Animals").document().getId();
         animal newAnimal = new animal(name, breed, age);
 
-        // Adăugați imaginea Base64
         String base64Image = compressAndResizeImage(imageUri);
 
         if (base64Image != null) {
@@ -219,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
 
         newAnimal.setBase64Image(base64Image);
 
-        // Salvați animalul în Firestore
         database.collection("Animals").document(animalID)
                 .set(newAnimal)
                 .addOnSuccessListener(aVoid -> {
@@ -245,11 +243,10 @@ public class MainActivity extends AppCompatActivity {
                         for (DocumentSnapshot document : task.getResult()) {
                             animal animal = document.toObject(animal.class);
                             if (animal != null) {
-                                // Decodifică imaginea din Base64
                                 if (animal.getBase64Image() != null) {
                                     byte[] decodedString = Base64.decode(animal.getBase64Image(), Base64.DEFAULT);
                                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                                    animal.setBase64Image(decodedByte.toString()); // Setează imaginea decodată
+                                    animal.setBase64Image(animal.getBase64Image());
                                 }
                                 animals.add(animal);
                             }
