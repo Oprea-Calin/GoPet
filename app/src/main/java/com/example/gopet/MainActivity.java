@@ -95,7 +95,13 @@ public class MainActivity extends AppCompatActivity {
         boolean rememberMe = sharedPreferences.getBoolean("remember", false);
 
         addAnimal = findViewById(R.id.addAnimalButton);
-        addAnimal.setOnClickListener(v -> addAnimalFormLayout.setVisibility(View.VISIBLE));
+        addAnimal.setOnClickListener(v -> {
+            if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
+                addAnimalFormLayout.setVisibility(View.GONE);
+            } else {
+                addAnimalFormLayout.setVisibility(View.VISIBLE);
+            }
+        });
 
         submitAnimalFormButton.setOnClickListener(v -> {
             String name = animalNameEdit.getText().toString();
@@ -230,6 +236,14 @@ public class MainActivity extends AppCompatActivity {
                     addAnimalFormLayout.setVisibility(View.GONE);
 
                     animals.add(newAnimal);
+
+                    addAnimalFormLayout.setVisibility(View.GONE);
+                    animalNameEdit.setText("");
+                    animalBreedEdit.setText("");
+                    animalAgeEdit.setText("");
+                    animalImageView.setImageDrawable(null);
+                    imageUri = null;
+
                     animals_listAdapter.notifyItemInserted(animals.size() - 1);
                 })
                 .addOnFailureListener(e -> {
