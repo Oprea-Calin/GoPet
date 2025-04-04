@@ -3101,6 +3101,7 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f080074
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f080075
 int drawable abc_textfield_search_material 0x7f080076
 int drawable abc_vector_test 0x7f080077
+int drawable addpet 0x7f08010a
 int drawable avd_hide_password 0x7f080078
 int drawable avd_show_password 0x7f080079
 int drawable btn_checkbox_checked_mtrl 0x7f08007a

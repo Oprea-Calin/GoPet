@@ -14,8 +14,7 @@
         android:layout_height="53dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="@id/logoutImage"
-        app:layout_constraintEnd_toStartOf="@+id/logoutImage"
+        app:layout_constraintEnd_toStartOf="@id/logoutImage"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/settings_icon" />
 
@@ -29,86 +28,85 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logout" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/animalsView"
-        android:layout_width="287dp"
-        android:layout_height="683dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomGrid"
+    <ImageView
+        android:id="@+id/addAnimalButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:clickable="true"
+        android:contentDescription="Add a new pet"
+        android:focusable="true"
+        android:src="@drawable/addpet"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <Button
-        android:id="@+id/addAnimalButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/animalsView"
-        app:layout_constraintTop_toBottomOf="@+id/settingsIcon" />
-
     <LinearLayout
         android:id="@+id/addAnimalFormLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="16dp"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/addAnimalButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp">
+        app:layout_constraintEnd_toEndOf="parent">
+
         <EditText
             android:id="@+id/animalName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nume"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/animalBreed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Rasa"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/animalAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Varsta"
-            android:inputType="number"
-            />
+            android:inputType="number" />
+
         <ImageView
             android:id="@+id/animalImageView"
             android:layout_width="150dp"
-            android:layout_height="150dp"
-            />
+            android:layout_height="150dp" />
+
         <Button
             android:id="@+id/addImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adauga animal" />
+            android:text="Select an image" />
+
         <Button
             android:id="@+id/addAnimalFormButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adauga animal" />
-
+            android:text="Add new pet" />
     </LinearLayout>
 
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/animalsView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/addAnimalFormLayout"
+        app:layout_constraintBottom_toTopOf="@id/bottomGrid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottomGrid"
-        android:layout_width="287dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animalsView"
-        app:layout_constraintVertical_bias="0.355" />
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

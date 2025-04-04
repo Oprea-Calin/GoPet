@@ -80,7 +80,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="D:\PROGRAME\GoPet\app\src\main\res\drawable\logo.png" />
+                                                <entry key="imagePath" value="D:\addNewPet.png" />
                                                 <entry key="scalingPercent" value="79" />
                                                 <entry key="trimmed" value="true" />
                                               </map>

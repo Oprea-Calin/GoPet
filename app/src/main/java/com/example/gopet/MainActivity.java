@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
     animalsListAdapter animals_listAdapter;
     ArrayList<animal> animals;
     EditText animalNameEdit, animalAgeEdit, animalBreedEdit;
-    Button submitAnimalFormButton, addAnimal;
-    ImageView animalImageView;
+    Button submitAnimalFormButton;
+    ImageView animalImageView, addAnimal;
     static final int PICK_IMAGE_REQUEST = 1;
     Uri imageUri;
 
