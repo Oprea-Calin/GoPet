@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Completeaza toate detaliile!", Toast.LENGTH_SHORT).show();
             }
             else{
+                submitAnimalFormButton.setEnabled(false);
                 saveAnimaltoDatabase(name, age, breed);
-                loadAnimals();
             }
 
 
@@ -259,9 +259,9 @@ public class MainActivity extends AppCompatActivity {
                     addAnimalFormLayout.setVisibility(View.GONE);
 
 
-                    String varstaCalculata = calculeazaVarstaDinData(newAnimal.getAge());
-                    newAnimal.setAge(varstaCalculata);
-                    animals.add(newAnimal);
+//                    String varstaCalculata = calculeazaVarstaDinData(newAnimal.getAge());
+//                    newAnimal.setAge(varstaCalculata);
+//                    animals.add(newAnimal);
 
                     addAnimalFormLayout.setVisibility(View.GONE);
                     animalNameEdit.setText("");
@@ -270,11 +270,14 @@ public class MainActivity extends AppCompatActivity {
                     animalImageView.setImageDrawable(null);
                     imageUri = null;
 
+                    loadAnimals();
                     animals_listAdapter.notifyItemInserted(animals.size() - 1);
+                    submitAnimalFormButton.setEnabled(true);
                 })
                 .addOnFailureListener(e -> {
                     Log.e("Firestore", "error loading animals", e);
                     Toast.makeText(MainActivity.this, "Eroare la adaugarea animalului", Toast.LENGTH_SHORT).show();
+                    submitAnimalFormButton.setEnabled(true);
                 });
     }
     private String calculeazaVarstaDinData(String dataNasteriiStr) {
