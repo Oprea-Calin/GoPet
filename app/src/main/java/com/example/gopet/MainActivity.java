@@ -1,5 +1,6 @@
 package com.example.gopet;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -37,6 +38,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -81,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
         animals_listAdapter = new animalsListAdapter(animals, this);
         animalsView.setAdapter(animals_listAdapter);
 
+        animalAgeEdit = findViewById(R.id.animalBirthDate);
         addAnimalFormLayout = findViewById(R.id.addAnimalFormLayout);
-        animalAgeEdit = findViewById(R.id.animalAge);
+
         animalBreedEdit = findViewById(R.id.animalBreed);
         animalNameEdit = findViewById(R.id.animalName);
         submitAnimalFormButton = findViewById(R.id.addAnimalFormButton);
@@ -103,6 +106,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Calendar selectedDate = Calendar.getInstance();
+        animalAgeEdit.setOnClickListener(v -> {
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
+                    (view, year1, month1, dayOfMonth) -> {
+                        selectedDate.set(year1, month1, dayOfMonth);
+                        animalAgeEdit.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1);
+                    },
+                    year, month, day);
+            datePickerDialog.show();
+        });
+
         submitAnimalFormButton.setOnClickListener(v -> {
             String name = animalNameEdit.getText().toString();
             String age = animalAgeEdit.getText().toString();
@@ -114,7 +133,9 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 saveAnimaltoDatabase(name, age, breed);
+                loadAnimals();
             }
+
 
         });
 
@@ -215,14 +236,16 @@ public class MainActivity extends AppCompatActivity {
         String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
         animal newAnimal = new animal(name, breed, age);
 
-        String base64Image = compressAndResizeImage(imageUri);
+        String base64Image = "";
+        if (imageUri != null)
+        {
+            base64Image=compressAndResizeImage(imageUri);
+        }
 
         if (base64Image != null) {
             newAnimal.setBase64Image(base64Image);
-        } else {
-            newAnimal.setBase64Image("");
         }
-
+        newAnimal.setBase64Image(base64Image != null ? base64Image : "");
 
         newAnimal.setBase64Image(base64Image);
 
@@ -235,6 +258,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Animal adaugat!", Toast.LENGTH_SHORT).show();
                     addAnimalFormLayout.setVisibility(View.GONE);
 
+
+                    String varstaCalculata = calculeazaVarstaDinData(newAnimal.getAge());
+                    newAnimal.setAge(varstaCalculata);
                     animals.add(newAnimal);
 
                     addAnimalFormLayout.setVisibility(View.GONE);
@@ -251,6 +277,42 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Eroare la adaugarea animalului", Toast.LENGTH_SHORT).show();
                 });
     }
+    private String calculeazaVarstaDinData(String dataNasteriiStr) {
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault());
+
+        try {
+            java.util.Date dataNasterii = sdf.parse(dataNasteriiStr);
+            Calendar birth = Calendar.getInstance();
+            birth.setTime(dataNasterii);
+
+            Calendar today = Calendar.getInstance();
+
+            int ani = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+            int luni = today.get(Calendar.MONTH) - birth.get(Calendar.MONTH);
+
+            if (today.get(Calendar.DAY_OF_MONTH) < birth.get(Calendar.DAY_OF_MONTH)) {
+                luni--;
+            }
+
+            if (luni < 0) {
+                ani--;
+                luni += 12;
+            }
+
+            String aniText = ani + " " + (ani == 1 ? "an" : "ani");
+            String luniText = luni + " " + (luni == 1 ? "lună" : "luni");
+
+            if (ani == 0) return luniText;
+            if (luni == 0) return aniText;
+            return aniText + " și " + luniText;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "N/A";
+        }
+    }
+
+
 
 
     private void loadAnimals() {
@@ -263,6 +325,11 @@ public class MainActivity extends AppCompatActivity {
                         for (DocumentSnapshot document : task.getResult()) {
                             animal animal = document.toObject(animal.class);
                             if (animal != null) {
+                                if (animal.getAge() != null && !animal.getAge().isEmpty()) {
+                                    String varstaCalculata = calculeazaVarstaDinData(animal.getAge());
+                                    animal.setAge(varstaCalculata);
+                                }
+
                                 if (animal.getBase64Image() != null) {
                                     byte[] decodedString = Base64.decode(animal.getBase64Image(), Base64.DEFAULT);
                                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);

@@ -42,9 +42,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57ea7016-04d9-42a0-9615-6f4051696df6" name="Changes" comment="init">
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/processDebugResources/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/processDebugResources/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_animal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gopet/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gopet/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +128,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="_Designer_Tab" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -317,12 +319,12 @@
       <map>
         <entry key="com.example.gopet">
           <value>
-            <CheckInfo lastCheckTimestamp="1743688505765" />
+            <CheckInfo lastCheckTimestamp="1743778831678" />
           </value>
         </entry>
         <entry key="com.example.gopet.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1743688505767" />
+            <CheckInfo lastCheckTimestamp="1743778831679" />
           </value>
         </entry>
       </map>

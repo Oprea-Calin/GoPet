@@ -66,11 +66,13 @@
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/animalAge"
+            android:id="@+id/animalBirthDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Varsta"
-            android:inputType="number" />
+            android:hint="Data nașterii (ZZ/LL/AAAA)"
+            android:focusable="false"
+            android:clickable="true"
+            />
 
         <ImageView
             android:id="@+id/animalImageView"
