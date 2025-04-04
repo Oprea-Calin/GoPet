@@ -204,7 +204,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveAnimaltoDatabase(String name, String age, String breed) {
-        String animalID = database.collection("Animals").document().getId();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
         animal newAnimal = new animal(name, breed, age);
 
         String base64Image = compressAndResizeImage(imageUri);
@@ -218,7 +220,10 @@ public class MainActivity extends AppCompatActivity {
 
         newAnimal.setBase64Image(base64Image);
 
-        database.collection("Animals").document(animalID)
+        database.collection("users")
+                .document(uid)
+                .collection("Animals")
+                .document(animalID)
                 .set(newAnimal)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(MainActivity.this, "Animal adaugat!", Toast.LENGTH_SHORT).show();
@@ -235,7 +240,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void loadAnimals() {
-        database.collection("Animals")
+        String uid =FirebaseAuth.getInstance().getCurrentUser().getUid();
+        database.collection("users").document(uid).collection("Animals")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
