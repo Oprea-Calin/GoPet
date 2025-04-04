@@ -4,29 +4,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="16dp"
+    android:layout_margin="12dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="20dp"
     app:cardElevation="8dp"
-    android:padding="16dp">
+    app:cardBackgroundColor="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="16dp"
         android:gravity="center_vertical">
 
+
+
+        <ImageView
+            android:id="@+id/animalImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:padding="2dp"
+            android:contentDescription="Animal image"
+            />
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginEnd="16dp">
+            android:gravity="center">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+
                 <TextView
                     android:id="@+id/itemName"
                     android:layout_width="wrap_content"
@@ -35,20 +43,8 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/animalNameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+
                 <TextView
                     android:id="@+id/itemAge"
                     android:layout_width="wrap_content"
@@ -57,19 +53,11 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/animalAgeTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+
+
+
+
                 <TextView
                     android:id="@+id/itemBreed"
                     android:layout_width="wrap_content"
@@ -78,23 +66,11 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/animalBreedTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
+
+
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/animalImageView"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="Animal image"
-            />
+
 
     </LinearLayout>
 

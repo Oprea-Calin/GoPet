@@ -3333,12 +3333,9 @@ int id allStates 0x7f090051
 int id always 0x7f090052
 int id androidx_window_activity_scope 0x7f090053
 int id animalAge 0x7f090054
-int id animalAgeTextView 0x7f090055
 int id animalBreed 0x7f090056
-int id animalBreedTextView 0x7f090057
 int id animalImageView 0x7f090058
 int id animalName 0x7f090059
-int id animalNameTextView 0x7f09005a
 int id animalsView 0x7f09005b
 int id animateToEnd 0x7f09005c
 int id animateToStart 0x7f09005d

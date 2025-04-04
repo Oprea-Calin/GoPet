@@ -22,12 +22,9 @@ id addAnimalFormButton
 id addAnimalFormLayout
 id addImageButton
 id animalAge
-id animalAgeTextView
 id animalBreed
-id animalBreedTextView
 id animalImageView
 id animalName
-id animalNameTextView
 id animalsView
 id bottomGrid
 id btnLogin
