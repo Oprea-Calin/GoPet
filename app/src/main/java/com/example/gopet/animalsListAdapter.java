@@ -15,17 +15,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<animal> list;
     OnItemClickListener listener;
+    OnItemClickListener deleteListener;
 
-    public animalsListAdapter(ArrayList<animal> list, Context context, OnItemClickListener listener) {
+    public animalsListAdapter(ArrayList<animal> list, Context context, OnItemClickListener listener, OnItemClickListener deleteListener) {
         this.list = list;
         this.context = context;
         this.listener = listener;
+        this.deleteListener = deleteListener;
     }
 
     @NonNull
@@ -37,11 +40,15 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
     public interface OnItemClickListener {
         void onItemClick(animal animal);
     }
+    public interface OnItemClickDeleteListener{
+        void onItemClick(animal animal);
+    }
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         animal canimal = list.get(position);
-        holder.age.setText(canimal.getAge());
+        holder.age.setText(canimal.getCalculatedAge());
         holder.breed.setText(canimal.getBreed());
         holder.name.setText(canimal.getName());
         if (canimal.getBase64Image() != null) {
@@ -51,15 +58,57 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         } else {
             holder.base64Image.setImageResource(R.drawable.cat);
         }
-
         holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onItemClick(canimal);
-            }
+            new android.app.AlertDialog.Builder(context)
+                    .setTitle("Alege acțiunea pentru " + canimal.getName())
+                    .setItems(new CharSequence[]{"Editează", "Șterge"}, (dialog, which) -> {
+                        if (which == 0) {
+                            if (deleteListener != null) {
+                                deleteListener.onItemClick(canimal);
+                            }
+                        } else if (which == 1) {
+                            if (listener != null) {
+                                listener.onItemClick(canimal);
+                            }
+                        }
+                    })
+                    .show();
         });
 
 
 
+    }
+    private String calculeazaVarstaDinData(String dataNasteriiStr) {
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault());
+        try {
+            java.util.Date dataNasterii = sdf.parse(dataNasteriiStr);
+            Calendar birth = Calendar.getInstance();
+            birth.setTime(dataNasterii);
+
+            Calendar today = Calendar.getInstance();
+
+            int ani = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+            int luni = today.get(Calendar.MONTH) - birth.get(Calendar.MONTH);
+
+            if (today.get(Calendar.DAY_OF_MONTH) < birth.get(Calendar.DAY_OF_MONTH)) {
+                luni--;
+            }
+
+            if (luni < 0) {
+                ani--;
+                luni += 12;
+            }
+
+            String aniText = ani + " " + (ani == 1 ? "an" : "ani");
+            String luniText = luni + " " + (luni == 1 ? "lună" : "luni");
+
+            if (ani == 0) return luniText;
+            if (luni == 0) return aniText;
+            return aniText + " și " + luniText;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "N/A";
+        }
     }
 
     @Override

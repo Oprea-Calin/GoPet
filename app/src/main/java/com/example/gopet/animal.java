@@ -5,7 +5,14 @@ public class animal {
     String name;
     String breed;
     String age;
+    String calculatedAge;
+    public String getCalculatedAge() {
+        return calculatedAge;
+    }
 
+    public void setCalculatedAge(String calculatedAge) {
+        this.calculatedAge = calculatedAge;
+    }
     public String getId() {
         return Id;
     }

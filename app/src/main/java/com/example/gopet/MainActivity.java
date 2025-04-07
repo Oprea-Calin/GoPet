@@ -1,5 +1,6 @@
 package com.example.gopet;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView animalImageView, addAnimal;
     static final int PICK_IMAGE_REQUEST = 1;
     Uri imageUri;
+    String selectedAnimalId = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +83,21 @@ public class MainActivity extends AppCompatActivity {
         animalsView.setLayoutManager(new LinearLayoutManager(this));
 
         animals = new ArrayList<>();
-        animals_listAdapter = new animalsListAdapter(animals, this, animal -> {
-            new android.app.AlertDialog.Builder(MainActivity.this)
-                    .setTitle("Ștergere animal")
-                    .setMessage("Ești sigur că vrei să ștergi animalul " + animal.getName() + "?")
-                    .setPositiveButton("Da", (dialog, which) -> deleteAnimal(animal))
-                    .setNegativeButton("Nu", null)
-                    .show();
-        });
+        animals_listAdapter = new animalsListAdapter(
+                animals,
+                this,
+                animal -> { // deleteListener
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Ștergere animal")
+                            .setMessage("Ești sigur că vrei să ștergi animalul " + animal.getName() + "?")
+                            .setPositiveButton("Da", (dialog, which) -> deleteAnimal(animal))
+                            .setNegativeButton("Nu", null)
+                            .show();
+                },
+                animal -> { // editListener
+                    populateFormWithAnimal(animal);
+                }
+        );
         animalsView.setAdapter(animals_listAdapter);
 
         animalAgeEdit = findViewById(R.id.animalBirthDate);
@@ -190,7 +199,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void populateFormWithAnimal(animal animal) {
+        animalNameEdit.setText(animal.getName());
+        animalBreedEdit.setText(animal.getBreed());
+        animalAgeEdit.setText(animal.getAge());
+        selectedAnimalId = animal.getId();
 
+        if (animal.getBase64Image() != null && !animal.getBase64Image().isEmpty()) {
+            byte[] decodedString = Base64.decode(animal.getBase64Image(), Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            animalImageView.setImageBitmap(decodedByte);
+        } else {
+            animalImageView.setImageDrawable(null);
+        }
+
+        addAnimalFormLayout.setVisibility(View.VISIBLE);
+    }
     private void openImageChooser() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
@@ -256,23 +280,120 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void saveAnimaltoDatabase(String name, String age, String breed) {
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//    private void saveAnimaltoDatabase(String name, String age, String breed) {
+//        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//
+//        String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
+//        animal newAnimal = new animal(name, breed, age);
+//        newAnimal.setId(animalID);
+//        String base64Image = "";
+//        if (imageUri != null)
+//        {
+//            base64Image=compressAndResizeImage(imageUri);
+//        }
+//
+//        if (base64Image != null) {
+//            newAnimal.setBase64Image(base64Image);
+//        }
+//        newAnimal.setBase64Image(base64Image != null ? base64Image : "");
+//
+//        newAnimal.setBase64Image(base64Image);
+//
+//        database.collection("users")
+//                .document(uid)
+//                .collection("Animals")
+//                .document(animalID)
+//                .set(newAnimal)
+//                .addOnSuccessListener(aVoid -> {
+//                    Toast.makeText(MainActivity.this, "Animal adaugat!", Toast.LENGTH_SHORT).show();
+//                    addAnimalFormLayout.setVisibility(View.GONE);
+//
+//
+////                    String varstaCalculata = calculeazaVarstaDinData(newAnimal.getAge());
+////                    newAnimal.setAge(varstaCalculata);
+////                    animals.add(newAnimal);
+//
+//                    addAnimalFormLayout.setVisibility(View.GONE);
+//                    animalNameEdit.setText("");
+//                    animalBreedEdit.setText("");
+//                    animalAgeEdit.setText("");
+//                    animalImageView.setImageDrawable(null);
+//                    imageUri = null;
+//
+//                    loadAnimals();
+//                    //animals_listAdapter.notifyItemInserted(animals.size() - 1);
+//                    submitAnimalFormButton.setEnabled(true);
+//                })
+//                .addOnFailureListener(e -> {
+//                    Log.e("Firestore", "error loading animals", e);
+//                    Toast.makeText(MainActivity.this, "Eroare la adaugarea animalului", Toast.LENGTH_SHORT).show();
+//                    submitAnimalFormButton.setEnabled(true);
+//                });
+//    }
+private void saveAnimaltoDatabase(String name, String age, String breed) {
+    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+    if (selectedAnimalId != null) {
+        // UPDATE
+        if (imageUri == null) {
+            // nu s-a selectat imagine, o pastram pe cea din firebase
+            database.collection("users")
+                    .document(uid)
+                    .collection("Animals")
+                    .document(selectedAnimalId)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        String existingImage = documentSnapshot.getString("base64Image");
+
+                        database.collection("users")
+                                .document(uid)
+                                .collection("Animals")
+                                .document(selectedAnimalId)
+                                .update(
+                                        "name", name,
+                                        "age", age,
+                                        "breed", breed,
+                                        "base64Image", existingImage != null ? existingImage : ""
+                                )
+                                .addOnSuccessListener(aVoid -> {
+                                    Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
+                                    resetFormAndReload();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
+                                    submitAnimalFormButton.setEnabled(true);
+                                });
+                    });
+        } else {
+            //select img noua
+            String base64Image = compressAndResizeImage(imageUri);
+
+            database.collection("users")
+                    .document(uid)
+                    .collection("Animals")
+                    .document(selectedAnimalId)
+                    .update(
+                            "name", name,
+                            "age", age,
+                            "breed", breed,
+                            "base64Image", base64Image != null ? base64Image : ""
+                    )
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
+                        resetFormAndReload();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
+                        submitAnimalFormButton.setEnabled(true);
+                    });
+        }
+    } else {
+        //INSERT
         String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
+        String base64Image = imageUri != null ? compressAndResizeImage(imageUri) : "";
+
         animal newAnimal = new animal(name, breed, age);
         newAnimal.setId(animalID);
-        String base64Image = "";
-        if (imageUri != null)
-        {
-            base64Image=compressAndResizeImage(imageUri);
-        }
-
-        if (base64Image != null) {
-            newAnimal.setBase64Image(base64Image);
-        }
-        newAnimal.setBase64Image(base64Image != null ? base64Image : "");
-
         newAnimal.setBase64Image(base64Image);
 
         database.collection("users")
@@ -281,30 +402,26 @@ public class MainActivity extends AppCompatActivity {
                 .document(animalID)
                 .set(newAnimal)
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(MainActivity.this, "Animal adaugat!", Toast.LENGTH_SHORT).show();
-                    addAnimalFormLayout.setVisibility(View.GONE);
-
-
-//                    String varstaCalculata = calculeazaVarstaDinData(newAnimal.getAge());
-//                    newAnimal.setAge(varstaCalculata);
-//                    animals.add(newAnimal);
-
-                    addAnimalFormLayout.setVisibility(View.GONE);
-                    animalNameEdit.setText("");
-                    animalBreedEdit.setText("");
-                    animalAgeEdit.setText("");
-                    animalImageView.setImageDrawable(null);
-                    imageUri = null;
-
-                    loadAnimals();
-                    //animals_listAdapter.notifyItemInserted(animals.size() - 1);
-                    submitAnimalFormButton.setEnabled(true);
+                    Toast.makeText(MainActivity.this, "Animal adăugat!", Toast.LENGTH_SHORT).show();
+                    resetFormAndReload();
                 })
                 .addOnFailureListener(e -> {
-                    Log.e("Firestore", "error loading animals", e);
-                    Toast.makeText(MainActivity.this, "Eroare la adaugarea animalului", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Eroare la adăugare!", Toast.LENGTH_SHORT).show();
                     submitAnimalFormButton.setEnabled(true);
                 });
+    }
+}
+
+    private void resetFormAndReload() {
+        animalNameEdit.setText("");
+        animalBreedEdit.setText("");
+        animalAgeEdit.setText("");
+        animalImageView.setImageDrawable(null);
+        imageUri = null;
+        selectedAnimalId = null;
+        addAnimalFormLayout.setVisibility(View.GONE);
+        loadAnimals();
+        submitAnimalFormButton.setEnabled(true);
     }
     private String calculeazaVarstaDinData(String dataNasteriiStr) {
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault());
@@ -360,7 +477,7 @@ public class MainActivity extends AppCompatActivity {
                                 animal.setId(document.getId());
                                 if (animal.getAge() != null && !animal.getAge().isEmpty()) {
                                     String varstaCalculata = calculeazaVarstaDinData(animal.getAge());
-                                    animal.setAge(varstaCalculata);
+                                    animal.setCalculatedAge(varstaCalculata);
                                 }
 
                                 if (animal.getBase64Image() != null) {
