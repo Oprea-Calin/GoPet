@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -80,7 +81,14 @@ public class MainActivity extends AppCompatActivity {
         animalsView.setLayoutManager(new LinearLayoutManager(this));
 
         animals = new ArrayList<>();
-        animals_listAdapter = new animalsListAdapter(animals, this);
+        animals_listAdapter = new animalsListAdapter(animals, this, animal -> {
+            new android.app.AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Ștergere animal")
+                    .setMessage("Ești sigur că vrei să ștergi animalul " + animal.getName() + "?")
+                    .setPositiveButton("Da", (dialog, which) -> deleteAnimal(animal))
+                    .setNegativeButton("Nu", null)
+                    .show();
+        });
         animalsView.setAdapter(animals_listAdapter);
 
         animalAgeEdit = findViewById(R.id.animalBirthDate);
@@ -163,6 +171,24 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+    private void deleteAnimal(animal animal) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        database.collection("users")
+                .document(uid)
+                .collection("Animals")
+                .document(animal.getId())
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(MainActivity.this, "Animal șters", Toast.LENGTH_SHORT).show();
+                    animals.remove(animal);
+                    animals_listAdapter.notifyDataSetChanged();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(MainActivity.this, "Eroare la ștergere", Toast.LENGTH_SHORT).show();
+                });
+    }
+
 
 
     private void openImageChooser() {
@@ -235,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
 
         String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
         animal newAnimal = new animal(name, breed, age);
-
+        newAnimal.setId(animalID);
         String base64Image = "";
         if (imageUri != null)
         {
@@ -271,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
                     imageUri = null;
 
                     loadAnimals();
-                    animals_listAdapter.notifyItemInserted(animals.size() - 1);
+                    //animals_listAdapter.notifyItemInserted(animals.size() - 1);
                     submitAnimalFormButton.setEnabled(true);
                 })
                 .addOnFailureListener(e -> {
@@ -319,6 +345,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void loadAnimals() {
+        ProgressBar loadingSpinner = findViewById(R.id.loadingSpinner);
+        loadingSpinner.setVisibility(View.VISIBLE);
+
         String uid =FirebaseAuth.getInstance().getCurrentUser().getUid();
         database.collection("users").document(uid).collection("Animals")
                 .get()
@@ -328,6 +357,7 @@ public class MainActivity extends AppCompatActivity {
                         for (DocumentSnapshot document : task.getResult()) {
                             animal animal = document.toObject(animal.class);
                             if (animal != null) {
+                                animal.setId(document.getId());
                                 if (animal.getAge() != null && !animal.getAge().isEmpty()) {
                                     String varstaCalculata = calculeazaVarstaDinData(animal.getAge());
                                     animal.setAge(varstaCalculata);
@@ -346,6 +376,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("Firestore", "error loading animals", task.getException());
                         Toast.makeText(MainActivity.this, "Eroare la incarcarea animalelor!", Toast.LENGTH_SHORT).show();
                     }
+
+                    loadingSpinner.setVisibility(View.GONE);
                 });
     }
 

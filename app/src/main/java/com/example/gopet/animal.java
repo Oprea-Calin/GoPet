@@ -6,6 +6,16 @@ public class animal {
     String breed;
     String age;
 
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    String Id;
+
     public String getBase64Image() {
         return base64Image;
     }

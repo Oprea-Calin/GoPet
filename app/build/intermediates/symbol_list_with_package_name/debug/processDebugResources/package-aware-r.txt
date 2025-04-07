@@ -3527,6 +3527,7 @@ id line3
 id linear
 id listMode
 id list_item
+id loadingSpinner
 id locale
 id logoutImage
 id ltr

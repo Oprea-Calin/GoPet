@@ -38,6 +38,7 @@ id inUsername
 id itemAge
 id itemBreed
 id itemName
+id loadingSpinner
 id logoutImage
 id main
 id settingsIcon

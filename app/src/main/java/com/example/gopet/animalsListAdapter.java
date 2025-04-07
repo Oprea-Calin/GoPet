@@ -7,6 +7,7 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,10 +20,12 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
 
     Context context;
     ArrayList<animal> list;
+    OnItemClickListener listener;
 
-    public animalsListAdapter(ArrayList<animal> list, Context context) {
+    public animalsListAdapter(ArrayList<animal> list, Context context, OnItemClickListener listener) {
         this.list = list;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -31,7 +34,9 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         View v = LayoutInflater.from(context).inflate(R.layout.item_animal , parent, false);
         return new MyViewHolder(v);
     }
-
+    public interface OnItemClickListener {
+        void onItemClick(animal animal);
+    }
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
@@ -46,6 +51,13 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         } else {
             holder.base64Image.setImageResource(R.drawable.cat);
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(canimal);
+            }
+        });
+
 
 
     }

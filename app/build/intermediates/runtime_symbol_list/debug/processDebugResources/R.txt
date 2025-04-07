@@ -3526,6 +3526,7 @@ int id line3 0x7f090115
 int id linear 0x7f090116
 int id listMode 0x7f090117
 int id list_item 0x7f090118
+int id loadingSpinner 0x7f09022e
 int id locale 0x7f090119
 int id logoutImage 0x7f09011a
 int id ltr 0x7f09011b
