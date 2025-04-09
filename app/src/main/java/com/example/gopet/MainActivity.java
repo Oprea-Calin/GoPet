@@ -48,7 +48,6 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-
     FirebaseAuth auth;
     ImageView logoutImage, settingsImage;
     SharedPreferences sharedPreferences;
@@ -111,6 +110,13 @@ public class MainActivity extends AppCompatActivity {
                             .show();
                 },
                 animal -> { // editListener
+
+                    addAnimalFormLayout.setVisibility(View.VISIBLE);
+                    myAnimalsTitle.setEnabled(false);
+                    if (isExpanded[0]) {
+                        animateRecyclerViewHeight(600, 200);
+                        isExpanded[0] = false;
+                    }
                     populateFormWithAnimal(animal);
                 }
         );
@@ -166,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
             if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
 
                 addAnimalFormLayout.setVisibility(View.GONE);
+                myAnimalsTitle.setEnabled(true);
 
                 animateRecyclerViewHeight(200, 600);
                 if (!isExpanded[0]) {
@@ -223,8 +230,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-
     private void animateRecyclerViewHeight(int startHeightDp, int endHeightDp) {
         int startHeight = dpToPx(startHeightDp);
         int endHeight = dpToPx(endHeightDp);
@@ -237,13 +242,13 @@ public class MainActivity extends AppCompatActivity {
             animalsView.setLayoutParams(params);
         });
         animator.start();
-
-        isExpanded[0] = endHeightDp > startHeightDp;
     }
+
     private int dpToPx(int dp) {
         float density = getResources().getDisplayMetrics().density;
         return Math.round(dp * density);
     }
+
     private void deleteAnimal(animal animal) {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -261,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Eroare la ștergere", Toast.LENGTH_SHORT).show();
                 });
     }
+
     private void populateFormWithAnimal(animal animal) {
         if (isExpanded[0]) {
             animateRecyclerViewHeight(animalsView.getHeight(), dpToPx(200));
@@ -283,14 +289,15 @@ public class MainActivity extends AppCompatActivity {
             animalImageView.setImageDrawable(null);
         }
 
-        addAnimalFormLayout.setVisibility(View.VISIBLE);
 
     }
+
     private void openImageChooser() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -333,6 +340,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+
     private String imageUriToBase64(Uri uri) {
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
@@ -349,109 +357,111 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+
     private void saveAnimaltoDatabase(String name, String age, String breed) {
-    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-    String category = animalCategoryEdit.getText().toString();
-    String reproductiveStatus = animalReproductiveStatusEdit.getText().toString();
-    String gender = animalGenderEdit.getText().toString();
-    String weightStr = animalWeightEdit.getText().toString();
-    String allergies = animalAllergiesEdit.getText().toString();
-    Float weight = weightStr.isEmpty() ? null : Float.parseFloat(weightStr);
+        String category = animalCategoryEdit.getText().toString();
+        String reproductiveStatus = animalReproductiveStatusEdit.getText().toString();
+        String gender = animalGenderEdit.getText().toString();
+        String weightStr = animalWeightEdit.getText().toString();
+        String allergies = animalAllergiesEdit.getText().toString();
+        Float weight = weightStr.isEmpty() ? null : Float.parseFloat(weightStr);
 
-    if (selectedAnimalId != null) {
-        // UPDATE
-        if (imageUri == null) {
-            // nu s-a selectat imagine, o pastram pe cea din firebase
-            database.collection("users")
-                    .document(uid)
-                    .collection("Animals")
-                    .document(selectedAnimalId)
-                    .get()
-                    .addOnSuccessListener(documentSnapshot -> {
-                        String existingImage = documentSnapshot.getString("base64Image");
+        if (selectedAnimalId != null) {
+            // UPDATE
+            if (imageUri == null) {
+                // nu s-a selectat imagine, o pastram pe cea din firebase
+                database.collection("users")
+                        .document(uid)
+                        .collection("Animals")
+                        .document(selectedAnimalId)
+                        .get()
+                        .addOnSuccessListener(documentSnapshot -> {
+                            String existingImage = documentSnapshot.getString("base64Image");
 
-                        database.collection("users")
-                                .document(uid)
-                                .collection("Animals")
-                                .document(selectedAnimalId)
-                                .update(
-                                        "name", name,
-                                        "age", age,
-                                        "breed", breed,
-                                        "category", category,
-                                        "reproductiveStatus", reproductiveStatus,
-                                        "gender", gender,
-                                        "weight", weight,
-                                        "allergies", allergies,
-                                        "base64Image", existingImage != null ? existingImage : ""
-                                )
-                                .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
-                                    resetFormAndReload();
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
-                                    submitAnimalFormButton.setEnabled(true);
-                                });
-                    });
+                            database.collection("users")
+                                    .document(uid)
+                                    .collection("Animals")
+                                    .document(selectedAnimalId)
+                                    .update(
+                                            "name", name,
+                                            "age", age,
+                                            "breed", breed,
+                                            "category", category,
+                                            "reproductiveStatus", reproductiveStatus,
+                                            "gender", gender,
+                                            "weight", weight,
+                                            "allergies", allergies,
+                                            "base64Image", existingImage != null ? existingImage : ""
+                                    )
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
+                                        resetFormAndReload();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
+                                        submitAnimalFormButton.setEnabled(true);
+                                    });
+                        });
+            } else {
+                //select img noua
+                String base64Image = compressAndResizeImage(imageUri);
+
+                database.collection("users")
+                        .document(uid)
+                        .collection("Animals")
+                        .document(selectedAnimalId)
+                        .update(
+                                "name", name,
+                                "age", age,
+                                "breed", breed,
+                                "category", category,
+                                "reproductiveStatus", reproductiveStatus,
+                                "gender", gender,
+                                "weight", weight,
+                                "allergies", allergies,
+                                "base64Image", base64Image != null ? base64Image : ""
+                        )
+                        .addOnSuccessListener(aVoid -> {
+                            Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
+                            resetFormAndReload();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
+                            submitAnimalFormButton.setEnabled(true);
+                        });
+            }
         } else {
-            //select img noua
-            String base64Image = compressAndResizeImage(imageUri);
+            //INSERT
+            String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
+            String base64Image = imageUri != null ? compressAndResizeImage(imageUri) : "";
+
+            animal newAnimal = new animal(name, breed, age);
+            newAnimal.setCategory(category);
+            newAnimal.setReproductiveStatus(reproductiveStatus);
+            newAnimal.setGender(gender);
+            newAnimal.setWeight(weight);
+            newAnimal.setAllergies(allergies);
+            newAnimal.setId(animalID);
+            newAnimal.setBase64Image(base64Image);
 
             database.collection("users")
                     .document(uid)
                     .collection("Animals")
-                    .document(selectedAnimalId)
-                    .update(
-                            "name", name,
-                            "age", age,
-                            "breed", breed,
-                            "category", category,
-                            "reproductiveStatus", reproductiveStatus,
-                            "gender", gender,
-                            "weight", weight,
-                            "allergies", allergies,
-                            "base64Image", base64Image != null ? base64Image : ""
-                    )
+                    .document(animalID)
+                    .set(newAnimal)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Animal adăugat!", Toast.LENGTH_SHORT).show();
                         resetFormAndReload();
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Eroare la adăugare!", Toast.LENGTH_SHORT).show();
                         submitAnimalFormButton.setEnabled(true);
                     });
         }
-    } else {
-        //INSERT
-        String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
-        String base64Image = imageUri != null ? compressAndResizeImage(imageUri) : "";
-
-        animal newAnimal = new animal(name, breed, age);
-        newAnimal.setCategory(category);
-        newAnimal.setReproductiveStatus(reproductiveStatus);
-        newAnimal.setGender(gender);
-        newAnimal.setWeight(weight);
-        newAnimal.setAllergies(allergies);
-        newAnimal.setId(animalID);
-        newAnimal.setBase64Image(base64Image);
-
-        database.collection("users")
-                .document(uid)
-                .collection("Animals")
-                .document(animalID)
-                .set(newAnimal)
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(MainActivity.this, "Animal adăugat!", Toast.LENGTH_SHORT).show();
-                    resetFormAndReload();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(MainActivity.this, "Eroare la adăugare!", Toast.LENGTH_SHORT).show();
-                    submitAnimalFormButton.setEnabled(true);
-                });
     }
-}
+
     private void resetFormAndReload() {
         animalNameEdit.setText("");
         animalBreedEdit.setText("");
@@ -464,11 +474,28 @@ public class MainActivity extends AppCompatActivity {
         animalImageView.setImageDrawable(null);
         imageUri = null;
         selectedAnimalId = null;
-        addAnimalFormLayout.setVisibility(View.GONE);
-        animateRecyclerViewHeight(600, 200);
+
+        //addAnimalFormLayout.setVisibility(View.GONE);
+        //animateRecyclerViewHeight(600, 200);
         loadAnimals();
-        submitAnimalFormButton.setEnabled(true);
+         submitAnimalFormButton.setEnabled(true);
+
+
+        if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
+            addAnimalFormLayout.setVisibility(View.GONE);
+            myAnimalsTitle.setEnabled(true);
+            animateRecyclerViewHeight(200, 600);
+            isExpanded[0] = true;
+        } else {
+            addAnimalFormLayout.setVisibility(View.VISIBLE);
+            myAnimalsTitle.setEnabled(false);
+            if (isExpanded[0]) {
+                animateRecyclerViewHeight(600, 200);
+                isExpanded[0] = false;
+            }
+        }
     }
+
     private String calculeazaVarstaDinData(String dataNasteriiStr) {
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault());
 
@@ -508,7 +535,7 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar loadingSpinner = findViewById(R.id.loadingSpinner);
         loadingSpinner.setVisibility(View.VISIBLE);
 
-        String uid =FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         database.collection("users").document(uid).collection("Animals")
                 .get()
                 .addOnCompleteListener(task -> {
@@ -541,9 +568,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-
-    private void logout()
-    {
+    private void logout() {
         FirebaseAuth.getInstance().signOut();
 
         editor.clear();
