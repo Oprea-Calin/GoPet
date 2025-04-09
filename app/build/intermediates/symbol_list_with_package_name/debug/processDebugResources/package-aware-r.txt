@@ -3105,6 +3105,7 @@ drawable abc_vector_test
 drawable addpet
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_my_animals_label
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3603,6 +3604,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id myAnimalsTitle
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view

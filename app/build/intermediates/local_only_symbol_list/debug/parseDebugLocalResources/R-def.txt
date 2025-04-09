@@ -6,6 +6,7 @@ color black
 color ic_launcher_background
 color white
 drawable addpet
+drawable bg_my_animals_label
 drawable cat
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -52,6 +53,7 @@ id itemWeight
 id loadingSpinner
 id logoutImage
 id main
+id myAnimalsTitle
 id settingsIcon
 id txtLog
 layout activity_login

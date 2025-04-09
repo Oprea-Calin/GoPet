@@ -1,5 +1,6 @@
 package com.example.gopet;
 
+import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -11,11 +12,13 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -63,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
     static final int PICK_IMAGE_REQUEST = 1;
     Uri imageUri;
     String selectedAnimalId = null;
+    final boolean[] isExpanded = {false};
+    TextView myAnimalsTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        myAnimalsTitle = findViewById(R.id.myAnimalsTitle);
+        animalsView = findViewById(R.id.animalsView);
         animalImageView = findViewById(R.id.animalImageView);
         Button selectImageButton = findViewById(R.id.addImageButton);
         selectImageButton.setOnClickListener(v -> openImageChooser());
@@ -127,11 +134,18 @@ public class MainActivity extends AppCompatActivity {
         addAnimal.setOnClickListener(v -> {
             if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
                 addAnimalFormLayout.setVisibility(View.GONE);
+                myAnimalsTitle.setEnabled(true);
+                animateRecyclerViewHeight(200, 600);
+                isExpanded[0] = true;
             } else {
                 addAnimalFormLayout.setVisibility(View.VISIBLE);
+                myAnimalsTitle.setEnabled(false);
+                if (isExpanded[0]) {
+                    animateRecyclerViewHeight(600, 200);
+                    isExpanded[0] = false;
+                }
             }
         });
-
         Calendar selectedDate = Calendar.getInstance();
         animalAgeEdit.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
@@ -147,12 +161,37 @@ public class MainActivity extends AppCompatActivity {
                     year, month, day);
             datePickerDialog.show();
         });
+        RecyclerView finalAnimalsView = animalsView;
+        myAnimalsTitle.setOnClickListener(v -> {
+            if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
 
+                addAnimalFormLayout.setVisibility(View.GONE);
+
+                animateRecyclerViewHeight(200, 600);
+                if (!isExpanded[0]) {
+                    animateRecyclerViewHeight(200, 600);
+                    isExpanded[0] = true;
+                }
+            } else {
+                int startHeight = animalsView.getHeight();
+                int endHeight = isExpanded[0] ? dpToPx(200) : dpToPx(600);
+
+                ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
+                animator.setDuration(300);
+                animator.addUpdateListener(animation -> {
+                    ViewGroup.LayoutParams params = animalsView.getLayoutParams();
+                    params.height = (int) animation.getAnimatedValue();
+                    animalsView.setLayoutParams(params);
+                });
+                animator.start();
+
+                isExpanded[0] = !isExpanded[0];
+            }
+        });
         submitAnimalFormButton.setOnClickListener(v -> {
             String name = animalNameEdit.getText().toString();
             String age = animalAgeEdit.getText().toString();
             String breed = animalBreedEdit.getText().toString();
-
             if(name.isEmpty() || age.isEmpty() || breed.isEmpty())
             {
                 Toast.makeText(this, "Completeaza toate detaliile!", Toast.LENGTH_SHORT).show();
@@ -161,13 +200,8 @@ public class MainActivity extends AppCompatActivity {
                 submitAnimalFormButton.setEnabled(false);
                 saveAnimaltoDatabase(name, age, breed);
             }
-
-
         });
-
         loadAnimals();
-
-
         settingsImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -178,7 +212,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         logoutImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -188,6 +221,28 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+
+
+    private void animateRecyclerViewHeight(int startHeightDp, int endHeightDp) {
+        int startHeight = dpToPx(startHeightDp);
+        int endHeight = dpToPx(endHeightDp);
+
+        ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
+        animator.setDuration(300);
+        animator.addUpdateListener(animation -> {
+            ViewGroup.LayoutParams params = animalsView.getLayoutParams();
+            params.height = (int) animation.getAnimatedValue();
+            animalsView.setLayoutParams(params);
+        });
+        animator.start();
+
+        isExpanded[0] = endHeightDp > startHeightDp;
+    }
+    private int dpToPx(int dp) {
+        float density = getResources().getDisplayMetrics().density;
+        return Math.round(dp * density);
     }
     private void deleteAnimal(animal animal) {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -206,14 +261,20 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Eroare la ștergere", Toast.LENGTH_SHORT).show();
                 });
     }
-
-
     private void populateFormWithAnimal(animal animal) {
+        if (isExpanded[0]) {
+            animateRecyclerViewHeight(animalsView.getHeight(), dpToPx(200));
+            isExpanded[0] = false;
+        }
         animalNameEdit.setText(animal.getName());
         animalBreedEdit.setText(animal.getBreed());
         animalAgeEdit.setText(animal.getAge());
         selectedAnimalId = animal.getId();
-
+        animalCategoryEdit.setText(animal.getCategory());
+        animalReproductiveStatusEdit.setText(animal.getReproductiveStatus());
+        animalGenderEdit.setText(animal.getGender());
+        animalWeightEdit.setText(animal.getWeight() != null ? String.valueOf(animal.getWeight()) : "");
+        animalAllergiesEdit.setText(animal.getAllergies());
         if (animal.getBase64Image() != null && !animal.getBase64Image().isEmpty()) {
             byte[] decodedString = Base64.decode(animal.getBase64Image(), Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
@@ -223,6 +284,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         addAnimalFormLayout.setVisibility(View.VISIBLE);
+
     }
     private void openImageChooser() {
         Intent intent = new Intent(Intent.ACTION_PICK);
@@ -271,7 +333,6 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-
     private String imageUriToBase64(Uri uri) {
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
@@ -288,8 +349,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-
-private void saveAnimaltoDatabase(String name, String age, String breed) {
+    private void saveAnimaltoDatabase(String name, String age, String breed) {
     String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     String category = animalCategoryEdit.getText().toString();
@@ -368,7 +428,6 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
         String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
         String base64Image = imageUri != null ? compressAndResizeImage(imageUri) : "";
 
-
         animal newAnimal = new animal(name, breed, age);
         newAnimal.setCategory(category);
         newAnimal.setReproductiveStatus(reproductiveStatus);
@@ -393,7 +452,6 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
                 });
     }
 }
-
     private void resetFormAndReload() {
         animalNameEdit.setText("");
         animalBreedEdit.setText("");
@@ -407,6 +465,7 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
         imageUri = null;
         selectedAnimalId = null;
         addAnimalFormLayout.setVisibility(View.GONE);
+        animateRecyclerViewHeight(600, 200);
         loadAnimals();
         submitAnimalFormButton.setEnabled(true);
     }
@@ -444,9 +503,6 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
             return "N/A";
         }
     }
-
-
-
 
     private void loadAnimals() {
         ProgressBar loadingSpinner = findViewById(R.id.loadingSpinner);
