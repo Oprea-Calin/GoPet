@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     animalsListAdapter animals_listAdapter;
     ArrayList<animal> animals;
     EditText animalNameEdit, animalAgeEdit, animalBreedEdit;
+    EditText animalCategoryEdit, animalReproductiveStatusEdit, animalGenderEdit, animalWeightEdit, animalAllergiesEdit;
     Button submitAnimalFormButton;
     ImageView animalImageView, addAnimal;
     static final int PICK_IMAGE_REQUEST = 1;
@@ -76,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
         animalImageView = findViewById(R.id.animalImageView);
         Button selectImageButton = findViewById(R.id.addImageButton);
         selectImageButton.setOnClickListener(v -> openImageChooser());
+
+        animalCategoryEdit = findViewById(R.id.animalCategory);
+        animalReproductiveStatusEdit = findViewById(R.id.animalReproductiveStatus);
+        animalGenderEdit = findViewById(R.id.animalGender);
+        animalWeightEdit = findViewById(R.id.animalWeight);
+        animalAllergiesEdit = findViewById(R.id.animalAllergies);
+
 
         animalsView = findViewById(R.id.animalsView);
         database = FirebaseFirestore.getInstance();
@@ -333,6 +341,13 @@ public class MainActivity extends AppCompatActivity {
 private void saveAnimaltoDatabase(String name, String age, String breed) {
     String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+    String category = animalCategoryEdit.getText().toString();
+    String reproductiveStatus = animalReproductiveStatusEdit.getText().toString();
+    String gender = animalGenderEdit.getText().toString();
+    String weightStr = animalWeightEdit.getText().toString();
+    String allergies = animalAllergiesEdit.getText().toString();
+    Float weight = weightStr.isEmpty() ? null : Float.parseFloat(weightStr);
+
     if (selectedAnimalId != null) {
         // UPDATE
         if (imageUri == null) {
@@ -353,6 +368,11 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
                                         "name", name,
                                         "age", age,
                                         "breed", breed,
+                                        "category", category,
+                                        "reproductiveStatus", reproductiveStatus,
+                                        "gender", gender,
+                                        "weight", weight,
+                                        "allergies", allergies,
                                         "base64Image", existingImage != null ? existingImage : ""
                                 )
                                 .addOnSuccessListener(aVoid -> {
@@ -376,6 +396,11 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
                             "name", name,
                             "age", age,
                             "breed", breed,
+                            "category", category,
+                            "reproductiveStatus", reproductiveStatus,
+                            "gender", gender,
+                            "weight", weight,
+                            "allergies", allergies,
                             "base64Image", base64Image != null ? base64Image : ""
                     )
                     .addOnSuccessListener(aVoid -> {
@@ -392,7 +417,13 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
         String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
         String base64Image = imageUri != null ? compressAndResizeImage(imageUri) : "";
 
+
         animal newAnimal = new animal(name, breed, age);
+        newAnimal.setCategory(category);
+        newAnimal.setReproductiveStatus(reproductiveStatus);
+        newAnimal.setGender(gender);
+        newAnimal.setWeight(weight);
+        newAnimal.setAllergies(allergies);
         newAnimal.setId(animalID);
         newAnimal.setBase64Image(base64Image);
 

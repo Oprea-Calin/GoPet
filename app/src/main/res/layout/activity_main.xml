@@ -73,6 +73,41 @@
             android:focusable="false"
             android:clickable="true"
             />
+        <EditText
+            android:id="@+id/animalCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Categorie (ex: câine, pisică)"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/animalReproductiveStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Status reproducere (ex: sterilizat)"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/animalGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sex (mascul/femelă)"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/animalWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Greutate (kg)"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/animalAllergies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alergii (dacă există)"
+            android:inputType="text" />
+
 
         <ImageView
             android:id="@+id/animalImageView"

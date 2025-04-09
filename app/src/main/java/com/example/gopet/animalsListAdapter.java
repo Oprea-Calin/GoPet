@@ -51,6 +51,12 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         holder.age.setText(canimal.getCalculatedAge());
         holder.breed.setText(canimal.getBreed());
         holder.name.setText(canimal.getName());
+        holder.category.setText("Categorie: " + canimal.getCategory());
+        holder.gender.setText("Sex: " + canimal.getGender());
+        holder.weight.setText("Greutate: " + (canimal.getWeight() != null ? canimal.getWeight() + " kg" : "N/A"));
+        holder.reproductiveStatus.setText("Status: " + canimal.getReproductiveStatus());
+        holder.allergies.setText("Alergii: " + canimal.getAllergies());
+
         if (canimal.getBase64Image() != null) {
             byte[] decodedString = Base64.decode(canimal.getBase64Image(), Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
@@ -118,13 +124,18 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, breed, age;
+        TextView name, breed, age, category, gender, weight, reproductiveStatus, allergies;
         ImageView base64Image;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.itemName);
             breed = itemView.findViewById(R.id.itemBreed);
             age = itemView.findViewById(R.id.itemAge);
+            category = itemView.findViewById(R.id.itemCategory);
+            gender = itemView.findViewById(R.id.itemGender);
+            weight = itemView.findViewById(R.id.itemWeight);
+            reproductiveStatus = itemView.findViewById(R.id.itemReproductiveStatus);
+            allergies = itemView.findViewById(R.id.itemAllergies);
             base64Image = itemView.findViewById(R.id.animalImageView);
         }
     }

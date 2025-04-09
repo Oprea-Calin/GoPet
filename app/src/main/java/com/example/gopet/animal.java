@@ -6,8 +6,53 @@ public class animal {
     String breed;
     String age;
     String calculatedAge;
+    String category;
+    String reproductiveStatus;
+    String gender;
+    Float weight;
+    String allergies;
     public String getCalculatedAge() {
         return calculatedAge;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(String allergies) {
+        this.allergies = allergies;
+    }
+
+    public Float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Float weight) {
+        this.weight = weight;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getReproductiveStatus() {
+        return reproductiveStatus;
+    }
+
+    public void setReproductiveStatus(String reproductiveStatus) {
+        this.reproductiveStatus = reproductiveStatus;
     }
 
     public void setCalculatedAge(String calculatedAge) {
