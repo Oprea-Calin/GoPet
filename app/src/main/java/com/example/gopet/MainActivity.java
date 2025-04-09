@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
 
     RecyclerView animalsView;
-    LinearLayout addAnimalFormLayout;
+    NestedScrollView addAnimalFormLayout;
     FirebaseFirestore database;
     animalsListAdapter animals_listAdapter;
     ArrayList<animal> animals;
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         animalsView.setAdapter(animals_listAdapter);
 
         animalAgeEdit = findViewById(R.id.animalBirthDate);
-        addAnimalFormLayout = findViewById(R.id.addAnimalFormLayout);
+        addAnimalFormLayout = findViewById(R.id.addAnimalFormScrollView);
 
         animalBreedEdit = findViewById(R.id.animalBreed);
         animalNameEdit = findViewById(R.id.animalName);
@@ -288,56 +289,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    private void saveAnimaltoDatabase(String name, String age, String breed) {
-//        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//
-//        String animalID = database.collection("users").document(uid).collection("Animals").document().getId();
-//        animal newAnimal = new animal(name, breed, age);
-//        newAnimal.setId(animalID);
-//        String base64Image = "";
-//        if (imageUri != null)
-//        {
-//            base64Image=compressAndResizeImage(imageUri);
-//        }
-//
-//        if (base64Image != null) {
-//            newAnimal.setBase64Image(base64Image);
-//        }
-//        newAnimal.setBase64Image(base64Image != null ? base64Image : "");
-//
-//        newAnimal.setBase64Image(base64Image);
-//
-//        database.collection("users")
-//                .document(uid)
-//                .collection("Animals")
-//                .document(animalID)
-//                .set(newAnimal)
-//                .addOnSuccessListener(aVoid -> {
-//                    Toast.makeText(MainActivity.this, "Animal adaugat!", Toast.LENGTH_SHORT).show();
-//                    addAnimalFormLayout.setVisibility(View.GONE);
-//
-//
-////                    String varstaCalculata = calculeazaVarstaDinData(newAnimal.getAge());
-////                    newAnimal.setAge(varstaCalculata);
-////                    animals.add(newAnimal);
-//
-//                    addAnimalFormLayout.setVisibility(View.GONE);
-//                    animalNameEdit.setText("");
-//                    animalBreedEdit.setText("");
-//                    animalAgeEdit.setText("");
-//                    animalImageView.setImageDrawable(null);
-//                    imageUri = null;
-//
-//                    loadAnimals();
-//                    //animals_listAdapter.notifyItemInserted(animals.size() - 1);
-//                    submitAnimalFormButton.setEnabled(true);
-//                })
-//                .addOnFailureListener(e -> {
-//                    Log.e("Firestore", "error loading animals", e);
-//                    Toast.makeText(MainActivity.this, "Eroare la adaugarea animalului", Toast.LENGTH_SHORT).show();
-//                    submitAnimalFormButton.setEnabled(true);
-//                });
-//    }
 private void saveAnimaltoDatabase(String name, String age, String breed) {
     String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -447,6 +398,11 @@ private void saveAnimaltoDatabase(String name, String age, String breed) {
         animalNameEdit.setText("");
         animalBreedEdit.setText("");
         animalAgeEdit.setText("");
+        animalCategoryEdit.setText("");
+        animalReproductiveStatusEdit.setText("");
+        animalGenderEdit.setText("");
+        animalWeightEdit.setText("");
+        animalAllergiesEdit.setText("");
         animalImageView.setImageDrawable(null);
         imageUri = null;
         selectedAnimalId = null;

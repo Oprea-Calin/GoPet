@@ -20,6 +20,7 @@ drawable settings_icon
 id addAnimalButton
 id addAnimalFormButton
 id addAnimalFormLayout
+id addAnimalFormScrollView
 id addImageButton
 id animalAllergies
 id animalBirthDate

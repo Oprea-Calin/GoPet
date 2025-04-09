@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-38:12
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:2:1-39:12
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.preference:preference:1.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\4b074491f5a17e1dcd00a96fffaa5542\transformed\preference-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -102,8 +102,8 @@ MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] D:\FACULTA\MDS\cache
 	android:name
 		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
-INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-36:19
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-37:19
+INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-37:19
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0c2f1bd14638689f13d7029e51c6d272\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0eba840a1dc9a88c59ba285e0281b329\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
@@ -183,33 +183,35 @@ ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:17:9-20:63
 	android:name
 		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:18:13-45
 activity#com.example.gopet.MainActivity
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:21:9-23:40
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:21:9-24:40
+	android:windowSoftInputMode
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:23:13-55
 	android:exported
-		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:23:13-37
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:24:13-37
 	android:name
 		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:22:13-41
 activity#com.example.gopet.Register
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:24:9-26:40
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:25:9-27:40
 	android:exported
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:27:13-37
+	android:name
 		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:26:13-37
-	android:name
-		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:25:13-37
 activity#com.example.gopet.Login
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:27:9-35:20
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:28:9-36:20
 	android:exported
-		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:29:13-36
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:30:13-36
 	android:name
-		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:28:13-34
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:29:13-34
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:30:13-34:29
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:13-35:29
 action#android.intent.action.MAIN
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:17-69
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:32:17-69
 	android:name
-		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:32:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:33:17-77
+ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:34:17-77
 	android:name
-		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:34:27-74
 uses-sdk
 INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml

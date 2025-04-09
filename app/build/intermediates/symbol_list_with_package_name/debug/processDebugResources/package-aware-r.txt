@@ -3324,6 +3324,7 @@ id add
 id addAnimalButton
 id addAnimalFormButton
 id addAnimalFormLayout
+id addAnimalFormScrollView
 id addImageButton
 id adjust_height
 id adjust_width

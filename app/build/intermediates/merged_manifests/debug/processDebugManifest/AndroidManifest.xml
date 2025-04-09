@@ -37,7 +37,8 @@
             android:label="@string/title_activity_settings" />
         <activity
             android:name="com.example.gopet.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.example.gopet.Register"
             android:exported="false" />

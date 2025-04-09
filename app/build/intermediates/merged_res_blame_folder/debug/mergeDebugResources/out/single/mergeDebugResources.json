@@ -4,10 +4,6 @@
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.gopet.app-debug-5:/layout_item_animal.xml.flat",
-        "source": "com.example.gopet.app-main-7:/layout/item_animal.xml"
-    },
-    {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\layout_item_animal.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\layout\\item_animal.xml"
     },
