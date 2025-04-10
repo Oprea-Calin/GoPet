@@ -52,13 +52,13 @@
         android:id="@+id/addAnimalFormScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:overScrollMode="always"
         android:fillViewport="true"
+        android:overScrollMode="always"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/addAnimalButton"
+        app:layout_constraintBottom_toTopOf="@id/animalsView"
+        app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/animalsView">
+        app:layout_constraintTop_toBottomOf="@id/addAnimalButton">
 
         <LinearLayout
             android:id="@+id/addAnimalFormLayout"
@@ -85,9 +85,9 @@
                 android:id="@+id/animalBirthDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Data nașterii (ZZ/LL/AAAA)"
+                android:clickable="true"
                 android:focusable="false"
-                android:clickable="true" />
+                android:hint="Data nașterii (ZZ/LL/AAAA)" />
 
             <EditText
                 android:id="@+id/animalCategory"
@@ -134,15 +134,15 @@
                 android:id="@+id/addImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select an image"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:text="Select an image" />
 
             <Button
                 android:id="@+id/addAnimalFormButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add new pet"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:text="Add new pet" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -181,6 +181,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/animalsView"
+        app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
         app:layout_constraintTop_toBottomOf="@+id/btnAllUsers" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/animalsView"

@@ -16,13 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -32,11 +30,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -72,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     Uri imageUri;
     String selectedAnimalId = null;
-    final boolean[] isExpanded = {false};
+    final boolean[] isExpandedMyAnimals = {false};
     TextView myAnimalsTitle;
 
     @Override
@@ -92,7 +85,39 @@ public class MainActivity extends AppCompatActivity {
         usersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         userAdapter = new UserAdapter(usersList);
         usersRecyclerView.setAdapter(userAdapter);
-        btnAllUsers.setOnClickListener(view -> loadUsers());
+        btnAllUsers.setOnClickListener(view -> {
+
+            if(usersRecyclerView.getVisibility() == View.VISIBLE)
+            {
+                usersRecyclerView.setVisibility(View.GONE);
+                animateAnimalRecyclerViewHeight(200, 600);
+                isExpandedMyAnimals[0] = true;
+            }
+            else{
+
+
+                if(addAnimalFormLayout.getVisibility() == View.VISIBLE)
+                {
+                    addAnimalFormLayout.setVisibility(View.GONE);
+
+                }
+                if(animalsView.getVisibility() == View.VISIBLE)
+                {
+                    if(isExpandedMyAnimals[0]==true)
+                    {
+                        animateAnimalRecyclerViewHeight(600,200);
+                        isExpandedMyAnimals[0] = false;
+                    }
+
+                }
+
+
+                loadUsers();
+                usersRecyclerView.setVisibility(View.VISIBLE);
+            }
+
+
+        });
 
         myAnimalsTitle = findViewById(R.id.myAnimalsTitle);
         animalsView = findViewById(R.id.animalsView);
@@ -128,9 +153,9 @@ public class MainActivity extends AppCompatActivity {
 
                     addAnimalFormLayout.setVisibility(View.VISIBLE);
                     myAnimalsTitle.setEnabled(false);
-                    if (isExpanded[0]) {
-                        animateRecyclerViewHeight(600, 200);
-                        isExpanded[0] = false;
+                    if (isExpandedMyAnimals[0]) {
+                        animateAnimalRecyclerViewHeight(600, 200);
+                        isExpandedMyAnimals[0] = false;
                     }
                     populateFormWithAnimal(animal);
                 }
@@ -153,17 +178,22 @@ public class MainActivity extends AppCompatActivity {
 
         addAnimal = findViewById(R.id.addAnimalButton);
         addAnimal.setOnClickListener(v -> {
+
+            usersRecyclerView.setVisibility(View.GONE);
             if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
+
                 addAnimalFormLayout.setVisibility(View.GONE);
-                myAnimalsTitle.setEnabled(true);
-                animateRecyclerViewHeight(200, 600);
-                isExpanded[0] = true;
+                animateAnimalRecyclerViewHeight(200, 600);
+                isExpandedMyAnimals[0] = true;
             } else {
                 addAnimalFormLayout.setVisibility(View.VISIBLE);
-                myAnimalsTitle.setEnabled(false);
-                if (isExpanded[0]) {
-                    animateRecyclerViewHeight(600, 200);
-                    isExpanded[0] = false;
+                usersRecyclerView.setVisibility(View.GONE);
+                if(animalsView.getVisibility() == View.VISIBLE)
+                {
+                    if (isExpandedMyAnimals[0]) {
+                    animateAnimalRecyclerViewHeight(600, 200);
+                    isExpandedMyAnimals[0] = false;
+                }
                 }
             }
         });
@@ -189,28 +219,45 @@ public class MainActivity extends AppCompatActivity {
                 addAnimalFormLayout.setVisibility(View.GONE);
                 myAnimalsTitle.setEnabled(true);
 
-                animateRecyclerViewHeight(200, 600);
-                if (!isExpanded[0]) {
-                    animateRecyclerViewHeight(200, 600);
-                    isExpanded[0] = true;
+                if (!isExpandedMyAnimals[0]) {
+                    animateAnimalRecyclerViewHeight(200, 600);
+                    isExpandedMyAnimals[0] = true;
                 }
             } else {
-                int startHeight = animalsView.getHeight();
-                int endHeight = isExpanded[0] ? dpToPx(200) : dpToPx(600);
+//                int startHeight = animalsView.getHeight();
+//                int endHeight = isExpandedMyAnimals[0] ? dpToPx(200) : dpToPx(600);
+//
+//                ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
+//                animator.setDuration(300);
+//                animator.addUpdateListener(animation -> {
+//                    ViewGroup.LayoutParams params = animalsView.getLayoutParams();
+//                    params.height = (int) animation.getAnimatedValue();
+//                    animalsView.setLayoutParams(params);
+//                });
+//                animator.start();
 
-                ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
-                animator.setDuration(300);
-                animator.addUpdateListener(animation -> {
-                    ViewGroup.LayoutParams params = animalsView.getLayoutParams();
-                    params.height = (int) animation.getAnimatedValue();
-                    animalsView.setLayoutParams(params);
-                });
-                animator.start();
+                if(isExpandedMyAnimals[0])
+                {
+                    animateAnimalRecyclerViewHeight(600,200);
+                    isExpandedMyAnimals[0] = false;
+                }
+                else{
+                    animateAnimalRecyclerViewHeight(200,600);
+                    isExpandedMyAnimals[0] = true;
+                }
 
-                isExpanded[0] = !isExpanded[0];
+
+
+
+                //isExpandedMyAnimals[0] = !isExpandedMyAnimals[0];
+                if(isExpandedMyAnimals[0])
+                {
+                    usersRecyclerView.setVisibility(View.GONE);
+                }
             }
         });
         submitAnimalFormButton.setOnClickListener(v -> {
+
             String name = animalNameEdit.getText().toString();
             String age = animalAgeEdit.getText().toString();
             String breed = animalBreedEdit.getText().toString();
@@ -244,6 +291,33 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+
+    private void animateRecyclerViewHeight(View recyclerView, int startHeightDp, int endHeightDp) {
+        int startHeight = dpToPx(startHeightDp);
+        int endHeight = dpToPx(endHeightDp);
+
+        ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
+        animator.setDuration(300);
+        animator.addUpdateListener(animation -> {
+            ViewGroup.LayoutParams params = recyclerView.getLayoutParams();
+            params.height = (int) animation.getAnimatedValue();
+            recyclerView.setLayoutParams(params);
+        });
+        animator.start();
+    }
+    private void animateAnimalRecyclerViewHeight(int startHeightDp, int endHeightDp) {
+        int startHeight = dpToPx(startHeightDp);
+        int endHeight = dpToPx(endHeightDp);
+
+        ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
+        animator.setDuration(300);
+        animator.addUpdateListener(animation -> {
+            ViewGroup.LayoutParams params = animalsView.getLayoutParams();
+            params.height = (int) animation.getAnimatedValue();
+            animalsView.setLayoutParams(params);
+        });
+        animator.start();
+    }
     private void loadUsers() {
         database.collection("users")
                 .get()
@@ -259,19 +333,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-    private void animateRecyclerViewHeight(int startHeightDp, int endHeightDp) {
-        int startHeight = dpToPx(startHeightDp);
-        int endHeight = dpToPx(endHeightDp);
 
-        ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
-        animator.setDuration(300);
-        animator.addUpdateListener(animation -> {
-            ViewGroup.LayoutParams params = animalsView.getLayoutParams();
-            params.height = (int) animation.getAnimatedValue();
-            animalsView.setLayoutParams(params);
-        });
-        animator.start();
-    }
 
     private int dpToPx(int dp) {
         float density = getResources().getDisplayMetrics().density;
@@ -297,9 +359,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void populateFormWithAnimal(animal animal) {
-        if (isExpanded[0]) {
-            animateRecyclerViewHeight(animalsView.getHeight(), dpToPx(200));
-            isExpanded[0] = false;
+        if (isExpandedMyAnimals[0]) {
+            animateAnimalRecyclerViewHeight(animalsView.getHeight(), dpToPx(200));
+            isExpandedMyAnimals[0] = false;
         }
         animalNameEdit.setText(animal.getName());
         animalBreedEdit.setText(animal.getBreed());
@@ -513,14 +575,14 @@ public class MainActivity extends AppCompatActivity {
         if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
             addAnimalFormLayout.setVisibility(View.GONE);
             myAnimalsTitle.setEnabled(true);
-            animateRecyclerViewHeight(200, 600);
-            isExpanded[0] = true;
+            animateAnimalRecyclerViewHeight(200, 600);
+            isExpandedMyAnimals[0] = true;
         } else {
             addAnimalFormLayout.setVisibility(View.VISIBLE);
             myAnimalsTitle.setEnabled(false);
-            if (isExpanded[0]) {
-                animateRecyclerViewHeight(600, 200);
-                isExpanded[0] = false;
+            if (isExpandedMyAnimals[0]) {
+                animateAnimalRecyclerViewHeight(600, 200);
+                isExpandedMyAnimals[0] = false;
             }
         }
     }
