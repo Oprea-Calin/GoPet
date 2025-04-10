@@ -3375,6 +3375,7 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btnAllUsers
 id btnLogin
 id btnRegister
 id btnRegisterGo
@@ -3797,6 +3798,8 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id usernameTextView
+id usersRecyclerView
 id vertical
 id vertical_only
 id view_offset_helper
@@ -3961,6 +3964,7 @@ layout image_frame
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_animal
+layout item_user
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

@@ -19,10 +19,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Register extends AppCompatActivity {
 
     private FirebaseAuth auth;
+    FirebaseFirestore db;
     String name, str;
     EditText editUsernameLog , editPasswordLog ,editPasswordConfirmLog, editEmailLog;
     TextView txtInfoRegister ;
@@ -35,6 +37,8 @@ public class Register extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
         auth=FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
         editUsernameLog = findViewById(R.id.inUsername);
         editPasswordLog = findViewById(R.id.inPassword);
         editEmailLog = findViewById(R.id.inEmail);
@@ -81,6 +85,9 @@ public class Register extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
+                                String userId = auth.getCurrentUser().getUid();
+
+                                saveUserToFirestore(userId, username);
                                 Toast.makeText(Register.this, "Signup successful!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Register.this, Login.class));
                             }
@@ -98,6 +105,35 @@ public class Register extends AppCompatActivity {
 
 
 
+    }
+    private void saveUserToFirestore(String userId, String username) {
+        User user = new User(username);
+
+        db.collection("users")
+                .document(userId)
+                .set(user)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(Register.this, "User saved to Firestore", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(Register.this, "Failed to save user to Firestore", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    public static class User {
+        private String username;
+
+        public User(String username) {
+            this.username = username;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
     }
 
 

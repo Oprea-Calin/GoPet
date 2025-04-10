@@ -1,7 +1,7 @@
 package com.example.gopet;
 
 public class Users {
-    private int id;
+    private String id;
     private String username, password;
     private String dob;
 
@@ -9,7 +9,7 @@ public class Users {
         this.dob = dob;
     }
 
-    public Users(int id, String username, String dob) {
+    public Users(String id, String username, String dob) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -24,7 +24,7 @@ public class Users {
         this.username = username;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -40,7 +40,7 @@ public class Users {
         return username;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 }

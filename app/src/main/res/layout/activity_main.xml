@@ -40,6 +40,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnAllUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load All Users"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsIcon" />
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/addAnimalFormScrollView"
         android:layout_width="0dp"
@@ -168,7 +176,12 @@
         app:layout_constraintBottom_toTopOf="@+id/animalsView"
         app:layout_constraintStart_toStartOf="parent" />
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/usersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/animalsView"
+        app:layout_constraintTop_toBottomOf="@+id/btnAllUsers" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/animalsView"
         android:layout_width="0dp"

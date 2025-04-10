@@ -39,12 +39,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +55,11 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
-    RecyclerView animalsView;
+    RecyclerView animalsView, usersRecyclerView;
+    UserAdapter userAdapter;
+    List<DocumentSnapshot> usersList;
+    Button btnAllUsers;
+
     NestedScrollView addAnimalFormLayout;
     FirebaseFirestore database;
     animalsListAdapter animals_listAdapter;
@@ -63,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitAnimalFormButton;
     ImageView animalImageView, addAnimal;
     static final int PICK_IMAGE_REQUEST = 1;
+
     Uri imageUri;
     String selectedAnimalId = null;
     final boolean[] isExpanded = {false};
@@ -78,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        usersRecyclerView = findViewById(R.id.usersRecyclerView);
+        btnAllUsers = findViewById(R.id.btnAllUsers);
+        usersList = new ArrayList<>();
+        usersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        userAdapter = new UserAdapter(usersList);
+        usersRecyclerView.setAdapter(userAdapter);
+        btnAllUsers.setOnClickListener(view -> loadUsers());
 
         myAnimalsTitle = findViewById(R.id.myAnimalsTitle);
         animalsView = findViewById(R.id.animalsView);
@@ -229,7 +244,21 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-
+    private void loadUsers() {
+        database.collection("users")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        usersList.clear();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            usersList.add(document);
+                        }
+                        userAdapter.notifyDataSetChanged();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Error loading users", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
     private void animateRecyclerViewHeight(int startHeightDp, int endHeightDp) {
         int startHeight = dpToPx(startHeightDp);
         int endHeight = dpToPx(endHeightDp);

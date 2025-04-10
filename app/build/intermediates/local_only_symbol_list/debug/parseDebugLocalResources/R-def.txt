@@ -34,6 +34,7 @@ id animalReproductiveStatus
 id animalWeight
 id animalsView
 id bottomGrid
+id btnAllUsers
 id btnLogin
 id btnRegister
 id btnRegisterGo
@@ -56,11 +57,14 @@ id main
 id myAnimalsTitle
 id settingsIcon
 id txtLog
+id usernameTextView
+id usersRecyclerView
 layout activity_login
 layout activity_main
 layout activity_register
 layout activity_settings
 layout item_animal
+layout item_user
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
