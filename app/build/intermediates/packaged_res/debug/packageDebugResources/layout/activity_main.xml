@@ -17,19 +17,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logout" />
+
+
     <ImageView
         android:id="@+id/viewProfile"
         android:layout_width="59dp"
         android:layout_height="53dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:clickable="true"
         android:contentDescription="View profile"
         android:focusable="true"
         android:src="@drawable/outline_face_unlock_24"
         app:layout_constraintEnd_toStartOf="@+id/logoutImage"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="@+id/btnAllUsers"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageView
         android:id="@+id/addAnimalButton"
