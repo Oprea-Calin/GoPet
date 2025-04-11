@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -47,23 +46,28 @@ public class MainActivity extends AppCompatActivity {
     ImageView logoutImage, settingsImage;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
-    RecyclerView animalsView, usersRecyclerView;
+    RecyclerView animalsView, usersRecyclerView, profileRecycleView;
     UserAdapter userAdapter;
+    ProfileAdapter profileAdapter;
     List<DocumentSnapshot> usersList;
     Button btnAllUsers;
-
-    NestedScrollView addAnimalFormLayout;
+    NestedScrollView addAnimalFormLayout, addUserFormLayout;
     FirebaseFirestore database;
     animalsListAdapter animals_listAdapter;
     ArrayList<animal> animals;
     EditText animalNameEdit, animalAgeEdit, animalBreedEdit;
+    EditText usernameEdit, quoteEdit;
+    ImageView profileImageView;
+    Button submitProfileUpdateButton,selectProfileImage;
+    Uri profileImageUri;
     EditText animalCategoryEdit, animalReproductiveStatusEdit, animalGenderEdit, animalWeightEdit, animalAllergiesEdit;
     Button submitAnimalFormButton;
-    ImageView animalImageView, addAnimal;
+    ImageView animalImageView, addAnimal, viewProfile;
     static final int PICK_IMAGE_REQUEST = 1;
 
     Uri imageUri;
+    boolean profileShown = false;
+
     String selectedAnimalId = null;
     final boolean[] isExpandedMyAnimals = {false};
     TextView myAnimalsTitle;
@@ -84,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
         usersList = new ArrayList<>();
         usersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         userAdapter = new UserAdapter(usersList);
+
         usersRecyclerView.setAdapter(userAdapter);
+
         btnAllUsers.setOnClickListener(view -> {
 
             if(usersRecyclerView.getVisibility() == View.VISIBLE)
@@ -94,30 +100,36 @@ public class MainActivity extends AppCompatActivity {
                 isExpandedMyAnimals[0] = true;
             }
             else{
-
-
+                if(profileShown==true)
+                {
+                    profileRecycleView.setVisibility(View.GONE);
+                    profileShown = false;
+                }
                 if(addAnimalFormLayout.getVisibility() == View.VISIBLE)
                 {
                     addAnimalFormLayout.setVisibility(View.GONE);
-
                 }
-                if(animalsView.getVisibility() == View.VISIBLE)
+                if(isExpandedMyAnimals[0]==true)
                 {
-                    if(isExpandedMyAnimals[0]==true)
-                    {
-                        animateAnimalRecyclerViewHeight(600,200);
-                        isExpandedMyAnimals[0] = false;
-                    }
-
+                    animateAnimalRecyclerViewHeight(600,200);
+                    isExpandedMyAnimals[0] = false;
                 }
-
-
                 loadUsers();
                 usersRecyclerView.setVisibility(View.VISIBLE);
             }
-
-
         });
+
+        profileRecycleView = findViewById(R.id.profileRecycleView);
+        viewProfile = findViewById(R.id.viewProfile);
+
+        usernameEdit = findViewById(R.id.usernameEdit);
+        quoteEdit =findViewById(R.id.quoteEdit);
+        profileImageView =findViewById(R.id.profileImageView);
+        selectProfileImage =findViewById(R.id.selectProfileImage);
+        submitProfileUpdateButton = findViewById(R.id.submitProfileUpdateButton);
+
+        selectProfileImage.setOnClickListener(v -> openImageChooser());
+        submitProfileUpdateButton.setOnClickListener(v -> updateProfile());
 
         myAnimalsTitle = findViewById(R.id.myAnimalsTitle);
         animalsView = findViewById(R.id.animalsView);
@@ -130,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
         animalGenderEdit = findViewById(R.id.animalGender);
         animalWeightEdit = findViewById(R.id.animalWeight);
         animalAllergiesEdit = findViewById(R.id.animalAllergies);
-
 
         animalsView = findViewById(R.id.animalsView);
         database = FirebaseFirestore.getInstance();
@@ -151,8 +162,12 @@ public class MainActivity extends AppCompatActivity {
                 },
                 animal -> { // editListener
 
+                    if(profileShown == true){
+                        profileRecycleView.setVisibility(View.GONE);
+                        profileShown=false;
+                    }
                     addAnimalFormLayout.setVisibility(View.VISIBLE);
-                    myAnimalsTitle.setEnabled(false);
+                    //myAnimalsTitle.setEnabled(false);
                     if (isExpandedMyAnimals[0]) {
                         animateAnimalRecyclerViewHeight(600, 200);
                         isExpandedMyAnimals[0] = false;
@@ -164,13 +179,12 @@ public class MainActivity extends AppCompatActivity {
 
         animalAgeEdit = findViewById(R.id.animalBirthDate);
         addAnimalFormLayout = findViewById(R.id.addAnimalFormScrollView);
-
+        addUserFormLayout = findViewById(R.id.addProfileFormLayout);
         animalBreedEdit = findViewById(R.id.animalBreed);
         animalNameEdit = findViewById(R.id.animalName);
         submitAnimalFormButton = findViewById(R.id.addAnimalFormButton);
 
         logoutImage = findViewById(R.id.logoutImage);
-        settingsImage = findViewById(R.id.settingsIcon);
         sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
         editor = sharedPreferences.edit();
         auth = FirebaseAuth.getInstance();
@@ -186,6 +200,8 @@ public class MainActivity extends AppCompatActivity {
                 animateAnimalRecyclerViewHeight(200, 600);
                 isExpandedMyAnimals[0] = true;
             } else {
+                profileRecycleView.setVisibility(View.GONE);
+                profileShown = false;
                 addAnimalFormLayout.setVisibility(View.VISIBLE);
                 usersRecyclerView.setVisibility(View.GONE);
                 if(animalsView.getVisibility() == View.VISIBLE)
@@ -214,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
         });
         RecyclerView finalAnimalsView = animalsView;
         myAnimalsTitle.setOnClickListener(v -> {
+
             if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
 
                 addAnimalFormLayout.setVisibility(View.GONE);
@@ -223,19 +240,11 @@ public class MainActivity extends AppCompatActivity {
                     animateAnimalRecyclerViewHeight(200, 600);
                     isExpandedMyAnimals[0] = true;
                 }
+                if(profileShown == true){
+                    profileRecycleView.setVisibility(View.GONE);
+                    profileShown=false;
+                }
             } else {
-//                int startHeight = animalsView.getHeight();
-//                int endHeight = isExpandedMyAnimals[0] ? dpToPx(200) : dpToPx(600);
-//
-//                ValueAnimator animator = ValueAnimator.ofInt(startHeight, endHeight);
-//                animator.setDuration(300);
-//                animator.addUpdateListener(animation -> {
-//                    ViewGroup.LayoutParams params = animalsView.getLayoutParams();
-//                    params.height = (int) animation.getAnimatedValue();
-//                    animalsView.setLayoutParams(params);
-//                });
-//                animator.start();
-
                 if(isExpandedMyAnimals[0])
                 {
                     animateAnimalRecyclerViewHeight(600,200);
@@ -245,16 +254,36 @@ public class MainActivity extends AppCompatActivity {
                     animateAnimalRecyclerViewHeight(200,600);
                     isExpandedMyAnimals[0] = true;
                 }
-
-
-
-
                 //isExpandedMyAnimals[0] = !isExpandedMyAnimals[0];
                 if(isExpandedMyAnimals[0])
                 {
                     usersRecyclerView.setVisibility(View.GONE);
                 }
             }
+        });
+        viewProfile.setOnClickListener(view -> {
+            if(profileShown == false) {
+                usersRecyclerView.setVisibility(View.GONE);
+                addAnimalFormLayout.setVisibility(View.GONE);
+                profileRecycleView.setVisibility(View.VISIBLE);
+                if(isExpandedMyAnimals[0] == true)
+                {
+                    animateAnimalRecyclerViewHeight(600,200);
+                    isExpandedMyAnimals[0]= false;
+                }
+
+                loadUserProfile();
+                profileShown = true;
+            }
+            else{
+                profileRecycleView.setVisibility(View.GONE);
+
+                profileShown=false;
+                animateAnimalRecyclerViewHeight(200,600);
+                isExpandedMyAnimals[0]= true;
+
+            }
+
         });
         submitAnimalFormButton.setOnClickListener(v -> {
 
@@ -271,16 +300,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         loadAnimals();
-        settingsImage.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent i = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
         logoutImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -291,7 +310,74 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+    private void updateProfile() {
+        String newUsername = usernameEdit.getText().toString();
+        String newQuote = quoteEdit.getText().toString();
 
+        if (newUsername.isEmpty() || newQuote.isEmpty()) {
+            Toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String base64Image = profileImageUri != null ? compressAndResizeImage(profileImageUri) : "";
+
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        database.collection("users").document(uid)
+                .update(
+                        "username", newUsername,
+                        "quote", newQuote,
+                        "base64Image", base64Image
+                )
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(MainActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
+                    loadUserProfile();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(MainActivity.this, "Error updating profile", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void loadUserProfile() {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+        database.collection("users")
+                .document(uid)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            String username = document.getString("username");
+                            String quote = document.getString("quote");
+                            String base64Image = document.getString("base64Image");
+
+                            if (base64Image != null && !base64Image.isEmpty()) {
+                                byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
+                                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                                profileImageView.setImageBitmap(decodedByte);
+                            }
+                            Profile profile = new Profile(username, quote, base64Image);
+
+                            List<Profile> profileList = new ArrayList<>();
+                            profileList.add(profile);
+                            setUpProfileRecyclerView(profileList);
+                        }
+                    } else {
+                        Toast.makeText(MainActivity.this, "Failed to load profile", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void setUpProfileRecyclerView(List<Profile> profileData) {
+        RecyclerView profileRecyclerView = findViewById(R.id.profileRecycleView);
+        profileRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        ProfileAdapter profileAdapter = new ProfileAdapter(profileData);
+        profileRecyclerView.setAdapter(profileAdapter);
+    }
     private void animateRecyclerViewHeight(View recyclerView, int startHeightDp, int endHeightDp) {
         int startHeight = dpToPx(startHeightDp);
         int endHeight = dpToPx(endHeightDp);
@@ -333,13 +419,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
     private int dpToPx(int dp) {
         float density = getResources().getDisplayMetrics().density;
         return Math.round(dp * density);
     }
-
     private void deleteAnimal(animal animal) {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -357,7 +440,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Eroare la ștergere", Toast.LENGTH_SHORT).show();
                 });
     }
-
     private void populateFormWithAnimal(animal animal) {
         if (isExpandedMyAnimals[0]) {
             animateAnimalRecyclerViewHeight(animalsView.getHeight(), dpToPx(200));
@@ -382,13 +464,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
     private void openImageChooser() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -397,7 +477,6 @@ public class MainActivity extends AppCompatActivity {
             animalImageView.setImageURI(imageUri);
         }
     }
-
     private String compressAndResizeImage(Uri imageUri) {
         try {
             InputStream inputStream = getContentResolver().openInputStream(imageUri);

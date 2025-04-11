@@ -8,25 +8,28 @@
     android:background="@drawable/main"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/settingsIcon"
-        android:layout_width="59dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@id/logoutImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings_icon" />
 
     <ImageView
         android:id="@+id/logoutImage"
         android:layout_width="59dp"
         android:layout_height="53dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logout" />
+    <ImageView
+        android:id="@+id/viewProfile"
+        android:layout_width="59dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:contentDescription="View profile"
+        android:focusable="true"
+        android:src="@drawable/outline_face_unlock_24"
+        app:layout_constraintEnd_toStartOf="@+id/logoutImage"
+        app:layout_constraintStart_toStartOf="@+id/btnAllUsers"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/addAnimalButton"
@@ -46,7 +49,7 @@
         android:layout_height="wrap_content"
         android:text="Load All Users"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/logoutImage" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/addAnimalFormScrollView"
@@ -146,6 +149,66 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/addProfileFormLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/animalsView"
+        app:layout_constraintTop_toBottomOf="@+id/addAnimalButton">
+    <LinearLayout
+        android:id="@+id/addUserFormLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="Profile Image" />
+
+        <EditText
+            android:id="@+id/usernameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Enter Username"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/quoteEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="Enter Quote"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/selectProfileImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="Select Profile Image" />
+
+        <Button
+            android:id="@+id/submitProfileUpdateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Update Profile" />
+
+    </LinearLayout>>
+    </androidx.core.widget.NestedScrollView>
+
+
     <ProgressBar
         android:id="@+id/loadingSpinner"
         android:layout_width="wrap_content"
@@ -176,6 +239,13 @@
         app:layout_constraintBottom_toTopOf="@+id/animalsView"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/profileRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/animalsView"
+        app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
+        app:layout_constraintTop_toBottomOf="@+id/btnAllUsers" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/usersRecyclerView"
         android:layout_width="match_parent"

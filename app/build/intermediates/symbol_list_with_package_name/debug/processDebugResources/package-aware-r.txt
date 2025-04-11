@@ -3244,6 +3244,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable outline_face_unlock_24
 drawable preference_list_divider_material
 drawable register
 drawable settings_icon
@@ -3327,6 +3328,8 @@ id addAnimalFormButton
 id addAnimalFormLayout
 id addAnimalFormScrollView
 id addImageButton
+id addProfileFormLayout
+id addUserFormLayout
 id adjust_height
 id adjust_width
 id alertTitle
@@ -3662,8 +3665,12 @@ id preferences_detail
 id preferences_header
 id preferences_sliding_pane_layout
 id pressed
+id profileImageView
+id profileRecycleView
 id progress_circular
 id progress_horizontal
+id quoteEdit
+id quoteTextView
 id radio
 id ratio
 id rectangles
@@ -3699,10 +3706,10 @@ id search_src_text
 id search_voice_btn
 id seekbar
 id seekbar_value
+id selectProfileImage
 id select_dialog_listview
 id selected
 id selection_type
-id settingsIcon
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3740,6 +3747,7 @@ id staticPostLayout
 id stop
 id stretch
 id submenuarrow
+id submitProfileUpdateButton
 id submit_area
 id supportScrollUp
 id switchWidget
@@ -3798,10 +3806,12 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id usernameEdit
 id usernameTextView
 id usersRecyclerView
 id vertical
 id vertical_only
+id viewProfile
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner

@@ -1,4 +1,4 @@
-// UserAdapter.java
+
 package com.example.gopet;
 
 import android.view.LayoutInflater;

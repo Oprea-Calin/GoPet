@@ -1,3 +1,0 @@
-com.example.gopet.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

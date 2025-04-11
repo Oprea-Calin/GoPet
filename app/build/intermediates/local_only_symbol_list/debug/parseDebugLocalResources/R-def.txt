@@ -16,6 +16,7 @@ drawable logo2
 drawable logoapp
 drawable logout
 drawable main
+drawable outline_face_unlock_24
 drawable register
 drawable settings_icon
 id addAnimalButton
@@ -23,6 +24,8 @@ id addAnimalFormButton
 id addAnimalFormLayout
 id addAnimalFormScrollView
 id addImageButton
+id addProfileFormLayout
+id addUserFormLayout
 id animalAllergies
 id animalBirthDate
 id animalBreed
@@ -55,10 +58,17 @@ id loadingSpinner
 id logoutImage
 id main
 id myAnimalsTitle
-id settingsIcon
+id profileImageView
+id profileRecycleView
+id quoteEdit
+id quoteTextView
+id selectProfileImage
+id submitProfileUpdateButton
 id txtLog
+id usernameEdit
 id usernameTextView
 id usersRecyclerView
+id viewProfile
 layout activity_login
 layout activity_main
 layout activity_register
