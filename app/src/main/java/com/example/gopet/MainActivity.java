@@ -375,9 +375,29 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView profileRecyclerView = findViewById(R.id.profileRecycleView);
         profileRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ProfileAdapter profileAdapter = new ProfileAdapter(profileData);
+        profileAdapter = new ProfileAdapter(profileData, profile -> {
+
+            
+            if (profileShown) {
+                profileRecycleView.setVisibility(View.GONE);
+                profileShown = false;
+            }
+
+            addUserFormLayout.setVisibility(View.VISIBLE);
+            usernameEdit.setText(profile.getUsername());
+            quoteEdit.setText(profile.getQuote());
+
+            if (profile.getBase64Image() != null && !profile.getBase64Image().isEmpty()) {
+                byte[] decodedString = Base64.decode(profile.getBase64Image(), Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                profileImageView.setImageBitmap(decodedByte);
+            } else {
+            }
+        });
+
         profileRecyclerView.setAdapter(profileAdapter);
     }
+
     private void animateRecyclerViewHeight(View recyclerView, int startHeightDp, int endHeightDp) {
         int startHeight = dpToPx(startHeightDp);
         int endHeight = dpToPx(endHeightDp);

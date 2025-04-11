@@ -14,15 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.List;
-
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder> {
 
     private List<Profile> profileData;
-    private OnUserClickListener listener;
+    private OnProfileClickListener listener;
 
-
-    public ProfileAdapter(List<Profile> profileData) {
+    public ProfileAdapter(List<Profile> profileData, OnProfileClickListener listener) {
         this.profileData = profileData;
+        this.listener = listener;
     }
 
     @Override
@@ -34,13 +33,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
     @Override
     public void onBindViewHolder(ProfileViewHolder holder, int position) {
         Profile profile = profileData.get(position);
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onUserClick(profile);
-            }
-        });
         holder.usernameTextView.setText(profile.getUsername());
-
         holder.quoteTextView.setText(profile.getQuote());
 
         String base64Image = profile.getBase64Image();
@@ -48,19 +41,26 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             holder.profileImageView.setImageBitmap(decodedByte);
-        } else {
         }
+
+        // Handle item click to open profile for editing
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onProfileClick(profile);
+            }
+        });
     }
-    public interface OnUserClickListener {
-        void onUserClick(Profile user);
-    }
+
     @Override
     public int getItemCount() {
         return profileData.size();
     }
 
-    public static class ProfileViewHolder extends RecyclerView.ViewHolder {
+    public interface OnProfileClickListener {
+        void onProfileClick(Profile profile); // Interface for handling clicks
+    }
 
+    public static class ProfileViewHolder extends RecyclerView.ViewHolder {
         TextView usernameTextView;
         TextView quoteTextView;
         ImageView profileImageView;
