@@ -233,6 +233,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
 
+                addUserFormLayout.setVisibility(View.GONE);
+                profileRecycleView.setVisibility(View.GONE);
+                profileShown = false;
                 addAnimalFormLayout.setVisibility(View.GONE);
                 myAnimalsTitle.setEnabled(true);
 
@@ -245,6 +248,9 @@ public class MainActivity extends AppCompatActivity {
                     profileShown=false;
                 }
             } else {
+                addUserFormLayout.setVisibility(View.GONE);
+                profileRecycleView.setVisibility(View.GONE);
+                profileShown = false;
                 if(isExpandedMyAnimals[0])
                 {
                     animateAnimalRecyclerViewHeight(600,200);
