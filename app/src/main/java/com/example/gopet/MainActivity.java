@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitAnimalFormButton;
     ImageView animalImageView, addAnimal, viewProfile;
     String existingBase64Image;
+    boolean isProfileImageSelected;
     static final int PICK_IMAGE_REQUEST = 1;
 
     Uri imageUri;
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         usersRecyclerView.setAdapter(userAdapter);
 
         btnAllUsers.setOnClickListener(view -> {
+            addUserFormLayout.setVisibility(View.GONE);
 
             if(usersRecyclerView.getVisibility() == View.VISIBLE)
             {
@@ -129,14 +131,19 @@ public class MainActivity extends AppCompatActivity {
         selectProfileImage =findViewById(R.id.selectProfileImage);
         submitProfileUpdateButton = findViewById(R.id.submitProfileUpdateButton);
 
-        selectProfileImage.setOnClickListener(v -> openImageChooser());
+        selectProfileImage.setOnClickListener(v -> {
+            isProfileImageSelected = true;
+            openImageChooser();
+        });
         submitProfileUpdateButton.setOnClickListener(v -> updateProfile());
 
         myAnimalsTitle = findViewById(R.id.myAnimalsTitle);
         animalsView = findViewById(R.id.animalsView);
         animalImageView = findViewById(R.id.animalImageView);
         Button selectImageButton = findViewById(R.id.addImageButton);
-        selectImageButton.setOnClickListener(v -> openImageChooser());
+        selectImageButton.setOnClickListener(v -> {
+            isProfileImageSelected = false;
+            openImageChooser();});
 
         animalCategoryEdit = findViewById(R.id.animalCategory);
         animalReproductiveStatusEdit = findViewById(R.id.animalReproductiveStatus);
@@ -194,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
         addAnimal = findViewById(R.id.addAnimalButton);
         addAnimal.setOnClickListener(v -> {
 
+            addUserFormLayout.setVisibility(View.GONE);
             usersRecyclerView.setVisibility(View.GONE);
             if (addAnimalFormLayout.getVisibility() == View.VISIBLE) {
 
@@ -334,6 +342,7 @@ public class MainActivity extends AppCompatActivity {
             if(existingBase64Image != null)
                 base64Image = existingBase64Image;
         }
+
 
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -509,10 +518,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            imageUri = data.getData();
-            profileImageUri = data.getData();
-            animalImageView.setImageURI(imageUri);
-            profileImageView.setImageURI(profileImageUri);
+            if(isProfileImageSelected == true)
+            {
+                profileImageUri = data.getData();
+                profileImageView.setImageURI(profileImageUri);
+
+            }
+            else{
+                imageUri = data.getData();
+                animalImageView.setImageURI(imageUri);
+            }
+
         }
     }
     private String compressAndResizeImage(Uri imageUri) {
