@@ -43,7 +43,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
             holder.profileImageView.setImageBitmap(decodedByte);
         }
 
-        // Handle item click to open profile for editing
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onProfileClick(profile);

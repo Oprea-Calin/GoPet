@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     EditText animalCategoryEdit, animalReproductiveStatusEdit, animalGenderEdit, animalWeightEdit, animalAllergiesEdit;
     Button submitAnimalFormButton;
     ImageView animalImageView, addAnimal, viewProfile;
+    String existingBase64Image;
     static final int PICK_IMAGE_REQUEST = 1;
 
     Uri imageUri;
@@ -325,7 +326,15 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        String base64Image = profileImageUri != null ? compressAndResizeImage(profileImageUri) : "";
+        //String base64Image = profileImageUri != null ? compressAndResizeImage(profileImageUri) : "";
+        String base64Image="";
+        if(profileImageUri  != null)
+            base64Image = compressAndResizeImage(profileImageUri);
+        else{
+            if(existingBase64Image != null)
+                base64Image = existingBase64Image;
+        }
+
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -339,6 +348,7 @@ public class MainActivity extends AppCompatActivity {
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(MainActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
                     loadUserProfile();
+                    addUserFormLayout.setVisibility(View.GONE);
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(MainActivity.this, "Error updating profile", Toast.LENGTH_SHORT).show();
@@ -359,7 +369,7 @@ public class MainActivity extends AppCompatActivity {
                             String username = document.getString("username");
                             String quote = document.getString("quote");
                             String base64Image = document.getString("base64Image");
-
+                            existingBase64Image = document.getString("base64Image");
                             if (base64Image != null && !base64Image.isEmpty()) {
                                 byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
                                 Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
@@ -500,7 +510,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
+            profileImageUri = data.getData();
             animalImageView.setImageURI(imageUri);
+            profileImageView.setImageURI(profileImageUri);
         }
     }
     private String compressAndResizeImage(Uri imageUri) {
