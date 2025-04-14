@@ -3247,6 +3247,7 @@ drawable notify_panel_notification_icon_bg
 drawable outline_face_unlock_24
 drawable preference_list_divider_material
 drawable register
+drawable rounded_corners
 drawable settings_icon
 drawable test_level_drawable
 drawable tooltip_frame_dark

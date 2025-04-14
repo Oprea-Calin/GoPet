@@ -18,6 +18,7 @@ drawable logout
 drawable main
 drawable outline_face_unlock_24
 drawable register
+drawable rounded_corners
 drawable settings_icon
 id addAnimalButton
 id addAnimalFormButton

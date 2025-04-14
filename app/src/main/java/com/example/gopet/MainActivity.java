@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                 },
                 animal -> { // editListener
 
+                    usersRecyclerView.setVisibility(View.GONE);
                     if(profileShown == true){
                         profileRecycleView.setVisibility(View.GONE);
                         profileShown=false;

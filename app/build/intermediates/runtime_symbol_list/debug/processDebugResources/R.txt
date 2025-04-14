@@ -3246,6 +3246,7 @@ int drawable notify_panel_notification_icon_bg 0x7f080105
 int drawable outline_face_unlock_24 0x7f080106
 int drawable preference_list_divider_material 0x7f080107
 int drawable register 0x7f080108
+int drawable rounded_corners 0x7f08010d
 int drawable settings_icon 0x7f080109
 int drawable test_level_drawable 0x7f08010a
 int drawable tooltip_frame_dark 0x7f08010b
