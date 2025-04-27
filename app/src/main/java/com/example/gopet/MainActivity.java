@@ -27,12 +27,10 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -90,9 +88,11 @@ public class MainActivity extends AppCompatActivity {
         usersList = new ArrayList<>();
         usersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         userAdapter = new UserAdapter(usersList);
+        addUserFormLayout = findViewById(R.id.addProfileFormLayout);
 
         usersRecyclerView.setAdapter(userAdapter);
 
+        usersRecyclerView.setVisibility(View.GONE);
         btnAllUsers.setOnClickListener(view -> {
             addUserFormLayout.setVisibility(View.GONE);
 
@@ -169,13 +169,14 @@ public class MainActivity extends AppCompatActivity {
                             .show();
                 },
                 animal -> { // editListener
-
                     usersRecyclerView.setVisibility(View.GONE);
                     if(profileShown == true){
                         profileRecycleView.setVisibility(View.GONE);
                         profileShown=false;
                     }
                     addAnimalFormLayout.setVisibility(View.VISIBLE);
+                    addUserFormLayout.setVisibility(View.GONE);
+                    profileShown = false;
                     //myAnimalsTitle.setEnabled(false);
                     if (isExpandedMyAnimals[0]) {
                         animateAnimalRecyclerViewHeight(600, 200);
@@ -188,7 +189,6 @@ public class MainActivity extends AppCompatActivity {
 
         animalAgeEdit = findViewById(R.id.animalBirthDate);
         addAnimalFormLayout = findViewById(R.id.addAnimalFormScrollView);
-        addUserFormLayout = findViewById(R.id.addProfileFormLayout);
         animalBreedEdit = findViewById(R.id.animalBreed);
         animalNameEdit = findViewById(R.id.animalName);
         submitAnimalFormButton = findViewById(R.id.addAnimalFormButton);
@@ -278,6 +278,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         viewProfile.setOnClickListener(view -> {
+
+
+
             if(profileShown == false) {
                 usersRecyclerView.setVisibility(View.GONE);
                 addAnimalFormLayout.setVisibility(View.GONE);
@@ -293,6 +296,8 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 profileRecycleView.setVisibility(View.GONE);
+                addUserFormLayout.setVisibility(View.GONE);
+
 
                 profileShown=false;
                 animateAnimalRecyclerViewHeight(200,600);
@@ -308,13 +313,16 @@ public class MainActivity extends AppCompatActivity {
             String breed = animalBreedEdit.getText().toString();
             if(name.isEmpty() || age.isEmpty() || breed.isEmpty())
             {
-                Toast.makeText(this, "Completeaza toate detaliile!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Completați toate detaliile!", Toast.LENGTH_SHORT).show();
             }
             else{
                 submitAnimalFormButton.setEnabled(false);
                 saveAnimaltoDatabase(name, age, breed);
             }
         });
+        animateAnimalRecyclerViewHeight(200, 600);
+        isExpandedMyAnimals[0] = true;
+
         loadAnimals();
         logoutImage.setOnClickListener(new View.OnClickListener()
         {
@@ -331,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
         String newQuote = quoteEdit.getText().toString();
 
         if (newUsername.isEmpty() || newQuote.isEmpty()) {
-            Toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Completați toate detaliile despre animăluț!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -359,6 +367,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
                     loadUserProfile();
                     addUserFormLayout.setVisibility(View.GONE);
+
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(MainActivity.this, "Error updating profile", Toast.LENGTH_SHORT).show();

@@ -49,7 +49,7 @@
         android:id="@+id/btnAllUsers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Load All Users"
+        android:text="Toți utilizatorii"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoutImage" />
 
@@ -61,9 +61,9 @@
         android:overScrollMode="always"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/animalsView"
-        app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addAnimalButton">
+        app:layout_constraintTop_toBottomOf="@+id/btnAllUsers">
 
         <LinearLayout
             android:id="@+id/addAnimalFormLayout"
@@ -129,25 +129,27 @@
                 android:hint="Alergii (dacă există)"
                 android:inputType="text" />
 
-            <ImageView
-                android:id="@+id/animalImageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_horizontal" />
-
             <Button
                 android:id="@+id/addImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Select an image" />
+                android:text="Selectează imagine" />
 
             <Button
                 android:id="@+id/addAnimalFormButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Add new pet" />
+                android:text="Adaugă animăluț" />
+
+            <ImageView
+                android:id="@+id/animalImageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal" />
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -180,7 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Enter Username"
+            android:hint="Nume utilizator"
             android:textSize="18sp" />
 
         <EditText
@@ -188,7 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:hint="Enter Quote"
+            android:hint="Un citat care te inspiră"
             android:textSize="14sp" />
 
         <Button
@@ -197,7 +199,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="Select Profile Image" />
+            android:text="Adaugă imagine" />
 
         <Button
             android:id="@+id/submitProfileUpdateButton"
@@ -205,7 +207,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:text="Update Profile" />
+            android:text="Actualizeaza profil" />
 
     </LinearLayout>>
     </androidx.core.widget.NestedScrollView>
@@ -232,7 +234,7 @@
         android:paddingEnd="16dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="My Animals"
+        android:text="Animăluțele mele"
         android:textColor="#333333"
         android:textSize="20sp"
         android:textStyle="bold"
