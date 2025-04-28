@@ -6,6 +6,7 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,7 +43,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             holder.profileImageView.setImageBitmap(decodedByte);
         }
-
+        Button btnFriendRequest = holder.itemView.findViewById(R.id.btnFriendRequest);
+        if (btnFriendRequest != null) {
+            btnFriendRequest.setVisibility(View.GONE); 
+        }
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onProfileClick(profile);
@@ -56,7 +60,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
     }
 
     public interface OnProfileClickListener {
-        void onProfileClick(Profile profile); // Interface for handling clicks
+        void onProfileClick(Profile profile);
     }
 
     public static class ProfileViewHolder extends RecyclerView.ViewHolder {

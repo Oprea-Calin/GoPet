@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView animalsView, usersRecyclerView, profileRecycleView;
     UserAdapter userAdapter;
     ProfileAdapter profileAdapter;
-    List<DocumentSnapshot> usersList;
+    List<DocumentSnapshot> usersList,friendsList;
     Button btnAllUsers;
     NestedScrollView addAnimalFormLayout, addUserFormLayout;
     FirebaseFirestore database;
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     EditText animalNameEdit, animalAgeEdit, animalBreedEdit;
     EditText usernameEdit, quoteEdit;
     ImageView profileImageView;
-    Button submitProfileUpdateButton,selectProfileImage;
+    Button submitProfileUpdateButton,selectProfileImage, sendFriendRequest;
     Uri profileImageUri;
     EditText animalCategoryEdit, animalReproductiveStatusEdit, animalGenderEdit, animalWeightEdit, animalAllergiesEdit;
     Button submitAnimalFormButton;
@@ -87,7 +87,11 @@ public class MainActivity extends AppCompatActivity {
         btnAllUsers = findViewById(R.id.btnAllUsers);
         usersList = new ArrayList<>();
         usersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        userAdapter = new UserAdapter(usersList);
+        friendsList = new ArrayList<>();
+        userAdapter = new UserAdapter(usersList, friendsList, user -> {
+            addFriend(user);
+        });
+        loadFriends();
         addUserFormLayout = findViewById(R.id.addProfileFormLayout);
 
         usersRecyclerView.setAdapter(userAdapter);
@@ -119,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 loadUsers();
                 usersRecyclerView.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -371,6 +376,53 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(MainActivity.this, "Error updating profile", Toast.LENGTH_SHORT).show();
+                });
+    }
+    private void addFriend(DocumentSnapshot user) {
+        if (!friendsList.contains(user)) {
+            friendsList.add(user);
+            saveFriendToDatabase(user.getId());
+            Toast.makeText(this, user.getString("username") + " adăugat la prieteni!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Deja este în lista ta de prieteni.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void saveFriendToDatabase(String friendId) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        Friend friend = new Friend(friendId, "pending");
+
+        database.collection("users")
+                .document(uid)
+                .collection("friends")
+                .document(friendId)
+                .set(friend)
+                .addOnSuccessListener(aVoid -> {
+                    loadFriends();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(MainActivity.this, "Eroare la salvarea prietenului!", Toast.LENGTH_SHORT).show();
+                });
+    }
+    private void loadFriends() {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        database.collection("users")
+                .document(uid)
+                .collection("friends")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        friendsList.clear();
+                        for (DocumentSnapshot document : task.getResult()) {
+                            friendsList.add(document);
+                        }
+                        loadUsers();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Eroare la încărcarea prietenilor!", Toast.LENGTH_SHORT).show();
+                    }
                 });
     }
 

@@ -39,6 +39,7 @@ id animalWeight
 id animalsView
 id bottomGrid
 id btnAllUsers
+id btnFriendRequest
 id btnLogin
 id btnRegister
 id btnRegisterGo

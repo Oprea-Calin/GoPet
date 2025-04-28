@@ -3379,6 +3379,7 @@ int id browser_actions_menu_item_text 0x7f09007c
 int id browser_actions_menu_items 0x7f09007d
 int id browser_actions_menu_view 0x7f09007e
 int id btnAllUsers 0x7f09007f
+int id btnFriendRequest 0x7f090243
 int id btnLogin 0x7f090080
 int id btnRegister 0x7f090081
 int id btnRegisterGo 0x7f090082

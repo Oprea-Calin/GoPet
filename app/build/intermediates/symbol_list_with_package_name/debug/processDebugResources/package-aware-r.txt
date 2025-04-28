@@ -3380,6 +3380,7 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id btnAllUsers
+id btnFriendRequest
 id btnLogin
 id btnRegister
 id btnRegisterGo
