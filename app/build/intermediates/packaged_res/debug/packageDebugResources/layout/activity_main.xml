@@ -163,53 +163,55 @@
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/animalsView"
         app:layout_constraintTop_toBottomOf="@+id/addAnimalButton">
-    <LinearLayout
-        android:id="@+id/addUserFormLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/profileImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:contentDescription="Profile Image" />
-
-        <EditText
-            android:id="@+id/usernameEdit"
+        <LinearLayout
+            android:id="@+id/addUserFormLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Nume utilizator"
-            android:textSize="18sp" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <EditText
-            android:id="@+id/quoteEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:hint="Un citat care te inspiră"
-            android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:contentDescription="Profile Image" />
 
-        <Button
-            android:id="@+id/selectProfileImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:text="Adaugă imagine" />
+            <EditText
+                android:id="@+id/usernameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Nume utilizator"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/submitProfileUpdateButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="Actualizeaza profil" />
+            <EditText
+                android:id="@+id/quoteEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="Un citat care te inspiră"
+                android:textSize="14sp" />
 
-    </LinearLayout>>
+            <Button
+                android:id="@+id/selectProfileImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Adaugă imagine" />
+
+            <Button
+                android:id="@+id/submitProfileUpdateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="Actualizeaza profil" />
+
+        </LinearLayout>
+        >
     </androidx.core.widget.NestedScrollView>
 
 
@@ -217,46 +219,54 @@
         android:id="@+id/loadingSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/addAnimalFormScrollView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/addAnimalFormScrollView" />
 
     <TextView
         android:id="@+id/myAnimalsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_my_animals_label"
         android:clickable="true"
+        android:elevation="4dp"
         android:focusable="true"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:layout_marginTop="10dp"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp"
         android:text="Animăluțele mele"
         android:textColor="#333333"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@drawable/bg_my_animals_label"
-        android:elevation="4dp"
         app:layout_constraintBottom_toTopOf="@+id/animalsView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/profileRecycleView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/animalsView"
-        app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/myAnimalsTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAllUsers" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/usersRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/animalsView"
-        app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/myAnimalsTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAllUsers" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/animalsView"
         android:layout_width="0dp"
@@ -272,6 +282,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
