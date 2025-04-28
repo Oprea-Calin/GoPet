@@ -106,8 +106,49 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
 
         checkForShareRequest(userId, holder);
+        checkIfShareAccepted(userId, holder);
+
     }
 
+    private void checkIfShareAccepted(String userId, UserViewHolder holder) {
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(userId)
+                .collection("sharedAnimalsRequests")
+                .document(currentUserId)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        String status = documentSnapshot.getString("status");
+                        if ("accepted".equals(status)) {
+                            holder.btnCancelShare.setVisibility(View.VISIBLE);
+                            holder.btnCancelShare.setOnClickListener(v -> cancelShare(userId, holder));
+                        } else {
+                            holder.btnCancelShare.setVisibility(View.GONE);
+                        }
+                    } else {
+                        holder.btnCancelShare.setVisibility(View.GONE);
+                    }
+                });
+    }
+    private void cancelShare(String userId, UserViewHolder holder) {
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(userId)
+                .collection("sharedAnimalsRequests")
+                .document(currentUserId)
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(holder.itemView.getContext(), "Partajarea a fost anulată.", Toast.LENGTH_SHORT).show();
+                    holder.btnCancelShare.setVisibility(View.GONE);
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(holder.itemView.getContext(), "Eroare la anularea partajării.", Toast.LENGTH_SHORT).show();
+                });
+    }
 
     private void checkForShareRequest(String fromUserId, UserViewHolder holder) {
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -165,7 +206,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public static class UserViewHolder extends RecyclerView.ViewHolder {
         TextView usernameTextView;
         ImageView profileImageView;
-        Button btnFriendRequest, btnShareAnimals, btnAcceptShare;
+        Button btnFriendRequest, btnShareAnimals, btnAcceptShare, btnCancelShare;
 
         public UserViewHolder(View itemView) {
             super(itemView);
@@ -174,6 +215,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             btnFriendRequest = itemView.findViewById(R.id.btnFriendRequest);
             btnShareAnimals = itemView.findViewById(R.id.btnShareAnimals);
             btnAcceptShare = itemView.findViewById(R.id.btnAcceptShare);
+            btnCancelShare = itemView.findViewById(R.id.btnCancelShare);
+
         }
     }
     public interface OnReloadAnimalsListener{

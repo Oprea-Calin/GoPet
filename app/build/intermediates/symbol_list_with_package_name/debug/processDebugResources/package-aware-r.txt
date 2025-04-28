@@ -3381,6 +3381,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btnAcceptShare
 id btnAllUsers
+id btnCancelShare
 id btnFriendRequest
 id btnLogin
 id btnRegister

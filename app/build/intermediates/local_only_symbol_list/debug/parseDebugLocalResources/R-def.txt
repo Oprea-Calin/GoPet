@@ -40,6 +40,7 @@ id animalsView
 id bottomGrid
 id btnAcceptShare
 id btnAllUsers
+id btnCancelShare
 id btnFriendRequest
 id btnLogin
 id btnRegister
