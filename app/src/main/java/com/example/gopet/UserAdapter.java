@@ -25,6 +25,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     private List<DocumentSnapshot> users;
     private List<DocumentSnapshot> friends;
     private OnAddFriendClickListener listener;
+    private OnReloadAnimalsListener reloadAnimalsListener;
 
     public UserAdapter(List<DocumentSnapshot> users,List<DocumentSnapshot> friends, OnAddFriendClickListener listener) {
         this.users = users;
@@ -147,8 +148,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(holder.itemView.getContext(), "Partajare acceptată!", Toast.LENGTH_SHORT).show();
                     holder.btnAcceptShare.setVisibility(View.GONE);
-                    if (holder.itemView.getContext() instanceof MainActivity) {
-                        ((MainActivity) holder.itemView.getContext()).loadAnimals();
+                    if (reloadAnimalsListener != null) {
+                        reloadAnimalsListener.onReloadAnimals();
                     }
                 })
                 .addOnFailureListener(e -> {
@@ -175,7 +176,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             btnAcceptShare = itemView.findViewById(R.id.btnAcceptShare);
         }
     }
-
+    public interface OnReloadAnimalsListener{
+        void onReloadAnimals();
+    }
+    public void setOnReloadAnimalsListener(OnReloadAnimalsListener reloadAnimalsListener) {
+        this.reloadAnimalsListener = reloadAnimalsListener;
+    }
     public interface OnAddFriendClickListener {
         void onAddFriendClicked(DocumentSnapshot user);
         void onShareAnimalsClicked(DocumentSnapshot user);

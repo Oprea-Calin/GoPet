@@ -99,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
                 shareAnimalsWithFriend(user);
             }
         });
-
+        userAdapter.setOnReloadAnimalsListener(() -> {
+            loadAnimals();
+        });
         loadFriends();
         addUserFormLayout = findViewById(R.id.addProfileFormLayout);
 
@@ -872,7 +874,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void loadAnimals() {
+    private void loadAnimals() {
         ProgressBar loadingSpinner = findViewById(R.id.loadingSpinner);
         loadingSpinner.setVisibility(View.VISIBLE);
 
