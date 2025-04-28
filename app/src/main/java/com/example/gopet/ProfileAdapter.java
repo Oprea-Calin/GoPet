@@ -45,7 +45,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         }
         Button btnFriendRequest = holder.itemView.findViewById(R.id.btnFriendRequest);
         if (btnFriendRequest != null) {
-            btnFriendRequest.setVisibility(View.GONE); 
+            btnFriendRequest.setVisibility(View.GONE);
         }
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {

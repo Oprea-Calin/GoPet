@@ -72,9 +72,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                     holder.btnFriendRequest.setEnabled(false);
 
                 } else if ("confirmed".equals(friendStatus)) {
-                    holder.btnFriendRequest.setVisibility(View.VISIBLE);
-                    holder.btnFriendRequest.setText("Prieteni");
-                    holder.btnFriendRequest.setEnabled(false);
+                    holder.btnFriendRequest.setVisibility(View.GONE);
                 }
             } else {
                 holder.btnFriendRequest.setVisibility(View.VISIBLE);

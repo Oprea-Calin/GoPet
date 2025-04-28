@@ -389,22 +389,52 @@ public class MainActivity extends AppCompatActivity {
     }
     private void saveFriendToDatabase(String friendId) {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        Friend friend = new Friend(friendId, "pending");
 
+        // Căutăm dacă există cerere de la acel user către mine
         database.collection("users")
-                .document(uid)
-                .collection("friends")
                 .document(friendId)
-                .set(friend)
-                .addOnSuccessListener(aVoid -> {
-                    loadFriends();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(MainActivity.this, "Eroare la salvarea prietenului!", Toast.LENGTH_SHORT).show();
+                .collection("friends")
+                .document(uid)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists() && "pending".equals(documentSnapshot.getString("status"))) {
+                        // Dacă există deja cerere pending de la el către mine
+                        // Confirmăm prietenia pentru amândoi
+                        database.collection("users")
+                                .document(uid)
+                                .collection("friends")
+                                .document(friendId)
+                                .set(new Friend(friendId, "confirmed"));
+
+                        database.collection("users")
+                                .document(friendId)
+                                .collection("friends")
+                                .document(uid)
+                                .update("status", "confirmed");
+
+                        Toast.makeText(MainActivity.this, "Acum sunteți prieteni!", Toast.LENGTH_SHORT).show();
+                        loadFriends();
+
+                    } else {
+                        // Dacă nu există, trimitem cerere normală (pending)
+                        Friend friend = new Friend(friendId, "pending");
+                        database.collection("users")
+                                .document(uid)
+                                .collection("friends")
+                                .document(friendId)
+                                .set(friend)
+                                .addOnSuccessListener(aVoid -> {
+                                    Toast.makeText(MainActivity.this, "Cerere trimisă!", Toast.LENGTH_SHORT).show();
+                                    loadFriends();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(MainActivity.this, "Eroare la trimiterea cererii!", Toast.LENGTH_SHORT).show();
+                                });
+                    }
                 });
     }
+
     private void loadFriends() {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -419,7 +449,7 @@ public class MainActivity extends AppCompatActivity {
                         for (DocumentSnapshot document : task.getResult()) {
                             friendsList.add(document);
                         }
-                        loadUsers();
+                        userAdapter.notifyDataSetChanged();
                     } else {
                         Toast.makeText(MainActivity.this, "Eroare la încărcarea prietenilor!", Toast.LENGTH_SHORT).show();
                     }
