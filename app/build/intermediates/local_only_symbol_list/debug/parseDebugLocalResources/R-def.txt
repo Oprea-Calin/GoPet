@@ -38,11 +38,13 @@ id animalReproductiveStatus
 id animalWeight
 id animalsView
 id bottomGrid
+id btnAcceptShare
 id btnAllUsers
 id btnFriendRequest
 id btnLogin
 id btnRegister
 id btnRegisterGo
+id btnShareAnimals
 id checkBox
 id inConfirmPassword
 id inEmail
@@ -55,6 +57,7 @@ id itemCategory
 id itemGender
 id itemName
 id itemReproductiveStatus
+id itemSharedBy
 id itemWeight
 id loadingSpinner
 id logoutImage

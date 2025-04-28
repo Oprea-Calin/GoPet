@@ -11,6 +11,24 @@ public class animal {
     String gender;
     Float weight;
     String allergies;
+    boolean isShared;
+
+    String sharedFromUserId;
+    public String getSharedFromUsername() {
+        return sharedFromUserId;
+    }
+
+    public void setSharedFromUsername(String sharedFromUsername) {
+        this.sharedFromUserId = sharedFromUsername;
+    }
+    public boolean isShared() {
+        return isShared;
+    }
+
+    public void setShared(boolean shared) {
+        isShared = shared;
+    }
+
     public String getCalculatedAge() {
         return calculatedAge;
     }

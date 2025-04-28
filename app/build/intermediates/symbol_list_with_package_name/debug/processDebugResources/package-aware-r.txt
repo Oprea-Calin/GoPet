@@ -3379,11 +3379,13 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btnAcceptShare
 id btnAllUsers
 id btnFriendRequest
 id btnLogin
 id btnRegister
 id btnRegisterGo
+id btnShareAnimals
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3530,6 +3532,7 @@ id itemCategory
 id itemGender
 id itemName
 id itemReproductiveStatus
+id itemSharedBy
 id itemWeight
 id item_touch_helper_previous_elevation
 id jumpToEnd

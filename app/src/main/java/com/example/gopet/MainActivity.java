@@ -88,9 +88,18 @@ public class MainActivity extends AppCompatActivity {
         usersList = new ArrayList<>();
         usersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         friendsList = new ArrayList<>();
-        userAdapter = new UserAdapter(usersList, friendsList, user -> {
-            addFriend(user);
+        userAdapter = new UserAdapter(usersList, friendsList, new UserAdapter.OnAddFriendClickListener() {
+            @Override
+            public void onAddFriendClicked(DocumentSnapshot user) {
+                addFriend(user);
+            }
+
+            @Override
+            public void onShareAnimalsClicked(DocumentSnapshot user) {
+                shareAnimalsWithFriend(user);
+            }
         });
+
         loadFriends();
         addUserFormLayout = findViewById(R.id.addProfileFormLayout);
 
@@ -378,6 +387,25 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error updating profile", Toast.LENGTH_SHORT).show();
                 });
     }
+    private void shareAnimalsWithFriend(DocumentSnapshot friendUser) {
+        String friendId = friendUser.getId();
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+        database.collection("users")
+                .document(friendId)
+                .collection("sharedAnimalsRequests")
+                .document(currentUserId)
+                .set(new SharedAnimalsRequest(currentUserId, "pending"))
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(this, "Solicitare de partajare trimisă!", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Eroare la trimiterea solicitării!", Toast.LENGTH_SHORT).show();
+                });
+    }
+
     private void addFriend(DocumentSnapshot user) {
         if (!friendsList.contains(user)) {
             friendsList.add(user);
@@ -391,7 +419,7 @@ public class MainActivity extends AppCompatActivity {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseFirestore database = FirebaseFirestore.getInstance();
 
-        // Căutăm dacă există cerere de la acel user către mine
+
         database.collection("users")
                 .document(friendId)
                 .collection("friends")
@@ -399,8 +427,6 @@ public class MainActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists() && "pending".equals(documentSnapshot.getString("status"))) {
-                        // Dacă există deja cerere pending de la el către mine
-                        // Confirmăm prietenia pentru amândoi
                         database.collection("users")
                                 .document(uid)
                                 .collection("friends")
@@ -417,7 +443,7 @@ public class MainActivity extends AppCompatActivity {
                         loadFriends();
 
                     } else {
-                        // Dacă nu există, trimitem cerere normală (pending)
+                        //pending
                         Friend friend = new Friend(friendId, "pending");
                         database.collection("users")
                                 .document(uid)
@@ -656,7 +682,6 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-
     private String imageUriToBase64(Uri uri) {
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
@@ -847,42 +872,84 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void loadAnimals() {
+    public void loadAnimals() {
         ProgressBar loadingSpinner = findViewById(R.id.loadingSpinner);
         loadingSpinner.setVisibility(View.VISIBLE);
 
+        animals.clear();
+
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        database = FirebaseFirestore.getInstance();
+
         database.collection("users").document(uid).collection("Animals")
                 .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        animals.clear();
-                        for (DocumentSnapshot document : task.getResult()) {
-                            animal animal = document.toObject(animal.class);
-                            if (animal != null) {
-                                animal.setId(document.getId());
-                                if (animal.getAge() != null && !animal.getAge().isEmpty()) {
-                                    String varstaCalculata = calculeazaVarstaDinData(animal.getAge());
-                                    animal.setCalculatedAge(varstaCalculata);
-                                }
-
-                                if (animal.getBase64Image() != null) {
-                                    byte[] decodedString = Base64.decode(animal.getBase64Image(), Base64.DEFAULT);
-                                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                                    animal.setBase64Image(animal.getBase64Image());
-                                }
-                                animals.add(animal);
+                .addOnSuccessListener(task -> {
+                    for (DocumentSnapshot document : task.getDocuments()) {
+                        animal animal = document.toObject(animal.class);
+                        if (animal != null) {
+                            animal.setId(document.getId());
+                            if (animal.getAge() != null && !animal.getAge().isEmpty()) {
+                                String varstaCalculata = calculeazaVarstaDinData(animal.getAge());
+                                animal.setCalculatedAge(varstaCalculata);
                             }
+                            animal.setShared(false);
+                            animals.add(animal);
                         }
-                        animals_listAdapter.notifyDataSetChanged();
-                    } else {
-                        Log.e("Firestore", "error loading animals", task.getException());
-                        Toast.makeText(MainActivity.this, "Eroare la incarcarea animalelor!", Toast.LENGTH_SHORT).show();
                     }
 
+
+                    database.collection("users").document(uid).collection("sharedAnimalsRequests")
+                            .whereEqualTo("status", "accepted")
+                            .get()
+                            .addOnSuccessListener(requestsTask -> {
+                                List<DocumentSnapshot> shareRequests = requestsTask.getDocuments();
+
+                                if (!shareRequests.isEmpty()) {
+                                    for (DocumentSnapshot requestDoc : shareRequests) {
+                                        String fromUserId = requestDoc.getId();
+
+                                        database.collection("users").document(fromUserId)
+                                                .get()
+                                                .addOnSuccessListener(userDoc -> {
+                                                    String fromUsername = userDoc.getString("username");
+
+                                                    database.collection("users").document(fromUserId).collection("Animals")
+                                                            .get()
+                                                            .addOnSuccessListener(sharedAnimalsTask -> {
+                                                                for (DocumentSnapshot sharedAnimalDoc : sharedAnimalsTask.getDocuments()) {
+                                                                    animal sharedAnimal = sharedAnimalDoc.toObject(animal.class);
+                                                                    if (sharedAnimal != null) {
+                                                                        sharedAnimal.setId(sharedAnimalDoc.getId());
+                                                                        if (sharedAnimal.getAge() != null && !sharedAnimal.getAge().isEmpty()) {
+                                                                            String varstaCalculata = calculeazaVarstaDinData(sharedAnimal.getAge());
+                                                                            sharedAnimal.setCalculatedAge(varstaCalculata);
+                                                                        }
+                                                                        sharedAnimal.setShared(true);
+                                                                        sharedAnimal.setSharedFromUsername(fromUsername);
+                                                                        animals.add(sharedAnimal);
+                                                                    }
+                                                                }
+                                                                animals_listAdapter.notifyDataSetChanged();
+                                                            });
+                                                });
+                                    }
+                                } else {
+                                    animals_listAdapter.notifyDataSetChanged();
+                                }
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(MainActivity.this, "Eroare la încărcarea cererilor de partajare", Toast.LENGTH_SHORT).show();
+                            });
+
                     loadingSpinner.setVisibility(View.GONE);
+                })
+                .addOnFailureListener(e -> {
+                    loadingSpinner.setVisibility(View.GONE);
+                    Toast.makeText(MainActivity.this, "Eroare la încărcarea animalelor!", Toast.LENGTH_SHORT).show();
                 });
     }
+
+
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();

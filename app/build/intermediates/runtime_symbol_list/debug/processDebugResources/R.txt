@@ -3378,11 +3378,13 @@ int id browser_actions_menu_item_icon 0x7f09007b
 int id browser_actions_menu_item_text 0x7f09007c
 int id browser_actions_menu_items 0x7f09007d
 int id browser_actions_menu_view 0x7f09007e
+int id btnAcceptShare 0x7f090244
 int id btnAllUsers 0x7f09007f
 int id btnFriendRequest 0x7f090243
 int id btnLogin 0x7f090080
 int id btnRegister 0x7f090081
 int id btnRegisterGo 0x7f090082
+int id btnShareAnimals 0x7f090245
 int id buttonPanel 0x7f090083
 int id cache_measures 0x7f090084
 int id callMeasure 0x7f090085
@@ -3529,6 +3531,7 @@ int id itemCategory 0x7f090111
 int id itemGender 0x7f090112
 int id itemName 0x7f090113
 int id itemReproductiveStatus 0x7f090114
+int id itemSharedBy 0x7f090246
 int id itemWeight 0x7f090115
 int id item_touch_helper_previous_elevation 0x7f090116
 int id jumpToEnd 0x7f090117

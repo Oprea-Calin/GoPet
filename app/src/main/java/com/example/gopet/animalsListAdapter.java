@@ -64,6 +64,13 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         } else {
             holder.base64Image.setImageResource(R.drawable.cat);
         }
+        if (canimal.isShared()) {
+            holder.sharedBy.setVisibility(View.VISIBLE);
+            holder.sharedBy.setText("Partajat de: " + canimal.getSharedFromUsername());
+        } else {
+            holder.sharedBy.setVisibility(View.GONE);
+        }
+
         holder.itemView.setOnClickListener(v -> {
             new android.app.AlertDialog.Builder(context)
                     .setTitle("Alege acțiunea pentru " + canimal.getName())
@@ -124,7 +131,7 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, breed, age, category, gender, weight, reproductiveStatus, allergies;
+        TextView name, breed, age, category, gender, weight, reproductiveStatus, allergies, sharedBy;
         ImageView base64Image;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -137,6 +144,7 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
             reproductiveStatus = itemView.findViewById(R.id.itemReproductiveStatus);
             allergies = itemView.findViewById(R.id.itemAllergies);
             base64Image = itemView.findViewById(R.id.animalImageView);
+            sharedBy = itemView.findViewById(R.id.itemSharedBy);
         }
     }
 }

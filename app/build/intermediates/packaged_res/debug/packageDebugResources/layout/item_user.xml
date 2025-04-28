@@ -35,11 +35,24 @@
         android:text=""
         android:textSize="14sp"
         android:layout_marginTop="4dp" />
+
         <Button
             android:id="@+id/btnFriendRequest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adaugă în lista de prieteni" />
+        <Button
+            android:id="@+id/btnShareAnimals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partajează Animale"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/btnAcceptShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acceptă partajare"
+            android:visibility="gone" />
 
     </LinearLayout>
 
