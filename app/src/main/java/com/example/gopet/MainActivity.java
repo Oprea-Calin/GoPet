@@ -301,6 +301,7 @@ public class MainActivity extends AppCompatActivity {
                 usersRecyclerView.setVisibility(View.GONE);
                 addAnimalFormLayout.setVisibility(View.GONE);
                 profileRecycleView.setVisibility(View.VISIBLE);
+                addUserFormLayout.setVisibility(View.GONE);
                 if(isExpandedMyAnimals[0] == true)
                 {
                     animateAnimalRecyclerViewHeight(600,200);
