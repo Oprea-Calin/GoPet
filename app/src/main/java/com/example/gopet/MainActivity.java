@@ -357,48 +357,65 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void showFriends() {
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        addUserFormLayout.setVisibility(View.GONE);
+        profileRecycleView.setVisibility(View.GONE);
+        addAnimalFormLayout.setVisibility(View.GONE);
+        profileShown = false;
 
-        FirebaseFirestore.getInstance()
-                .collection("users")
-                .document(uid)
-                .collection("friends")
-                .whereEqualTo("status", "confirmed")
-                .get()
-                .addOnSuccessListener(friendDocs -> {
-                    if (!friendDocs.isEmpty()) {
-                        List<DocumentSnapshot> confirmedFriends = new ArrayList<>();
+        if (usersRecyclerView.getVisibility() == View.VISIBLE) {
+            usersRecyclerView.setVisibility(View.GONE);
+            if (!isExpandedMyAnimals[0]) {
+                animateAnimalRecyclerViewHeight(200, 600);
+                isExpandedMyAnimals[0] = true;
+            }
+        } else {
+            if (isExpandedMyAnimals[0]) {
+                animateAnimalRecyclerViewHeight(600, 200);
+                isExpandedMyAnimals[0] = false;
+            }
 
-                        for (DocumentSnapshot doc : friendDocs) {
-                            String friendId = doc.getId();
-                            FirebaseFirestore.getInstance()
-                                    .collection("users")
-                                    .document(friendId)
-                                    .get()
-                                    .addOnSuccessListener(userDoc -> {
-                                        confirmedFriends.add(userDoc);
+            usersList.clear();
+            userAdapter.notifyDataSetChanged();
+            usersRecyclerView.setVisibility(View.VISIBLE);
 
-                                        if (confirmedFriends.size() == friendDocs.size()) {
-                                            usersList.clear();
-                                            usersList.addAll(confirmedFriends);
-                                            userAdapter.notifyDataSetChanged();
+            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                                            usersRecyclerView.setVisibility(View.VISIBLE);
-                                            if (isExpandedMyAnimals[0]) {
-                                                animateAnimalRecyclerViewHeight(600, 200);
-                                                isExpandedMyAnimals[0] = false;
+            FirebaseFirestore.getInstance()
+                    .collection("users")
+                    .document(uid)
+                    .collection("friends")
+                    .whereEqualTo("status", "confirmed")
+                    .get()
+                    .addOnSuccessListener(friendDocs -> {
+                        if (!friendDocs.isEmpty()) {
+                            List<DocumentSnapshot> confirmedFriends = new ArrayList<>();
+
+                            for (DocumentSnapshot doc : friendDocs) {
+                                String friendId = doc.getId();
+                                FirebaseFirestore.getInstance()
+                                        .collection("users")
+                                        .document(friendId)
+                                        .get()
+                                        .addOnSuccessListener(userDoc -> {
+                                            confirmedFriends.add(userDoc);
+
+                                            if (confirmedFriends.size() == friendDocs.size()) {
+                                                usersList.clear();
+                                                usersList.addAll(confirmedFriends);
+                                                userAdapter.notifyDataSetChanged();
                                             }
-                                        }
-                                    });
+                                        });
+                            }
+                        } else {
+                            Toast.makeText(this, "Nu ai prieteni confirmați.", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Toast.makeText(this, "Nu ai prieteni confirmați.", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Eroare la încărcarea prietenilor.", Toast.LENGTH_SHORT).show();
-                });
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Eroare la încărcarea prietenilor.", Toast.LENGTH_SHORT).show();
+                    });
+        }
     }
+
 
     private void updateProfile() {
         String newUsername = usernameEdit.getText().toString();
