@@ -46,6 +46,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/btnFriends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prieteni"
+        app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
+        app:layout_constraintTop_toBottomOf="@+id/viewProfile" />
+    <Button
         android:id="@+id/btnAllUsers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

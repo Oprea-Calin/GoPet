@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitProfileUpdateButton,selectProfileImage, sendFriendRequest;
     Uri profileImageUri;
     EditText animalCategoryEdit, animalReproductiveStatusEdit, animalGenderEdit, animalWeightEdit, animalAllergiesEdit;
-    Button submitAnimalFormButton;
+    Button submitAnimalFormButton, btnFriends;
     ImageView animalImageView, addAnimal, viewProfile;
     String existingBase64Image;
     boolean isProfileImageSelected;
@@ -83,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        btnFriends = findViewById(R.id.btnFriends);
+        btnFriends.setOnClickListener(view -> {
+            showFriends();
+        });
         usersRecyclerView = findViewById(R.id.usersRecyclerView);
         btnAllUsers = findViewById(R.id.btnAllUsers);
         usersList = new ArrayList<>();
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         });
         loadFriends();
         addUserFormLayout = findViewById(R.id.addProfileFormLayout);
+
 
         usersRecyclerView.setAdapter(userAdapter);
 
@@ -351,12 +356,56 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+    private void showFriends() {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(uid)
+                .collection("friends")
+                .whereEqualTo("status", "confirmed")
+                .get()
+                .addOnSuccessListener(friendDocs -> {
+                    if (!friendDocs.isEmpty()) {
+                        List<DocumentSnapshot> confirmedFriends = new ArrayList<>();
+
+                        for (DocumentSnapshot doc : friendDocs) {
+                            String friendId = doc.getId();
+                            FirebaseFirestore.getInstance()
+                                    .collection("users")
+                                    .document(friendId)
+                                    .get()
+                                    .addOnSuccessListener(userDoc -> {
+                                        confirmedFriends.add(userDoc);
+
+                                        if (confirmedFriends.size() == friendDocs.size()) {
+                                            usersList.clear();
+                                            usersList.addAll(confirmedFriends);
+                                            userAdapter.notifyDataSetChanged();
+
+                                            usersRecyclerView.setVisibility(View.VISIBLE);
+                                            if (isExpandedMyAnimals[0]) {
+                                                animateAnimalRecyclerViewHeight(600, 200);
+                                                isExpandedMyAnimals[0] = false;
+                                            }
+                                        }
+                                    });
+                        }
+                    } else {
+                        Toast.makeText(this, "Nu ai prieteni confirmați.", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Eroare la încărcarea prietenilor.", Toast.LENGTH_SHORT).show();
+                });
+    }
+
     private void updateProfile() {
         String newUsername = usernameEdit.getText().toString();
         String newQuote = quoteEdit.getText().toString();
 
         if (newUsername.isEmpty() || newQuote.isEmpty()) {
-            Toast.makeText(this, "Completați toate detaliile despre animăluț!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Completați toate detaliile!", Toast.LENGTH_SHORT).show();
             return;
         }
 

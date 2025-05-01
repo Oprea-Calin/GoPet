@@ -79,6 +79,10 @@ public class Register extends AppCompatActivity {
                 {
                     editPasswordLog.setError("Please fill in a password!");
                 }
+                if (!password.equals(confirmPassword)) {
+                    editPasswordConfirmLog.setError("Parolele nu coincid!");
+                    return;
+                }
                 else{
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -114,9 +118,9 @@ public class Register extends AppCompatActivity {
                 .set(user)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(Register.this, "User saved to Firestore", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Register.this, "User saved to Firestore", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(Register.this, "Failed to save user to Firestore", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Register.this, "Failed to save user to Firestore", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

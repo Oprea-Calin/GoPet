@@ -3382,6 +3382,7 @@ int id btnAcceptShare 0x7f09007f
 int id btnAllUsers 0x7f090080
 int id btnCancelShare 0x7f090081
 int id btnFriendRequest 0x7f090082
+int id btnFriends 0x7f090248
 int id btnLogin 0x7f090083
 int id btnRegister 0x7f090084
 int id btnRegisterGo 0x7f090085

@@ -42,6 +42,7 @@ id btnAcceptShare
 id btnAllUsers
 id btnCancelShare
 id btnFriendRequest
+id btnFriends
 id btnLogin
 id btnRegister
 id btnRegisterGo
