@@ -57,6 +57,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             holder.profileImageView.setImageBitmap(decodedByte);
+            holder.profileImageView.setVisibility(View.VISIBLE);
+        }else{
+            holder.profileImageView.setVisibility(View.GONE);
         }
 
         boolean isAlreadyFriend = false;
