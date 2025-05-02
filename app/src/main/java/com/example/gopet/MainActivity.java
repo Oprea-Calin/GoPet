@@ -365,27 +365,44 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
 
-        // Șterge din ambele liste
+        // Pasul 1: șterge relația de prietenie din ambele sensuri
         database.collection("users")
                 .document(uid)
                 .collection("friends")
                 .document(friendId)
-                .delete();
+                .delete()
+                .addOnSuccessListener(aVoid1 -> {
+                    database.collection("users")
+                            .document(friendId)
+                            .collection("friends")
+                            .document(uid)
+                            .delete()
+                            .addOnSuccessListener(aVoid2 -> {
+                                // Pasul 2: șterge cererea de partajare
+                                database.collection("users")
+                                        .document(uid)
+                                        .collection("sharedAnimalsRequests")
+                                        .document(friendId)
+                                        .delete()
+                                        .addOnSuccessListener(aVoid3 -> {
+                                            // Pasul 3: actualizează UI și reîncarcă animalele
+                                            friendsList.removeIf(f -> f.getId().equals(friendId));
+                                            usersList.removeIf(u -> u.getId().equals(friendId));
+                                            userAdapter.notifyDataSetChanged();
+                                            Toast.makeText(this, "Prieten eliminat!", Toast.LENGTH_SHORT).show();
 
-        database.collection("users")
-                .document(friendId)
-                .collection("friends")
-                .document(uid)
-                .delete();
-
-        // Elimină din lista locală și notifică adapterul
-        friendsList.removeIf(f -> f.getId().equals(friendId));
-        usersList.removeIf(u -> u.getId().equals(friendId)); // doar dacă e listă de prieteni
-
-        userAdapter.notifyDataSetChanged();
-
-        Toast.makeText(this, "Prieten eliminat!", Toast.LENGTH_SHORT).show();
+                                            // Important: acum se dă refresh la animale
+                                            loadAnimals();
+                                        });
+                            });
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Eroare la ștergerea prietenului: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
+
+
+
 
     private void showFriends() {
         addUserFormLayout.setVisibility(View.GONE);

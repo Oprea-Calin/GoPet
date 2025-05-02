@@ -1,5 +1,6 @@
 package com.example.gopet;
 
+import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -96,10 +97,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                     });
                     holder.btnRemoveFriend.setVisibility(View.VISIBLE);
                     holder.btnRemoveFriend.setOnClickListener(v -> {
-                        if (removeFriendClickListener != null) {
-                            removeFriendClickListener.onRemoveFriendClicked(userDocument);
-                        }
+                        new AlertDialog.Builder(holder.itemView.getContext())
+                                .setTitle("Confirmare")
+                                .setMessage("Sigur vrei să ștergi prietenul " + username + ", eliminând animalele partajate?")
+                                .setPositiveButton("Șterge", (dialog, which) -> {
+                                    if (removeFriendClickListener != null) {
+                                        removeFriendClickListener.onRemoveFriendClicked(userDocument);
+                                    }
+                                })
+                                .setNegativeButton("Anulează", null)
+                                .show();
                     });
+
                 }
             } else {
                 holder.btnFriendRequest.setVisibility(View.VISIBLE);
