@@ -111,8 +111,7 @@ public class MainActivity extends AppCompatActivity {
         userAdapter.setOnRemoveFriendClickListener(user -> {
             removeFriend(user);
         });
-
-
+        
         usersRecyclerView.setAdapter(userAdapter);
 
         usersRecyclerView.setVisibility(View.GONE);
@@ -302,9 +301,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         viewProfile.setOnClickListener(view -> {
-
-
-
             if(profileShown == false) {
                 usersRecyclerView.setVisibility(View.GONE);
                 addAnimalFormLayout.setVisibility(View.GONE);
@@ -364,45 +360,27 @@ public class MainActivity extends AppCompatActivity {
         String friendId = user.getId();
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-
-        // Pasul 1: șterge relația de prietenie din ambele sensuri
+        database.collection("users").document(uid).collection("friends").document(friendId).delete();
+        database.collection("users").document(friendId).collection("friends").document(uid).delete();
+        database.collection("users")
+                .document(friendId)
+                .collection("sharedAnimalsRequests")
+                .document(uid)
+                .delete();
         database.collection("users")
                 .document(uid)
-                .collection("friends")
+                .collection("sharedAnimalsRequests")
                 .document(friendId)
-                .delete()
-                .addOnSuccessListener(aVoid1 -> {
-                    database.collection("users")
-                            .document(friendId)
-                            .collection("friends")
-                            .document(uid)
-                            .delete()
-                            .addOnSuccessListener(aVoid2 -> {
-                                // Pasul 2: șterge cererea de partajare
-                                database.collection("users")
-                                        .document(uid)
-                                        .collection("sharedAnimalsRequests")
-                                        .document(friendId)
-                                        .delete()
-                                        .addOnSuccessListener(aVoid3 -> {
-                                            // Pasul 3: actualizează UI și reîncarcă animalele
-                                            friendsList.removeIf(f -> f.getId().equals(friendId));
-                                            usersList.removeIf(u -> u.getId().equals(friendId));
-                                            userAdapter.notifyDataSetChanged();
-                                            Toast.makeText(this, "Prieten eliminat!", Toast.LENGTH_SHORT).show();
+                .delete();
 
-                                            // Important: acum se dă refresh la animale
-                                            loadAnimals();
-                                        });
-                            });
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Eroare la ștergerea prietenului: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+        friendsList.removeIf(f -> f.getId().equals(friendId));
+        usersList.removeIf(u -> u.getId().equals(friendId));
+        userAdapter.notifyDataSetChanged();
+
+        loadAnimals();
+
+        Toast.makeText(this, "Prieten eliminat și animalele partajate au fost eliminate.", Toast.LENGTH_SHORT).show();
     }
-
-
-
 
     private void showFriends() {
         addUserFormLayout.setVisibility(View.GONE);

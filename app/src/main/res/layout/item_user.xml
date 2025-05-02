@@ -2,73 +2,104 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:padding="12dp"
     android:background="@drawable/rounded_corners"
-    android:layout_marginBottom="5dp"
-    android:layout_margin="15dp"
-
+    android:layout_margin="10dp"
     android:gravity="center_vertical">
+
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="Profile Image" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="Profile Image"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_vertical" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="1"
-        >
-    <TextView
-        android:id="@+id/usernameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
-        android:layout_marginTop="8dp" />
+        android:gravity="start">
 
-    <TextView
-        android:id="@+id/quoteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
-        <Button
-            android:id="@+id/btnFriendRequest"
+        <TextView
+            android:id="@+id/quoteTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adaugă în lista de prieteni" />
-        <Button
-            android:id="@+id/btnShareAnimals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Partajează Animale"
-            android:visibility="gone" />
-        <Button
-            android:id="@+id/btnAcceptShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Acceptă partajare"
-            android:visibility="gone" />
-        <Button
-            android:id="@+id/btnCancelShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Anulează partajare"
-            android:visibility="gone" />
-        <Button
-            android:id="@+id/btnRemoveFriend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Șterge prieten"
-            android:visibility="gone"
-            />
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="8dp" />
 
+        <!-- Buttons grouped in 2 rows -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnFriendRequest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adaugă"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btnShareAnimals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Partajează"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnAcceptShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acceptă"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btnCancelShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anulează"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnRemoveFriend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Șterge"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
