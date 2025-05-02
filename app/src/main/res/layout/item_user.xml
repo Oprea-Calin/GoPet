@@ -60,6 +60,14 @@
             android:layout_height="wrap_content"
             android:text="Anulează partajare"
             android:visibility="gone" />
+        <Button
+            android:id="@+id/btnRemoveFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Șterge prieten"
+            android:visibility="gone"
+            />
+
 
     </LinearLayout>
 

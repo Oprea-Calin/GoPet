@@ -26,6 +26,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     private List<DocumentSnapshot> friends;
     private OnAddFriendClickListener listener;
     private OnReloadAnimalsListener reloadAnimalsListener;
+    private OnRemoveFriendClickListener removeFriendClickListener;
+
 
     public UserAdapter(List<DocumentSnapshot> users,List<DocumentSnapshot> friends, OnAddFriendClickListener listener) {
         this.users = users;
@@ -69,6 +71,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.btnFriendRequest.setVisibility(View.GONE);
         holder.btnShareAnimals.setVisibility(View.GONE);
         holder.btnAcceptShare.setVisibility(View.GONE);
+        holder.btnRemoveFriend.setVisibility(View.GONE);
 
         if (userId.equals(currentUserId)) {
             holder.btnFriendRequest.setVisibility(View.GONE);
@@ -91,6 +94,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                             listener.onShareAnimalsClicked(userDocument);
                         }
                     });
+                    holder.btnRemoveFriend.setVisibility(View.VISIBLE);
+                    holder.btnRemoveFriend.setOnClickListener(v -> {
+                        if (removeFriendClickListener != null) {
+                            removeFriendClickListener.onRemoveFriendClicked(userDocument);
+                        }
+                    });
                 }
             } else {
                 holder.btnFriendRequest.setVisibility(View.VISIBLE);
@@ -108,6 +117,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         checkForShareRequest(userId, holder);
         checkIfShareAccepted(userId, holder);
 
+    }
+
+    public interface OnRemoveFriendClickListener {
+        void onRemoveFriendClicked(DocumentSnapshot user);
+    }
+    public void setOnRemoveFriendClickListener(OnRemoveFriendClickListener listener) {
+        this.removeFriendClickListener = listener;
     }
 
     private void checkIfShareAccepted(String userId, UserViewHolder holder) {
@@ -206,7 +222,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public static class UserViewHolder extends RecyclerView.ViewHolder {
         TextView usernameTextView;
         ImageView profileImageView;
-        Button btnFriendRequest, btnShareAnimals, btnAcceptShare, btnCancelShare;
+        Button btnFriendRequest, btnShareAnimals, btnAcceptShare, btnCancelShare, btnRemoveFriend;
 
         public UserViewHolder(View itemView) {
             super(itemView);
@@ -216,6 +232,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             btnShareAnimals = itemView.findViewById(R.id.btnShareAnimals);
             btnAcceptShare = itemView.findViewById(R.id.btnAcceptShare);
             btnCancelShare = itemView.findViewById(R.id.btnCancelShare);
+            btnRemoveFriend = itemView.findViewById(R.id.btnRemoveFriend);
 
         }
     }

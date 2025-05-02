@@ -46,6 +46,7 @@ id btnFriends
 id btnLogin
 id btnRegister
 id btnRegisterGo
+id btnRemoveFriend
 id btnShareAnimals
 id checkBox
 id inConfirmPassword

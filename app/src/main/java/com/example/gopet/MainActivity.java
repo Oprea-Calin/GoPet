@@ -108,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
         });
         loadFriends();
         addUserFormLayout = findViewById(R.id.addProfileFormLayout);
+        userAdapter.setOnRemoveFriendClickListener(user -> {
+            removeFriend(user);
+        });
 
 
         usersRecyclerView.setAdapter(userAdapter);
@@ -356,6 +359,34 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+    private void removeFriend(DocumentSnapshot user) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String friendId = user.getId();
+
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+        // Șterge din ambele liste
+        database.collection("users")
+                .document(uid)
+                .collection("friends")
+                .document(friendId)
+                .delete();
+
+        database.collection("users")
+                .document(friendId)
+                .collection("friends")
+                .document(uid)
+                .delete();
+
+        // Elimină din lista locală și notifică adapterul
+        friendsList.removeIf(f -> f.getId().equals(friendId));
+        usersList.removeIf(u -> u.getId().equals(friendId)); // doar dacă e listă de prieteni
+
+        userAdapter.notifyDataSetChanged();
+
+        Toast.makeText(this, "Prieten eliminat!", Toast.LENGTH_SHORT).show();
+    }
+
     private void showFriends() {
         addUserFormLayout.setVisibility(View.GONE);
         profileRecycleView.setVisibility(View.GONE);

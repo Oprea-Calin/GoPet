@@ -3387,6 +3387,7 @@ id btnFriends
 id btnLogin
 id btnRegister
 id btnRegisterGo
+id btnRemoveFriend
 id btnShareAnimals
 id buttonPanel
 id cache_measures
