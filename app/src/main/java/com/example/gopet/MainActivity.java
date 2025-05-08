@@ -546,7 +546,7 @@ public class MainActivity extends AppCompatActivity {
                                 .document(friendId)
                                 .set(friend)
                                 .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(MainActivity.this, "Cerere trimisă!", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(MainActivity.this, "Cerere trimisă!", Toast.LENGTH_SHORT).show();
                                     loadFriends();
                                 })
                                 .addOnFailureListener(e -> {

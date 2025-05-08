@@ -30,6 +30,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     private OnRemoveFriendClickListener removeFriendClickListener;
 
 
+
     public UserAdapter(List<DocumentSnapshot> users,List<DocumentSnapshot> friends, OnAddFriendClickListener listener) {
         this.users = users;
         this.friends = friends;

@@ -37,6 +37,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         holder.usernameTextView.setText(profile.getUsername());
         holder.quoteTextView.setText(profile.getQuote());
 
+        holder.quoteTextView.setVisibility(View.VISIBLE);
         String base64Image = profile.getBase64Image();
         if (base64Image != null && !base64Image.isEmpty()) {
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
