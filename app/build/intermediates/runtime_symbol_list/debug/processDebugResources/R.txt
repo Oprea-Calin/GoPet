@@ -3373,6 +3373,8 @@ int id bounce 0x7f090076
 int id bounceBoth 0x7f090077
 int id bounceEnd 0x7f090078
 int id bounceStart 0x7f090079
+int id breedImageView 0x7f09024a
+int id breedNameTextView 0x7f09024b
 int id browser_actions_header_text 0x7f09007a
 int id browser_actions_menu_item_icon 0x7f09007b
 int id browser_actions_menu_item_text 0x7f09007c
@@ -3436,6 +3438,7 @@ int id decor_content_parent 0x7f0900b5
 int id default_activity_button 0x7f0900b6
 int id deltaRelative 0x7f0900b7
 int id dependency_ordering 0x7f0900b8
+int id descriptionTextView 0x7f09024c
 int id design_bottom_sheet 0x7f0900b9
 int id design_menu_item_action_area 0x7f0900ba
 int id design_menu_item_action_area_stub 0x7f0900bb
@@ -3651,6 +3654,7 @@ int id open_search_view_search_prefix 0x7f09018c
 int id open_search_view_status_bar_spacer 0x7f09018d
 int id open_search_view_toolbar 0x7f09018e
 int id open_search_view_toolbar_container 0x7f09018f
+int id originTextView 0x7f09024d
 int id outline 0x7f090190
 int id outward 0x7f090191
 int id overshoot 0x7f090192
@@ -3772,6 +3776,7 @@ int id tag_transition_group 0x7f090205
 int id tag_unhandled_key_event_manager 0x7f090206
 int id tag_unhandled_key_listeners 0x7f090207
 int id tag_window_insets_animation_callback 0x7f090208
+int id temperamentTextView 0x7f09024e
 int id text 0x7f090209
 int id text2 0x7f09020a
 int id textEnd 0x7f09020b
@@ -3954,6 +3959,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0c0018
 int layout abc_search_view 0x7f0c0019
 int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
+int layout activity_breed_info 0x7f0c0085
 int layout activity_login 0x7f0c001c
 int layout activity_main 0x7f0c001d
 int layout activity_register 0x7f0c001e

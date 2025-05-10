@@ -30,7 +30,7 @@
 19-->[androidx.core:core:1.13.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ba83c71108c12f1856d1b526cb370327\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 20
 21    <application
-21-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-37:19
+21-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:7:5-40:19
 22        android:allowBackup="true"
 22-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:8:9-35
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -53,339 +53,355 @@
 33        android:theme="@style/Theme.GoPet" >
 33-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:15:9-43
 34        <activity
-34-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:17:9-20:63
-35            android:name="com.example.gopet.SettingsActivity"
-35-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:18:13-45
-36            android:exported="false"
+34-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:17:9-19:40
+35            android:name="com.example.gopet.BreedInfoActivity"
+35-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:18:13-46
+36            android:exported="false" />
 36-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:19:13-37
-37            android:label="@string/title_activity_settings" />
-37-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:20:13-60
-38        <activity
-38-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:21:9-24:40
-39            android:name="com.example.gopet.MainActivity"
-39-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:22:13-41
-40            android:exported="false"
-40-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:24:13-37
-41            android:windowSoftInputMode="adjustResize" />
-41-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:23:13-55
-42        <activity
-42-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:25:9-27:40
-43            android:name="com.example.gopet.Register"
+37        <activity
+37-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:20:9-23:63
+38            android:name="com.example.gopet.SettingsActivity"
+38-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:21:13-45
+39            android:exported="false"
+39-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:22:13-37
+40            android:label="@string/title_activity_settings" />
+40-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:23:13-60
+41        <activity
+41-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:24:9-27:58
+42            android:name="com.example.gopet.MainActivity"
+42-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:25:13-41
+43            android:exported="false"
 43-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:26:13-37
-44            android:exported="false" />
-44-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:27:13-37
+44            android:windowSoftInputMode="adjustResize" />
+44-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:27:13-55
 45        <activity
-45-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:28:9-36:20
-46            android:name="com.example.gopet.Login"
-46-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:29:13-34
-47            android:exported="true" >
-47-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:30:13-36
-48            <intent-filter>
-48-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:13-35:29
-49                <action android:name="android.intent.action.MAIN" />
-49-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:32:17-69
-49-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:32:25-66
-50
-51                <category android:name="android.intent.category.LAUNCHER" />
-51-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:34:17-77
-51-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:34:27-74
-52            </intent-filter>
-53        </activity>
-54        <activity
-54-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:29:9-46:20
-55            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-55-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:30:13-80
-56            android:excludeFromRecents="true"
-56-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:31:13-46
-57            android:exported="true"
-57-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:32:13-36
-58            android:launchMode="singleTask"
-58-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:33:13-44
-59            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-59-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:34:13-72
-60            <intent-filter>
-60-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:35:13-45:29
-61                <action android:name="android.intent.action.VIEW" />
-61-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:17-69
-61-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:25-66
+45-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:28:9-30:40
+46            android:name="com.example.gopet.Register"
+46-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:29:13-37
+47            android:exported="false" />
+47-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:30:13-37
+48        <activity
+48-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:31:9-39:20
+49            android:name="com.example.gopet.Login"
+49-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:32:13-34
+50            android:exported="true" >
+50-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:33:13-36
+51            <intent-filter>
+51-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:34:13-38:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:35:17-69
+52-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:35:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:37:17-77
+54-->D:\FACULTA\GoPet\app\src\main\AndroidManifest.xml:37:27-74
+55            </intent-filter>
+56        </activity>
+57
+58        <provider
+58-->[com.squareup.picasso:picasso:2.8] D:\FACULTA\MDS\caches\8.10.2\transforms\def6a51e0be5025934a4af0b2ed3ca4c\transformed\picasso-2.8\AndroidManifest.xml:8:9-11:40
+59            android:name="com.squareup.picasso.PicassoProvider"
+59-->[com.squareup.picasso:picasso:2.8] D:\FACULTA\MDS\caches\8.10.2\transforms\def6a51e0be5025934a4af0b2ed3ca4c\transformed\picasso-2.8\AndroidManifest.xml:9:13-64
+60            android:authorities="com.example.gopet.com.squareup.picasso"
+60-->[com.squareup.picasso:picasso:2.8] D:\FACULTA\MDS\caches\8.10.2\transforms\def6a51e0be5025934a4af0b2ed3ca4c\transformed\picasso-2.8\AndroidManifest.xml:10:13-72
+61            android:exported="false" />
+61-->[com.squareup.picasso:picasso:2.8] D:\FACULTA\MDS\caches\8.10.2\transforms\def6a51e0be5025934a4af0b2ed3ca4c\transformed\picasso-2.8\AndroidManifest.xml:11:13-37
 62
-63                <category android:name="android.intent.category.DEFAULT" />
-63-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:17-76
-63-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:27-73
-64                <category android:name="android.intent.category.BROWSABLE" />
-64-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:17-78
-64-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:27-75
-65
-66                <data
-66-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:41:17-44:51
-67                    android:host="firebase.auth"
-67-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:42:21-49
-68                    android:path="/"
-68-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:43:21-37
-69                    android:scheme="genericidp" />
-69-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:44:21-48
-70            </intent-filter>
-71        </activity>
-72        <activity
-72-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:47:9-64:20
-73            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-73-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:48:13-79
-74            android:excludeFromRecents="true"
-74-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:49:13-46
-75            android:exported="true"
-75-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:50:13-36
-76            android:launchMode="singleTask"
-76-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:51:13-44
-77            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-77-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:52:13-72
-78            <intent-filter>
-78-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:53:13-63:29
-79                <action android:name="android.intent.action.VIEW" />
-79-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:17-69
-79-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:25-66
-80
-81                <category android:name="android.intent.category.DEFAULT" />
-81-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:17-76
-81-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:27-73
-82                <category android:name="android.intent.category.BROWSABLE" />
-82-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:17-78
-82-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:27-75
-83
-84                <data
-84-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:41:17-44:51
-85                    android:host="firebase.auth"
-85-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:42:21-49
-86                    android:path="/"
-86-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:43:21-37
-87                    android:scheme="recaptcha" />
-87-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:44:21-48
-88            </intent-filter>
-89        </activity>
-90
-91        <service
-91-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:66:9-72:19
-92            android:name="com.google.firebase.components.ComponentDiscoveryService"
-92-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:67:13-84
-93            android:directBootAware="true"
-93-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
-94            android:exported="false" >
-94-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:68:13-37
-95            <meta-data
-95-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:69:13-71:85
-96                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-96-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:70:17-109
-97                android:value="com.google.firebase.components.ComponentRegistrar" />
-97-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:71:17-82
-98            <meta-data
-98-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:29:13-31:85
-99                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseKtxRegistrar"
-99-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:30:17-120
-100                android:value="com.google.firebase.components.ComponentRegistrar" />
-100-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:31:17-82
-101            <meta-data
-101-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:32:13-34:85
-102                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-102-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:33:17-109
-103                android:value="com.google.firebase.components.ComponentRegistrar" />
-103-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:34:17-82
+63        <activity
+63-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:29:9-46:20
+64            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+64-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:30:13-80
+65            android:excludeFromRecents="true"
+65-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:31:13-46
+66            android:exported="true"
+66-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:32:13-36
+67            android:launchMode="singleTask"
+67-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:33:13-44
+68            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+68-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:34:13-72
+69            <intent-filter>
+69-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:35:13-45:29
+70                <action android:name="android.intent.action.VIEW" />
+70-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:17-69
+70-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:25-66
+71
+72                <category android:name="android.intent.category.DEFAULT" />
+72-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:17-76
+72-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:27-73
+73                <category android:name="android.intent.category.BROWSABLE" />
+73-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:17-78
+73-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:27-75
+74
+75                <data
+75-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:41:17-44:51
+76                    android:host="firebase.auth"
+76-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:42:21-49
+77                    android:path="/"
+77-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:43:21-37
+78                    android:scheme="genericidp" />
+78-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:44:21-48
+79            </intent-filter>
+80        </activity>
+81        <activity
+81-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:47:9-64:20
+82            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+82-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:48:13-79
+83            android:excludeFromRecents="true"
+83-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:49:13-46
+84            android:exported="true"
+84-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:50:13-36
+85            android:launchMode="singleTask"
+85-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:51:13-44
+86            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+86-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:52:13-72
+87            <intent-filter>
+87-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:53:13-63:29
+88                <action android:name="android.intent.action.VIEW" />
+88-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:17-69
+88-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:36:25-66
+89
+90                <category android:name="android.intent.category.DEFAULT" />
+90-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:17-76
+90-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:38:27-73
+91                <category android:name="android.intent.category.BROWSABLE" />
+91-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:17-78
+91-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:39:27-75
+92
+93                <data
+93-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:41:17-44:51
+94                    android:host="firebase.auth"
+94-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:42:21-49
+95                    android:path="/"
+95-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:43:21-37
+96                    android:scheme="recaptcha" />
+96-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:44:21-48
+97            </intent-filter>
+98        </activity>
+99
+100        <service
+100-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:66:9-72:19
+101            android:name="com.google.firebase.components.ComponentDiscoveryService"
+101-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:67:13-84
+102            android:directBootAware="true"
+102-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+103            android:exported="false" >
+103-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:68:13-37
 104            <meta-data
-104-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:17:13-19:85
-105                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
-105-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:18:17-122
+104-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:69:13-71:85
+105                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+105-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:70:17-109
 106                android:value="com.google.firebase.components.ComponentRegistrar" />
-106-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:19:17-82
+106-->[com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:71:17-82
 107            <meta-data
-107-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:20:13-22:85
-108                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-108-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:21:17-111
+107-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:29:13-31:85
+108                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseKtxRegistrar"
+108-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:30:17-120
 109                android:value="com.google.firebase.components.ComponentRegistrar" />
-109-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:22:17-82
+109-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:31:17-82
 110            <meta-data
-110-->[com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
-111                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
-111-->[com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+110-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:32:13-34:85
+111                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+111-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:33:17-109
 112                android:value="com.google.firebase.components.ComponentRegistrar" />
-112-->[com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+112-->[com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:34:17-82
 113            <meta-data
-113-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
-114                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
-114-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+113-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:17:13-19:85
+114                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
+114-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:18:17-122
 115                android:value="com.google.firebase.components.ComponentRegistrar" />
-115-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
-116        </service>
-117        <service
-117-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
-118            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
-118-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
-119            android:enabled="true"
-119-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
-120            android:exported="false" >
-120-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
-121            <meta-data
-121-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
-122                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
-122-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
-123                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
-123-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
-124        </service>
-125
-126        <activity
-126-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
-127            android:name="androidx.credentials.playservices.HiddenActivity"
-127-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
-128            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-128-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
-129            android:enabled="true"
-129-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
-130            android:exported="false"
-130-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
-131            android:fitsSystemWindows="true"
-131-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
-132            android:theme="@style/Theme.Hidden" >
-132-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
-133        </activity>
-134        <activity
-134-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
-135            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-135-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
-136            android:excludeFromRecents="true"
-136-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
-137            android:exported="false"
-137-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
-138            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-138-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
-139        <!--
-140            Service handling Google Sign-In user revocation. For apps that do not integrate with
-141            Google Sign-In, this service will never be started.
-142        -->
-143        <service
-143-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
-144            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-144-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
-145            android:exported="true"
-145-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
-146            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-146-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
-147            android:visibleToInstantApps="true" />
-147-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
-148
-149        <provider
-149-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
-150            android:name="com.google.firebase.provider.FirebaseInitProvider"
-150-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
-151            android:authorities="com.example.gopet.firebaseinitprovider"
-151-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
-152            android:directBootAware="true"
-152-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
-153            android:exported="false"
-153-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
-154            android:initOrder="100" />
-154-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
-155
-156        <activity
-156-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
-157            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-157-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
-158            android:exported="false"
-158-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
-159            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-159-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
-160
-161        <uses-library
-161-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-162            android:name="androidx.window.extensions"
-162-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-163            android:required="false" />
-163-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
-164        <uses-library
-164-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-165            android:name="androidx.window.sidecar"
-165-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
-166            android:required="false" />
-166-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-167
-168        <provider
-168-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-169            android:name="androidx.startup.InitializationProvider"
-169-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-170            android:authorities="com.example.gopet.androidx-startup"
-170-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-171            android:exported="false" >
-171-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-172            <meta-data
-172-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-173                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-173-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-174                android:value="androidx.startup" />
-174-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-175            <meta-data
-175-->[androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
-176                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-176-->[androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
-177                android:value="androidx.startup" />
-177-->[androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
-178            <meta-data
-178-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
-179                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-179-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
-180                android:value="androidx.startup" />
-180-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
-181        </provider>
-182
-183        <meta-data
-183-->[com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
-184            android:name="com.google.android.gms.version"
-184-->[com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
-185            android:value="@integer/google_play_services_version" />
-185-->[com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
-186
-187        <receiver
-187-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
-188            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-188-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
-189            android:directBootAware="false"
-189-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
-190            android:enabled="true"
-190-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
-191            android:exported="true"
-191-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
-192            android:permission="android.permission.DUMP" >
-192-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
-193            <intent-filter>
-193-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
-194                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-194-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
-194-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
-195            </intent-filter>
-196            <intent-filter>
-196-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
-197                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-197-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
-197-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
-198            </intent-filter>
-199            <intent-filter>
-199-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
-200                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-200-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
-200-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
-201            </intent-filter>
+115-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:19:17-82
+116            <meta-data
+116-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:20:13-22:85
+117                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+117-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:21:17-111
+118                android:value="com.google.firebase.components.ComponentRegistrar" />
+118-->[com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:22:17-82
+119            <meta-data
+119-->[com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+120                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+120-->[com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+121                android:value="com.google.firebase.components.ComponentRegistrar" />
+121-->[com.google.firebase:firebase-common-ktx:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6d56239b9e074198f1bedecdf630ba8b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+122            <meta-data
+122-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+123                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+123-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+124                android:value="com.google.firebase.components.ComponentRegistrar" />
+124-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+125        </service>
+126        <service
+126-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
+127            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
+127-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
+128            android:enabled="true"
+128-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
+129            android:exported="false" >
+129-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
+130            <meta-data
+130-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
+131                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
+131-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
+132                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
+132-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
+133        </service>
+134
+135        <activity
+135-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
+136            android:name="androidx.credentials.playservices.HiddenActivity"
+136-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
+137            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+137-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
+138            android:enabled="true"
+138-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
+139            android:exported="false"
+139-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
+140            android:fitsSystemWindows="true"
+140-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
+141            android:theme="@style/Theme.Hidden" >
+141-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] D:\FACULTA\MDS\caches\8.10.2\transforms\8cd04a9f67822b0c5af09fe4085eed8d\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
+142        </activity>
+143        <activity
+143-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
+144            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+144-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
+145            android:excludeFromRecents="true"
+145-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
+146            android:exported="false"
+146-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
+147            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+147-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
+148        <!--
+149            Service handling Google Sign-In user revocation. For apps that do not integrate with
+150            Google Sign-In, this service will never be started.
+151        -->
+152        <service
+152-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
+153            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+153-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
+154            android:exported="true"
+154-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
+155            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+155-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
+156            android:visibleToInstantApps="true" />
+156-->[com.google.android.gms:play-services-auth:20.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3ef6fd04fe181fec56f9e1b59da4b90d\transformed\play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
+157
+158        <provider
+158-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+159            android:name="com.google.firebase.provider.FirebaseInitProvider"
+159-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+160            android:authorities="com.example.gopet.firebaseinitprovider"
+160-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+161            android:directBootAware="true"
+161-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+162            android:exported="false"
+162-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+163            android:initOrder="100" />
+163-->[com.google.firebase:firebase-common:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6bb3a3c22478d8b2ee5c4fb642c7a052\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+164
+165        <activity
+165-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+166            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+166-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+167            android:exported="false"
+167-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+168            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+168-->[com.google.android.gms:play-services-base:18.1.0] D:\FACULTA\MDS\caches\8.10.2\transforms\0928f08dedb180324e3c27fead174c74\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+169
+170        <uses-library
+170-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+171            android:name="androidx.window.extensions"
+171-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+172            android:required="false" />
+172-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+173        <uses-library
+173-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+174            android:name="androidx.window.sidecar"
+174-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+175            android:required="false" />
+175-->[androidx.window:window:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\52a25260e56f32cdcd248130e3f6345d\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+176
+177        <provider
+177-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+178            android:name="androidx.startup.InitializationProvider"
+178-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+179            android:authorities="com.example.gopet.androidx-startup"
+179-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+180            android:exported="false" >
+180-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+181            <meta-data
+181-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+182                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+182-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+183                android:value="androidx.startup" />
+183-->[androidx.emoji2:emoji2:1.3.0] D:\FACULTA\MDS\caches\8.10.2\transforms\99d194115075fe115045e7b5f806dfd5\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+184            <meta-data
+184-->[androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+185                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+185-->[androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+186                android:value="androidx.startup" />
+186-->[androidx.lifecycle:lifecycle-process:2.6.2] D:\FACULTA\MDS\caches\8.10.2\transforms\db7d81eaf9898db87ceb3ed0afcdb6fa\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+187            <meta-data
+187-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+188                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+188-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+189                android:value="androidx.startup" />
+189-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+190        </provider>
+191
+192        <meta-data
+192-->[com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+193            android:name="com.google.android.gms.version"
+193-->[com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+194            android:value="@integer/google_play_services_version" />
+194-->[com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\5d613d3326c1fdf265b9e91d1ebb816d\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+195
+196        <receiver
+196-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+197            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+197-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+198            android:directBootAware="false"
+198-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+199            android:enabled="true"
+199-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+200            android:exported="true"
+200-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+201            android:permission="android.permission.DUMP" >
+201-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
 202            <intent-filter>
-202-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
-203                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-203-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
-203-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+202-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+203                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+203-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+203-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
 204            </intent-filter>
-205        </receiver> <!-- The activities will be merged into the manifest of the hosting app. -->
-206        <activity
-206-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:14:9-18:65
-207            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
-207-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:15:13-93
-208            android:exported="false"
-208-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:16:13-37
-209            android:stateNotNeeded="true"
-209-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:17:13-42
-210            android:theme="@style/Theme.PlayCore.Transparent" />
-210-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:18:13-62
-211    </application>
-212
-213</manifest>
+205            <intent-filter>
+205-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+206                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+206-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+206-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+207            </intent-filter>
+208            <intent-filter>
+208-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+209                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+209-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+209-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+210            </intent-filter>
+211            <intent-filter>
+211-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+212                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+212-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+212-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+213            </intent-filter>
+214        </receiver> <!-- The activities will be merged into the manifest of the hosting app. -->
+215        <activity
+215-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:14:9-18:65
+216            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+216-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:15:13-93
+217            android:exported="false"
+217-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:16:13-37
+218            android:stateNotNeeded="true"
+218-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:17:13-42
+219            android:theme="@style/Theme.PlayCore.Transparent" />
+219-->[com.google.android.play:core-common:2.0.3] D:\FACULTA\MDS\caches\8.10.2\transforms\50b93b21f46ac73e30d6075a16fc5ae7\transformed\core-common-2.0.3\AndroidManifest.xml:18:13-62
+220    </application>
+221
+222</manifest>

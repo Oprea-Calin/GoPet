@@ -38,6 +38,8 @@ id animalReproductiveStatus
 id animalWeight
 id animalsView
 id bottomGrid
+id breedImageView
+id breedNameTextView
 id btnAcceptShare
 id btnAllUsers
 id btnCancelShare
@@ -49,6 +51,7 @@ id btnRegisterGo
 id btnRemoveFriend
 id btnShareAnimals
 id checkBox
+id descriptionTextView
 id inConfirmPassword
 id inEmail
 id inPassword
@@ -66,17 +69,20 @@ id loadingSpinner
 id logoutImage
 id main
 id myAnimalsTitle
+id originTextView
 id profileImageView
 id profileRecycleView
 id quoteEdit
 id quoteTextView
 id selectProfileImage
 id submitProfileUpdateButton
+id temperamentTextView
 id txtLog
 id usernameEdit
 id usernameTextView
 id usersRecyclerView
 id viewProfile
+layout activity_breed_info
 layout activity_login
 layout activity_main
 layout activity_register

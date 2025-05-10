@@ -3374,6 +3374,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id breedImageView
+id breedNameTextView
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -3437,6 +3439,7 @@ id decor_content_parent
 id default_activity_button
 id deltaRelative
 id dependency_ordering
+id descriptionTextView
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -3652,6 +3655,7 @@ id open_search_view_search_prefix
 id open_search_view_status_bar_spacer
 id open_search_view_toolbar
 id open_search_view_toolbar_container
+id originTextView
 id outline
 id outward
 id overshoot
@@ -3773,6 +3777,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id temperamentTextView
 id text
 id text2
 id textEnd
@@ -3955,6 +3960,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_breed_info
 layout activity_login
 layout activity_main
 layout activity_register

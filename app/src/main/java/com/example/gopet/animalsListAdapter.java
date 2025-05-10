@@ -1,6 +1,7 @@
 package com.example.gopet;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -86,6 +87,13 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
                         }
                     })
                     .show();
+        });
+        holder.itemView.setOnLongClickListener(v -> {
+            Intent intent = new Intent(context, BreedInfoActivity.class);
+            intent.putExtra("breed", canimal.getBreed());
+            intent.putExtra("type", canimal.getCategory().toLowerCase());
+            context.startActivity(intent);
+            return true;
         });
 
 
