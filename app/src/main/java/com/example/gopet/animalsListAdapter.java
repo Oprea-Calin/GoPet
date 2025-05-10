@@ -100,7 +100,7 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
                 type = "dog";
             } else {
                 android.os.Handler handler = new android.os.Handler(context.getMainLooper());
-                handler.post(() -> android.widget.Toast.makeText(context, "Tip necunoscut pentru animalul \"" + canimal.getName() + "\"", Toast.LENGTH_SHORT).show());
+                handler.post(() -> android.widget.Toast.makeText(context, "Nu exista informații despre  \"" + canimal.getName() + "\"", Toast.LENGTH_SHORT).show());
                 return true;
             }
 
