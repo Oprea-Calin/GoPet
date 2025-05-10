@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -89,12 +90,47 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
                     .show();
         });
         holder.itemView.setOnLongClickListener(v -> {
-            Intent intent = new Intent(context, BreedInfoActivity.class);
-            intent.putExtra("breed", canimal.getBreed());
-            intent.putExtra("type", canimal.getCategory().toLowerCase());
-            context.startActivity(intent);
+            String breed = canimal.getBreed();
+            String category = canimal.getCategory().toLowerCase();
+
+            final String type;
+            if (category.contains("pisi")) {
+                type = "cat";
+            } else if (category.contains("caine")) {
+                type = "dog";
+            } else {
+                android.os.Handler handler = new android.os.Handler(context.getMainLooper());
+                handler.post(() -> android.widget.Toast.makeText(context, "Tip necunoscut pentru animalul \"" + canimal.getName() + "\"", Toast.LENGTH_SHORT).show());
+                return true;
+            }
+
+            if (type.equals("cat")) {
+                CatHelperAPI.fetchCatInfo(breed, new CatHelperAPI.CatInfoCallback() {
+                    @Override
+                    public void onResult(String name, String description, String temperament, String origin, String imageUrl) {
+                        Intent intent = new Intent(context, BreedInfoActivity.class);
+                        intent.putExtra("breed", breed);
+                        intent.putExtra("type", type);
+                        context.startActivity(intent);
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        android.os.Handler handler = new android.os.Handler(context.getMainLooper());
+                        handler.post(() -> android.widget.Toast.makeText(context, error, android.widget.Toast.LENGTH_SHORT).show());
+                    }
+                });
+            } else if (type.equals("dog")) {
+                Intent intent = new Intent(context, BreedInfoActivity.class);
+                intent.putExtra("breed", breed);
+                intent.putExtra("type", type);
+                context.startActivity(intent);
+            }
+
             return true;
         });
+
+
 
 
 

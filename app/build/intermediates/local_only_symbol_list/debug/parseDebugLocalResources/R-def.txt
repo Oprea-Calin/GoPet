@@ -7,6 +7,7 @@ color ic_launcher_background
 color white
 drawable addpet
 drawable bg_my_animals_label
+drawable card_background
 drawable cat
 drawable ic_launcher_background
 drawable ic_launcher_foreground

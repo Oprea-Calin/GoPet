@@ -47,7 +47,7 @@ public class CatHelperAPI {
                             String origin = catData.getString("origin");
                             String imageUrl = "";
 
-                            // extragem imaginea
+                            //imaginea
                             if (catData.has("reference_image_id")) {
                                 String imageId = catData.getString("reference_image_id");
                                 imageUrl = "https://cdn2.thecatapi.com/images/" + imageId + ".jpg";
