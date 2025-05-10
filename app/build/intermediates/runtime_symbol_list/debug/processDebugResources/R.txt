@@ -3679,6 +3679,7 @@ int id preferences_sliding_pane_layout 0x7f0901a3
 int id pressed 0x7f0901a4
 int id profileImageView 0x7f0901a5
 int id profileRecycleView 0x7f0901a6
+int id progressBar 0x7f09024f
 int id progress_circular 0x7f0901a7
 int id progress_horizontal 0x7f0901a8
 int id quoteEdit 0x7f0901a9

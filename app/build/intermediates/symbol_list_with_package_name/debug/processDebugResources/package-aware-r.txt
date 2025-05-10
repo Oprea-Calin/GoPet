@@ -3680,6 +3680,7 @@ id preferences_sliding_pane_layout
 id pressed
 id profileImageView
 id profileRecycleView
+id progressBar
 id progress_circular
 id progress_horizontal
 id quoteEdit

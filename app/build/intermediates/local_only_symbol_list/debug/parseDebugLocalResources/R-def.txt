@@ -73,6 +73,7 @@ id myAnimalsTitle
 id originTextView
 id profileImageView
 id profileRecycleView
+id progressBar
 id quoteEdit
 id quoteTextView
 id selectProfileImage

@@ -1,7 +1,9 @@
 package com.example.gopet;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +43,8 @@ public class BreedInfoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         breedNameTextView = findViewById(R.id.breedNameTextView);
         descriptionTextView = findViewById(R.id.descriptionTextView);
         temperamentTextView = findViewById(R.id.temperamentTextView);
@@ -61,6 +64,7 @@ public class BreedInfoActivity extends AppCompatActivity {
                         temperamentTextView.setText("Temperament: " + temperament);
                         originTextView.setText("Origine: " + origin);
                         Picasso.get().load(imageUrl).into(imageView);
+                        progressBar.setVisibility(View.GONE);
                     });
                 }
 
@@ -83,6 +87,7 @@ public class BreedInfoActivity extends AppCompatActivity {
                         originTextView.setText("Origine: " + origin);
 
                         Picasso.get().load(imageUrl).into(imageView);
+                        progressBar.setVisibility(View.GONE);
                     });
                 }
                 @Override
@@ -94,6 +99,7 @@ public class BreedInfoActivity extends AppCompatActivity {
                 }
             });
         }
+
 
     }
 
