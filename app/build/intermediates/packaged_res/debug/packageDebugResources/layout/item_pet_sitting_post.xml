@@ -10,7 +10,7 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Perioadă"
+        android:text="Period: "
         android:textStyle="bold"
         android:textSize="16sp"
         android:layout_marginBottom="4dp" />
@@ -19,21 +19,21 @@
         android:id="@+id/textViewLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Locație"
+        android:text="Location: "
         android:layout_marginBottom="2dp" />
 
     <TextView
         android:id="@+id/textViewNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detalii"
+        android:text="Notes: "
         android:layout_marginBottom="2dp" />
 
     <TextView
         android:id="@+id/textViewOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Postat de"
+        android:text="Posted by"
         android:textStyle="italic"
         android:textColor="#666666"
         android:layout_marginBottom="4dp" />
@@ -41,7 +41,7 @@
         android:id="@+id/textViewAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Acceptat de:"
+        android:text="Accepted by:"
         android:textColor="#388E3C"
         android:visibility="gone"
         android:textStyle="bold"
@@ -52,6 +52,6 @@
         android:id="@+id/textViewAnimalDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Animale incluse:"
+        android:text="For the following pets:"
         android:layout_marginTop="4dp" />
 </LinearLayout>

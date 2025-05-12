@@ -52,7 +52,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         String userId = userDocument.getId();
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        holder.usernameTextView.setText(username != null ? username : "Fără nume");
+        holder.usernameTextView.setText(username != null ? username : "No name");
 
         if (base64Image != null && !base64Image.isEmpty()) {
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
@@ -85,11 +85,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             if (isAlreadyFriend) {
                 if ("pending".equals(friendStatus)) {
                     holder.btnFriendRequest.setVisibility(View.VISIBLE);
-                    holder.btnFriendRequest.setText("Cerere trimisă");
+                    holder.btnFriendRequest.setText("Friend request sent");
                     holder.btnFriendRequest.setEnabled(false);
                 } else if ("confirmed".equals(friendStatus)) {
                     holder.btnFriendRequest.setVisibility(View.VISIBLE);
-                    holder.btnFriendRequest.setText("Prieteni");
+                    holder.btnFriendRequest.setText("Friends");
                     holder.btnFriendRequest.setEnabled(false);
 
                     holder.btnShareAnimals.setVisibility(View.VISIBLE);
@@ -102,14 +102,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                     holder.btnRemoveFriend.setVisibility(View.VISIBLE);
                     holder.btnRemoveFriend.setOnClickListener(v -> {
                         new AlertDialog.Builder(holder.itemView.getContext())
-                                .setTitle("Confirmare")
-                                .setMessage("Sigur vrei să ștergi prietenul " + username + ", eliminând animalele partajate?")
-                                .setPositiveButton("Șterge", (dialog, which) -> {
+                                .setTitle("Confirm")
+                                .setMessage("Sure you want to delete from friends " + username + "?")
+                                .setPositiveButton("Delete", (dialog, which) -> {
                                     if (removeFriendClickListener != null) {
                                         removeFriendClickListener.onRemoveFriendClicked(userDocument);
                                     }
                                 })
-                                .setNegativeButton("Anulează", null)
+                                .setNegativeButton("Cancel", null)
                                 .show();
                     });
 
@@ -117,7 +117,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             } else {
                 holder.btnFriendRequest.setVisibility(View.VISIBLE);
                 holder.btnFriendRequest.setEnabled(true);
-                holder.btnFriendRequest.setText("Adaugă în lista de prieteni");
+                holder.btnFriendRequest.setText("Add to friends");
                 holder.btnFriendRequest.setOnClickListener(v -> {
                     if (listener != null) {
                         listener.onAddFriendClicked(userDocument);
@@ -171,11 +171,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 .document(currentUserId)
                 .delete()
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(holder.itemView.getContext(), "Partajarea a fost anulată.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(holder.itemView.getContext(), "Sharing canceled", Toast.LENGTH_SHORT).show();
                     holder.btnCancelShare.setVisibility(View.GONE);
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(holder.itemView.getContext(), "Eroare la anularea partajării.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(holder.itemView.getContext(), "Error", Toast.LENGTH_SHORT).show();
                 });
     }
 
@@ -193,7 +193,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                         if ("pending".equals(status)) {
                             holder.btnAcceptShare.setVisibility(View.VISIBLE);
                             holder.btnAcceptShare.setEnabled(true);
-                            holder.btnAcceptShare.setText("Acceptă partajare");
+                            holder.btnAcceptShare.setText("Accept share request");
 
                             holder.btnAcceptShare.setOnClickListener(v -> {
                                 acceptShareRequest(fromUserId, holder);
@@ -216,14 +216,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 .document(fromUserId)
                 .update("status", "accepted")
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(holder.itemView.getContext(), "Partajare acceptată!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(holder.itemView.getContext(), "Share accepted!", Toast.LENGTH_SHORT).show();
                     holder.btnAcceptShare.setVisibility(View.GONE);
                     if (reloadAnimalsListener != null) {
                         reloadAnimalsListener.onReloadAnimals();
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(holder.itemView.getContext(), "Eroare la acceptare partajare!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(holder.itemView.getContext(), "Error!", Toast.LENGTH_SHORT).show();
                 });
     }
 

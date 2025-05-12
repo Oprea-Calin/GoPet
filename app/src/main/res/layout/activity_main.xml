@@ -57,14 +57,14 @@
         android:id="@+id/btnFriends"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Prieteni"
+        android:text="Friends"
         app:layout_constraintEnd_toStartOf="@+id/btnAllUsers"
         app:layout_constraintTop_toBottomOf="@+id/viewProfile" />
     <Button
         android:id="@+id/btnAllUsers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toți utilizatorii"
+        android:text="All users"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoutImage" />
 
@@ -91,14 +91,14 @@
                 android:id="@+id/animalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nume"
+                android:hint="Name"
                 android:inputType="text" />
 
             <EditText
                 android:id="@+id/animalBreed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Rasa"
+                android:hint="Breed"
                 android:inputType="text" />
 
             <EditText
@@ -107,41 +107,41 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="false"
-                android:hint="Data nașterii (ZZ/LL/AAAA)" />
+                android:hint="Date of Birth (DD/MM/YYYY)" />
 
             <EditText
                 android:id="@+id/animalCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Categorie (ex: câine, pisică)"
+                android:hint="Type (cat,dog, etc): "
                 android:inputType="text" />
 
             <EditText
                 android:id="@+id/animalReproductiveStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Status reproducere (ex: sterilizat)"
+                android:hint="Reproductive status"
                 android:inputType="text" />
 
             <EditText
                 android:id="@+id/animalGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Sex (mascul/femelă)"
+                android:hint="Gender"
                 android:inputType="text" />
 
             <EditText
                 android:id="@+id/animalWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Greutate (kg)"
+                android:hint="Weight"
                 android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/animalAllergies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Alergii (dacă există)"
+                android:hint="Alergies"
                 android:inputType="text" />
 
             <Button
@@ -149,14 +149,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Selectează imagine" />
+                android:text="Select image" />
 
             <Button
                 android:id="@+id/addAnimalFormButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Adaugă animăluț" />
+                android:text="Add pet" />
 
             <ImageView
                 android:id="@+id/animalImageView"
@@ -198,7 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="Nume utilizator"
+                android:hint="User name"
                 android:textSize="18sp" />
 
             <EditText
@@ -206,7 +206,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:hint="Un citat care te inspiră"
+                android:hint="A quote that inspires you"
                 android:textSize="14sp" />
 
             <Button
@@ -215,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:text="Adaugă imagine" />
+                android:text="Add image" />
 
             <Button
                 android:id="@+id/submitProfileUpdateButton"
@@ -223,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:text="Actualizeaza profil" />
+                android:text="Edit profile" />
 
         </LinearLayout>
         >
@@ -254,7 +254,7 @@
         android:paddingTop="8dp"
         android:paddingEnd="16dp"
         android:paddingBottom="4dp"
-        android:text="Animăluțele mele"
+        android:text="My pets"
         android:textColor="#333333"
         android:textSize="20sp"
         android:textStyle="bold"

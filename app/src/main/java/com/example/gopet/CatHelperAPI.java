@@ -26,13 +26,13 @@ public class CatHelperAPI {
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    callback.onError("Eroare" + e.getMessage());
+                    callback.onError("Error" + e.getMessage());
                 }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     if (!response.isSuccessful()) {
-                        callback.onError("Eroare" + response.message());
+                        callback.onError("Error" + response.message());
                         return;
                     }
 
@@ -55,10 +55,10 @@ public class CatHelperAPI {
 
                             callback.onResult(name, desc, temp, origin, imageUrl);
                         } else {
-                            callback.onError("Nu am găsit nicio rasă cu acest nume.");
+                            callback.onError("Breed not found");
                         }
                     } catch (Exception e) {
-                        callback.onError("Eroare la parsare: " + e.getMessage());
+                        callback.onError("Error: " + e.getMessage());
                     }
                 }
             });

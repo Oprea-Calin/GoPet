@@ -95,8 +95,7 @@ id submitProfileUpdateButton
 id tabLayout
 id temperamentTextView
 id textAnimalName
-id textMessage
-id textUserId
+id textUserName
 id textViewAccepted
 id textViewAnimalDetails
 id textViewAnimals

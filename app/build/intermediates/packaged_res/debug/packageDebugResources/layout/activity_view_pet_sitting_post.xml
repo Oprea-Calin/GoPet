@@ -13,7 +13,7 @@
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Perioadă"
+            android:text="Period: "
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginBottom="8dp" />
@@ -22,27 +22,27 @@
             android:id="@+id/textViewLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Locație"
+            android:text="Location"
             android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/textViewNotes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Detalii"
+            android:text="Notes"
             android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/textViewAnimals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Animale incluse:"
+            android:text="For the following pets:"
             android:layout_marginBottom="16dp" />
 
         <Button
             android:id="@+id/btnRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trimite cerere" />
+            android:text="Send request" />
     </LinearLayout>
 </ScrollView>

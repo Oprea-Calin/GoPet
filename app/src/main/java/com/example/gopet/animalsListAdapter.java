@@ -53,11 +53,11 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         holder.age.setText(canimal.getCalculatedAge());
         holder.breed.setText(canimal.getBreed());
         holder.name.setText(canimal.getName());
-        holder.category.setText("Categorie: " + canimal.getCategory());
-        holder.gender.setText("Sex: " + canimal.getGender());
-        holder.weight.setText("Greutate: " + (canimal.getWeight() != null ? canimal.getWeight() + " kg" : "N/A"));
-        holder.reproductiveStatus.setText("Status: " + canimal.getReproductiveStatus());
-        holder.allergies.setText("Alergii: " + canimal.getAllergies());
+        holder.category.setText("Type: " + canimal.getCategory());
+        holder.gender.setText("Gender: " + canimal.getGender());
+        holder.weight.setText("Weight: " + (canimal.getWeight() != null ? canimal.getWeight() + " kg" : "N/A"));
+        holder.reproductiveStatus.setText("Reproductive status: " + canimal.getReproductiveStatus());
+        holder.allergies.setText("Alergies: " + canimal.getAllergies());
 
         if (canimal.getBase64Image() != null) {
             byte[] decodedString = Base64.decode(canimal.getBase64Image(), Base64.DEFAULT);
@@ -68,15 +68,15 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
         }
         if (canimal.isShared()) {
             holder.sharedBy.setVisibility(View.VISIBLE);
-            holder.sharedBy.setText("Partajat de: " + canimal.getSharedFromUsername());
+            holder.sharedBy.setText("Shared by: " + canimal.getSharedFromUsername());
         } else {
             holder.sharedBy.setVisibility(View.GONE);
         }
 
         holder.itemView.setOnClickListener(v -> {
             new android.app.AlertDialog.Builder(context)
-                    .setTitle("Alege acțiunea pentru " + canimal.getName())
-                    .setItems(new CharSequence[]{"Editează", "Șterge"}, (dialog, which) -> {
+                    .setTitle("Select action " + canimal.getName())
+                    .setItems(new CharSequence[]{"Edit", "Delete"}, (dialog, which) -> {
                         if (which == 0) {
                             if (deleteListener != null) {
                                 deleteListener.onItemClick(canimal);
@@ -100,7 +100,7 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
                 type = "dog";
             } else {
                 android.os.Handler handler = new android.os.Handler(context.getMainLooper());
-                handler.post(() -> android.widget.Toast.makeText(context, "Nu exista informații despre  \"" + canimal.getName() + "\"", Toast.LENGTH_SHORT).show());
+                handler.post(() -> android.widget.Toast.makeText(context, "No info available for   \"" + canimal.getName() + "\"", Toast.LENGTH_SHORT).show());
                 return true;
             }
 
@@ -156,12 +156,12 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
                 luni += 12;
             }
 
-            String aniText = ani + " " + (ani == 1 ? "an" : "ani");
-            String luniText = luni + " " + (luni == 1 ? "lună" : "luni");
+            String aniText = ani + " " + (ani == 1 ? "years" : "years");
+            String luniText = luni + " " + (luni == 1 ? "years" : "years");
 
             if (ani == 0) return luniText;
             if (luni == 0) return aniText;
-            return aniText + " și " + luniText;
+            return aniText + " and " + luniText;
         } catch (Exception e) {
             e.printStackTrace();
             return "N/A";

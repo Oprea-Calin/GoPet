@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
 public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingRequestAdapter.RequestViewHolder> {
@@ -34,8 +37,21 @@ public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingReq
     @Override
     public void onBindViewHolder(@NonNull RequestViewHolder holder, int position) {
         PetSittingRequest request = requestList.get(position);
-        holder.textUserId.setText("User ID: " + request.userId);
-        holder.textMessage.setText(request.message);
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(request.userId)
+                .get()
+                .addOnSuccessListener(doc -> {
+                    if (doc.exists()) {
+                        String username = doc.getString("username");
+                        holder.textUserName.setText("User name: " + username);
+                    } else {
+                        holder.textUserName.setText("User name:");
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    holder.textUserName.setText("User name:");
+                });
         holder.btnAccept.setOnClickListener(v -> listener.onAcceptClicked(request));
     }
 
@@ -45,13 +61,12 @@ public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingReq
     }
 
     static class RequestViewHolder extends RecyclerView.ViewHolder {
-        TextView textUserId, textMessage;
+        TextView textUserName;
         Button btnAccept;
 
         public RequestViewHolder(@NonNull View itemView) {
             super(itemView);
-            textUserId = itemView.findViewById(R.id.textUserId);
-            textMessage = itemView.findViewById(R.id.textMessage);
+            textUserName = itemView.findViewById(R.id.textUserName);
             btnAccept = itemView.findViewById(R.id.btnAccept);
         }
     }

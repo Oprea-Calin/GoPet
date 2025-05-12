@@ -93,7 +93,7 @@ public class MyPetSittingPostsFragment extends Fragment {
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Eroare la încărcarea anunțurilor proprii", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                     incrementAndCheckDone();
                 });
     }

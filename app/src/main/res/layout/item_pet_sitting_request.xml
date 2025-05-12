@@ -8,23 +8,17 @@
     android:layout_marginBottom="8dp">
 
     <TextView
-        android:id="@+id/textUserId"
+        android:id="@+id/textUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User ID"
+        android:text="User name"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mesaj cerere"
-        android:layout_marginTop="4dp" />
 
     <Button
         android:id="@+id/btnAccept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Acceptă cererea"
+        android:text="Accept request"
         android:layout_marginTop="8dp" />
 </LinearLayout>

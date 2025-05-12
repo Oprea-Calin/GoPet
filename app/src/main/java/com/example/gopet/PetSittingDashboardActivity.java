@@ -27,9 +27,9 @@ public class PetSittingDashboardActivity extends AppCompatActivity {
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             if (position == 0) {
-                tab.setText("Toate anunțurile");
+                tab.setText("All posts");
             } else {
-                tab.setText("Anunțurile mele");
+                tab.setText("My posts");
             }
         }).attach();
     }

@@ -31,13 +31,13 @@ public class DogHelperAPI {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                callback.onError("Eroare rețea: " + e.getMessage());
+                callback.onError("Error: " + e.getMessage());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
-                    callback.onError("Eroare API: " + response.message());
+                    callback.onError("Error: " + response.message());
                     return;
                 }
 
@@ -47,9 +47,9 @@ public class DogHelperAPI {
                     if (jsonArray.length() > 0) {
                         JSONObject dogData = jsonArray.getJSONObject(0);
                         String name = dogData.getString("name");
-                        String desc = dogData.optString("bred_for", "Fără descriere disponibilă.");
-                        String temp = dogData.optString("temperament", "Nespecificat");
-                        String origin = dogData.optString("origin", "Necunoscut");
+                        String desc = dogData.optString("bred_for", "Unknown");
+                        String temp = dogData.optString("temperament", "Unknown");
+                        String origin = dogData.optString("origin", "Unknown");
                         String imageUrl = "";
 
                         if (dogData.has("reference_image_id")) {
@@ -59,10 +59,10 @@ public class DogHelperAPI {
 
                         callback.onResult(name, desc, temp, origin, imageUrl);
                     } else {
-                        callback.onError("Rasa '" + breedName + "' nu a fost găsită.");
+                        callback.onError("Breed '" + breedName + "' not found.");
                     }
                 } catch (Exception e) {
-                    callback.onError("Eroare parsare: " + e.getMessage());
+                    callback.onError("Error: " + e.getMessage());
                 }
             }
         });

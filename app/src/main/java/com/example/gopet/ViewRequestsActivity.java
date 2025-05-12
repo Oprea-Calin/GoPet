@@ -35,7 +35,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
 
         postId = getIntent().getStringExtra("postId");
         if (postId == null) {
-            Toast.makeText(this, "ID anunț lipsă", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No ID found", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -64,7 +64,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
                 .addOnSuccessListener(userDoc -> {
                     if (userDoc.exists()) {
                         String username = userDoc.getString("username");
-                        req.message = "Utilizator: " + (username != null ? username : req.userId);
+                        req.message = "Use: " + (username != null ? username : req.userId);
                         requestList.add(req);
                         adapter.notifyDataSetChanged();
                     }
@@ -91,7 +91,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
                             .update("isActive", false,
                                     "acceptedUserId", selectedReq.userId);
 
-                    Toast.makeText(this, "Cererea a fost acceptată", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Request accepted!", Toast.LENGTH_SHORT).show();
                     finish();
                 });
     }

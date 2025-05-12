@@ -63,7 +63,7 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
         postButton.setOnClickListener(v -> {
             List<animal> selected = adapter.getSelectedAnimals();
             if (selected.isEmpty()) {
-                Toast.makeText(this, "Selectează cel puțin un animal", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Select at least 1 pet!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -82,10 +82,10 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
             PetSittingPost post = new PetSittingPost(postId, ownerId, selectedIds, start, end, loc, notes);
             db.collection("petSittingPosts").document(postId).set(post)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(this, "Anunț publicat!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Post published!", Toast.LENGTH_SHORT).show();
                         finish();
                     })
-                    .addOnFailureListener(e -> Toast.makeText(this, "Eroare la publicare", Toast.LENGTH_SHORT).show());
+                    .addOnFailureListener(e -> Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show());
         });
 
         startDateInput.setOnClickListener(v -> showDatePickerDialog(startDateInput));
@@ -105,7 +105,7 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
                     }
                     adapter.updateData(list);
                 })
-                .addOnFailureListener(e -> Toast.makeText(this, "Eroare la încărcare animale", Toast.LENGTH_SHORT).show());
+                .addOnFailureListener(e -> Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show());
     }
 
     private void showDatePickerDialog(EditText editText) {

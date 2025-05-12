@@ -3799,12 +3799,11 @@ id text
 id text2
 id textAnimalName
 id textEnd
-id textMessage
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textUserId
+id textUserName
 id textViewAccepted
 id textViewAnimalDetails
 id textViewAnimals

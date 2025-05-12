@@ -34,7 +34,7 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
 
         postId = getIntent().getStringExtra("postId");
         if (postId == null) {
-            Toast.makeText(this, "Anunț inexistent", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Doesn't exist", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -59,7 +59,7 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Eroare la încărcare", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                     finish();
                 });
     }
@@ -83,18 +83,18 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
     private void sendRequest() {
         String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if (currentUser.equals(ownerId)) {
-            Toast.makeText(this, "Nu poți trimite cerere la propriul anunț", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You can't send requests to your post!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String reqId = UUID.randomUUID().toString();
-        PetSittingRequest req = new PetSittingRequest(reqId, postId, currentUser, "Vreau să ajut!");
+        PetSittingRequest req = new PetSittingRequest(reqId, postId, currentUser, "I want to help!");
 
         db.collection("petSittingRequests").document(reqId)
                 .set(req)
                 .addOnSuccessListener(aVoid ->
-                        Toast.makeText(this, "Cerere trimisă!", Toast.LENGTH_SHORT).show())
+                        Toast.makeText(this, "Request sent!", Toast.LENGTH_SHORT).show())
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Eroare la trimitere", Toast.LENGTH_SHORT).show());
+                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show());
     }
 }

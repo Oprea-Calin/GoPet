@@ -1,4 +1,3 @@
-// AllPetSittingPostsFragment.java
 package com.example.gopet;
 
 import android.content.Intent;
@@ -100,7 +99,7 @@ public class AllPetSittingPostsFragment extends Fragment {
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Eroare la încărcarea anunțurilor", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 });
     }
@@ -113,7 +112,7 @@ public class AllPetSittingPostsFragment extends Fragment {
                     if (doc.exists()) {
                         String username = doc.getString("username");
                         if (username != null) {
-                            post.notes = "Postat de: " + username + "\n" + post.notes;
+                            post.notes = "Posted by: " + username + "\n" + post.notes;
                         }
                     }
                     postList.add(post);

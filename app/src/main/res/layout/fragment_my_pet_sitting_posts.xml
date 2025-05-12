@@ -9,7 +9,7 @@
         android:id="@+id/btnAddPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Adaugă anunț nou"
+        android:text="Add new post"
         android:layout_marginBottom="12dp" />
     <ProgressBar
         android:id="@+id/progressBar"

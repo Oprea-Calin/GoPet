@@ -80,7 +80,7 @@ public class Register extends AppCompatActivity {
                     editPasswordLog.setError("Please fill in a password!");
                 }
                 if (!password.equals(confirmPassword)) {
-                    editPasswordConfirmLog.setError("Parolele nu coincid!");
+                    editPasswordConfirmLog.setError("Passwords don't match!");
                     return;
                 }
                 else{

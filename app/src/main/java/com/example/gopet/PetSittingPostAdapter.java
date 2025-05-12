@@ -38,11 +38,11 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
         PetSittingPost post = postList.get(position);
 
         holder.textViewDate.setText(post.startDate + " - " + post.endDate);
-        holder.textViewLocation.setText("Locație: " + post.location);
-        holder.textViewNotes.setText("Detalii: " + post.notes);
+        holder.textViewLocation.setText("Location: " + post.location);
+        holder.textViewNotes.setText("Notes: " + post.notes);
 
         if (post.ownerUsername != null) {
-            holder.textViewOwner.setText("Postat de: " + post.ownerUsername);
+            holder.textViewOwner.setText("Posted by: " + post.ownerUsername);
         } else {
             FirebaseFirestore.getInstance().collection("users")
                     .document(post.ownerId)
@@ -50,7 +50,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
                     .addOnSuccessListener(doc -> {
                         String username = doc.getString("username");
                         post.ownerUsername = username;
-                        holder.textViewOwner.setText("Postat de: " + username);
+                        holder.textViewOwner.setText("Posted by: " + username);
                     });
         }
         if (!post.isActive && post.acceptedUserId != null) {
@@ -60,7 +60,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
                     .get()
                     .addOnSuccessListener(doc -> {
                         String name = doc.getString("username");
-                        holder.textViewAccepted.setText("Acceptat de: " + name);
+                        holder.textViewAccepted.setText("Accepted by: " + name);
                         holder.textViewAccepted.setVisibility(View.VISIBLE);
                     });
         } else {
@@ -69,7 +69,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
 
 
         StringBuilder animalDetails = new StringBuilder();
-        holder.textViewAnimalDetails.setText("Încărcare animale...");
+        holder.textViewAnimalDetails.setText("Pets loading");
         for (String animalId : post.animalIds) {
             FirebaseFirestore.getInstance()
                     .collection("users").document(post.ownerId)

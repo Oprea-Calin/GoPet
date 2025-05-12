@@ -52,7 +52,7 @@
                 android:id="@+id/btnFriendRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adaugă prieten"
+                android:text="Add friend"
                 android:textSize="12sp"
                 android:layout_marginEnd="8dp" />
 
@@ -60,7 +60,7 @@
                 android:id="@+id/btnShareAnimals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Partajează animăluțele tale"
+                android:text="Share your pets"
                 android:textSize="12sp"
                 android:visibility="gone" />
         </LinearLayout>
@@ -75,7 +75,7 @@
                 android:id="@+id/btnAcceptShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Acceptă partajarea"
+                android:text="Accept share request"
                 android:textSize="12sp"
                 android:layout_marginEnd="8dp"
                 android:visibility="gone" />
@@ -84,7 +84,7 @@
                 android:id="@+id/btnCancelShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anulează partajarea"
+                android:text="Cancel sharing"
                 android:textSize="12sp"
                 android:layout_marginEnd="8dp"
                 android:visibility="gone" />
@@ -93,7 +93,7 @@
                 android:id="@+id/btnRemoveFriend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Șterge prieten"
+                android:text="Delete friend"
                 android:textSize="12sp"
                 android:visibility="gone" />
         </LinearLayout>

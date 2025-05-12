@@ -62,7 +62,7 @@ public class BreedInfoActivity extends AppCompatActivity {
                         breedNameTextView.setText(name);
                         descriptionTextView.setText(description);
                         temperamentTextView.setText("Temperament: " + temperament);
-                        originTextView.setText("Origine: " + origin);
+                        originTextView.setText("Origins: " + origin);
                         Picasso.get().load(imageUrl).into(imageView);
                         progressBar.setVisibility(View.GONE);
                     });
@@ -84,7 +84,7 @@ public class BreedInfoActivity extends AppCompatActivity {
                         breedNameTextView.setText(name);
                         descriptionTextView.setText(description);
                         temperamentTextView.setText("Temperament: " + temperament);
-                        originTextView.setText("Origine: " + origin);
+                        originTextView.setText("Origins: " + origin);
 
                         Picasso.get().load(imageUrl).into(imageView);
                         progressBar.setVisibility(View.GONE);
@@ -114,7 +114,7 @@ public class BreedInfoActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 runOnUiThread(() -> {
-                    Toast.makeText(BreedInfoActivity.this, "Eroare" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BreedInfoActivity.this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     finish();
                 });
             }
@@ -123,7 +123,7 @@ public class BreedInfoActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
                     runOnUiThread(() -> {
-                        Toast.makeText(BreedInfoActivity.this, "Rasa nu a fost găsită.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BreedInfoActivity.this, "Breed not found.", Toast.LENGTH_SHORT).show();
                         finish();
                     });
                     return;
@@ -144,13 +144,13 @@ public class BreedInfoActivity extends AppCompatActivity {
                         });
                     } else {
                         runOnUiThread(() -> {
-                            Toast.makeText(BreedInfoActivity.this, "Nu există imagini pentru această rasă.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BreedInfoActivity.this, "No images available", Toast.LENGTH_SHORT).show();
                             finish();
                         });
                     }
                 } catch (Exception e) {
                     runOnUiThread(() -> {
-                        Toast.makeText(BreedInfoActivity.this, "Eroare", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BreedInfoActivity.this, "Error", Toast.LENGTH_SHORT).show();
                         finish();
                     });
                 }

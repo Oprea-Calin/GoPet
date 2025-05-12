@@ -190,10 +190,10 @@ public class MainActivity extends AppCompatActivity {
                 this,
                 animal -> { // deleteListener
                     new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("Ștergere animal")
-                            .setMessage("Ești sigur că vrei să ștergi animalul " + animal.getName() + "?")
-                            .setPositiveButton("Da", (dialog, which) -> deleteAnimal(animal))
-                            .setNegativeButton("Nu", null)
+                            .setTitle("Delete pe")
+                            .setMessage("Are you sure you want to delete " + animal.getName() + "?")
+                            .setPositiveButton("Yes", (dialog, which) -> deleteAnimal(animal))
+                            .setNegativeButton("No", null)
                             .show();
                 },
                 animal -> { // editListener
@@ -339,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
             String breed = animalBreedEdit.getText().toString();
             if(name.isEmpty() || age.isEmpty() || breed.isEmpty())
             {
-                Toast.makeText(this, "Completați toate detaliile!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Fill in all fields!", Toast.LENGTH_SHORT).show();
             }
             else{
                 submitAnimalFormButton.setEnabled(false);
@@ -384,7 +384,7 @@ public class MainActivity extends AppCompatActivity {
 
         loadAnimals();
 
-        Toast.makeText(this, "Prieten eliminat și animalele partajate au fost eliminate.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Friend deleted", Toast.LENGTH_SHORT).show();
     }
 
     private void showFriends() {
@@ -438,11 +438,11 @@ public class MainActivity extends AppCompatActivity {
                                         });
                             }
                         } else {
-                            Toast.makeText(this, "Nu ai prieteni confirmați.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "You don't have confirmed friends!", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Eroare la încărcarea prietenilor.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                     });
         }
     }
@@ -453,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
         String newQuote = quoteEdit.getText().toString();
 
         if (newUsername.isEmpty() || newQuote.isEmpty()) {
-            Toast.makeText(this, "Completați toate detaliile!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Fill in all fields!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -499,10 +499,10 @@ public class MainActivity extends AppCompatActivity {
                 .document(currentUserId)
                 .set(new SharedAnimalsRequest(currentUserId, "pending"))
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(this, "Solicitare de partajare trimisă!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Share request sent!", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Eroare la trimiterea solicitării!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                 });
     }
 
@@ -510,9 +510,9 @@ public class MainActivity extends AppCompatActivity {
         if (!friendsList.contains(user)) {
             friendsList.add(user);
             saveFriendToDatabase(user.getId());
-            Toast.makeText(this, user.getString("username") + " adăugat la prieteni!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, user.getString("username") + " added to friends!", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Deja este în lista ta de prieteni.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Already friends!", Toast.LENGTH_SHORT).show();
         }
     }
     private void saveFriendToDatabase(String friendId) {
@@ -539,7 +539,7 @@ public class MainActivity extends AppCompatActivity {
                                 .document(uid)
                                 .update("status", "confirmed");
 
-                        Toast.makeText(MainActivity.this, "Acum sunteți prieteni!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Now you are friends!", Toast.LENGTH_SHORT).show();
                         loadFriends();
 
                     } else {
@@ -555,7 +555,7 @@ public class MainActivity extends AppCompatActivity {
                                     loadFriends();
                                 })
                                 .addOnFailureListener(e -> {
-                                    Toast.makeText(MainActivity.this, "Eroare la trimiterea cererii!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                                 });
                     }
                 });
@@ -577,7 +577,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         userAdapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(MainActivity.this, "Eroare la încărcarea prietenilor!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -695,12 +695,12 @@ public class MainActivity extends AppCompatActivity {
                 .document(animal.getId())
                 .delete()
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(MainActivity.this, "Animal șters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Pet deleted", Toast.LENGTH_SHORT).show();
                     animals.remove(animal);
                     animals_listAdapter.notifyDataSetChanged();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(MainActivity.this, "Eroare la ștergere", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 });
     }
     private void populateFormWithAnimal(animal animal) {
@@ -837,11 +837,11 @@ public class MainActivity extends AppCompatActivity {
                                             "base64Image", existingImage != null ? existingImage : ""
                                     )
                                     .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "Pet edited!", Toast.LENGTH_SHORT).show();
                                         resetFormAndReload();
                                     })
                                     .addOnFailureListener(e -> {
-                                        Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                                         submitAnimalFormButton.setEnabled(true);
                                     });
                         });
@@ -865,11 +865,11 @@ public class MainActivity extends AppCompatActivity {
                                 "base64Image", base64Image != null ? base64Image : ""
                         )
                         .addOnSuccessListener(aVoid -> {
-                            Toast.makeText(MainActivity.this, "Animal modificat!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Pet edited!", Toast.LENGTH_SHORT).show();
                             resetFormAndReload();
                         })
                         .addOnFailureListener(e -> {
-                            Toast.makeText(MainActivity.this, "Eroare la modificare!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                             submitAnimalFormButton.setEnabled(true);
                         });
             }
@@ -893,11 +893,11 @@ public class MainActivity extends AppCompatActivity {
                     .document(animalID)
                     .set(newAnimal)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(MainActivity.this, "Animal adăugat!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Pet added!", Toast.LENGTH_SHORT).show();
                         resetFormAndReload();
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(MainActivity.this, "Eroare la adăugare!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                         submitAnimalFormButton.setEnabled(true);
                     });
         }
@@ -959,12 +959,12 @@ public class MainActivity extends AppCompatActivity {
                 luni += 12;
             }
 
-            String aniText = ani + " " + (ani == 1 ? "an" : "ani");
-            String luniText = luni + " " + (luni == 1 ? "lună" : "luni");
+            String aniText = ani + " " + (ani == 1 ? "years" : "years");
+            String luniText = luni + " " + (luni == 1 ? "years" : "years");
 
             if (ani == 0) return luniText;
             if (luni == 0) return aniText;
-            return aniText + " și " + luniText;
+            return aniText + " and " + luniText;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -1038,14 +1038,14 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             })
                             .addOnFailureListener(e -> {
-                                Toast.makeText(MainActivity.this, "Eroare la încărcarea cererilor de partajare", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                             });
 
                     loadingSpinner.setVisibility(View.GONE);
                 })
                 .addOnFailureListener(e -> {
                     loadingSpinner.setVisibility(View.GONE);
-                    Toast.makeText(MainActivity.this, "Eroare la încărcarea animalelor!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                 });
     }
 

@@ -56,6 +56,10 @@
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
     },
     {
+        "merged": "com.example.gopet.app-debug-5:/layout_item_pet_sitting_request.xml.flat",
+        "source": "com.example.gopet.app-main-7:/layout/item_pet_sitting_request.xml"
+    },
+    {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
@@ -106,10 +110,6 @@
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\layout_item_animal.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\layout\\item_animal.xml"
-    },
-    {
-        "merged": "com.example.gopet.app-debug-5:/layout_fragment_all_pet_sitting_posts.xml.flat",
-        "source": "com.example.gopet.app-main-7:/layout/fragment_all_pet_sitting_posts.xml"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
