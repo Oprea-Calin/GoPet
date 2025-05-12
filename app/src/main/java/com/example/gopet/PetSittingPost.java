@@ -3,6 +3,7 @@ package com.example.gopet;
 import java.util.List;
 
 public class PetSittingPost {
+
     public String id;
     public String ownerId;
     public List<String> animalIds;
@@ -10,11 +11,18 @@ public class PetSittingPost {
     public String endDate;
     public String location;
     public String notes;
+    public String acceptedUserId;
+    public String acceptedUsername;
     public boolean isActive = true;
 
-    public PetSittingPost() {}
+    public String ownerUsername;
+    public boolean isAcceptedByMe = false;
 
-    public PetSittingPost(String id, String ownerId, List<String> animalIds, String startDate, String endDate, String location, String notes) {
+    public PetSittingPost() {
+    }
+
+    public PetSittingPost(String id, String ownerId, List<String> animalIds, String startDate, String endDate,
+                          String location, String notes) {
         this.id = id;
         this.ownerId = ownerId;
         this.animalIds = animalIds;

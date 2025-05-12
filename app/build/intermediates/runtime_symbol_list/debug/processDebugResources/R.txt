@@ -3804,10 +3804,13 @@ int id textSpacerNoTitle 0x7f09021e
 int id textStart 0x7f09021f
 int id textTop 0x7f090220
 int id textUserId 0x7f090265
+int id textViewAccepted 0x7f090269
+int id textViewAnimalDetails 0x7f090267
 int id textViewAnimals 0x7f090221
 int id textViewDate 0x7f090222
 int id textViewLocation 0x7f090223
 int id textViewNotes 0x7f090224
+int id textViewOwner 0x7f090268
 int id text_input_end_icon 0x7f090225
 int id text_input_error_icon 0x7f090226
 int id text_input_start_icon 0x7f090227

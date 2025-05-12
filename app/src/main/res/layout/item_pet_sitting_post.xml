@@ -1,30 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp"
-    android:background="#EEEEEE"
+    android:background="#FFFFFF"
     android:layout_marginBottom="8dp">
 
     <TextView
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="01/01/2025 - 03/01/2025"
-        android:textStyle="bold" />
+        android:text="Perioadă"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
 
     <TextView
         android:id="@+id/textViewLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="București"
-        android:layout_marginTop="4dp" />
+        android:text="Locație"
+        android:layout_marginBottom="2dp" />
 
     <TextView
         android:id="@+id/textViewNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Îmi las cățelul pentru weekend"
+        android:text="Detalii"
+        android:layout_marginBottom="2dp" />
+
+    <TextView
+        android:id="@+id/textViewOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Postat de"
+        android:textStyle="italic"
+        android:textColor="#666666"
+        android:layout_marginBottom="4dp" />
+    <TextView
+        android:id="@+id/textViewAccepted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acceptat de:"
+        android:textColor="#388E3C"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp" />
+
+
+    <TextView
+        android:id="@+id/textViewAnimalDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Animale incluse:"
         android:layout_marginTop="4dp" />
 </LinearLayout>

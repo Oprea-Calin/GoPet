@@ -97,10 +97,13 @@ id temperamentTextView
 id textAnimalName
 id textMessage
 id textUserId
+id textViewAccepted
+id textViewAnimalDetails
 id textViewAnimals
 id textViewDate
 id textViewLocation
 id textViewNotes
+id textViewOwner
 id txtLog
 id usernameEdit
 id usernameTextView

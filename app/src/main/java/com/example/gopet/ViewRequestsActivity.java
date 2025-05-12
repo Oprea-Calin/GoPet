@@ -1,4 +1,3 @@
-// ViewRequestsActivity.java
 package com.example.gopet;
 
 import android.os.Bundle;
@@ -53,15 +52,26 @@ public class ViewRequestsActivity extends AppCompatActivity {
                     for (DocumentSnapshot doc : snapshot) {
                         PetSittingRequest req = doc.toObject(PetSittingRequest.class);
                         if (req != null && req.status.equals("pending")) {
-                            requestList.add(req);
+                            fetchUsernameAndAddRequest(req);
                         }
                     }
-                    adapter.notifyDataSetChanged();
+                });
+    }
+
+    private void fetchUsernameAndAddRequest(PetSittingRequest req) {
+        db.collection("users").document(req.userId)
+                .get()
+                .addOnSuccessListener(userDoc -> {
+                    if (userDoc.exists()) {
+                        String username = userDoc.getString("username");
+                        req.message = "Utilizator: " + (username != null ? username : req.userId);
+                        requestList.add(req);
+                        adapter.notifyDataSetChanged();
+                    }
                 });
     }
 
     private void acceptRequest(PetSittingRequest selectedReq) {
-        // acceptă acest user, respinge restul
         db.collection("petSittingRequests")
                 .whereEqualTo("postId", postId)
                 .get()
@@ -78,7 +88,8 @@ public class ViewRequestsActivity extends AppCompatActivity {
 
                     db.collection("petSittingPosts")
                             .document(postId)
-                            .update("isActive", false);
+                            .update("isActive", false,
+                                    "acceptedUserId", selectedReq.userId);
 
                     Toast.makeText(this, "Cererea a fost acceptată", Toast.LENGTH_SHORT).show();
                     finish();

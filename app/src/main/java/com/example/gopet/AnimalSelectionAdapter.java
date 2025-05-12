@@ -45,7 +45,7 @@ public class AnimalSelectionAdapter extends RecyclerView.Adapter<AnimalSelection
         holder.name.setText(a.getName());
         holder.checkBox.setChecked(selected.contains(a));
 
-        holder.itemView.setOnClickListener(v -> {
+        View.OnClickListener toggleSelection = v -> {
             if (selected.contains(a)) {
                 selected.remove(a);
                 holder.checkBox.setChecked(false);
@@ -53,8 +53,12 @@ public class AnimalSelectionAdapter extends RecyclerView.Adapter<AnimalSelection
                 selected.add(a);
                 holder.checkBox.setChecked(true);
             }
-        });
+        };
+
+        holder.itemView.setOnClickListener(toggleSelection);
+        holder.checkBox.setOnClickListener(toggleSelection);
     }
+
 
     @Override
     public int getItemCount() {

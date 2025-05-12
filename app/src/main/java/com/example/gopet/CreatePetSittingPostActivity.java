@@ -1,6 +1,7 @@
 // CreatePetSittingPostActivity.java
 package com.example.gopet;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.widget.*;
 import androidx.annotation.Nullable;
@@ -41,6 +42,23 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
         animalRecyclerView.setAdapter(adapter);
 
         loadUserAnimals();
+        startDateInput.setOnClickListener(v -> {
+            Calendar calendar = Calendar.getInstance();
+            DatePickerDialog dialog = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+                String dateStr = String.format(Locale.getDefault(), "%02d/%02d/%04d", dayOfMonth, month + 1, year);
+                startDateInput.setText(dateStr);
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            dialog.show();
+        });
+
+        endDateInput.setOnClickListener(v -> {
+            Calendar calendar = Calendar.getInstance();
+            DatePickerDialog dialog = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+                String dateStr = String.format(Locale.getDefault(), "%02d/%02d/%04d", dayOfMonth, month + 1, year);
+                endDateInput.setText(dateStr);
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            dialog.show();
+        });
 
         postButton.setOnClickListener(v -> {
             List<animal> selected = adapter.getSelectedAnimals();
@@ -69,6 +87,9 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
                     })
                     .addOnFailureListener(e -> Toast.makeText(this, "Eroare la publicare", Toast.LENGTH_SHORT).show());
         });
+
+        startDateInput.setOnClickListener(v -> showDatePickerDialog(startDateInput));
+        endDateInput.setOnClickListener(v -> showDatePickerDialog(endDateInput));
     }
 
     private void loadUserAnimals() {
@@ -85,5 +106,20 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
                     adapter.updateData(list);
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Eroare la încărcare animale", Toast.LENGTH_SHORT).show());
+    }
+
+    private void showDatePickerDialog(EditText editText) {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                (view, year1, month1, dayOfMonth) -> {
+                    String selectedDate = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
+                    editText.setText(selectedDate);
+                }, year, month, day);
+
+        datePickerDialog.show();
     }
 }
