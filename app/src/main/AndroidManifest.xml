@@ -15,6 +15,18 @@
         android:theme="@style/Theme.GoPet"
         tools:targetApi="31">
         <activity
+            android:name=".ViewRequestsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewPetSittingPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreatePetSittingPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PetSittingDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".BreedInfoActivity"
             android:exported="false" />
         <activity

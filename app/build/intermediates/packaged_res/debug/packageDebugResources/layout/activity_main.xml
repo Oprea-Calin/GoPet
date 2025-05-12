@@ -46,6 +46,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/btnPetSitting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pet Sitting"
+        app:layout_constraintBottom_toTopOf="@+id/btnFriends"
+        app:layout_constraintEnd_toStartOf="@+id/viewProfile" />
+
+    <Button
         android:id="@+id/btnFriends"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

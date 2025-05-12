@@ -32,6 +32,18 @@
         android:testOnly="true"
         android:theme="@style/Theme.GoPet" >
         <activity
+            android:name="com.example.gopet.ViewRequestsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.gopet.ViewPetSittingPostActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.gopet.CreatePetSittingPostActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.gopet.PetSittingDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.gopet.BreedInfoActivity"
             android:exported="false" />
         <activity

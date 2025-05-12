@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitProfileUpdateButton,selectProfileImage, sendFriendRequest;
     Uri profileImageUri;
     EditText animalCategoryEdit, animalReproductiveStatusEdit, animalGenderEdit, animalWeightEdit, animalAllergiesEdit;
-    Button submitAnimalFormButton, btnFriends;
+    Button submitAnimalFormButton, btnFriends, btnPetSitting;
     ImageView animalImageView, addAnimal, viewProfile;
     String existingBase64Image;
     boolean isProfileImageSelected;
@@ -81,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        btnPetSitting = findViewById(R.id.btnPetSitting);
+        btnPetSitting.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PetSittingDashboardActivity.class);
+            startActivity(intent);
         });
 
         btnFriends = findViewById(R.id.btnFriends);
