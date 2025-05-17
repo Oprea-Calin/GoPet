@@ -2185,6 +2185,7 @@ color mtrl_textinput_disabled_color
 color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
+color nav_item_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color preference_fallback_accent_color
@@ -3142,6 +3143,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_add
 drawable ic_arrow_back_black_24
 drawable ic_arrow_down_24dp
 drawable ic_call_answer
@@ -3246,10 +3248,13 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable outline_face_unlock_24
+drawable pets
+drawable petsitter
 drawable preference_list_divider_material
 drawable register
 drawable rounded_corners
 drawable settings_icon
+drawable social
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3326,12 +3331,8 @@ id actions
 id activity_chooser_view_content
 id add
 id addAnimalButton
-id addAnimalFormButton
 id addAnimalFormLayout
-id addAnimalFormScrollView
-id addImageButton
 id addProfileFormLayout
-id addUserFormLayout
 id adjust_height
 id adjust_width
 id alertTitle
@@ -3349,7 +3350,6 @@ id animalImageView
 id animalName
 id animalReproductiveStatus
 id animalWeight
-id animalsView
 id animateToEnd
 id animateToStart
 id antiClockwise
@@ -3370,7 +3370,7 @@ id below
 id bestChoice
 id blocking
 id bottom
-id bottomGrid
+id bottomNavigation
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3390,7 +3390,6 @@ id btnCancelShare
 id btnFriendRequest
 id btnFriends
 id btnLogin
-id btnPetSitting
 id btnRegister
 id btnRegisterGo
 id btnRemoveFriend
@@ -3500,6 +3499,7 @@ id fixed
 id flip
 id floating
 id forever
+id fragment_container
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3630,7 +3630,9 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id myAnimalsTitle
+id nav_pet_sitting
+id nav_pets
+id nav_social
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3681,6 +3683,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id petsRootLayout
 id pin
 id position
 id postLayout
@@ -3698,6 +3701,8 @@ id quoteTextView
 id radio
 id ratio
 id rectangles
+id recyclerPets
+id recyclerSocial
 id recyclerViewMyPosts
 id recyclerViewPosts
 id recyclerViewRequests
@@ -3734,6 +3739,7 @@ id search_src_text
 id search_voice_btn
 id seekbar
 id seekbar_value
+id selectImageBtn
 id selectProfileImage
 id select_dialog_listview
 id selected
@@ -3752,6 +3758,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id socialFragmentLayout
 id south
 id spacer
 id special_effects_controller_view_tag
@@ -3775,6 +3782,7 @@ id staticPostLayout
 id stop
 id stretch
 id submenuarrow
+id submitAnimalBtn
 id submitProfileUpdateButton
 id submit_area
 id supportScrollUp
@@ -3847,7 +3855,6 @@ id up
 id useLogo
 id usernameEdit
 id usernameTextView
-id usersRecyclerView
 id vertical
 id vertical_only
 id viewPager
@@ -4017,6 +4024,8 @@ layout design_text_input_start_icon
 layout expand_button
 layout fragment_all_pet_sitting_posts
 layout fragment_my_pet_sitting_posts
+layout fragment_pets
+layout fragment_social
 layout image_frame
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
@@ -4102,9 +4111,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
-mipmap ic_launcher
-mipmap ic_launcher_foreground
-mipmap ic_launcher_round
+menu bottom_nav_menu
 plurals mtrl_badge_content_description
 raw firebase_common_keep
 string abc_action_bar_home_description

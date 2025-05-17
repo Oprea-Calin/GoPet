@@ -80,8 +80,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="D:\addNewPet.png" />
-                                                <entry key="scalingPercent" value="79" />
+                                                <entry key="imagePath" value="D:\FACULTA\GoPet\app\src\main\res\drawable\pets.png" />
+                                                <entry key="scalingPercent" value="73" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -302,25 +302,11 @@
                   <entry key="vectorAssetStep">
                     <value>
                       <PersistentState>
-                        <option name="children">
-                          <map>
-                            <entry key="clipartAsset">
-                              <value>
-                                <PersistentState>
-                                  <option name="values">
-                                    <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../PROGRAME/AndroidSDK/icons/material/materialiconsoutlined/face_unlock/outline_face_unlock_24.xml" />
-                                    </map>
-                                  </option>
-                                </PersistentState>
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="outline_face_unlock_24" />
-                            <entry key="sourceFile" value="D:\PROGRAME\GoPet" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="s" />
+                            <entry key="sourceFile" value="D:\FACULTA\GoPet\app\src\main\res\drawable\s.svg" />
                           </map>
                         </option>
                       </PersistentState>

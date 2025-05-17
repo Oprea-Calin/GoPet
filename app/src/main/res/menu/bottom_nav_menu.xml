@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_pets"
+        android:icon="@drawable/pets"
+        android:title="My Pets" />
+
+    <item
+        android:id="@+id/nav_social"
+        android:icon="@drawable/social"
+        android:title="Social" />
+
+    <item
+        android:id="@+id/nav_pet_sitting"
+        android:icon="@drawable/petsitter"
+        android:title="Pet Sitting" />
+
+</menu>
