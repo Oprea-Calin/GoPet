@@ -90,14 +90,18 @@ public class SocialFragment extends Fragment {
 
     private void loadAllUsers() {
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
         db.collection("users").get().addOnSuccessListener(querySnapshot -> {
-            usersList.clear();
+            List<DocumentSnapshot> tempList = new ArrayList<>();
+            List<DocumentSnapshot> allUsers = querySnapshot.getDocuments();
 
-            for (DocumentSnapshot userDoc : querySnapshot) {
+            int[] remaining = {allUsers.size()};
+
+            for (DocumentSnapshot userDoc : allUsers) {
                 String userId = userDoc.getId();
-
-                if (userId.equals(currentUserId)) continue;
+                if (userId.equals(currentUserId)) {
+                    remaining[0]--;
+                    continue;
+                }
 
                 boolean isFriend = false;
                 for (DocumentSnapshot friend : friendsList) {
@@ -110,39 +114,57 @@ public class SocialFragment extends Fragment {
                 if (!isFriend) {
                     db.collection("users").document(userId)
                             .collection("friends").document(currentUserId)
-                            .get().addOnSuccessListener(doc -> {
-                                String status = doc.getString("status");
-                                if (status == null) {
-                                    usersList.add(userDoc);
-                                    userAdapter.notifyDataSetChanged();
+                            .get()
+                            .addOnSuccessListener(doc -> {
+                                if (doc == null || !doc.exists()) {
+                                    tempList.add(userDoc);
+                                }
+                                remaining[0]--;
+                                if (remaining[0] == 0) {
+                                    updateUsersListSafely(tempList);
                                 }
                             });
+                } else {
+                    remaining[0]--;
+                    if (remaining[0] == 0) {
+                        updateUsersListSafely(tempList);
+                    }
                 }
             }
+        });
+    }
+    private void updateUsersListSafely(List<DocumentSnapshot> updatedList) {
+        requireActivity().runOnUiThread(() -> {
+            usersList.clear();
+            usersList.addAll(updatedList);
+            userAdapter.notifyDataSetChanged();
         });
     }
 
 
     private void showFriends() {
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        usersList.clear();
         Set<String> addedUserIds = new HashSet<>();
+        List<DocumentSnapshot> tempList = new ArrayList<>();
 
         db.collection("users").get().addOnSuccessListener(allUsersSnapshot -> {
             List<DocumentSnapshot> allUsers = allUsersSnapshot.getDocuments();
+            int[] pendingCalls = {0}; // numărăm câte requests asincrone sunt
 
             for (DocumentSnapshot userDoc : allUsers) {
                 String userId = userDoc.getId();
                 if (userId.equals(currentUserId)) continue;
+
+                pendingCalls[0] += 2;
 
                 db.collection("users").document(currentUserId).collection("friends")
                         .document(userId)
                         .get()
                         .addOnSuccessListener(doc -> {
                             if (doc.exists() && addedUserIds.add(userId)) {
-                                usersList.add(userDoc);
-                                userAdapter.notifyDataSetChanged();
+                                tempList.add(userDoc);
                             }
+                            if (--pendingCalls[0] == 0) updateAdapterWithList(tempList);
                         });
 
                 db.collection("users").document(userId).collection("friends")
@@ -150,12 +172,20 @@ public class SocialFragment extends Fragment {
                         .get()
                         .addOnSuccessListener(doc -> {
                             if (doc.exists() && addedUserIds.add(userId)) {
-                                usersList.add(userDoc);
-                                userAdapter.notifyDataSetChanged();
+                                tempList.add(userDoc);
                             }
+                            if (--pendingCalls[0] == 0) updateAdapterWithList(tempList);
                         });
             }
+
+            if (pendingCalls[0] == 0) updateAdapterWithList(tempList); // fallback pentru 0 rezultate
         });
+    }
+
+    private void updateAdapterWithList(List<DocumentSnapshot> list) {
+        usersList.clear();
+        usersList.addAll(list);
+        userAdapter.notifyDataSetChanged();
     }
 
 
@@ -167,7 +197,6 @@ public class SocialFragment extends Fragment {
                 .addOnSuccessListener(docs -> {
                     friendsList.clear();
                     friendsList.addAll(docs.getDocuments());
-                    userAdapter.notifyDataSetChanged();
                 });
     }
 
@@ -188,13 +217,27 @@ public class SocialFragment extends Fragment {
 
                         db.collection("users").document(friendId)
                                 .collection("friends").document(currentUid)
-                                .update("status", "confirmed");
+                                .update("status", "confirmed")
+                                .addOnSuccessListener(unused -> {
+                                    Toast.makeText(getContext(), "Friend request confirmed!", Toast.LENGTH_SHORT).show();
+                                    refreshSocialData();
+                                });
                     } else {
                         db.collection("users").document(currentUid)
                                 .collection("friends").document(friendId)
-                                .set(new Friend(friendId, "pending"));
+                                .set(new Friend(friendId, "pending"))
+                                .addOnSuccessListener(unused -> {
+                                    Toast.makeText(getContext(), "Friend request sent!", Toast.LENGTH_SHORT).show();
+                                    refreshSocialData();
+                                });
                     }
                 });
+    }
+
+
+    private void refreshSocialData() {
+        loadFriends();
+        loadAllUsers();
     }
 
     private void shareAnimals(DocumentSnapshot user) {
