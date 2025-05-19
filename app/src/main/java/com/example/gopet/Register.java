@@ -111,34 +111,26 @@ public class Register extends AppCompatActivity {
 
     }
     private void saveUserToFirestore(String userId, String username) {
-        User user = new User(username);
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        User user = new User();
+        user.setId(userId);
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setDob("");
 
         db.collection("users")
                 .document(userId)
                 .set(user)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        //Toast.makeText(Register.this, "User saved to Firestore", Toast.LENGTH_SHORT).show();
                     } else {
-                        //Toast.makeText(Register.this, "Failed to save user to Firestore", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-    public static class User {
-        private String username;
 
-        public User(String username) {
-            this.username = username;
-        }
 
-        public String getUsername() {
-            return username;
-        }
 
-        public void setUsername(String username) {
-            this.username = username;
-        }
-    }
 
 
 }

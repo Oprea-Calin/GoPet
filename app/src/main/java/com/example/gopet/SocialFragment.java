@@ -19,7 +19,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class SocialFragment extends Fragment {
@@ -56,7 +58,27 @@ public class SocialFragment extends Fragment {
                 shareAnimals(user);
             }
         });
+        userAdapter.setOnRemoveFriendClickListener(user -> {
+            String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            String friendId = user.getId();
 
+            db.collection("users").document(currentUserId).collection("friends").document(friendId)
+                    .delete();
+
+            db.collection("users").document(friendId).collection("friends").document(currentUserId)
+                    .delete()
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(getContext(), "Friend removed", Toast.LENGTH_SHORT).show();
+                        loadAllUsers(); // sau showFriends(); dacă e prieteni
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(getContext(), "Error removing friend", Toast.LENGTH_SHORT).show();
+                    });
+        });
+        userAdapter.setOnReloadAnimalsListener(() -> {
+            loadFriends();
+            showFriends();
+        });
         recyclerView.setAdapter(userAdapter);
         loadFriends();
 
@@ -67,41 +89,76 @@ public class SocialFragment extends Fragment {
     }
 
     private void loadAllUsers() {
-        db.collection("users")
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    usersList.clear();
-                    for (DocumentSnapshot doc : queryDocumentSnapshots) {
-                        usersList.add(doc);
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        db.collection("users").get().addOnSuccessListener(querySnapshot -> {
+            usersList.clear();
+
+            for (DocumentSnapshot userDoc : querySnapshot) {
+                String userId = userDoc.getId();
+
+                if (userId.equals(currentUserId)) continue;
+
+                boolean isFriend = false;
+                for (DocumentSnapshot friend : friendsList) {
+                    if (friend.getId().equals(userId)) {
+                        isFriend = true;
+                        break;
                     }
-                    userAdapter.notifyDataSetChanged();
-                });
+                }
+
+                if (!isFriend) {
+                    db.collection("users").document(userId)
+                            .collection("friends").document(currentUserId)
+                            .get().addOnSuccessListener(doc -> {
+                                String status = doc.getString("status");
+                                if (status == null) {
+                                    usersList.add(userDoc);
+                                    userAdapter.notifyDataSetChanged();
+                                }
+                            });
+                }
+            }
+        });
     }
+
 
     private void showFriends() {
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        usersList.clear();
+        Set<String> addedUserIds = new HashSet<>();
 
-        db.collection("users").document(uid).collection("friends")
-                .whereEqualTo("status", "confirmed")
-                .get()
-                .addOnSuccessListener(friendDocs -> {
-                    List<DocumentSnapshot> confirmedFriends = new ArrayList<>();
+        db.collection("users").get().addOnSuccessListener(allUsersSnapshot -> {
+            List<DocumentSnapshot> allUsers = allUsersSnapshot.getDocuments();
 
-                    for (DocumentSnapshot doc : friendDocs) {
-                        String friendId = doc.getId();
-                        db.collection("users").document(friendId)
-                                .get()
-                                .addOnSuccessListener(userDoc -> {
-                                    confirmedFriends.add(userDoc);
-                                    if (confirmedFriends.size() == friendDocs.size()) {
-                                        usersList.clear();
-                                        usersList.addAll(confirmedFriends);
-                                        userAdapter.notifyDataSetChanged();
-                                    }
-                                });
-                    }
-                });
+            for (DocumentSnapshot userDoc : allUsers) {
+                String userId = userDoc.getId();
+                if (userId.equals(currentUserId)) continue;
+
+                db.collection("users").document(currentUserId).collection("friends")
+                        .document(userId)
+                        .get()
+                        .addOnSuccessListener(doc -> {
+                            if (doc.exists() && addedUserIds.add(userId)) {
+                                usersList.add(userDoc);
+                                userAdapter.notifyDataSetChanged();
+                            }
+                        });
+
+                db.collection("users").document(userId).collection("friends")
+                        .document(currentUserId)
+                        .get()
+                        .addOnSuccessListener(doc -> {
+                            if (doc.exists() && addedUserIds.add(userId)) {
+                                usersList.add(userDoc);
+                                userAdapter.notifyDataSetChanged();
+                            }
+                        });
+            }
+        });
     }
+
+
 
     private void loadFriends() {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -110,6 +167,7 @@ public class SocialFragment extends Fragment {
                 .addOnSuccessListener(docs -> {
                     friendsList.clear();
                     friendsList.addAll(docs.getDocuments());
+                    userAdapter.notifyDataSetChanged();
                 });
     }
 

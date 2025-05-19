@@ -103,7 +103,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                     holder.btnRemoveFriend.setOnClickListener(v -> {
                         new AlertDialog.Builder(holder.itemView.getContext())
                                 .setTitle("Confirm")
-                                .setMessage("Sure you want to delete from friends " + username + "?")
+                                .setMessage("Sure you want to delete from friends the user named " + username + "?")
                                 .setPositiveButton("Delete", (dialog, which) -> {
                                     if (removeFriendClickListener != null) {
                                         removeFriendClickListener.onRemoveFriendClicked(userDocument);
@@ -115,15 +115,49 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
                 }
             } else {
-                holder.btnFriendRequest.setVisibility(View.VISIBLE);
-                holder.btnFriendRequest.setEnabled(true);
-                holder.btnFriendRequest.setText("Add to friends");
-                holder.btnFriendRequest.setOnClickListener(v -> {
-                    if (listener != null) {
-                        listener.onAddFriendClicked(userDocument);
-                    }
-                });
+                FirebaseFirestore.getInstance()
+                        .collection("users")
+                        .document(userId)
+                        .collection("friends")
+                        .document(currentUserId)
+                        .get()
+                        .addOnSuccessListener(friendDoc -> {
+                            String status = friendDoc.getString("status");
+                            if ("pending".equals(status)) {
+                                holder.btnFriendRequest.setVisibility(View.VISIBLE);
+                                holder.btnFriendRequest.setEnabled(true);
+                                holder.btnFriendRequest.setText("Confirm friend request");
+                                holder.btnFriendRequest.setOnClickListener(v -> {
+                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    db.collection("users").document(userId)
+                                            .collection("friends").document(currentUserId)
+                                            .update("status", "confirmed");
+                                    db.collection("users").document(currentUserId)
+                                            .collection("friends").document(userId)
+                                            .set(new Friend(userId, "confirmed"))
+                                            .addOnSuccessListener(unused -> {
+                                                Toast.makeText(holder.itemView.getContext(), "Friend request confirmed!", Toast.LENGTH_SHORT).show();
+
+                                                if (reloadAnimalsListener != null) {
+                                                    reloadAnimalsListener.onReloadAnimals();
+                                                }
+
+                                                notifyDataSetChanged();
+                                            });
+                                });
+                            } else {
+                                holder.btnFriendRequest.setVisibility(View.VISIBLE);
+                                holder.btnFriendRequest.setEnabled(true);
+                                holder.btnFriendRequest.setText("Add to friends");
+                                holder.btnFriendRequest.setOnClickListener(v -> {
+                                    if (listener != null) {
+                                        listener.onAddFriendClicked(userDocument);
+                                    }
+                                });
+                            }
+                        });
             }
+
         }
 
 

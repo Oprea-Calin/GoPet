@@ -3106,6 +3106,7 @@ drawable abc_vector_test
 drawable addpet
 drawable avd_hide_password
 drawable avd_show_password
+drawable badge_background
 drawable bg_my_animals_label
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3527,6 +3528,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageProfile
 id immediateStop
 id inConfirmPassword
 id inEmail
@@ -3709,6 +3711,7 @@ id recyclerViewRequests
 id recycler_animals
 id recycler_view
 id report_drawn
+id requestBadge
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3811,6 +3814,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textUserEmail
 id textUserName
 id textViewAccepted
 id textViewAnimalDetails

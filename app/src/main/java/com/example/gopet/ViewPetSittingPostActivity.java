@@ -1,4 +1,3 @@
-// ViewPetSittingPostActivity.java
 package com.example.gopet;
 
 import android.os.Bundle;

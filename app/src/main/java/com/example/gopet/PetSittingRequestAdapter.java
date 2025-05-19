@@ -1,10 +1,13 @@
-// PetSittingRequestAdapter.java
 package com.example.gopet;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +40,7 @@ public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingReq
     @Override
     public void onBindViewHolder(@NonNull RequestViewHolder holder, int position) {
         PetSittingRequest request = requestList.get(position);
+
         FirebaseFirestore.getInstance()
                 .collection("users")
                 .document(request.userId)
@@ -44,14 +48,26 @@ public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingReq
                 .addOnSuccessListener(doc -> {
                     if (doc.exists()) {
                         String username = doc.getString("username");
-                        holder.textUserName.setText("User name: " + username);
+                        String email = doc.getString("email");
+                        String base64Image = doc.getString("base64Image");
+
+                        if (base64Image != null && !base64Image.isEmpty()) {
+                            byte[] decoded = Base64.decode(base64Image, Base64.DEFAULT);
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(decoded, 0, decoded.length);
+                            holder.imageProfile.setImageBitmap(bitmap);
+                        }
+                        holder.textUserName.setText(username != null ? username : "Unknown");
+                        holder.textUserEmail.setText(email != null ? email : "No email");
                     } else {
-                        holder.textUserName.setText("User name:");
+                        holder.textUserName.setText("Unknown user");
+                        holder.textUserEmail.setText("Unknown email");
                     }
                 })
                 .addOnFailureListener(e -> {
-                    holder.textUserName.setText("User name:");
+                    holder.textUserName.setText("Error loading user");
+                    holder.textUserEmail.setText("");
                 });
+
         holder.btnAccept.setOnClickListener(v -> listener.onAcceptClicked(request));
     }
 
@@ -61,13 +77,16 @@ public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingReq
     }
 
     static class RequestViewHolder extends RecyclerView.ViewHolder {
-        TextView textUserName;
+        TextView textUserName, textUserEmail;
+        ImageView imageProfile;
         Button btnAccept;
 
         public RequestViewHolder(@NonNull View itemView) {
             super(itemView);
             textUserName = itemView.findViewById(R.id.textUserName);
+            textUserEmail = itemView.findViewById(R.id.textUserEmail);
             btnAccept = itemView.findViewById(R.id.btnAccept);
+            imageProfile = itemView.findViewById(R.id.imageProfile);
         }
     }
 }

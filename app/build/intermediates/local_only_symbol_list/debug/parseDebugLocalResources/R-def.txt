@@ -7,6 +7,7 @@ color ic_launcher_background
 color nav_item_color
 color white
 drawable addpet
+drawable badge_background
 drawable bg_my_animals_label
 drawable card_background
 drawable cat
@@ -59,6 +60,7 @@ id checkBox
 id checkboxAnimal
 id descriptionTextView
 id fragment_container
+id imageProfile
 id inConfirmPassword
 id inEmail
 id inPassword
@@ -95,6 +97,7 @@ id recyclerViewMyPosts
 id recyclerViewPosts
 id recyclerViewRequests
 id recycler_animals
+id requestBadge
 id selectImageBtn
 id selectProfileImage
 id socialFragmentLayout
@@ -103,6 +106,7 @@ id submitProfileUpdateButton
 id tabLayout
 id temperamentTextView
 id textAnimalName
+id textUserEmail
 id textUserName
 id textViewAccepted
 id textViewAnimalDetails

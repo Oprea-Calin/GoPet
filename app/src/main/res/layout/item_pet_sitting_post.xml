@@ -14,6 +14,18 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:layout_marginBottom="4dp" />
+    <TextView
+        android:id="@+id/requestBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pending requests"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/badge_background"
+        android:padding="4dp"
+        android:visibility="gone"
+        android:layout_gravity="top|end"
+        android:layout_margin="8dp"/>
 
     <TextView
         android:id="@+id/textViewLocation"
@@ -46,6 +58,9 @@
         android:visibility="gone"
         android:textStyle="bold"
         android:layout_marginTop="4dp" />
+
+
+
 
 
     <TextView

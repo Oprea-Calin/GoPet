@@ -3105,6 +3105,7 @@ int drawable abc_vector_test 0x7f080077
 int drawable addpet 0x7f080078
 int drawable avd_hide_password 0x7f080079
 int drawable avd_show_password 0x7f08007a
+int drawable badge_background 0x7f080113
 int drawable bg_my_animals_label 0x7f08007b
 int drawable btn_checkbox_checked_mtrl 0x7f08007c
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f08007d
@@ -3526,6 +3527,7 @@ int id ifRoom 0x7f090109
 int id ignore 0x7f09010a
 int id ignoreRequest 0x7f09010b
 int id image 0x7f09010c
+int id imageProfile 0x7f09026d
 int id immediateStop 0x7f09010d
 int id inConfirmPassword 0x7f09010e
 int id inEmail 0x7f09010f
@@ -3708,6 +3710,7 @@ int id recyclerViewRequests 0x7f0901bf
 int id recycler_animals 0x7f0901c0
 int id recycler_view 0x7f0901c1
 int id report_drawn 0x7f0901c2
+int id requestBadge 0x7f09026b
 int id reverseSawtooth 0x7f0901c3
 int id right 0x7f0901c4
 int id rightToLeft 0x7f0901c5
@@ -3810,6 +3813,7 @@ int id textSpacerNoButtons 0x7f090225
 int id textSpacerNoTitle 0x7f090226
 int id textStart 0x7f090227
 int id textTop 0x7f090228
+int id textUserEmail 0x7f09026c
 int id textUserName 0x7f090229
 int id textViewAccepted 0x7f09022a
 int id textViewAnimalDetails 0x7f09022b

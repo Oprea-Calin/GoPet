@@ -8,12 +8,12 @@
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\ic_add.xml"
     },
     {
-        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\xml_data_extraction_rules.xml.flat",
-        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\xml\\data_extraction_rules.xml"
-    },
-    {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_main.jpg.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\main.jpg"
+    },
+    {
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\xml_data_extraction_rules.xml.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\xml\\data_extraction_rules.xml"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_pets.png.flat",
@@ -76,6 +76,10 @@
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\register.jpg"
     },
     {
+        "merged": "com.example.gopet.app-debug-5:/layout_item_pet_sitting_request.xml.flat",
+        "source": "com.example.gopet.app-main-7:/layout/item_pet_sitting_request.xml"
+    },
+    {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_logo2.png.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\logo2.png"
     },
@@ -90,10 +94,6 @@
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\layout_activity_view_requests.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\layout\\activity_view_requests.xml"
-    },
-    {
-        "merged": "com.example.gopet.app-debug-5:/layout_activity_main.xml.flat",
-        "source": "com.example.gopet.app-main-7:/layout/activity_main.xml"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_login_text.xml.flat",
@@ -150,6 +150,10 @@
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_rounded_corners.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\rounded_corners.xml"
+    },
+    {
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_badge_background.xml.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\badge_background.xml"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\layout_activity_breed_info.xml.flat",

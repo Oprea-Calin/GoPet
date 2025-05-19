@@ -90,14 +90,14 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, selectedFragment)
                         .commit();
-                fragmentContainer.setVisibility(View.VISIBLE);  // asigură afișarea
-                hideProfileViews();  // închide orice de la profil
+                fragmentContainer.setVisibility(View.VISIBLE);
+                hideProfileViews();
             }
             return true;
         });
 
 
-        // Set default fragment
+
         if (savedInstanceState == null) {
             bottomNavigationView.setSelectedItemId(R.id.nav_pets);
         }
@@ -106,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
         viewProfile.setOnClickListener(v -> {
             if (isProfileVisible) {
-                // Închide profilul complet
+
                 hideProfileViews();
                 fragmentContainer.setVisibility(View.VISIBLE);
             } else {
-                // Deschide lista de profil
+
                 currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
                 fragmentContainer.setVisibility(View.GONE);
                 profileRecyclerView.setVisibility(View.VISIBLE);

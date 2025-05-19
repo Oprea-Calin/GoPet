@@ -66,6 +66,24 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
         } else {
             holder.textViewAccepted.setVisibility(View.GONE);
         }
+        String currentUserId = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        if (post.isActive && post.ownerId.equals(currentUserId)) {
+            FirebaseFirestore.getInstance()
+                    .collection("petSittingRequests")
+                    .whereEqualTo("postId", post.id)
+                    .get()
+                    .addOnSuccessListener(requests -> {
+                        if (!requests.isEmpty()) {
+                            holder.requestBadge.setVisibility(View.VISIBLE);
+                        } else {
+                            holder.requestBadge.setVisibility(View.GONE);
+                        }
+                    });
+        } else {
+            holder.requestBadge.setVisibility(View.GONE);
+        }
+
 
 
         StringBuilder animalDetails = new StringBuilder();
@@ -97,7 +115,8 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
     }
 
     public static class PostViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewDate, textViewLocation, textViewNotes, textViewOwner, textViewAnimalDetails, textViewAccepted;
+        TextView textViewDate, textViewLocation, textViewNotes, textViewOwner, textViewAnimalDetails, textViewAccepted, requestBadge;
+
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -107,6 +126,8 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
             textViewOwner = itemView.findViewById(R.id.textViewOwner);
             textViewAnimalDetails = itemView.findViewById(R.id.textViewAnimalDetails);
             textViewAccepted = itemView.findViewById(R.id.textViewAccepted);
+            requestBadge = itemView.findViewById(R.id.requestBadge);
+
         }
     }
 }
