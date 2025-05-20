@@ -2,6 +2,7 @@ package com.example.gopet;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +13,12 @@ import java.util.UUID;
 
 public class ViewPetSittingPostActivity extends AppCompatActivity {
 
-    private TextView textViewDate, textViewLocation, textViewNotes, textViewAnimals;
+    private TextView textViewDate, textViewLocation, textViewPrice, textViewOwner,textViewAnimals;
     private Button btnRequest;
     private FirebaseFirestore db;
     private String postId, ownerId;
     private PetSittingPost post;
+    private ImageView imageProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +27,12 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
 
         textViewDate = findViewById(R.id.textViewDate);
         textViewLocation = findViewById(R.id.textViewLocation);
-        textViewNotes = findViewById(R.id.textViewNotes);
-        textViewAnimals = findViewById(R.id.textViewAnimals);
         btnRequest = findViewById(R.id.btnRequest);
+        imageProfile = findViewById(R.id.imageProfile);
+        textViewPrice = findViewById(R.id.textViewPrice);
+        textViewOwner= findViewById(R.id.textViewOwner);
+        textViewAnimals = findViewById(R.id.textViewAnimals);
+
 
         db = FirebaseFirestore.getInstance();
 
@@ -52,8 +57,33 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
                             ownerId = post.ownerId;
                             textViewDate.setText(post.startDate + " - " + post.endDate);
                             textViewLocation.setText(post.location);
-                            textViewNotes.setText(post.notes);
                             loadAnimals(post);
+                            String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            if (currentUserId.equals(ownerId)) {
+                                btnRequest.setEnabled(false);
+                                btnRequest.setText("Your post");
+                            }
+                            FirebaseFirestore.getInstance().collection("users")
+                                    .document(post.ownerId)
+                                    .get()
+                                    .addOnSuccessListener(userdoc -> {
+                                        String username = userdoc.getString("username");
+                                        String base64Image = userdoc.getString("base64Image");
+                                        post.ownerUsername = username;
+                                        textViewOwner.setText("Posted by: " + username);
+                                        if (post.price != null && !post.price.isEmpty()) {
+                                            textViewPrice.setText("Pay: " + post.price);
+                                        } else {
+                                            textViewPrice.setText("Pay: to be discussed.");
+                                        }
+
+                                        if (base64Image != null && !base64Image.isEmpty()) {
+                                            byte[] decodedString = android.util.Base64.decode(base64Image, android.util.Base64.DEFAULT);
+                                            android.graphics.Bitmap decodedByte = android.graphics.BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                                            imageProfile.setImageBitmap(decodedByte);
+                                        }
+                                    });
+
                         }
                     }
                 })
@@ -64,16 +94,22 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
     }
 
     private void loadAnimals(PetSittingPost post) {
-        StringBuilder builder = new StringBuilder();
+        StringBuilder animalDetails = new StringBuilder();
+        textViewAnimals.setText("Pets loading");
         for (String animalId : post.animalIds) {
-            db.collection("users").document(post.ownerId).collection("Animals")
-                    .document(animalId)
+            FirebaseFirestore.getInstance()
+                    .collection("users").document(post.ownerId)
+                    .collection("Animals").document(animalId)
                     .get()
                     .addOnSuccessListener(doc -> {
                         animal a = doc.toObject(animal.class);
                         if (a != null) {
-                            builder.append("• ").append(a.getName()).append("\n");
-                            textViewAnimals.setText(builder.toString());
+                            animalDetails.append("• ")
+                                    .append(a.getName())
+                                    .append(" - ")
+                                    .append(a.getBreed())
+                                    .append("\n");
+                            textViewAnimals.setText(animalDetails.toString());
                         }
                     });
         }
@@ -86,14 +122,27 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
             return;
         }
 
-        String reqId = UUID.randomUUID().toString();
-        PetSittingRequest req = new PetSittingRequest(reqId, postId, currentUser, "I want to help!");
+        db.collection("petSittingRequests")
+                .whereEqualTo("postId", postId)
+                .whereEqualTo("userId", currentUser)
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    if (!querySnapshot.isEmpty()) {
+                        Toast.makeText(this, "You have already sent a request for this post.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String reqId = UUID.randomUUID().toString();
+                        PetSittingRequest req = new PetSittingRequest(reqId, postId, currentUser, "I want to help!");
 
-        db.collection("petSittingRequests").document(reqId)
-                .set(req)
-                .addOnSuccessListener(aVoid ->
-                        Toast.makeText(this, "Request sent!", Toast.LENGTH_SHORT).show())
+                        db.collection("petSittingRequests").document(reqId)
+                                .set(req)
+                                .addOnSuccessListener(aVoid ->
+                                        Toast.makeText(this, "Request sent!", Toast.LENGTH_SHORT).show())
+                                .addOnFailureListener(e ->
+                                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show());
+                    }
+                })
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show());
+                        Toast.makeText(this, "Error checking existing requests", Toast.LENGTH_SHORT).show());
     }
+
 }

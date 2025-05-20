@@ -94,9 +94,9 @@ public class animalsListAdapter extends RecyclerView.Adapter<animalsListAdapter.
             String category = canimal.getCategory().toLowerCase();
 
             final String type;
-            if (category.contains("pisi")) {
+            if (category.contains("pisi") || category.contains("cat")) {
                 type = "cat";
-            } else if (category.contains("caine")) {
+            } else if (category.contains("caine") || category.contains("dog")) {
                 type = "dog";
             } else {
                 android.os.Handler handler = new android.os.Handler(context.getMainLooper());

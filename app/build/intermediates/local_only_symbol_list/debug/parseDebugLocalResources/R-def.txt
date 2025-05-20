@@ -39,6 +39,7 @@ id animalImageView
 id animalName
 id animalReproductiveStatus
 id animalWeight
+id animalsContainer
 id bottomNavigation
 id breedImageView
 id breedNameTextView
@@ -58,6 +59,7 @@ id btnShareAnimals
 id btn_post
 id checkBox
 id checkboxAnimal
+id contentLayout
 id descriptionTextView
 id fragment_container
 id imageProfile
@@ -68,6 +70,7 @@ id inUsername
 id input_end_date
 id input_location
 id input_notes
+id input_price
 id input_start_date
 id itemAge
 id itemAllergies
@@ -115,6 +118,7 @@ id textViewDate
 id textViewLocation
 id textViewNotes
 id textViewOwner
+id textViewPrice
 id txtLog
 id usernameEdit
 id usernameTextView
@@ -139,6 +143,9 @@ layout item_pet_sitting_post
 layout item_pet_sitting_request
 layout item_user
 menu bottom_nav_menu
+mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
 string app_name
 string attachment_summary_off
 string attachment_summary_on

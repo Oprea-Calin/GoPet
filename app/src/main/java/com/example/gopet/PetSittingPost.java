@@ -18,11 +18,21 @@ public class PetSittingPost {
     public String ownerUsername;
     public boolean isAcceptedByMe = false;
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String price;
+
     public PetSittingPost() {
     }
 
     public PetSittingPost(String id, String ownerId, List<String> animalIds, String startDate, String endDate,
-                          String location, String notes) {
+                          String location, String notes, String price) {
         this.id = id;
         this.ownerId = ownerId;
         this.animalIds = animalIds;
@@ -31,5 +41,6 @@ public class PetSittingPost {
         this.location = location;
         this.notes = notes;
         this.isActive = true;
+        this.price = price;
     }
 }

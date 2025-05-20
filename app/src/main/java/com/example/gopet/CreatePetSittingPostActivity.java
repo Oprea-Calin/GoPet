@@ -15,7 +15,7 @@ import java.util.*;
 
 public class CreatePetSittingPostActivity extends AppCompatActivity {
 
-    private EditText locationInput, notesInput, startDateInput, endDateInput;
+    private EditText locationInput, notesInput, startDateInput, endDateInput, priceInput;
     private Button postButton;
     private RecyclerView animalRecyclerView;
     private AnimalSelectionAdapter adapter;
@@ -33,6 +33,8 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
         endDateInput = findViewById(R.id.input_end_date);
         postButton = findViewById(R.id.btn_post);
         animalRecyclerView = findViewById(R.id.recycler_animals);
+        priceInput = findViewById(R.id.input_price);
+
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -78,8 +80,9 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
             String end = endDateInput.getText().toString();
             String loc = locationInput.getText().toString();
             String notes = notesInput.getText().toString();
+            String price = priceInput.getText().toString();
 
-            PetSittingPost post = new PetSittingPost(postId, ownerId, selectedIds, start, end, loc, notes);
+            PetSittingPost post = new PetSittingPost(postId, ownerId, selectedIds, start, end, loc, notes, price);
             db.collection("petSittingPosts").document(postId).set(post)
                     .addOnSuccessListener(aVoid -> {
                         Toast.makeText(this, "Post published!", Toast.LENGTH_SHORT).show();

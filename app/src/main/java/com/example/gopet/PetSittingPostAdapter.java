@@ -1,9 +1,13 @@
 package com.example.gopet;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +44,28 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
         holder.textViewDate.setText(post.startDate + " - " + post.endDate);
         holder.textViewLocation.setText("Location: " + post.location);
         holder.textViewNotes.setText("Notes: " + post.notes);
+
+        if(post.price != null)
+            holder.textViewPrice.setText("Pay: " + post.price);
+        else holder.textViewPrice.setText("Pay: to be discussed.");
+
+        FirebaseFirestore.getInstance().collection("users")
+                .document(post.ownerId)
+                .get()
+                .addOnSuccessListener(doc -> {
+                    String username = doc.getString("username");
+                    String base64Image = doc.getString("base64Image");
+
+                    holder.textViewOwner.setText("Posted by: " + username);
+
+                    if (base64Image != null && !base64Image.isEmpty()) {
+                        byte[] decodedString = android.util.Base64.decode(base64Image, android.util.Base64.DEFAULT);
+                        android.graphics.Bitmap decodedByte = android.graphics.BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                        holder.imageProfile.setImageBitmap(decodedByte);
+                    } else {
+                    }
+                });
+
 
         if (post.ownerUsername != null) {
             holder.textViewOwner.setText("Posted by: " + post.ownerUsername);
@@ -115,18 +141,21 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
     }
 
     public static class PostViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewDate, textViewLocation, textViewNotes, textViewOwner, textViewAnimalDetails, textViewAccepted, requestBadge;
+        TextView textViewDate, textViewLocation, textViewNotes, textViewOwner, textViewAnimalDetails, textViewAccepted, requestBadge, textViewPrice;
 
+        ImageView imageProfile;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewDate = itemView.findViewById(R.id.textViewDate);
             textViewLocation = itemView.findViewById(R.id.textViewLocation);
-            textViewNotes = itemView.findViewById(R.id.textViewNotes);
             textViewOwner = itemView.findViewById(R.id.textViewOwner);
             textViewAnimalDetails = itemView.findViewById(R.id.textViewAnimalDetails);
+            textViewNotes = itemView.findViewById(R.id.textViewNotes);
             textViewAccepted = itemView.findViewById(R.id.textViewAccepted);
             requestBadge = itemView.findViewById(R.id.requestBadge);
+            textViewPrice = itemView.findViewById(R.id.textViewPrice);
+            imageProfile = itemView.findViewById(R.id.imageProfile);
 
         }
     }

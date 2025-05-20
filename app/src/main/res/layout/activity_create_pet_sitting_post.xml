@@ -22,6 +22,7 @@
             android:focusable="false"
             android:clickable="true"
             android:inputType="none"
+            android:layout_marginTop="10dp"
             android:hint="Start date" />
 
         <EditText
@@ -31,17 +32,27 @@
             android:focusable="false"
             android:clickable="true"
             android:inputType="none"
+            android:layout_marginTop="10dp"
             android:hint="End date" />
+        <EditText
+            android:id="@+id/input_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter pay"
+            android:inputType="text"
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/input_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:hint="Notes" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Pet selection" />
 
         <androidx.recyclerview.widget.RecyclerView
