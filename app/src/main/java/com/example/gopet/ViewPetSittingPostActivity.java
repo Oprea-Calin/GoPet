@@ -9,6 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 
 public class ViewPetSittingPostActivity extends AppCompatActivity {
@@ -55,14 +60,35 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
                         post = doc.toObject(PetSittingPost.class);
                         if (post != null) {
                             ownerId = post.ownerId;
-                            textViewDate.setText(post.startDate + " - " + post.endDate);
+
+                            SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                            SimpleDateFormat outputFormat = new SimpleDateFormat("d MMM yyyy", Locale.ENGLISH);
+                            try {
+                                Date start = inputFormat.parse(post.startDate);
+                                Date end = inputFormat.parse(post.endDate);
+
+                                String formattedStart = outputFormat.format(start);
+                                String formattedEnd = outputFormat.format(end);
+
+                                if (formattedStart.equals(formattedEnd)) {
+                                    textViewDate.setText("Date: " + formattedStart);
+                                } else {
+                                    textViewDate.setText(formattedStart + " - " + formattedEnd);
+                                }
+
+                            } catch (ParseException e) {
+                                textViewDate.setText(post.startDate + " - " + post.endDate);
+                            }
+
                             textViewLocation.setText(post.location);
                             loadAnimals(post);
+
                             String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                             if (currentUserId.equals(ownerId)) {
                                 btnRequest.setEnabled(false);
                                 btnRequest.setText("Your post");
                             }
+
                             FirebaseFirestore.getInstance().collection("users")
                                     .document(post.ownerId)
                                     .get()
@@ -71,6 +97,7 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
                                         String base64Image = userdoc.getString("base64Image");
                                         post.ownerUsername = username;
                                         textViewOwner.setText("Posted by: " + username);
+
                                         if (post.price != null && !post.price.isEmpty()) {
                                             textViewPrice.setText("Pay: " + post.price);
                                         } else {
@@ -83,7 +110,6 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
                                             imageProfile.setImageBitmap(decodedByte);
                                         }
                                     });
-
                         }
                     }
                 })
@@ -92,6 +118,7 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
                     finish();
                 });
     }
+
 
     private void loadAnimals(PetSittingPost post) {
         StringBuilder animalDetails = new StringBuilder();

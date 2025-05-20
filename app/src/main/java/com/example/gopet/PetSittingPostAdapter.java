@@ -12,7 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAdapter.PostViewHolder> {
 
@@ -41,7 +45,23 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         PetSittingPost post = postList.get(position);
 
-        holder.textViewDate.setText(post.startDate + " - " + post.endDate);
+        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        SimpleDateFormat outputFormat = new SimpleDateFormat("d MMM yyyy", Locale.ENGLISH);
+
+        try {
+            Date start = inputFormat.parse(post.startDate);
+            Date end = inputFormat.parse(post.endDate);
+            String formattedStart = outputFormat.format(start);
+            String formattedEnd = outputFormat.format(end);
+            holder.textViewDate.setText(
+                    formattedStart.equals(formattedEnd)
+                            ? "Date: " + formattedStart
+                            : formattedStart + " - " + formattedEnd
+            );
+        } catch (Exception e) {
+            holder.textViewDate.setText(post.startDate + " - " + post.endDate); // fallback
+        }
+
         holder.textViewLocation.setText("Location: " + post.location);
         holder.textViewNotes.setText("Notes: " + post.notes);
 

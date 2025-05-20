@@ -3861,6 +3861,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userSection
 id usernameEdit
 id usernameTextView
 id vertical

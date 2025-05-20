@@ -3860,6 +3860,7 @@ int id uniform 0x7f090253
 int id unlabeled 0x7f090254
 int id up 0x7f090255
 int id useLogo 0x7f090256
+int id userSection 0x7f090272
 int id usernameEdit 0x7f090257
 int id usernameTextView 0x7f090258
 int id vertical 0x7f090259

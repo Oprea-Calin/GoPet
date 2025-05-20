@@ -120,6 +120,7 @@ id textViewNotes
 id textViewOwner
 id textViewPrice
 id txtLog
+id userSection
 id usernameEdit
 id usernameTextView
 id viewPager
