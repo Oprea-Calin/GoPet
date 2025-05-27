@@ -3389,6 +3389,7 @@ id btnAcceptShare
 id btnAddPost
 id btnAllUsers
 id btnCancelShare
+id btnDeletePost
 id btnFriendRequest
 id btnFriends
 id btnLogin
@@ -3539,8 +3540,9 @@ id inUsername
 id included
 id indeterminate
 id info
+id input_aproximative_location
 id input_end_date
-id input_location
+id input_exact_location
 id input_notes
 id input_price
 id input_start_date

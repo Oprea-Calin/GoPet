@@ -3388,6 +3388,7 @@ int id btnAcceptShare 0x7f09007e
 int id btnAddPost 0x7f09007f
 int id btnAllUsers 0x7f090080
 int id btnCancelShare 0x7f090081
+int id btnDeletePost 0x7f090276
 int id btnFriendRequest 0x7f090082
 int id btnFriends 0x7f090083
 int id btnLogin 0x7f090084
@@ -3538,8 +3539,9 @@ int id inUsername 0x7f090114
 int id included 0x7f090115
 int id indeterminate 0x7f090116
 int id info 0x7f090117
+int id input_aproximative_location 0x7f090274
 int id input_end_date 0x7f090118
-int id input_location 0x7f090119
+int id input_exact_location 0x7f090275
 int id input_notes 0x7f09011a
 int id input_price 0x7f090271
 int id input_start_date 0x7f09011b

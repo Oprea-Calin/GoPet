@@ -42,38 +42,55 @@ public class MyPetSittingPostsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         postList = new ArrayList<>();
-        adapter = new PetSittingPostAdapter(getContext(), postList, post -> {
-            FirebaseFirestore.getInstance()
-                    .collection("petSittingRequests")
-                    .whereEqualTo("postId", post.id)
-                    .get()
-                    .addOnSuccessListener(requests -> {
-                        boolean hasAccepted = false;
+        adapter = new PetSittingPostAdapter(getContext(), postList, new PetSittingPostAdapter.OnPostClickListener() {
+            @Override
+            public void onPostClick(PetSittingPost post) {
+                FirebaseFirestore.getInstance()
+                        .collection("petSittingRequests")
+                        .whereEqualTo("postId", post.id)
+                        .get()
+                        .addOnSuccessListener(requests -> {
+                            boolean hasAccepted = false;
 
-                        for (DocumentSnapshot doc : requests) {
-                            String status = doc.getString("status");
-                            if ("accepted".equals(status)) {
-                                hasAccepted = true;
-                                break;
+                            for (DocumentSnapshot doc : requests) {
+                                String status = doc.getString("status");
+                                if ("accepted".equals(status)) {
+                                    hasAccepted = true;
+                                    break;
+                                }
                             }
-                        }
 
-                        Intent intent;
-                        if (hasAccepted) {
-                            intent = new Intent(getContext(), ViewOwnPostDetails.class);
-                        } else {
-                            intent = new Intent(getContext(), ViewRequestsActivity.class);
-                        }
+                            Intent intent;
 
-                        intent.putExtra("postId", post.id);
-                        startActivity(intent);
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(getContext(), "Error checking requests", Toast.LENGTH_SHORT).show();
-                    });
+                            if (hasAccepted || requests.isEmpty()) {
+                                intent = new Intent(getContext(), ViewOwnPostDetails.class);
+                            } else {
+                                intent = new Intent(getContext(), ViewRequestsActivity.class);
+                            }
+
+                            intent.putExtra("postId", post.id);
+                            startActivity(intent);
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(getContext(), "Error checking requests", Toast.LENGTH_SHORT).show();
+                        });
+            }
+
+            @Override
+            public void onDeleteClick(PetSittingPost post) {
+                new android.app.AlertDialog.Builder(getContext())
+                        .setTitle("Delete post")
+                        .setMessage("Are you sure you want to delete this post?")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            deletePostAndRequests(post);
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+            }
 
 
-        });
+        }, true);
+
         recyclerView.setAdapter(adapter);
 
         btnAddPost = view.findViewById(R.id.btnAddPost);
@@ -86,6 +103,32 @@ public class MyPetSittingPostsFragment extends Fragment {
         currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         return view;
+    }
+    private void deletePostAndRequests(PetSittingPost post) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("petSittingRequests")
+                .whereEqualTo("postId", post.id)
+                .get()
+                .addOnSuccessListener(query -> {
+                    for (DocumentSnapshot doc : query.getDocuments()) {
+                        db.collection("petSittingRequests").document(doc.getId()).delete();
+                    }
+
+                    db.collection("petSittingPosts").document(post.id)
+                            .delete()
+                            .addOnSuccessListener(aVoid -> {
+                                Toast.makeText(getContext(), "Post deleted successfully", Toast.LENGTH_SHORT).show();
+                                postList.remove(post);
+                                adapter.notifyDataSetChanged();
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(getContext(), "Failed to delete post", Toast.LENGTH_SHORT).show();
+                            });
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), "Failed to delete related requests", Toast.LENGTH_SHORT).show();
+                });
     }
 
     @Override

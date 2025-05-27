@@ -9,7 +9,7 @@ public class PetSittingPost {
     public List<String> animalIds;
     public String startDate;
     public String endDate;
-    public String location;
+    public String aproximative_location, exact_location;
     public String notes;
     public String acceptedUserId;
     public String acceptedUsername;
@@ -32,15 +32,16 @@ public class PetSittingPost {
     }
 
     public PetSittingPost(String id, String ownerId, List<String> animalIds, String startDate, String endDate,
-                          String location, String notes, String price) {
+                          String exact_location, String aproximative_location, String notes, String price) {
         this.id = id;
         this.ownerId = ownerId;
         this.animalIds = animalIds;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.location = location;
+        this.exact_location = exact_location;
         this.notes = notes;
         this.isActive = true;
+        this.aproximative_location=aproximative_location;
         this.price = price;
     }
 }

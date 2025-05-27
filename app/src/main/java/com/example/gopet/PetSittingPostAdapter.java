@@ -7,6 +7,7 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,15 +24,18 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
     private final List<PetSittingPost> postList;
     private final Context context;
     private final OnPostClickListener listener;
+    private final boolean isMyPosts;
 
     public interface OnPostClickListener {
         void onPostClick(PetSittingPost post);
+        void onDeleteClick(PetSittingPost post);
     }
 
-    public PetSittingPostAdapter(Context context, List<PetSittingPost> postList, OnPostClickListener listener) {
+    public PetSittingPostAdapter(Context context, List<PetSittingPost> postList, OnPostClickListener listener, boolean isMyPosts) {
         this.context = context;
         this.postList = postList;
         this.listener = listener;
+        this.isMyPosts=isMyPosts;
     }
 
     @NonNull
@@ -62,7 +66,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
             holder.textViewDate.setText(post.startDate + " - " + post.endDate); // fallback
         }
 
-        holder.textViewLocation.setText("Location: " + post.location);
+        holder.textViewLocation.setText("Location: " + post.aproximative_location);
         holder.textViewNotes.setText("Notes: " + post.notes);
 
         if(post.price != null)
@@ -113,7 +117,12 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
             holder.textViewAccepted.setVisibility(View.GONE);
         }
         String currentUserId = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+        if (isMyPosts && post.ownerId.equals(currentUserId)) {
+            holder.buttonDeletePost.setVisibility(View.VISIBLE);
+            holder.buttonDeletePost.setOnClickListener(v -> listener.onDeleteClick(post));
+        } else {
+            holder.buttonDeletePost.setVisibility(View.GONE);
+        }
         if (post.isActive && post.ownerId.equals(currentUserId)) {
             FirebaseFirestore.getInstance()
                     .collection("petSittingRequests")
@@ -152,6 +161,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
                     });
         }
 
+        holder.buttonDeletePost.setOnClickListener(v -> listener.onDeleteClick(post));
         holder.itemView.setOnClickListener(v -> listener.onPostClick(post));
     }
 
@@ -164,6 +174,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
         TextView textViewDate, textViewLocation, textViewNotes, textViewOwner, textViewAnimalDetails, textViewAccepted, requestBadge, textViewPrice;
 
         ImageView imageProfile;
+        Button buttonDeletePost;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -176,6 +187,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
             requestBadge = itemView.findViewById(R.id.requestBadge);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             imageProfile = itemView.findViewById(R.id.imageProfile);
+            buttonDeletePost = itemView.findViewById(R.id.btnDeletePost);
 
         }
     }

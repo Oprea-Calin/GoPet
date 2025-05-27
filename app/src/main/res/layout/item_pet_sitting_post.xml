@@ -101,6 +101,15 @@
                 android:textSize="14sp"
                 android:layout_marginTop="4dp"
                 android:visibility="gone" />
+            <Button
+                android:id="@+id/btnDeletePost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Delete post"
+                android:visibility="gone"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView

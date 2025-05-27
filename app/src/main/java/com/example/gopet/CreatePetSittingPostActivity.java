@@ -17,7 +17,7 @@ import java.util.*;
 
 public class CreatePetSittingPostActivity extends AppCompatActivity {
 
-    private EditText locationInput, notesInput, startDateInput, endDateInput, priceInput;
+    private EditText aproximative_locationInput, exact_locationInput, notesInput, startDateInput, endDateInput, priceInput;
     private Button postButton;
     private RecyclerView animalRecyclerView;
     private AnimalSelectionAdapter adapter;
@@ -29,7 +29,8 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_pet_sitting_post);
 
-        locationInput = findViewById(R.id.input_location);
+        aproximative_locationInput = findViewById(R.id.input_aproximative_location);
+        exact_locationInput = findViewById(R.id.input_exact_location);
         notesInput = findViewById(R.id.input_notes);
         startDateInput = findViewById(R.id.input_start_date);
         endDateInput = findViewById(R.id.input_end_date);
@@ -81,7 +82,7 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
             try {
-                Date today = sdf.parse(sdf.format(new Date())); 
+                Date today = sdf.parse(sdf.format(new Date()));
                 Date startDate = sdf.parse(start);
                 Date endDate = sdf.parse(end);
 
@@ -107,11 +108,11 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
 
             String postId = UUID.randomUUID().toString();
             String ownerId = auth.getCurrentUser().getUid();
-            String loc = locationInput.getText().toString();
+            String exactloc = exact_locationInput.getText().toString();
+            String aproxloc = aproximative_locationInput.getText().toString();
             String notes = notesInput.getText().toString();
             String price = priceInput.getText().toString();
-
-            PetSittingPost post = new PetSittingPost(postId, ownerId, selectedIds, start, end, loc, notes, price);
+            PetSittingPost post = new PetSittingPost(postId, ownerId, selectedIds, start, end, exactloc, aproxloc, notes, price);
             db.collection("petSittingPosts").document(postId).set(post)
                     .addOnSuccessListener(aVoid -> {
                         Toast.makeText(this, "Post published!", Toast.LENGTH_SHORT).show();

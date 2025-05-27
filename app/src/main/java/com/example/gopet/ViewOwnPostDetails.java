@@ -66,7 +66,7 @@ public class ViewOwnPostDetails extends AppCompatActivity {
                         textViewDate.setText(post.startDate + " - " + post.endDate);
                     }
 
-                    textViewLocation.setText("Location: " + post.location);
+                    textViewLocation.setText("Location: " + post.exact_location + " , " + post.aproximative_location);
                     textViewPrice.setText("Pay: " + (post.price != null ? post.price : "To be discussed"));
                     loadAnimals(post);
                 });

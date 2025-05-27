@@ -80,7 +80,7 @@ public class ViewPetSittingPostActivity extends AppCompatActivity {
                                 textViewDate.setText(post.startDate + " - " + post.endDate);
                             }
 
-                            textViewLocation.setText(post.location);
+                            textViewLocation.setText(post.aproximative_location);
                             loadAnimals(post);
 
                             String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();

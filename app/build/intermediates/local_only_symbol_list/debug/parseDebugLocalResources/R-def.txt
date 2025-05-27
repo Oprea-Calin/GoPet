@@ -48,6 +48,7 @@ id btnAcceptShare
 id btnAddPost
 id btnAllUsers
 id btnCancelShare
+id btnDeletePost
 id btnFriendRequest
 id btnFriends
 id btnLogin
@@ -67,8 +68,9 @@ id inConfirmPassword
 id inEmail
 id inPassword
 id inUsername
+id input_aproximative_location
 id input_end_date
-id input_location
+id input_exact_location
 id input_notes
 id input_price
 id input_start_date

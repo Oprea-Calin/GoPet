@@ -38,11 +38,32 @@ public class AllPetSittingPostsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         postList = new ArrayList<>();
-        adapter = new PetSittingPostAdapter(getContext(), postList, post -> {
-            Intent intent = new Intent(getContext(), ViewPetSittingPostActivity.class);
-            intent.putExtra("postId", post.id);
-            startActivity(intent);
-        });
+
+        adapter = new PetSittingPostAdapter(getContext(), postList, new PetSittingPostAdapter.OnPostClickListener() {
+            @Override
+            public void onPostClick(PetSittingPost post) {
+                Intent intent = new Intent(getContext(), ViewPetSittingPostActivity.class);
+                intent.putExtra("postId", post.id);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onDeleteClick(PetSittingPost post) {
+                FirebaseFirestore.getInstance()
+                        .collection("petSittingPosts")
+                        .document(post.id)
+                        .delete()
+                        .addOnSuccessListener(aVoid -> {
+                            postList.remove(post);
+                            adapter.notifyDataSetChanged();
+                            Toast.makeText(getContext(), "Post deleted", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(e ->
+                                Toast.makeText(getContext(), "Error deleting", Toast.LENGTH_SHORT).show()
+                        );
+            }
+        },false);
+
         recyclerView.setAdapter(adapter);
 
         db = FirebaseFirestore.getInstance();
