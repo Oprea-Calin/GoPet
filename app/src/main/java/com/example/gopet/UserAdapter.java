@@ -72,6 +72,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 break;
             }
         }
+        holder.profileImageView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onProfileImageClicked(userDocument);
+            }
+        });
 
         holder.btnFriendRequest.setVisibility(View.GONE);
         holder.btnShareAnimals.setVisibility(View.GONE);
@@ -292,5 +297,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public interface OnAddFriendClickListener {
         void onAddFriendClicked(DocumentSnapshot user);
         void onShareAnimalsClicked(DocumentSnapshot user);
+        void onProfileImageClicked(DocumentSnapshot user);
     }
 }

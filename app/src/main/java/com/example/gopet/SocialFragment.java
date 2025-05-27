@@ -1,5 +1,6 @@
 package com.example.gopet;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -58,6 +59,10 @@ public class SocialFragment extends Fragment {
             @Override
             public void onShareAnimalsClicked(DocumentSnapshot user) {
                 shareAnimals(user);
+            }
+            @Override
+            public void onProfileImageClicked(DocumentSnapshot user) {
+                openUserProfile(user);
             }
         });
         userAdapter.setOnRemoveFriendClickListener(user -> {
@@ -134,6 +139,12 @@ public class SocialFragment extends Fragment {
                 }
             }
         });
+    }
+    private void openUserProfile(DocumentSnapshot user) {
+        String userId = user.getId();
+        Intent intent = new Intent(getActivity(), UserProfileActivity.class);
+        intent.putExtra("userId", userId);
+        startActivity(intent);
     }
     private void updateUsersListSafely(List<DocumentSnapshot> updatedList) {
         requireActivity().runOnUiThread(() -> {

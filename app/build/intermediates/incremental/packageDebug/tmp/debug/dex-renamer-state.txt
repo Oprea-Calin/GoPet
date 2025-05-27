@@ -1,4 +1,4 @@
-#Tue May 27 21:05:21 EEST 2025
+#Tue May 27 21:22:44 EEST 2025
 base.0=D\:\\FACULTA\\GoPet\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\FACULTA\\GoPet\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=D\:\\FACULTA\\GoPet\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
