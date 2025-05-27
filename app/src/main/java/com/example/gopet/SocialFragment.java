@@ -37,6 +37,8 @@ public class SocialFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_social, container, false);
 
+        view.setVisibility(View.VISIBLE);
+        view.bringToFront();
         recyclerView = view.findViewById(R.id.recyclerSocial);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

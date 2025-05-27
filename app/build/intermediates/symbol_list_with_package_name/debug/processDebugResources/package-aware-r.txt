@@ -3426,6 +3426,7 @@ id clockwise
 id closest
 id collapseActionView
 id commentInputLayout
+id commentsHeader
 id commentsRecyclerView
 id compress
 id confirm_button
@@ -3703,6 +3704,7 @@ id preferences_detail
 id preferences_header
 id preferences_sliding_pane_layout
 id pressed
+id profileContainer
 id profileImageView
 id profileRecycleView
 id progressBar

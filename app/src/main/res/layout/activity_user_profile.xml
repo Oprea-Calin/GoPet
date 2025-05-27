@@ -9,7 +9,6 @@
     android:padding="16dp"
     tools:context=".UserProfileActivity">
 
-    <!-- Profile Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +51,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Comments Label -->
     <TextView
         android:id="@+id/textCommentsLabel"
         android:layout_width="match_parent"
@@ -63,7 +61,6 @@
         android:layout_marginTop="16dp"
         android:textColor="#333"/>
 
-    <!-- RecyclerView for Comments -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/commentsRecyclerView"
         android:layout_width="match_parent"
@@ -72,7 +69,6 @@
         android:paddingTop="8dp"
         android:clipToPadding="false" />
 
-    <!-- Add Comment Section -->
     <LinearLayout
         android:id="@+id/commentInputLayout"
         android:layout_width="match_parent"

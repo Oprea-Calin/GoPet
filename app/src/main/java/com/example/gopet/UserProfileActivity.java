@@ -59,7 +59,6 @@ public class UserProfileActivity extends AppCompatActivity {
         btnPostComment = findViewById(R.id.buttonSendComment);
         commentsRecycler = findViewById(R.id.commentsRecyclerView);
 
-        // Initialize RecyclerView
         adapter = new CommentAdapter(commentList);
         commentsRecycler.setLayoutManager(new LinearLayoutManager(this));
         commentsRecycler.setAdapter(adapter);
@@ -71,7 +70,7 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private void checkTargetUserId() {
-        targetUserId = getIntent().getStringExtra("userId"); // Changed from targetUserId to userId
+        targetUserId = getIntent().getStringExtra("userId");
 
         if (targetUserId == null || targetUserId.isEmpty()) {
             Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
