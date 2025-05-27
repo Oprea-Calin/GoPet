@@ -58,10 +58,14 @@ id btnRemoveFriend
 id btnRequest
 id btnShareAnimals
 id btn_post
+id buttonSendComment
 id checkBox
 id checkboxAnimal
+id commentInputLayout
+id commentsRecyclerView
 id contentLayout
 id descriptionTextView
+id editTextComment
 id fragment_container
 id imageProfile
 id inConfirmPassword
@@ -112,8 +116,13 @@ id submitProfileUpdateButton
 id tabLayout
 id temperamentTextView
 id textAnimalName
+id textComment
+id textCommentsLabel
+id textQuote
+id textTimestamp
 id textUserEmail
 id textUserName
+id textUsername
 id textViewAccepted
 id textViewAnimalDetails
 id textViewAnimals
@@ -123,6 +132,7 @@ id textViewNotes
 id textViewOwner
 id textViewPrice
 id txtLog
+id userProfileLayout
 id userSection
 id usernameEdit
 id usernameTextView
@@ -135,6 +145,7 @@ layout activity_main
 layout activity_pet_sitting_dashboard
 layout activity_register
 layout activity_settings
+layout activity_user_profile
 layout activity_view_own_post_details
 layout activity_view_pet_sitting_post
 layout activity_view_requests
@@ -144,6 +155,7 @@ layout fragment_pets
 layout fragment_social
 layout item_animal
 layout item_animal_selectable
+layout item_comment
 layout item_pet_sitting_post
 layout item_pet_sitting_request
 layout item_user

@@ -3400,6 +3400,7 @@ id btnRequest
 id btnShareAnimals
 id btn_post
 id buttonPanel
+id buttonSendComment
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3424,6 +3425,8 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id commentInputLayout
+id commentsRecyclerView
 id compress
 id confirm_button
 id constraint
@@ -3477,6 +3480,7 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextComment
 id edit_query
 id edit_text_id
 id elastic
@@ -3815,13 +3819,18 @@ id temperamentTextView
 id text
 id text2
 id textAnimalName
+id textComment
+id textCommentsLabel
 id textEnd
+id textQuote
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textTimestamp
 id textTop
 id textUserEmail
 id textUserName
+id textUsername
 id textViewAccepted
 id textViewAnimalDetails
 id textViewAnimals
@@ -3864,6 +3873,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userProfileLayout
 id userSection
 id usernameEdit
 id usernameTextView
@@ -4013,6 +4023,7 @@ layout activity_main
 layout activity_pet_sitting_dashboard
 layout activity_register
 layout activity_settings
+layout activity_user_profile
 layout activity_view_own_post_details
 layout activity_view_pet_sitting_post
 layout activity_view_requests
@@ -4044,6 +4055,7 @@ layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_animal
 layout item_animal_selectable
+layout item_comment
 layout item_pet_sitting_post
 layout item_pet_sitting_request
 layout item_user

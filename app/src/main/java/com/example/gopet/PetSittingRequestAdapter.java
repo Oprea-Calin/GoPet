@@ -1,5 +1,6 @@
 package com.example.gopet;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -18,14 +19,10 @@ import java.util.List;
 
 public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingRequestAdapter.RequestViewHolder> {
 
-    public interface OnAcceptClickListener {
-        void onAcceptClicked(PetSittingRequest request);
-    }
-
+    private OnRequestClickListener listener;
     private List<PetSittingRequest> requestList;
-    private OnAcceptClickListener listener;
 
-    public PetSittingRequestAdapter(List<PetSittingRequest> requestList, OnAcceptClickListener listener) {
+    public PetSittingRequestAdapter(List<PetSittingRequest> requestList, OnRequestClickListener listener) {
         this.requestList = requestList;
         this.listener = listener;
     }
@@ -67,13 +64,27 @@ public class PetSittingRequestAdapter extends RecyclerView.Adapter<PetSittingReq
                     holder.textUserName.setText("Error loading user");
                     holder.textUserEmail.setText("");
                 });
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onUserProfileClicked(request.userId);
+            }
+        });
 
-        holder.btnAccept.setOnClickListener(v -> listener.onAcceptClicked(request));
+        holder.btnAccept.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onAcceptClicked(request);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return requestList.size();
+    }
+
+    public interface OnRequestClickListener {
+        void onAcceptClicked(PetSittingRequest request);
+        void onUserProfileClicked(String userId);
     }
 
     static class RequestViewHolder extends RecyclerView.ViewHolder {
