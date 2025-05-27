@@ -81,6 +81,7 @@ id itemName
 id itemReproductiveStatus
 id itemSharedBy
 id itemWeight
+id labelAnimals
 id loadingSpinner
 id logoutImage
 id main
@@ -132,6 +133,7 @@ layout activity_main
 layout activity_pet_sitting_dashboard
 layout activity_register
 layout activity_settings
+layout activity_view_own_post_details
 layout activity_view_pet_sitting_post
 layout activity_view_requests
 layout fragment_all_pet_sitting_posts

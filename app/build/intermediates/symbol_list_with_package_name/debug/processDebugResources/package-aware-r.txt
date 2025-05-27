@@ -3559,6 +3559,7 @@ id itemWeight
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
+id labelAnimals
 id labeled
 id layout
 id left
@@ -4010,6 +4011,7 @@ layout activity_main
 layout activity_pet_sitting_dashboard
 layout activity_register
 layout activity_settings
+layout activity_view_own_post_details
 layout activity_view_pet_sitting_post
 layout activity_view_requests
 layout browser_actions_context_menu_page

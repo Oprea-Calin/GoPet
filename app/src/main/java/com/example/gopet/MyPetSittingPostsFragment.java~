@@ -48,30 +48,18 @@ public class MyPetSittingPostsFragment extends Fragment {
                     .whereEqualTo("postId", post.id)
                     .get()
                     .addOnSuccessListener(requests -> {
-                        boolean hasAccepted = false;
-
-                        for (DocumentSnapshot doc : requests) {
-                            String status = doc.getString("status");
-                            if ("accepted".equals(status)) {
-                                hasAccepted = true;
-                                break;
-                            }
-                        }
-
                         Intent intent;
-                        if (hasAccepted) {
-                            intent = new Intent(getContext(), ViewOwnPostDetails.class);
-                        } else {
+                        if (!requests.isEmpty()) {
                             intent = new Intent(getContext(), ViewRequestsActivity.class);
+                        } else {
+                            intent = new Intent(getContext(), ViewOwnPostDetails.class);
                         }
-
                         intent.putExtra("postId", post.id);
                         startActivity(intent);
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(getContext(), "Error checking requests", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Error loading post", Toast.LENGTH_SHORT).show();
                     });
-
 
         });
         recyclerView.setAdapter(adapter);

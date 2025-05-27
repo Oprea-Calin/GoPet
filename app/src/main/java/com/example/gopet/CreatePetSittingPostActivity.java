@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class CreatePetSittingPostActivity extends AppCompatActivity {
@@ -69,6 +71,35 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
                 return;
             }
 
+            String start = startDateInput.getText().toString();
+            String end = endDateInput.getText().toString();
+
+            if (start.isEmpty() || end.isEmpty()) {
+                Toast.makeText(this, "Select both start and end dates.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+            try {
+                Date today = sdf.parse(sdf.format(new Date())); 
+                Date startDate = sdf.parse(start);
+                Date endDate = sdf.parse(end);
+
+                if (startDate.before(today)) {
+                    Toast.makeText(this, "Start date can't be in the past.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (startDate.after(endDate)) {
+                    Toast.makeText(this, "Start date must be before or equal to end date.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } catch (Exception e) {
+                Toast.makeText(this, "Invalid date format.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
             List<String> selectedIds = new ArrayList<>();
             for (animal a : selected) {
                 selectedIds.add(a.getId());
@@ -76,8 +107,6 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
 
             String postId = UUID.randomUUID().toString();
             String ownerId = auth.getCurrentUser().getUid();
-            String start = startDateInput.getText().toString();
-            String end = endDateInput.getText().toString();
             String loc = locationInput.getText().toString();
             String notes = notesInput.getText().toString();
             String price = priceInput.getText().toString();
@@ -90,6 +119,7 @@ public class CreatePetSittingPostActivity extends AppCompatActivity {
                     })
                     .addOnFailureListener(e -> Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show());
         });
+
 
         startDateInput.setOnClickListener(v -> showDatePickerDialog(startDateInput));
         endDateInput.setOnClickListener(v -> showDatePickerDialog(endDateInput));

@@ -32,6 +32,12 @@
         android:testOnly="true"
         android:theme="@style/Theme.GoPet" >
         <activity
+            android:name="com.example.gopet.ViewOwnPostDetails"
+            android:exported="false" />
+        <activity
+            android:name="com.example.gopet.ViewOwnPostActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.gopet.ViewRequestsActivity"
             android:exported="false" />
         <activity
