@@ -55,7 +55,10 @@ public class SocialFragment extends Fragment {
             public void onAddFriendClicked(DocumentSnapshot user) {
                 addFriend(user);
             }
-
+            @Override
+            public void onUsernameClick(DocumentSnapshot user) {
+                openUserProfile(user);
+            }
             @Override
             public void onShareAnimalsClicked(DocumentSnapshot user) {
                 shareAnimals(user);

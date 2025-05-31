@@ -1528,6 +1528,7 @@ int color error_color_material_dark 0x7f06006a
 int color error_color_material_light 0x7f06006b
 int color foreground_material_dark 0x7f06006c
 int color foreground_material_light 0x7f06006d
+int color gray 0x7f06031c
 int color highlighted_text_material_dark 0x7f06006e
 int color highlighted_text_material_light 0x7f06006f
 int color ic_launcher_background 0x7f060070

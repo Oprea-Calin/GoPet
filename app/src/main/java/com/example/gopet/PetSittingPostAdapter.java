@@ -29,6 +29,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
     public interface OnPostClickListener {
         void onPostClick(PetSittingPost post);
         void onDeleteClick(PetSittingPost post);
+        void onUsernameClick(PetSittingPost post);
     }
 
     public PetSittingPostAdapter(Context context, List<PetSittingPost> postList, OnPostClickListener listener, boolean isMyPosts) {
@@ -142,6 +143,7 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
 
 
         StringBuilder animalDetails = new StringBuilder();
+        animalDetails.append("Included animals:"+'\n');
         holder.textViewAnimalDetails.setText("Pets loading");
         for (String animalId : post.animalIds) {
             FirebaseFirestore.getInstance()
@@ -163,6 +165,8 @@ public class PetSittingPostAdapter extends RecyclerView.Adapter<PetSittingPostAd
 
         holder.buttonDeletePost.setOnClickListener(v -> listener.onDeleteClick(post));
         holder.itemView.setOnClickListener(v -> listener.onPostClick(post));
+        holder.textViewOwner.setOnClickListener(v -> listener.onUsernameClick(post));
+
     }
 
     @Override

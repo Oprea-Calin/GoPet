@@ -75,7 +75,38 @@ public class MyPetSittingPostsFragment extends Fragment {
                             Toast.makeText(getContext(), "Error checking requests", Toast.LENGTH_SHORT).show();
                         });
             }
+            @Override
+            public void onUsernameClick(PetSittingPost post) {
+                FirebaseFirestore.getInstance()
+                        .collection("petSittingRequests")
+                        .whereEqualTo("postId", post.id)
+                        .get()
+                        .addOnSuccessListener(requests -> {
+                            boolean hasAccepted = false;
 
+                            for (DocumentSnapshot doc : requests) {
+                                String status = doc.getString("status");
+                                if ("accepted".equals(status)) {
+                                    hasAccepted = true;
+                                    break;
+                                }
+                            }
+
+                            Intent intent;
+
+                            if (hasAccepted || requests.isEmpty()) {
+                                intent = new Intent(getContext(), ViewOwnPostDetails.class);
+                            } else {
+                                intent = new Intent(getContext(), ViewRequestsActivity.class);
+                            }
+
+                            intent.putExtra("postId", post.id);
+                            startActivity(intent);
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(getContext(), "Error checking requests", Toast.LENGTH_SHORT).show();
+                        });
+            }
             @Override
             public void onDeleteClick(PetSittingPost post) {
                 new android.app.AlertDialog.Builder(getContext())

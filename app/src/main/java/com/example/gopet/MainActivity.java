@@ -98,8 +98,10 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
             if (id == R.id.nav_pets) {
                 selectedFragment = new PetsFragment();
+                addAnimalButtonGlobal.setVisibility(View.VISIBLE);
             } else if (id == R.id.nav_social) {
                 selectedFragment = new SocialFragment();
+                addAnimalButtonGlobal.setVisibility(View.GONE);
             } else if (id == R.id.nav_pet_sitting) {
                 startActivity(new Intent(this, PetSittingDashboardActivity.class));
                 return true;
@@ -310,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "Profile updated!", Toast.LENGTH_SHORT).show();
                     hideProfileViews();
                     fragmentContainer.setVisibility(View.VISIBLE);
-                    addAnimalButtonGlobal.setVisibility(View.VISIBLE);
+                    addAnimalButtonGlobal.setVisibility(View.GONE);
                     loadUserProfile();
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Failed to update profile", Toast.LENGTH_SHORT).show());

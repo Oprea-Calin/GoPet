@@ -4,6 +4,7 @@ array reply_entries
 array reply_values
 color black
 color dark_gray
+color gray
 color ic_launcher_background
 color nav_item_color
 color purple_700

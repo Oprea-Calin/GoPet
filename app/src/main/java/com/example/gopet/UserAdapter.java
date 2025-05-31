@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -54,6 +55,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         holder.usernameTextView.setText(username != null ? username : "No name");
+        holder.usernameTextView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onUsernameClick(userDocument);
+            }
+        });
 
         if (base64Image != null && !base64Image.isEmpty()) {
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
@@ -88,6 +94,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.btnAcceptShare.setVisibility(View.GONE);
         holder.btnRemoveFriend.setVisibility(View.GONE);
 
+        holder.btnFriendRequest.setBackgroundColor(
+                ContextCompat.getColor(holder.itemView.getContext(), R.color.purple_700));
         if (userId.equals(currentUserId)) {
             holder.btnFriendRequest.setVisibility(View.GONE);
             holder.btnShareAnimals.setVisibility(View.GONE);
@@ -96,10 +104,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 if ("pending".equals(friendStatus)) {
                     holder.btnFriendRequest.setVisibility(View.VISIBLE);
                     holder.btnFriendRequest.setText("Friend request sent");
+                    holder.btnFriendRequest.setBackgroundColor(
+                            ContextCompat.getColor(holder.itemView.getContext(), R.color.dark_gray));
                     holder.btnFriendRequest.setEnabled(false);
                 } else if ("confirmed".equals(friendStatus)) {
                     holder.btnFriendRequest.setVisibility(View.VISIBLE);
                     holder.btnFriendRequest.setText("Friends");
+                    holder.btnFriendRequest.setBackgroundColor(
+                            ContextCompat.getColor(holder.itemView.getContext(), R.color.gray));
                     holder.btnFriendRequest.setEnabled(false);
 
                     holder.btnShareAnimals.setVisibility(View.VISIBLE);
@@ -303,5 +315,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         void onAddFriendClicked(DocumentSnapshot user);
         void onShareAnimalsClicked(DocumentSnapshot user);
         void onProfileImageClicked(DocumentSnapshot user);
+
+        void onUsernameClick(DocumentSnapshot user);
     }
 }

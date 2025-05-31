@@ -294,57 +294,73 @@ public class PetsFragment extends Fragment {
                         }
                     }
 
-
                     db.collection("users").document(uid).collection("sharedAnimalsRequests")
                             .whereEqualTo("status", "accepted")
                             .get()
                             .addOnSuccessListener(requestsTask -> {
                                 List<DocumentSnapshot> shareRequests = requestsTask.getDocuments();
 
-                                if (!shareRequests.isEmpty()) {
-                                    for (DocumentSnapshot requestDoc : shareRequests) {
-                                        String fromUserId = requestDoc.getId();
-
-                                        db.collection("users").document(fromUserId)
-                                                .get()
-                                                .addOnSuccessListener(userDoc -> {
-                                                    String fromUsername = userDoc.getString("username");
-
-                                                    db.collection("users").document(fromUserId).collection("Animals")
-                                                            .get()
-                                                            .addOnSuccessListener(sharedAnimalsTask -> {
-                                                                for (DocumentSnapshot sharedAnimalDoc : sharedAnimalsTask.getDocuments()) {
-                                                                    animal sharedAnimal = sharedAnimalDoc.toObject(animal.class);
-                                                                    if (sharedAnimal != null) {
-                                                                        sharedAnimal.setId(sharedAnimalDoc.getId());
-                                                                        if (sharedAnimal.getAge() != null && !sharedAnimal.getAge().isEmpty()) {
-                                                                            String varstaCalculata = calculeazaVarstaDinData(sharedAnimal.getAge());
-                                                                            sharedAnimal.setCalculatedAge(varstaCalculata);
-                                                                        }
-                                                                        sharedAnimal.setShared(true);
-                                                                        sharedAnimal.setSharedFromUsername(fromUsername);
-                                                                        animals.add(sharedAnimal);
-                                                                    }
-                                                                }
-                                                                adapter.notifyDataSetChanged();
-                                                            });
-                                                });
-                                    }
-                                } else {
+                                if (shareRequests.isEmpty()) {
                                     adapter.notifyDataSetChanged();
+                                    loadingSpinner.setVisibility(View.GONE);
+                                    return;
+                                }
+
+                                final int[] finishedCount = {0};
+                                for (DocumentSnapshot requestDoc : shareRequests) {
+                                    String fromUserId = requestDoc.getId();
+
+                                    db.collection("users").document(fromUserId)
+                                            .get()
+                                            .addOnSuccessListener(userDoc -> {
+                                                String fromUsername = userDoc.getString("username");
+
+                                                db.collection("users").document(fromUserId).collection("Animals")
+                                                        .get()
+                                                        .addOnSuccessListener(sharedAnimalsTask -> {
+                                                            for (DocumentSnapshot sharedAnimalDoc : sharedAnimalsTask.getDocuments()) {
+                                                                animal sharedAnimal = sharedAnimalDoc.toObject(animal.class);
+                                                                if (sharedAnimal != null) {
+                                                                    sharedAnimal.setId(sharedAnimalDoc.getId());
+                                                                    if (sharedAnimal.getAge() != null && !sharedAnimal.getAge().isEmpty()) {
+                                                                        String varstaCalculata = calculeazaVarstaDinData(sharedAnimal.getAge());
+                                                                        sharedAnimal.setCalculatedAge(varstaCalculata);
+                                                                    }
+                                                                    sharedAnimal.setShared(true);
+                                                                    sharedAnimal.setSharedFromUsername(fromUsername);
+                                                                    animals.add(sharedAnimal);
+                                                                }
+                                                            }
+
+                                                            finishedCount[0]++;
+                                                            if (finishedCount[0] == shareRequests.size()) {
+                                                                adapter.notifyDataSetChanged();
+                                                                loadingSpinner.setVisibility(View.GONE);
+                                                            }
+                                                        })
+                                                        .addOnFailureListener(e -> {
+                                                            finishedCount[0]++;
+                                                            if (finishedCount[0] == shareRequests.size()) {
+                                                                adapter.notifyDataSetChanged();
+                                                                loadingSpinner.setVisibility(View.GONE);
+                                                            }
+                                                        });
+                                            });
                                 }
                             })
                             .addOnFailureListener(e -> {
-                                Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Error loading shared animals", Toast.LENGTH_SHORT).show();
+                                adapter.notifyDataSetChanged();
+                                loadingSpinner.setVisibility(View.GONE);
                             });
 
-                    loadingSpinner.setVisibility(View.GONE);
                 })
                 .addOnFailureListener(e -> {
                     loadingSpinner.setVisibility(View.GONE);
-                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error loading your animals", Toast.LENGTH_SHORT).show();
                 });
     }
+
     private String calculeazaVarstaDinData(String dataNasteriiStr) {
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault());
 

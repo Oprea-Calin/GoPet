@@ -46,6 +46,12 @@ public class AllPetSittingPostsFragment extends Fragment {
                 intent.putExtra("postId", post.id);
                 startActivity(intent);
             }
+            @Override
+            public void onUsernameClick(PetSittingPost post) {
+                Intent intent = new Intent(getContext(), ViewPetSittingPostActivity.class);
+                intent.putExtra("postId", post.id);
+                startActivity(intent);
+            }
 
             @Override
             public void onDeleteClick(PetSittingPost post) {

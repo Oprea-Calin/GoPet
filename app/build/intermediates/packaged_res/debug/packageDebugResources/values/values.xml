@@ -10,8 +10,9 @@
     </string-array>
     <color name="black">#FF000000</color>
     <color name="dark_gray">#666666</color>
+    <color name="gray">#CCCCCC</color>
     <color name="ic_launcher_background">#B8DBE8</color>
-    <color name="purple_700">#9900cc</color>
+    <color name="purple_700">#A09AC1</color>
     <color name="teal_700">#018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">GoPet</string>
