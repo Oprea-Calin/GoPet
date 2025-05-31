@@ -103,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new SocialFragment();
                 addAnimalButtonGlobal.setVisibility(View.GONE);
             } else if (id == R.id.nav_pet_sitting) {
-                startActivity(new Intent(this, PetSittingDashboardActivity.class));
+                Intent intent = new Intent(this, PetSittingDashboardActivity.class);
+                startActivityForResult(intent, 123); // cod arbitrar
                 return true;
             }
 
@@ -185,8 +186,23 @@ public class MainActivity extends AppCompatActivity {
                 isEditFormVisible = false;
             }
         });
+        Intent intent = getIntent();
+        if (intent != null && "open_social_friends".equals(intent.getStringExtra("navigateTo"))) {
+            bottomNavigationView.setSelectedItemId(R.id.nav_social);
+
+            Bundle bundle = new Bundle();
+            bundle.putString("defaultTab", "friends");
+            SocialFragment fragment = new SocialFragment();
+            fragment.setArguments(bundle);
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+        }
+
 
     }
+
     private void resetViewVisibility() {
         profileContainer.setVisibility(View.GONE);
         addUserFormLayout.setVisibility(View.GONE);
@@ -287,6 +303,20 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             profileImageUri = data.getData();
             profileImageView.setImageURI(profileImageUri);
+        }
+        if (requestCode == 123) {
+            BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
+            bottomNav.setSelectedItemId(R.id.nav_social);
+
+            SocialFragment fragment = new SocialFragment();
+            Bundle args = new Bundle();
+            args.putString("defaultTab", "friends");
+            fragment.setArguments(args);
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
         }
     }
     private void updateProfile() {

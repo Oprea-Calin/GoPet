@@ -22,7 +22,6 @@
         android:layout_marginBottom="16dp"
         android:nestedScrollingEnabled="true" />
 
-    <!-- Formularul de adăugare animal -->
     <LinearLayout
         android:id="@+id/addAnimalFormLayout"
         android:layout_width="match_parent"

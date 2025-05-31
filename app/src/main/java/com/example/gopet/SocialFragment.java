@@ -95,6 +95,16 @@ public class SocialFragment extends Fragment {
         btnAllUsers.setOnClickListener(v -> loadAllUsers());
         btnFriends.setOnClickListener(v -> showFriends());
 
+        Bundle args = getArguments();
+        if (args != null && "friends".equals(args.getString("defaultTab"))) {
+            btnFriends.post(() -> {
+                btnFriends.performClick();
+            });
+        } else {
+            loadAllUsers();
+        }
+
+
         return view;
     }
 
@@ -150,6 +160,7 @@ public class SocialFragment extends Fragment {
         startActivity(intent);
     }
     private void updateUsersListSafely(List<DocumentSnapshot> updatedList) {
+        if (!isAdded()) return;
         requireActivity().runOnUiThread(() -> {
             usersList.clear();
             usersList.addAll(updatedList);

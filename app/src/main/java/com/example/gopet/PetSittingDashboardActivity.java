@@ -1,6 +1,6 @@
-// PetSittingDashboardActivity.java
 package com.example.gopet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +32,20 @@ public class PetSittingDashboardActivity extends AppCompatActivity {
                 tab.setText("My posts");
             }
         }).attach();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        navigateBackToSocialFriends();
+    }
+
+    private void navigateBackToSocialFriends() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("navigateTo", "open_social_friends");
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        setResult(RESULT_OK);
+        finish();
     }
 
     private static class PetSittingPagerAdapter extends FragmentStateAdapter {
