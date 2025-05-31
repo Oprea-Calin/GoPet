@@ -171,7 +171,23 @@ public class PetsFragment extends Fragment {
         String gender = animalGender.getText().toString();
         String allergies = animalAllergies.getText().toString();
         Float weight = animalWeight.getText().toString().isEmpty() ? null : Float.parseFloat(animalWeight.getText().toString());
-        String base64Image = imageUri != null ? compressAndResizeImage(imageUri) : "";
+        //String base64Image = imageUri != null ? compressAndResizeImage(imageUri) : "";
+
+        String base64Image="";
+        if (imageUri != null) {
+            base64Image = compressAndResizeImage(imageUri);
+        } else if (editing && selectedAnimalId != null) {
+            for (animal aOld : animals) {
+                if (aOld.getId().equals(selectedAnimalId)) {
+                    base64Image = aOld.getBase64Image();
+                    break;
+                }
+            }
+        } else {
+            base64Image = "";
+        }
+
+
 
         if (name.isEmpty() || age.isEmpty() || breed.isEmpty()) {
             Toast.makeText(getContext(), "Please fill all required fields!", Toast.LENGTH_SHORT).show();
