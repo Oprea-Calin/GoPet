@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,8 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isProfileVisible = false;
     boolean isEditFormVisible = false;
     String existingBase64Image;
+    TextView usernameLabel, quoteLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +114,46 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+
+        usernameLabel = findViewById(R.id.usernameLabel);
+        quoteLabel = findViewById(R.id.quoteLabel);
+
+        if (!quoteEdit.getText().toString().isEmpty()) {
+            quoteLabel.setVisibility(View.VISIBLE);
+        }
+        quoteEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 0) {
+                    quoteLabel.setVisibility(View.VISIBLE);
+                } else {
+                    quoteLabel.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+        usernameEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 0) {
+                    usernameLabel.setVisibility(View.VISIBLE);
+                } else {
+                    usernameLabel.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
 
 
 
@@ -197,7 +242,12 @@ public class MainActivity extends AppCompatActivity {
                     if (base64Image != null && !base64Image.isEmpty()) {
                         byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
                         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                        profileImageView.setImageBitmap(decodedByte);
+                        Glide.with(this)
+                                .asBitmap()
+                                .load(decodedByte)
+                                .circleCrop()
+                                .into(profileImageView);
+
                     }
 
                     Profile profile = new Profile(username, quote, base64Image);
@@ -221,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
             commentsHeader.setVisibility(View.GONE);
             addUserFormLayout.setVisibility(View.VISIBLE);
             isEditFormVisible = true;
-        });
+        },false);
         profileRecyclerView.setAdapter(profileAdapter);
     }
     private void openImageChooser() {

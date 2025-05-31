@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -57,7 +58,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         if (base64Image != null && !base64Image.isEmpty()) {
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-            holder.profileImageView.setImageBitmap(decodedByte);
+            Glide.with(holder.itemView)
+                    .asBitmap()
+                    .load(decodedByte)
+                    .circleCrop()
+                    .into(holder.profileImageView);
             holder.profileImageView.setVisibility(View.VISIBLE);
         }else{
             holder.profileImageView.setVisibility(View.GONE);

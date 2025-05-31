@@ -3,8 +3,11 @@ local
 array reply_entries
 array reply_values
 color black
+color dark_gray
 color ic_launcher_background
 color nav_item_color
+color purple_700
+color teal_700
 color white
 drawable addpet
 drawable addpeticon
@@ -13,10 +16,12 @@ drawable badge_background
 drawable bg_my_animals_label
 drawable card_background
 drawable cat
+drawable form_card_bg
 drawable ic_add
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable image_border
+drawable input_field_bg
 drawable login_text
 drawable logo
 drawable logo2
@@ -27,6 +32,7 @@ drawable outline_face_unlock_24
 drawable pets
 drawable petsitter
 drawable register
+drawable round_image_border
 drawable rounded_corners
 drawable settings_icon
 drawable social
@@ -99,12 +105,12 @@ id nav_pet_sitting
 id nav_pets
 id nav_social
 id originTextView
-id petsRootScroll
 id profileContainer
 id profileImageView
 id profileRecycleView
 id progressBar
 id quoteEdit
+id quoteLabel
 id quoteTextView
 id recyclerPets
 id recyclerSocial
@@ -140,6 +146,7 @@ id txtLog
 id userProfileLayout
 id userSection
 id usernameEdit
+id usernameLabel
 id usernameTextView
 id viewPager
 id viewProfile

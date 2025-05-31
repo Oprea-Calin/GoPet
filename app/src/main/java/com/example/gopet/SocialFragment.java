@@ -191,7 +191,7 @@ public class SocialFragment extends Fragment {
                         });
             }
 
-            if (pendingCalls[0] == 0) updateAdapterWithList(tempList); // fallback pentru 0 rezultate
+            if (pendingCalls[0] == 0) updateAdapterWithList(tempList);
         });
     }
 

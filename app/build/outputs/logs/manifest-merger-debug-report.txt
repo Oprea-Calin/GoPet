@@ -11,6 +11,7 @@ MERGED from [androidx.preference:preference:1.2.0] D:\FACULTA\MDS\caches\8.10.2\
 MERGED from [androidx.appcompat:appcompat-resources:1.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d7e78a3bf39750fc0717f711b86ecdd5\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.appcompat:appcompat:1.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6c46ee0405248821f09dc63d530e3930\transformed\appcompat-1.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:17:1-75:12
+MERGED from [com.github.bumptech.glide:glide:4.16.0] D:\FACULTA\MDS\caches\8.10.2\transforms\aa1a3c1ef4eaaa929c691a153515d85a\transformed\glide-4.16.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\1f6e3b7a84607c7eb6222bc67c3f451d\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] D:\FACULTA\MDS\caches\8.10.2\transforms\195f364f022f1b0980aac82b5bf599e0\transformed\firebase-firestore-25.1.2\AndroidManifest.xml:2:1-26:12
@@ -64,7 +65,6 @@ MERGED from [com.google.android.gms:play-services-basement:18.4.0] D:\FACULTA\MD
 MERGED from [androidx.fragment:fragment:1.5.4] D:\FACULTA\MDS\caches\8.10.2\transforms\b4cdf238f5077c770f1aafa0d8a8c4c8\transformed\fragment-1.5.4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.10.0] D:\FACULTA\MDS\caches\8.10.2\transforms\a344951b0635b1556a94743f70b7abab\transformed\activity-1.10.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\7dedfc55705f6373a53e5bb1725570d3\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3c2cb284cb5716a9b6819a9f50687cf4\transformed\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\4f19efafa1071bf21eddfbd75381bad0\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\7cd42868959e906289bed694a52259d5\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\c962884b105fc4b4712f2ab282beb053\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
@@ -72,6 +72,8 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] D:\FACULTA\MDS\caches\8.10.
 MERGED from [androidx.tracing:tracing:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\687dfaf8a625cb85ad57d0cd30110f91\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\b3202a4d9a9a1f3e8e464b4e08b72064\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-components:18.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\e4a72dcbac1fe2b80159d3186a874fbd\transformed\firebase-components-18.0.0\AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] D:\FACULTA\MDS\caches\8.10.2\transforms\c1c061d59855e62a84d87ae6e2ac3110\transformed\exifinterface-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] D:\FACULTA\MDS\caches\8.10.2\transforms\434397cf7f4db182811b2d38e425e7d8\transformed\gifdecoder-4.16.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cc2a9765e616dd362dbdf356868529e9\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\05ee90b696551445e1426b158196b8ad\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\ab08b00df890bd9cf307c39e42d776d5\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
@@ -282,6 +284,8 @@ MERGED from [androidx.appcompat:appcompat:1.7.0] D:\FACULTA\MDS\caches\8.10.2\tr
 MERGED from [androidx.appcompat:appcompat:1.7.0] D:\FACULTA\MDS\caches\8.10.2\transforms\6c46ee0405248821f09dc63d530e3930\transformed\appcompat-1.7.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:21:5-23:151
 MERGED from [com.google.firebase:firebase-auth:23.2.0] D:\FACULTA\MDS\caches\8.10.2\transforms\279f8ae51c8e29f70ee2e0f16530c207\transformed\firebase-auth-23.2.0\AndroidManifest.xml:21:5-23:151
+MERGED from [com.github.bumptech.glide:glide:4.16.0] D:\FACULTA\MDS\caches\8.10.2\transforms\aa1a3c1ef4eaaa929c691a153515d85a\transformed\glide-4.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:glide:4.16.0] D:\FACULTA\MDS\caches\8.10.2\transforms\aa1a3c1ef4eaaa929c691a153515d85a\transformed\glide-4.16.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\1f6e3b7a84607c7eb6222bc67c3f451d\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\1f6e3b7a84607c7eb6222bc67c3f451d\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-database:21.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\d4038c0bad0147ad18cc46adf02eff3a\transformed\firebase-database-21.0.0\AndroidManifest.xml:18:5-44
@@ -388,8 +392,6 @@ MERGED from [androidx.activity:activity:1.10.0] D:\FACULTA\MDS\caches\8.10.2\tra
 MERGED from [androidx.activity:activity:1.10.0] D:\FACULTA\MDS\caches\8.10.2\transforms\a344951b0635b1556a94743f70b7abab\transformed\activity-1.10.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\7dedfc55705f6373a53e5bb1725570d3\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] D:\FACULTA\MDS\caches\8.10.2\transforms\7dedfc55705f6373a53e5bb1725570d3\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3c2cb284cb5716a9b6819a9f50687cf4\transformed\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\3c2cb284cb5716a9b6819a9f50687cf4\transformed\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\4f19efafa1071bf21eddfbd75381bad0\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\4f19efafa1071bf21eddfbd75381bad0\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\7cd42868959e906289bed694a52259d5\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
@@ -404,6 +406,10 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\FACU
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\b3202a4d9a9a1f3e8e464b4e08b72064\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-components:18.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\e4a72dcbac1fe2b80159d3186a874fbd\transformed\firebase-components-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-components:18.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\e4a72dcbac1fe2b80159d3186a874fbd\transformed\firebase-components-18.0.0\AndroidManifest.xml:18:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] D:\FACULTA\MDS\caches\8.10.2\transforms\c1c061d59855e62a84d87ae6e2ac3110\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] D:\FACULTA\MDS\caches\8.10.2\transforms\c1c061d59855e62a84d87ae6e2ac3110\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] D:\FACULTA\MDS\caches\8.10.2\transforms\434397cf7f4db182811b2d38e425e7d8\transformed\gifdecoder-4.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] D:\FACULTA\MDS\caches\8.10.2\transforms\434397cf7f4db182811b2d38e425e7d8\transformed\gifdecoder-4.16.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cc2a9765e616dd362dbdf356868529e9\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] D:\FACULTA\MDS\caches\8.10.2\transforms\cc2a9765e616dd362dbdf356868529e9\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\FACULTA\MDS\caches\8.10.2\transforms\05ee90b696551445e1426b158196b8ad\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41

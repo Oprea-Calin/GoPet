@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.List;
@@ -19,10 +20,12 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
 
     private List<Profile> profileData;
     private OnProfileClickListener listener;
+    private boolean showActions;
 
-    public ProfileAdapter(List<Profile> profileData, OnProfileClickListener listener) {
+    public ProfileAdapter(List<Profile> profileData, OnProfileClickListener listener, boolean showActions) {
         this.profileData = profileData;
         this.listener = listener;
+        this.showActions = showActions;
     }
 
     @Override
@@ -37,17 +40,38 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         holder.usernameTextView.setText(profile.getUsername());
         holder.quoteTextView.setText(profile.getQuote());
 
-        holder.quoteTextView.setVisibility(View.VISIBLE);
+        if (profile.getQuote() != null && !profile.getQuote().isEmpty()) {
+            holder.quoteTextView.setVisibility(View.VISIBLE);
+        } else {
+            holder.quoteTextView.setVisibility(View.GONE);
+        }
+
         String base64Image = profile.getBase64Image();
         if (base64Image != null && !base64Image.isEmpty()) {
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-            holder.profileImageView.setImageBitmap(decodedByte);
+            Glide.with(holder.itemView)
+                    .asBitmap()
+                    .load(decodedByte)
+                    .circleCrop()
+                    .into(holder.profileImageView);
+
         }
-        Button btnFriendRequest = holder.itemView.findViewById(R.id.btnFriendRequest);
-        if (btnFriendRequest != null) {
-            btnFriendRequest.setVisibility(View.GONE);
+
+        if (showActions) {
+            holder.btnFriendRequest.setVisibility(View.VISIBLE);
+            holder.btnShareAnimals.setVisibility(View.VISIBLE);
+            holder.btnAcceptShare.setVisibility(View.VISIBLE);
+            holder.btnCancelShare.setVisibility(View.VISIBLE);
+            holder.btnRemoveFriend.setVisibility(View.VISIBLE);
+        } else {
+            holder.btnFriendRequest.setVisibility(View.GONE);
+            holder.btnShareAnimals.setVisibility(View.GONE);
+            holder.btnAcceptShare.setVisibility(View.GONE);
+            holder.btnCancelShare.setVisibility(View.GONE);
+            holder.btnRemoveFriend.setVisibility(View.GONE);
         }
+
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onProfileClick(profile);
@@ -68,12 +92,19 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         TextView usernameTextView;
         TextView quoteTextView;
         ImageView profileImageView;
+        Button btnFriendRequest, btnShareAnimals, btnAcceptShare, btnCancelShare, btnRemoveFriend;
 
         public ProfileViewHolder(View itemView) {
             super(itemView);
             usernameTextView = itemView.findViewById(R.id.usernameTextView);
             quoteTextView = itemView.findViewById(R.id.quoteTextView);
             profileImageView = itemView.findViewById(R.id.profileImageView);
+
+            btnFriendRequest = itemView.findViewById(R.id.btnFriendRequest);
+            btnShareAnimals = itemView.findViewById(R.id.btnShareAnimals);
+            btnAcceptShare = itemView.findViewById(R.id.btnAcceptShare);
+            btnCancelShare = itemView.findViewById(R.id.btnCancelShare);
+            btnRemoveFriend = itemView.findViewById(R.id.btnRemoveFriend);
         }
     }
 }
