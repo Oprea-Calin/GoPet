@@ -3104,6 +3104,8 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable addpet
+drawable addpeticon
+drawable addpetimage
 drawable avd_hide_password
 drawable avd_show_password
 drawable badge_background
@@ -3169,6 +3171,7 @@ drawable ic_other_sign_in
 drawable ic_passkey
 drawable ic_password
 drawable ic_search_black_24
+drawable image_border
 drawable indeterminate_static
 drawable login_text
 drawable logo
@@ -3331,7 +3334,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addAnimalButton
+id addAnimalButtonGlobal
 id addAnimalFormLayout
 id addProfileFormLayout
 id adjust_height
@@ -3696,7 +3699,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
-id petsRootLayout
+id petsRootScroll
 id pin
 id position
 id postLayout

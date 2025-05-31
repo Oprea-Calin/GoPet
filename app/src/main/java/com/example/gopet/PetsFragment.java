@@ -35,7 +35,8 @@ public class PetsFragment extends Fragment {
     private FirebaseFirestore db;
     private ProgressBar loadingSpinner;
 
-    private View formLayout;
+    private View formLayout,addanimalButtonlayout;
+    private TextView addtextview;
     private EditText animalName, animalBreed, animalAge, animalCategory, animalReproductiveStatus, animalGender, animalWeight, animalAllergies;
     private ImageView animalImageView, addAnimalBtn;
     private Button submitAnimalBtn, selectImageBtn;
@@ -53,6 +54,25 @@ public class PetsFragment extends Fragment {
                 }
             }
     );
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) requireActivity()).showAddPetButton(true);
+
+        ImageView addBtn = requireActivity().findViewById(R.id.addAnimalButtonGlobal);
+        addBtn.setOnClickListener(v -> {
+            resetForm();
+            formLayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+            addBtn.setVisibility(View.GONE);
+        });
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((MainActivity) requireActivity()).showAddPetButton(false);
+    }
 
     @Nullable
     @Override
@@ -61,12 +81,14 @@ public class PetsFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerPets);
         loadingSpinner = view.findViewById(R.id.loadingSpinner);
-        addAnimalBtn = view.findViewById(R.id.addAnimalButton);
+       // addAnimalBtn = view.findViewById(R.id.addAnimalButton);
         formLayout = view.findViewById(R.id.addAnimalFormLayout);
         animalImageView = view.findViewById(R.id.animalImageView);
         submitAnimalBtn = view.findViewById(R.id.submitAnimalBtn);
         selectImageBtn = view.findViewById(R.id.selectImageBtn);
         loadingSpinner = view.findViewById(R.id.loadingSpinner);
+        //addtextview = view.findViewById(R.id.addtextview);
+        //addanimalButtonlayout = view.findViewById(R.id.addanimalButtonlayout);
 
 
         animalName = view.findViewById(R.id.animalName);
@@ -90,10 +112,12 @@ public class PetsFragment extends Fragment {
 
         loadAnimals();
 
-        addAnimalBtn.setOnClickListener(v -> {
-            resetForm();
-            formLayout.setVisibility(View.VISIBLE);
-        });
+//        addAnimalBtn.setOnClickListener(v -> {
+//            resetForm();
+//            showForm(true);
+
+
+//        });
 
         selectImageBtn.setOnClickListener(v -> openImageChooser());
 
@@ -158,7 +182,15 @@ public class PetsFragment extends Fragment {
             byte[] decoded = Base64.decode(a.getBase64Image(), Base64.DEFAULT);
             animalImageView.setImageBitmap(BitmapFactory.decodeByteArray(decoded, 0, decoded.length));
         }
-        formLayout.setVisibility(View.VISIBLE);
+        showForm(true);
+    }
+    private void showForm(boolean show) {
+        formLayout.setVisibility(show ? View.VISIBLE : View.GONE);
+        recyclerView.setVisibility(show ? View.GONE : View.VISIBLE);
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).showAddPetButton(false);
+        }
+       // addanimalButtonlayout.setVisibility(show ? View.GONE : View.VISIBLE);
     }
 
     private void saveAnimal() {
@@ -207,8 +239,11 @@ public class PetsFragment extends Fragment {
                     .set(a)
                     .addOnSuccessListener(unused -> {
                         Toast.makeText(getContext(), "Pet updated", Toast.LENGTH_SHORT).show();
-                        formLayout.setVisibility(View.GONE);
+                        showForm(false);
                         loadAnimals();
+                        if (getActivity() instanceof MainActivity) {
+                            ((MainActivity) getActivity()).showAddPetButton(true);
+                        }
                     });
         } else {
             String id = db.collection("users").document(uid).collection("Animals").document().getId();
@@ -217,8 +252,11 @@ public class PetsFragment extends Fragment {
                     .set(a)
                     .addOnSuccessListener(unused -> {
                         Toast.makeText(getContext(), "Pet added", Toast.LENGTH_SHORT).show();
-                        formLayout.setVisibility(View.GONE);
+                        showForm(false);
                         loadAnimals();
+                        if (getActivity() instanceof MainActivity) {
+                            ((MainActivity) getActivity()).showAddPetButton(true);
+                        }
                     });
         }
     }
@@ -235,7 +273,6 @@ public class PetsFragment extends Fragment {
 
     private void loadAnimals() {
         loadingSpinner.setVisibility(View.VISIBLE);
-
         animals.clear();
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();

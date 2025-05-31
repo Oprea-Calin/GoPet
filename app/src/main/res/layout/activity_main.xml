@@ -27,6 +27,21 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp"/>
 
+
+    <ImageView
+        android:id="@+id/addAnimalButtonGlobal"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:contentDescription="Add Animal"
+        android:padding="8dp"
+        android:src="@drawable/addpetimage"
+        app:layout_constraintEnd_toStartOf="@+id/logoutImage"
+        app:layout_constraintStart_toEndOf="@+id/viewProfile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"

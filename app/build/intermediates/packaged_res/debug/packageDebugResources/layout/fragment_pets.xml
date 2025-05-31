@@ -1,119 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/petsRootLayout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/petsRootScroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fillViewport="true">
 
-    <ProgressBar
-        android:id="@+id/loadingSpinner"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/addAnimalButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:src="@drawable/addpet"
-        android:contentDescription="Add Animal" />
+        <ProgressBar
+            android:id="@+id/loadingSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPets"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingTop="8dp" />
-
-    <ScrollView
-        android:id="@+id/addAnimalFormLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:paddingTop="16dp">
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:id="@+id/addAnimalFormLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@drawable/card_background"
+            android:padding="24dp"
+            android:elevation="6dp"
+            android:layout_margin="8dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/animalImageView"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:background="@drawable/image_border"
+                android:padding="4dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Animal Image" />
+
+            <Button
+                android:id="@+id/selectImageBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Image"
+                android:layout_marginBottom="16dp" />
 
             <EditText android:id="@+id/animalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name" />
+                android:hint="Name"
+                android:layout_marginBottom="12dp" />
 
             <EditText android:id="@+id/animalBreed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Breed" />
+                android:hint="Breed"
+                android:layout_marginBottom="12dp" />
 
             <EditText android:id="@+id/animalBirthDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Date of Birth (DD/MM/YYYY)"
+                android:hint="Birth Date (DD/MM/YYYY)"
                 android:focusable="false"
-                android:clickable="true" />
+                android:clickable="true"
+                android:layout_marginBottom="12dp" />
 
             <EditText android:id="@+id/animalCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Type (e.g. cat, dog)" />
+                android:hint="Type (cat, dog...)"
+                android:layout_marginBottom="12dp" />
 
             <EditText android:id="@+id/animalReproductiveStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Reproductive Status" />
+                android:hint="Reproductive Status"
+                android:layout_marginBottom="12dp" />
 
             <EditText android:id="@+id/animalGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Gender" />
+                android:hint="Gender"
+                android:layout_marginBottom="12dp" />
 
             <EditText android:id="@+id/animalWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Weight"
-                android:inputType="numberDecimal" />
+                android:hint="Weight (kg)"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="12dp" />
 
             <EditText android:id="@+id/animalAllergies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Allergies" />
+                android:hint="Allergies"
+                android:layout_marginBottom="16dp" />
 
-            <LinearLayout
+            <Button
+                android:id="@+id/submitAnimalBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical">
-
-                <Button
-                    android:id="@+id/selectImageBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Select Image" />
-
-                <Button
-                    android:id="@+id/submitAnimalBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Save" />
-            </LinearLayout>
-
-
-            <ImageView
-                android:id="@+id/animalImageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center" />
-
-
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp" />
         </LinearLayout>
-    </ScrollView>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

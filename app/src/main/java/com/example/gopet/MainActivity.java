@@ -31,7 +31,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView logoutImage, viewProfile, profileImageView;
+    ImageView logoutImage, viewProfile, profileImageView, addAnimalButtonGlobal;
     EditText usernameEdit, quoteEdit;
     Button selectProfileImage, submitProfileUpdateButton;
     RecyclerView profileRecyclerView;
@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addAnimalButtonGlobal = findViewById(R.id.addAnimalButtonGlobal);
 
         profileContainer = findViewById(R.id.profileContainer);
         commentsRecyclerView = findViewById(R.id.commentsRecyclerView);
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 profileRecyclerView.setVisibility(View.VISIBLE);
                 commentsRecyclerView.setVisibility(View.VISIBLE);
                 commentsHeader.setVisibility(View.VISIBLE);
+                addAnimalButtonGlobal.setVisibility(View.GONE);
                 loadUserProfile();
                 loadComments();
                 isProfileVisible = true;
@@ -257,9 +260,16 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "Profile updated!", Toast.LENGTH_SHORT).show();
                     hideProfileViews();
                     fragmentContainer.setVisibility(View.VISIBLE);
+                    addAnimalButtonGlobal.setVisibility(View.VISIBLE);
+                    loadUserProfile();
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Failed to update profile", Toast.LENGTH_SHORT).show());
     }
+    public void showAddPetButton(boolean show) {
+        if(addAnimalButtonGlobal != null)
+            addAnimalButtonGlobal.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
     private String compressAndResizeImage(Uri imageUri) {
         try {
             InputStream inputStream = getContentResolver().openInputStream(imageUri);
