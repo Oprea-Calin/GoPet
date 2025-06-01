@@ -12,7 +12,11 @@
     <color name="dark_gray">#666666</color>
     <color name="gray">#CCCCCC</color>
     <color name="ic_launcher_background">#B8DBE8</color>
+    <color name="purple_500">#9C27B0</color>
     <color name="purple_700">#A09AC1</color>
+    <color name="tab_indicator">#3F51B5</color>
+    <color name="tab_text_normal">#B0BEC5</color>
+    <color name="tab_text_selected">#3F51B5</color>
     <color name="teal_700">#018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">GoPet</string>
@@ -40,6 +44,16 @@
     <style name="CustomHintText">
         <item name="android:textColorHint">#7047A0</item>
         <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="CustomTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextColor">@color/tab_text_normal</item>
+        <item name="tabSelectedTextColor">@color/tab_text_selected</item>
+        <item name="tabIndicatorColor">@color/tab_indicator</item>
+        <item name="tabIndicatorHeight">3dp</item>
+    </style>
+    <style name="TabTextStyle" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="Theme.GoPet" parent="Base.Theme.GoPet"/>

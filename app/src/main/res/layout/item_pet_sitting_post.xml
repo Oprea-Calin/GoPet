@@ -2,14 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:elevation="4dp"
-    app:cardCornerRadius="12dp">
+    android:layout_margin="2dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:padding="5dp"
         android:background="@android:color/white">
 
         <LinearLayout
@@ -23,18 +25,19 @@
 
             <ImageView
                 android:id="@+id/imageProfile"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:scaleType="centerCrop"
                 android:layout_marginBottom="4dp"
-                android:padding="2dp" />
+                android:background="@drawable/image_border"
+                android:contentDescription="User Image"/>
 
             <TextView
                 android:id="@+id/textViewOwner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:textColor="#555555"
+                android:textColor="#333333"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:gravity="center" />
@@ -46,15 +49,16 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/userSection"
             android:orientation="vertical"
-            android:layout_marginStart="12dp"
-            android:layout_alignTop="@id/userSection">
+            android:layout_marginStart="8dp"
+            android:layout_alignTop="@id/userSection"
+            android:layout_marginEnd="40dp">
 
             <TextView
                 android:id="@+id/textViewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Period"
-                android:textSize="16sp"
+                android:text="📅 15 Jun - 20 Jun"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="#222222" />
 
@@ -62,54 +66,61 @@
                 android:id="@+id/textViewLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location"
+                android:text="📍 Bucharest"
                 android:textSize="14sp"
-                android:textColor="#444444"
+                android:textColor="#555555"
                 android:layout_marginTop="2dp" />
 
             <TextView
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pay: "
+                android:text="💰 100 RON"
                 android:textSize="14sp"
-                android:textColor="#444444"
+                android:textColor="#555555"
                 android:layout_marginTop="2dp" />
 
             <TextView
                 android:id="@+id/textViewAnimalDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pets: "
+                android:text=""
                 android:textSize="14sp"
-                android:textColor="#444444"
+                android:textColor="#555555"
                 android:layout_marginTop="2dp" />
+
             <TextView
                 android:id="@+id/textViewNotes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                android:text=""/>
+                android:text=""
+                android:textSize="13sp"
+                android:textColor="#777777"
+                android:layout_marginTop="2dp" />
 
             <TextView
                 android:id="@+id/textViewAccepted"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Accepted by: "
-                android:textColor="#388E3C"
+                android:text="✔️ Accepted by: "
+                android:textColor="#2e7d32"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp"
                 android:visibility="gone" />
+
             <Button
                 android:id="@+id/btnDeletePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Delete post"
+                android:textAllCaps="false"
                 android:visibility="gone"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:backgroundTint="#d32f2f"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <TextView
@@ -123,6 +134,9 @@
             android:padding="4dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
             android:visibility="gone" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

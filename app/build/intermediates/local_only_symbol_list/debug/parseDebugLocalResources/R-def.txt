@@ -7,9 +7,16 @@ color dark_gray
 color gray
 color ic_launcher_background
 color nav_item_color
+color purple_500
 color purple_700
+color tab_indicator
+color tab_text_normal
+color tab_text_selected
 color teal_700
 color white
+drawable a
+drawable a1
+drawable a2
 drawable addpet
 drawable addpeticon
 drawable addpetimage
@@ -195,6 +202,8 @@ string sync_title
 string title_activity_settings
 style Base.Theme.GoPet
 style CustomHintText
+style CustomTabLayout
+style TabTextStyle
 style Theme.GoPet
 xml backup_rules
 xml data_extraction_rules
