@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         viewProfile.setOnClickListener(v -> {
             if (isProfileVisible) {
 
+                addAnimalButtonGlobal.setVisibility(View.VISIBLE);
                 hideProfileViews();
                 fragmentContainer.setVisibility(View.VISIBLE);
             } else {
