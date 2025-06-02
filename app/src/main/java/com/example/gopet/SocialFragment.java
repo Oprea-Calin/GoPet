@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +35,8 @@ public class SocialFragment extends Fragment {
     private List<DocumentSnapshot> usersList, friendsList;
     private FirebaseFirestore db;
     private Button btnAllUsers, btnFriends;
+    private EditText searchEditText;
+
 
     @Nullable
     @Override
@@ -40,6 +45,10 @@ public class SocialFragment extends Fragment {
 
         view.setVisibility(View.VISIBLE);
         view.bringToFront();
+
+        searchEditText = requireActivity().findViewById(R.id.searchEditText);
+
+
         recyclerView = view.findViewById(R.id.recyclerSocial);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -49,6 +58,24 @@ public class SocialFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         usersList = new ArrayList<>();
         friendsList = new ArrayList<>();
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String query = s.toString().trim().toLowerCase();
+                if (btnAllUsers.getAlpha() == 1.0f) {
+                    filterList(query, usersList);
+                } else {
+                    filterList(query, friendsList);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
 
         userAdapter = new UserAdapter(usersList, friendsList, new UserAdapter.OnAddFriendClickListener() {
             @Override
@@ -93,12 +120,14 @@ public class SocialFragment extends Fragment {
         loadFriends();
 
         btnAllUsers.setOnClickListener(v -> {
+            searchEditText.setText("");
             loadAllUsers();
             btnAllUsers.setAlpha(1.0f);
             btnFriends.setAlpha(0.5f);
         });
 
         btnFriends.setOnClickListener(v -> {
+            searchEditText.setText("");
             showFriends();
             btnAllUsers.setAlpha(0.5f);
             btnFriends.setAlpha(1.0f);
@@ -119,6 +148,19 @@ public class SocialFragment extends Fragment {
 
         return view;
     }
+    private void filterList(String query, List<DocumentSnapshot> fullList) {
+        List<DocumentSnapshot> filtered = new ArrayList<>();
+        for (DocumentSnapshot doc : fullList) {
+            String username = doc.getString("username");
+            if (username != null && username.toLowerCase().contains(query)) {
+                filtered.add(doc);
+            }
+        }
+        usersList.clear();
+        usersList.addAll(filtered);
+        userAdapter.notifyDataSetChanged();
+    }
+
 
     private void loadAllUsers() {
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();

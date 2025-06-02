@@ -4,12 +4,12 @@
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\layout\\activity_user_profile.xml"
     },
     {
-        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_a.webp.flat",
-        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\a.webp"
-    },
-    {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_a.webp.flat",
+        "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\drawable\\a.webp"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_a2.webp.flat",
@@ -82,10 +82,6 @@
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
-    },
-    {
-        "merged": "com.example.gopet.app-debug-5:/layout_item_user.xml.flat",
-        "source": "com.example.gopet.app-main-7:/layout/item_user.xml"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
@@ -234,6 +230,10 @@
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\layout_activity_create_pet_sitting_post.xml.flat",
         "source": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-main-7:\\layout\\activity_create_pet_sitting_post.xml"
+    },
+    {
+        "merged": "com.example.gopet.app-debug-5:/layout_activity_main.xml.flat",
+        "source": "com.example.gopet.app-main-7:/layout/activity_main.xml"
     },
     {
         "merged": "D:\\FACULTA\\MDS\\daemon\\8.10.2\\com.example.gopet.app-debug-5:\\drawable_login_text.xml.flat",

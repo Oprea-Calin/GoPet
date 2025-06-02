@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -58,11 +60,16 @@ public class MainActivity extends AppCompatActivity {
     boolean isEditFormVisible = false;
     String existingBase64Image;
     TextView usernameLabel, quoteLabel;
+    MaterialCardView searchBarLayout;
+    EditText searchEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        searchBarLayout = findViewById(R.id.searchBarLayout);
+        searchEditText = findViewById(R.id.searchEditText);
 
         addAnimalButtonGlobal = findViewById(R.id.addAnimalButtonGlobal);
 
@@ -99,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             if (id == R.id.nav_pets) {
                 selectedFragment = new PetsFragment();
                 addAnimalButtonGlobal.setVisibility(View.VISIBLE);
+                searchBarLayout.setVisibility(View.GONE);
             } else if (id == R.id.nav_social) {
                 SocialFragment fragment = new SocialFragment();
                 Bundle args = new Bundle();
@@ -106,8 +114,10 @@ public class MainActivity extends AppCompatActivity {
                 fragment.setArguments(args);
                 selectedFragment = fragment;
                 addAnimalButtonGlobal.setVisibility(View.GONE);
+                searchBarLayout.setVisibility(View.VISIBLE);
             }
             else if (id == R.id.nav_pet_sitting) {
+                searchBarLayout.setVisibility(View.GONE);
                 Intent intent = new Intent(this, PetSittingDashboardActivity.class);
                 startActivityForResult(intent, 123); // cod arbitrar
                 return true;

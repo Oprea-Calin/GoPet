@@ -130,6 +130,9 @@ id recyclerViewPosts
 id recyclerViewRequests
 id recycler_animals
 id requestBadge
+id searchBarLayout
+id searchButton
+id searchEditText
 id selectImageBtn
 id selectProfileImage
 id socialFragmentLayout
