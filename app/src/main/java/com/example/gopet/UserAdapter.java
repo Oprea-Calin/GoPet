@@ -95,7 +95,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.btnRemoveFriend.setVisibility(View.GONE);
 
         holder.btnFriendRequest.setBackgroundColor(
-                ContextCompat.getColor(holder.itemView.getContext(), R.color.purple_700));
+                ContextCompat.getColor(holder.itemView.getContext(), R.color.purple_600));
         if (userId.equals(currentUserId)) {
             holder.btnFriendRequest.setVisibility(View.GONE);
             holder.btnShareAnimals.setVisibility(View.GONE);

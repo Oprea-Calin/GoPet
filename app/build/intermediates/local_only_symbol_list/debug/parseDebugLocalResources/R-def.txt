@@ -10,6 +10,7 @@ color gray
 color ic_launcher_background
 color nav_item_color
 color purple_500
+color purple_600
 color purple_700
 color tab_indicator
 color tab_text_normal
