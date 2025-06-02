@@ -100,9 +100,14 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new PetsFragment();
                 addAnimalButtonGlobal.setVisibility(View.VISIBLE);
             } else if (id == R.id.nav_social) {
-                selectedFragment = new SocialFragment();
+                SocialFragment fragment = new SocialFragment();
+                Bundle args = new Bundle();
+                args.putString("defaultTab", "allUsers");
+                fragment.setArguments(args);
+                selectedFragment = fragment;
                 addAnimalButtonGlobal.setVisibility(View.GONE);
-            } else if (id == R.id.nav_pet_sitting) {
+            }
+            else if (id == R.id.nav_pet_sitting) {
                 Intent intent = new Intent(this, PetSittingDashboardActivity.class);
                 startActivityForResult(intent, 123); // cod arbitrar
                 return true;

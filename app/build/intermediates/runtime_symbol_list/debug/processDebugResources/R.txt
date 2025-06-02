@@ -1462,6 +1462,8 @@ int color browser_actions_bg_grey 0x7f060028
 int color browser_actions_divider_color 0x7f060029
 int color browser_actions_text_color 0x7f06002a
 int color browser_actions_title_color 0x7f06002b
+int color button_active 0x7f060321
+int color button_inactive 0x7f060322
 int color button_material_dark 0x7f06002c
 int color button_material_light 0x7f06002d
 int color call_notification_answer_color 0x7f06002e

@@ -92,17 +92,29 @@ public class SocialFragment extends Fragment {
         recyclerView.setAdapter(userAdapter);
         loadFriends();
 
-        btnAllUsers.setOnClickListener(v -> loadAllUsers());
-        btnFriends.setOnClickListener(v -> showFriends());
+        btnAllUsers.setOnClickListener(v -> {
+            loadAllUsers();
+            btnAllUsers.setAlpha(1.0f);
+            btnFriends.setAlpha(0.5f);
+        });
+
+        btnFriends.setOnClickListener(v -> {
+            showFriends();
+            btnAllUsers.setAlpha(0.5f);
+            btnFriends.setAlpha(1.0f);
+        });
+
 
         Bundle args = getArguments();
-        if (args != null && "friends".equals(args.getString("defaultTab"))) {
-            btnFriends.post(() -> {
-                btnFriends.performClick();
-            });
+        String defaultTab = args != null ? args.getString("defaultTab") : "allUsers";
+
+        if ("friends".equals(defaultTab)) {
+            btnFriends.post(() -> btnFriends.performClick());
         } else {
-            loadAllUsers();
+            btnAllUsers.post(() -> btnAllUsers.performClick());
         }
+
+
 
 
         return view;
@@ -153,6 +165,9 @@ public class SocialFragment extends Fragment {
             }
         });
     }
+
+
+
     private void openUserProfile(DocumentSnapshot user) {
         String userId = user.getId();
         Intent intent = new Intent(getActivity(), UserProfileActivity.class);

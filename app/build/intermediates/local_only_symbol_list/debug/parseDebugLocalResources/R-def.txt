@@ -3,6 +3,8 @@ local
 array reply_entries
 array reply_values
 color black
+color button_active
+color button_inactive
 color dark_gray
 color gray
 color ic_launcher_background

@@ -10,4 +10,6 @@
     <color name="tab_text_normal">#B0BEC5</color>
     <color name="tab_text_selected">#3F51B5</color>
     <color name="tab_indicator">#3F51B5</color>
+    <color name="button_active">#FF6200EE</color>
+    <color name="button_inactive">#336200EE</color>
 </resources>
