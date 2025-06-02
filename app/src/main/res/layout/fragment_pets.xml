@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:padding="16dp">
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/loadingSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPets"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        android:nestedScrollingEnabled="true" />
+
+    <!-- Schimbare aici: Înlocuiește LinearLayout direct cu un ScrollView -->
+    <ScrollView
+        android:id="@+id/addAnimalFormLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <ProgressBar
-            android:id="@+id/loadingSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginBottom="8dp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerPets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:nestedScrollingEnabled="false" />
+        android:visibility="gone"
+        android:background="@drawable/card_background"
+        android:padding="8dp"
+        android:elevation="6dp"
+        android:layout_margin="8dp"
+        android:fillViewport="true">
 
         <LinearLayout
-            android:id="@+id/addAnimalFormLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:background="@drawable/card_background"
-            android:padding="24dp"
-            android:elevation="6dp"
-            android:layout_margin="8dp"
+            android:padding="16dp"
             android:gravity="center_horizontal">
 
             <ImageView
@@ -121,6 +125,5 @@
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>
